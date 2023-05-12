@@ -14,5 +14,4 @@ cd $BASIC_OFBIZ_HOME
 rm -rf applications
 rm -rf framework
 rm -rf runtime
-rm -rf themes
 echo 'Cleanup project end'
