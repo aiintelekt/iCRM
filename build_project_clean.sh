@@ -1,20 +1,18 @@
 
-SET OFBIZ_HOME=D:\work\Eclipse_FIO_Workspace\FIO_IUC_ICRM_Project\icrmiuc-icrm-base-repo
-SET BASIC_OFBIZ_HOME=D:\work\Eclipse_FIO_Workspace\FIO_IUC_ICRM_Project\aws-freemium-repo
+export OFBIZ_HOME=/home/ec2-user/freemium/icrm_base
+export BASIC_OFBIZ_HOME=/home/ec2-user/freemium/icrm_basic
 echo $OFBIZ_HOME$
 
 echo 'Cleanup project start'
-cd $BASIC_OFBIZ_HOME$\hot-deploy
-for /d /r $$i in (*) do rmdir /s /q "$$i"
-for $$i in (*.*) do if not "$$i" == "build.xml" if not "$$i" == "component-load.xml" del /q "$$i"
+cd $BASIC_OFBIZ_HOME/hot-deploy
+find $BASIC_OFBIZ_HOME/hot-deploy -mindepth 1 -maxdepth 1 -type d -exec rm -r {} +
 
-cd $BASIC_OFBIZ_HOME$\hot-deploy-base
-for /d /r $$i in (*) do rmdir /s /q "$$i"
-for $$i in (*.*) do if not "$$i" == "build.xml" if not "$$i" == "component-load.xml" del /q "$$i"
+cd $BASIC_OFBIZ_HOME/hot-deploy-base
+find $BASIC_OFBIZ_HOME/hot-deploy-base -mindepth 1 -maxdepth 1 -type d -exec rm -r {} +
 
-cd $BASIC_OFBIZ_HOME$
-rmdir /s /q applications
-rmdir /s /q framework
-rmdir /s /q runtime
-rmdir /s /q themes
+cd $BASIC_OFBIZ_HOME
+rm -rf applications
+rm -rf framework
+rm -rf runtime
+rm -rf themes
 echo 'Cleanup project end'

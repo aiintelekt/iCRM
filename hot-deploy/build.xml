@@ -34,12 +34,14 @@ under the License.
     	lead-portal/build.xml,
     	
     	sales-portal/build.xml,
+		sr-portal/build.xml,
     	
     	activity-portal/build.xml,
 		customer-service/build.xml,
     	customer-portal/build.xml,
     	
-    	service-portal/build.xml
+		activity-portal/build.xml,
+    	ticket-portal/build.xml
     	
 			"/>
 			
