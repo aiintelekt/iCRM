@@ -1,5 +1,5 @@
 echo 'clean icrm package start....'
 
-for /d /r $$i in (*src*) do rmdir /s /q "$$i"
+find . -type d -name src -exec rm -r {} +
 
 echo 'clean icrm package end....'

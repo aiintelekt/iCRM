@@ -35,9 +35,9 @@ under the License.
 	<property name="memory.max.param" value="-Xmx512M"/>
 	<property name="ofbizHome" location="./"/>
 	
-	<property name="script.exec" value="sh"/>
-	<property name="package-basic-build" value="build_icrm_basic_build.sh" />
-	<property name="package-basic-clean" value="build_icrm_basic_clean.sh" />
+	<property name="script.exec" value="cmd"/>
+	<property name="package-basic-build" value="build_icrm_basic_build.bat" />
+	<property name="package-basic-clean" value="build_icrm_basic_clean.bat" />
 	
 	<!--
  <property name="jbossHome" location="C:/ofbiz-jboss-v4/jboss-eap-7.0/"/> 
@@ -63,7 +63,7 @@ under the License.
 		<antcall target="clean-all"/>
 		<antcall target="build"/>
 		<exec failonerror="false" executable="${script.exec}" dir="${ofbizHome}">
-			<arg line="${package-basic-clean}"/>
+			<arg line="/c ${package-basic-clean}"/>
 		</exec>
 		<echo message="package basic............ end"/>
 	</target>

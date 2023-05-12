@@ -33,11 +33,13 @@ under the License.
     <load-component component-location="lead-portal"/>
     
     <load-component component-location="sales-portal"/>
+	<load-component component-location="sr-portal"/>
     
     <load-component component-location="activity-portal"/>
 	<load-component component-location="customer-service"/>
     <load-component component-location="customer-portal"/>
     
-    <load-component component-location="service-portal"/>
-    
+	<load-component component-location="activity-portal"/>
+    <load-component component-location="ticket-portal"/>
+	
 </component-loader>

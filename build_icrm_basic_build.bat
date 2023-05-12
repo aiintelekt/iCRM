@@ -54,7 +54,9 @@ xcopy %OFBIZ_HOME%\hot-deploy\customer-service %BASIC_OFBIZ_HOME%\hot-deploy\cus
 xcopy %OFBIZ_HOME%\hot-deploy\lead-portal %BASIC_OFBIZ_HOME%\hot-deploy\lead-portal /s /y /e /i /q
 xcopy %OFBIZ_HOME%\hot-deploy\lead-service %BASIC_OFBIZ_HOME%\hot-deploy\lead-service /s /y /e /i /q
 xcopy %OFBIZ_HOME%\hot-deploy\sales-portal %BASIC_OFBIZ_HOME%\hot-deploy\sales-portal /s /y /e /i /q
-xcopy %OFBIZ_HOME%\hot-deploy\service-portal %BASIC_OFBIZ_HOME%\hot-deploy\service-portal /s /y /e /i /q
+xcopy %OFBIZ_HOME%\hot-deploy\ticket-portal %BASIC_OFBIZ_HOME%\hot-deploy\ticket-portal /s /y /e /i /q
+xcopy %OFBIZ_HOME%\hot-deploy\activity-portal %BASIC_OFBIZ_HOME%\hot-deploy\activity-portal /s /y /e /i /q
+xcopy %OFBIZ_HOME%\hot-deploy\sr-portal %BASIC_OFBIZ_HOME%\hot-deploy\sr-portal /s /y /e /i /q
 
 echo 'copy hot-deploy-base'
 xcopy %OFBIZ_HOME%\hot-deploy-base\ab-ag-grid-support %BASIC_OFBIZ_HOME%\hot-deploy-base\ab-ag-grid-support /s /y /e /i /q
