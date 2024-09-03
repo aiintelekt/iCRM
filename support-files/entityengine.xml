@@ -37,12 +37,12 @@ access. For a detailed description see the core/docs/entityconfig.html file.
         <transaction-manager-jndi jndi-server-name="default" jndi-name="java:comp/UserTransaction"/>
     </transaction-factory>
     -->
-
-        <!-- <transaction-factory class="org.ofbiz.entity.transaction.JNDITransactionFactory">
-                <user-transaction-jndi jndi-server-name="default" jndi-name="java:comp/UserTransaction"/>
-                <transaction-manager-jndi jndi-server-name="default" jndi-name="java:/TransactionManager"/>
-        </transaction-factory> -->
-
+	
+	<!-- <transaction-factory class="org.ofbiz.entity.transaction.JNDITransactionFactory">
+		<user-transaction-jndi jndi-server-name="default" jndi-name="java:comp/UserTransaction"/>
+		<transaction-manager-jndi jndi-server-name="default" jndi-name="java:/TransactionManager"/>
+	</transaction-factory> -->
+	
     <!--
         It is common to use UserTransaction for the TransactionManager, but if that doesn't work, try this: <transaction-manager-jndi jndi-server-name="default" jndi-name="java:comp/TransactionManager"/>
         Common UserTransaction locations:
@@ -56,7 +56,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
     <connection-factory class="org.ofbiz.entity.connection.DBCPConnectionFactory"/>
 
     <debug-xa-resources value="false" />  <!-- see https://issues.apache.org/jira/browse/OFBIZ-4282 for more -->
-
+    
     <delegator name="default" entity-model-reader="main" entity-group-reader="main" entity-eca-reader="main" distributed-cache-clear-enabled="false">
         <group-map group-name="org.ofbiz" datasource-name="localmysql"/>
         <group-map group-name="org.ofbiz.olap" datasource-name="localmysql"/>
@@ -74,7 +74,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
         <group-map group-name="org.ofbiz.olap" datasource-name="localderbyolap"/>
         <group-map group-name="org.ofbiz.tenant" datasource-name="localderbytenant"/>
     </delegator>
-
+   
     <!-- need to at least define a name for each component to use -->
     <entity-model-reader name="main"/>
 
@@ -101,6 +101,14 @@ access. For a detailed description see the core/docs/entityconfig.html file.
     <entity-data-reader name="ext"/>
     <entity-data-reader name="ext-test"/>
     <entity-data-reader name="ext-demo"/>
+	<entity-data-reader name="system_seed" />
+    <!-- <entity-data-reader name="business_seed" />-->
+	<entity-data-reader name="custom_seed" />
+	<!-- <entity-data-reader name="common_seed" /> -->
+	<entity-data-reader name="version_seed" />
+	<entity-data-reader name="latest_seed" />
+	<entity-data-reader name="final_seed" />
+	<entity-data-reader name="demo_data_seed" />
 
     <field-type name="hsql" loader="fieldfile" location="fieldtypehsql.xml"/>
     <field-type name="derby" loader="fieldfile" location="fieldtypederby.xml"/>
@@ -114,7 +122,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
     <field-type name="firebird" loader="fieldfile" location="fieldtypefirebird.xml"/>
     <field-type name="mssql" loader="fieldfile" location="fieldtypemssql.xml"/>
     <field-type name="advantage" loader="fieldfile" location="fieldtypeadvantage.xml"/>
-
+    
     <!--
     For DAO/JDBC Helper: Tries:
       1. JNDI Datasource IF jdbc.jndi.name, context.provider, etc are specified
@@ -275,7 +283,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
             time-between-eviction-runs-millis="600000"/>
         <!-- <jndi-jdbc jndi-server-name="localjndi" jndi-name="java:/DerbyDataSource" isolation-level="ReadCommitted"/> -->
     </datasource>
-
+    
     <datasource name="localdaffodil"
             helper-class="org.ofbiz.entity.datasource.GenericHelperDAO"
             field-type-name="daffodil"
@@ -326,16 +334,13 @@ access. For a detailed description see the core/docs/entityconfig.html file.
                 time-between-eviction-runs-millis="600000"/>
     </datasource>
 
-        <!-- icrm_b2b_01, ofbiz_dbs_crm_03 -->
-	
-	<!-- add-missing-on-start="true" -->
+	<!-- icrm_b2b_01, ofbiz_dbs_crm_03 -->
+
     <datasource name="localmysql"
             helper-class="org.ofbiz.entity.datasource.GenericHelperDAO"
             field-type-name="mysql"
-            
             check-on-start="true"
             add-missing-on-start="true"
-            
             check-pks-on-start="false"
             use-foreign-keys="true"
             join-style="ansi-no-parenthesis"
@@ -352,73 +357,41 @@ access. For a detailed description see the core/docs/entityconfig.html file.
         <read-data reader-name="ext"/>
         <read-data reader-name="ext-test"/>
         <read-data reader-name="ext-demo"/>
-        
-        <!-- <inline-jdbc
-                jdbc-driver="com.mysql.jdbc.Driver"
-                jdbc-uri="jdbc:mysql://146.88.24.72:3306/barnette_base_db?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
-                jdbc-username="teamusr"
-                jdbc-password="Fio@12345"
-                isolation-level="ReadCommitted"
-                pool-minsize="2"
-                pool-maxsize="250"
-                time-between-eviction-runs-millis="600000"/> -->
-                
-                <!-- STK Production -->
-                <!-- <inline-jdbc
-                jdbc-driver="com.mysql.jdbc.Driver"
-                jdbc-uri="jdbc:mysql://3.223.44.20:3306/skt_iuc_prod_0001?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
-                jdbc-username="sharif"
-                jdbc-password="Sh@r!ffio!@12345"
-                isolation-level="ReadCommitted"
-                pool-minsize="2"
-                pool-maxsize="250"
-                time-between-eviction-runs-millis="600000"/> -->
-                
-                <!-- LOCAL : reeb_dev_12162022 -->
-                <inline-jdbc
-                jdbc-driver="com.mysql.jdbc.Driver"
-                jdbc-uri="jdbc:mysql://localhost:3306/icrm_basic_demodata?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
-                jdbc-username="root"
-                jdbc-password="12345678"
-                isolation-level="ReadCommitted"
-                pool-minsize="2"
-                pool-maxsize="250"
-                time-between-eviction-runs-millis="600000"/>
-                
-                <!-- ICRM+IUC -->
-                <!-- <inline-jdbc
-                jdbc-driver="com.mysql.jdbc.Driver"
-                jdbc-uri="jdbc:mysql://localhost:3306/iuc_icrm_golddisk_14022022?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
-                jdbc-username="root"
-                jdbc-password="12345678"
-                isolation-level="ReadCommitted"
-                pool-minsize="2"
-                pool-maxsize="250"
-                time-between-eviction-runs-millis="600000"/> -->
-                
-                <!-- ICRM Base Staging -->
-                <!-- <inline-jdbc
-                jdbc-driver="com.mysql.jdbc.Driver"
-                jdbc-uri="jdbc:mysql://3.95.142.187:3306/icrm_base_golddisk_10mar22?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
-                jdbc-username="sharif"
-                jdbc-password="Sharif@fi0"
-                isolation-level="ReadCommitted"
-                pool-minsize="2"
-                pool-maxsize="250"
-                time-between-eviction-runs-millis="600000"/> -->
-                
-                <!-- Instriv Staging -->
-                <!-- <inline-jdbc
-                jdbc-driver="com.mysql.jdbc.Driver"
-                jdbc-uri="jdbc:mysql://3.214.44.169:3306/twh_instriv_staging?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
-                jdbc-username="sharif"
-                jdbc-password="Fio@12345"
-                isolation-level="ReadCommitted"
-                pool-minsize="2"
-                pool-maxsize="250"
-                time-between-eviction-runs-millis="600000"/> -->
-                
-                                <!-- Please note that at least one person has experienced a problem with this value with MySQL
+		
+		<!-- LOCAL : reeb_dev_12162022 / icrm_basic_demodata-->
+		<inline-jdbc
+		jdbc-driver="com.mysql.jdbc.Driver"
+		jdbc-uri="jdbc:mysql://localhost:3306/reeb_dev_12162022?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
+		jdbc-username="root"
+		jdbc-password="12345678"
+		isolation-level="ReadCommitted"
+		pool-minsize="2"
+		pool-maxsize="250"
+		time-between-eviction-runs-millis="600000"/>
+		
+		<!-- ICRM+IUC -->
+		<!-- <inline-jdbc
+		jdbc-driver="com.mysql.jdbc.Driver"
+		jdbc-uri="jdbc:mysql://localhost:3306/iuc_icrm_golddisk_14022022?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
+		jdbc-username="root"
+		jdbc-password="12345678"
+		isolation-level="ReadCommitted"
+		pool-minsize="2"
+		pool-maxsize="250"
+		time-between-eviction-runs-millis="600000"/> -->
+		
+		<!-- ICRM Base Staging -->
+		<!-- <inline-jdbc
+		jdbc-driver="com.mysql.jdbc.Driver"
+		jdbc-uri="jdbc:mysql://10.0.0.43:3306/icrm_base_staging?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
+		jdbc-username="sharif"
+		jdbc-password="Sh@r1fyJHFR%$#"
+		isolation-level="ReadCommitted"
+		pool-minsize="2"
+		pool-maxsize="250"
+		time-between-eviction-runs-millis="600000"/> -->
+				
+				<!-- Please note that at least one person has experienced a problem with this value with MySQL
                 and had to set it to -1 in order to avoid this issue.
                 For more look at http://markmail.org/thread/5sivpykv7xkl66px and http://commons.apache.org/dbcp/configuration.html-->
         <!-- <jndi-jdbc jndi-server-name="default" jndi-name="java:jboss/datasources/OFBizDS" isolation-level="Serializable"/> -->
@@ -529,7 +502,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
             use-order-by-nulls="true"
             result-fetch-size="50"> <!-- Comment out the result-fetch-size attribute for jdbc driver versions older than 8.0.
             Not recommended to use those though. They are archived unsupported versions: http://jdbc.postgresql.org/download.html -->
-
+        
         <read-data reader-name="tenant"/>
         <read-data reader-name="seed"/>
         <read-data reader-name="seed-initial"/>
@@ -555,7 +528,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
         <!-- <tyrex-dataSource dataSource-name="localpostgres" isolation-level="ReadCommitted"/> -->
     </datasource>
 
-
+    
     <datasource name="localpostolap"
             helper-class="org.ofbiz.entity.datasource.GenericHelperDAO"
             schema-name="public"
@@ -585,14 +558,14 @@ access. For a detailed description see the core/docs/entityconfig.html file.
                 pool-maxsize="250"
                 time-between-eviction-runs-millis="600000"/><!-- Be warned that at this date (2009-09-20) the max_connections parameters in postgresql.conf
                     is set by default to 100 by the initdb process see http://www.postgresql.org/docs/8.4/static/runtime-config-connection.html#GUC-MAX-CONNECTIONS-->
-
+        
         <!-- <jndi-jdbc jndi-server-name="default" jndi-name="java:comp/env/jdbc/localpostgres" isolation-level="ReadCommitted"/>-->
         <!-- <jndi-jdbc jndi-server-name="default" jndi-name="comp/env/jdbc/xa/localpostgres" isolation-level="ReadCommitted"/> --> <!-- Orion Style JNDI name -->
         <!-- <jndi-jdbc jndi-server-name="localweblogic" jndi-name="PostgresDataSource"/> --> <!-- Weblogic Style JNDI name -->
         <!-- <jndi-jdbc jndi-server-name="default" jndi-name="jdbc/localpostgres" isolation-level="ReadCommitted"/> --> <!-- JRun4 Style JNDI name -->
         <!-- <tyrex-dataSource dataSource-name="localpostgres" isolation-level="ReadCommitted"/> -->
     </datasource>
-
+    
     <datasource name="localposttenant"
             helper-class="org.ofbiz.entity.datasource.GenericHelperDAO"
             schema-name="public"
@@ -622,7 +595,7 @@ access. For a detailed description see the core/docs/entityconfig.html file.
                 pool-maxsize="250"
                 time-between-eviction-runs-millis="600000"/><!-- Be warned that at this date (2009-09-20) the max_connections parameters in postgresql.conf
                     is set by default to 100 by the initdb process see http://www.postgresql.org/docs/8.4/static/runtime-config-connection.html#GUC-MAX-CONNECTIONS-->
-
+        
         <!-- <jndi-jdbc jndi-server-name="default" jndi-name="java:comp/env/jdbc/localpostgres" isolation-level="ReadCommitted"/>-->
         <!-- <jndi-jdbc jndi-server-name="default" jndi-name="comp/env/jdbc/xa/localpostgres" isolation-level="ReadCommitted"/> --> <!-- Orion Style JNDI name -->
         <!-- <jndi-jdbc jndi-server-name="localweblogic" jndi-name="PostgresDataSource"/> --> <!-- Weblogic Style JNDI name -->
