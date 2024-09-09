@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="CreateSrOrderAssoc">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="SrOrderAssoc" global="true"/>
+			  <set field="sectionName" value="sr-portal" global="true"/>
+			  <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/order/CreateSrOrderAssoc.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://sr-portal/webapp/sr-portal/order/create_sr_order_assoc.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="UpdateSrOrderAssoc">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="SrOrderAssoc" global="true"/>
+			  <set field="sectionName" value="sr-portal" global="true"/>
+			  <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/order/UpdateSrOrderAssoc.groovy"/>
+			</actions>
+			<widgets>
+			<section>
+			<condition>
+				<if-compare field="haveDataPermission" operator="equals" value="Y" type="String"/>
+			</condition>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://sr-portal/webapp/sr-portal/order/update_sr_order_assoc.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+				</widgets>
+	        	<fail-widgets>
+					<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+						<decorator-section name="top-content">
+							<label style="h3">${uiLabelMap.permissionDenied}</label>
+						</decorator-section>
+					</decorator-screen>
+				</fail-widgets>
+	        </section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ListOrder">
+		<section>
+			<actions>
+				<script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/order/FindOrder.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://sr-portal/webapp/sr-portal/order/find_order.ftl"/>
+						<html-template location="component://sr-portal/webapp/sr-portal/order/list_order.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- <screen name="AdministrationInfo">
+		<section>
+			<actions>
+                
+            </actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://sr-portal/webapp/sr-portal/activity/administration_info.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> -->
+	
+</screens>

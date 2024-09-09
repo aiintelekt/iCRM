@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="ConfigEconomicsMetrics">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Configuration Economics Metrics" global="true"/>
+                <set field="sectionName" value="configEconomicsMetrics" global="true"/>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="configuration" value="true"/>
+                <script location="component://crm/webapp/crm/WEB-INF/actions/account/FindEconomicsMetrics.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific><html><html-template location="component:///crm/webapp/crm/account/viewaccount/configEconomicsMetrics.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="phoneConfigurationForm">
+        <section>
+            <actions>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="titleProperty" value="phoneGlobalParamSettings" global="true"/>
+                <set field="sectionName" value="ConfigurationBar" global="true"/>
+                <set field="configuration" value="true"/>
+                <script location="component://crm/webapp/crm/WEB-INF/actions/configuration/phoneGlobalConfiguration.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific><html><html-template location="component://crm/webapp/crm/configuration/phoneGlobalConfiguration.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

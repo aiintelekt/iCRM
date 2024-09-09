@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+	<include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+    <description>SrPortal Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+
+    <!-- Request Mappings -->
+    
+    <request-map uri="main">
+        <security https="false" auth="false"/>
+        <response name="success" type="request" value="checkLogin"/>
+    </request-map>
+    
+    <request-map uri="donePageRequestHelper">
+		<security https="true" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.util.UtilCommon"
+			invoke="donePageRequestHelper" />
+		<response name="viewServiceRequest" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="domainEntityId"/>
+	    </response>
+	    <response name="viewActivity" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+	    </response>
+	</request-map>
+    
+    <request-map uri="checkLogin" edit="false">
+        <description>Verify a user is logged in.</description>
+        <security https="true" auth="false"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="extensionCheckLogin"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+      
+    <request-map uri="login">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="login"/>
+        <response name="success" type="view" value="main"/>
+        <response name="requirePasswordChange" type="view" value="requirePasswordChange"/>
+        <response name="error" type="view" value="login"/>
+    </request-map>
+    
+    <request-map uri="logout">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="logout"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    
+    
+    <request-map uri="serviceRequestHome">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="serviceRequestHome" />
+        <response name="error" type="view" value="serviceRequestHome" />
+    </request-map>
+    <request-map uri="findServiceRequests">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="findServiceRequest" />
+        <response name="error" type="view" value="findServiceRequest" />
+    </request-map>
+    <request-map uri="findServiceRequest">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getCustRequestSrSummary"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map> 
+    
+    <request-map uri="UpdateReasignSR">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="reassignSr" />
+		<response name="success" type="request-redirect-noparam"  value="serviceRequestHome"/>
+		<response name="error" type="none"/>
+	</request-map>
+     <request-map uri="ActivityHome"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="ActivityHome" />
+        <response name="error" type="view" value="ActivityHome" />
+    </request-map>
+    <request-map uri="findSrActivity"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="findSrActivity" />
+        <response name="error" type="view" value="findSrActivity" />
+    </request-map>
+	<request-map uri="getactivityHome">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getactivityHome" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getActivity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getActivity" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getActivityCounts">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getActivityCounts" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="getSrCategory">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrCategory"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getLocation">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getLocationByStateAndCounty" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="downloadNotesAttachments">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="downloadNotesAttachments"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getSrSubCategory">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrSubCategory"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="serviceRequestHomeData">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getServiceHome"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="srAddTask">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="SrAddTask" />
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="addSRTaskEvent">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="eventCreateSrActivity"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+            <redirect-parameter name="srNumber"/>
+        </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    
+   
+    <request-map uri="srAddTaskEvent">
+        <event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+        <response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+         	<redirect-parameter name="srNumber"/>
+         </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    
+    <request-map uri="getIASubTypes">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.admin.portal.util.TripletUtil" invoke="getIASubTypes"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="srAddPhoneCall">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="SrAddPhoneCall" />
+        <response name="error" type="view" value="SrAddPhoneCall" />
+    </request-map>
+    <request-map uri="srAddPhoneCallEvent">
+   <event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+       <response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+         	<redirect-parameter name="srNumber"/>
+         </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="addSRPhoneCallEvent">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="eventCreateSrActivity"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+            <redirect-parameter name="srNumber"/>
+        </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="srAddEmail">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="SrAddEmail" />
+        <response name="error" type="view" value="SrAddEmail" />
+    </request-map>
+    <request-map uri="srAddEmailEvent">
+    <event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+        <response name="success" type="request-redirect" value="viewActivity">
+         	<redirect-parameter name="srNumber"/>
+         	<redirect-parameter name="workEffortId"/>
+         </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="addSREmailEvent">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="eventCreateSrActivity"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+            <redirect-parameter name="srNumber"/>
+        </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="loadTemplate">
+        <security https="false" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="loadTemplate"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="srAddAppointment">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="SrAddAppointment" />
+        <response name="error" type="view" value="SrAddAppointment" />
+    </request-map>
+    <request-map uri="srAddAppointmentEvent">
+    <event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+        <response name="success" type="request-redirect" value="viewActivity">
+         	<redirect-parameter name="srNumber"/>
+         	<redirect-parameter name="workEffortId"/>
+         </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="addSRAppointmentEvent">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="eventCreateSrActivity"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+            <redirect-parameter name="srNumber"/>
+        </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="srAddOthers">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="SrAddOthers" />
+        <response name="error" type="view" value="SrAddOthers" />
+    </request-map>
+      <request-map uri="srAddothersEvent">
+      <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="eventCreateSrActivity"/>
+        <response name="success" type="request-redirect" value="findSrActivity">
+         	<redirect-parameter name="srNumber"/>
+         </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="addSRothersEvent">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="eventCreateSrActivity"/>
+        <response name="success" type="request-redirect" value="viewServiceRequest">
+            <redirect-parameter name="srNumber"/>
+        </response>
+        <response name="error" type="view" value="SrAddTask" />
+    </request-map>
+    <request-map uri="findSROverDueSummary">
+        <security https="true" auth="true" />
+       <response name="success" type="view" value="findSROverDueSummary" />
+        <response name="error" type="view" value="findSROverDueSummary" />
+    </request-map>
+     <request-map uri="getSrOverDueSummary">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrOverDueSummary"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+   <request-map uri="findcustsatisfaction"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="findcustsatisfaction" />
+        <response name="error" type="view" value="findcustsatisfaction" />
+    </request-map>
+   <request-map uri="addservicerequest"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="addservicerequest" />
+        <response name="error" type="view" value="addservicerequest" />
+    </request-map>
+	<request-map uri="viewServiceRequest"> 
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="setLoginHistory"/>
+        <response name="success" type="view" value="ViewServiceRequest" />
+        <response name="error" type="view" value="ViewServiceRequest" />
+    </request-map>
+    <request-map uri="newOpportunity">
+    <security https="true" auth="true" />
+	<response name="success" type="view" value="newOpportunity" />
+</request-map>
+
+<request-map uri="pwebRelatedDetails"> 
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="pwebRelatedDetails"/>
+        <response name="success" type="view" value="pwebRelatedDetails" />
+        <response name="error" type="view" value="pwebRelatedDetails" />
+    </request-map>
+    <request-map uri="pwebRelatedDetailsResult">
+    	 <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="pwebRelatedDetailsResult"/>
+        <response name="success"  type="none" />
+        <response name="error"  type="none" />
+    </request-map>
+
+<request-map uri="getActivityData">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="getActivityData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+<request-map uri="getActivityDetails">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="viewSalesActivityDetails" />
+		<response name="success" type="request-redirect" value="viewActivity"/>
+	</request-map>
+	<request-map uri="updateServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="updateServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  	</request-map>
+  	<request-map uri="closedServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="closedServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  	</request-map>
+  	<request-map uri="getOwnerTeam">
+        <security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="getOwnerTeam" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+   </request-map>
+   <request-map uri="UpdateReasignActivity">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sales.portal.event.AjaxEvents"   invoke="UpdateReasignActivity" />
+        <response name="success" type="request-redirect"  value="viewActivity"/>
+        <response name="error" type="view"  value="viewActivity" />
+    </request-map>
+    <request-map uri="getSrActivityData">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+               invoke="getSrActivityData" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+	
+  <request-map uri="contactDetails"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="contactDetails" />
+        <response name="error" type="view" value="contactDetails" />
+    </request-map>  
+    
+    <request-map uri="getContactDetails">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getContactDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getSrReviewDetails">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getServiceDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getServiceDetails">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getServiceDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+     <request-map uri="getNotesAttachments">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getNotesAttachments"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map> 
+	<request-map uri="createCustomerAlert">
+		<security https="true" auth="true" />
+		<event type="service" invoke="createCustomerAlert" />
+		<response name="success" type="request-redirect" value="viewCustomerAlerts">
+			<redirect-parameter name="alertTrackingId" />
+		</response>
+		<response name="error" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" />
+		</response>
+	</request-map>
+	 <request-map uri="viewActivity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="setLoginHistory"/>
+		<response name="success" type="view" value="viewActivity" />
+		<response name="error" type="view" value="viewActivity" />
+	</request-map>
+	 <request-map uri="viewInvoice">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewInvoice" />
+		<response name="error" type="view" value="viewInvoice" />
+	</request-map>
+	<request-map uri="noteDataDetails">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="noteDataDetails" />
+        <response name="error" type="view" value="noteDataDetails" />
+    </request-map>
+     
+    <request-map uri="getNoteData">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getNoteData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="getAlertCategoryData">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="getAlertCategoryData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="viewCustomerAlerts">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewCustomerAlerts" />
+  	</request-map>
+  	
+  	<request-map uri="getAlertExpiryData">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="getAlertExpiryData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="getCustomerCommunicationInfo">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getCustomerCommunicationInfo"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="sendSrEmail">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="sendSrEmail"/>
+        <response name="success" type="view" value="ViewServiceRequest">
+        <redirect-parameter name="srNumber" />
+        </response>
+        <response name="error" type="view" value="ViewServiceRequest">
+        <redirect-parameter name="srNumber" />
+        </response>
+    </request-map>
+    
+     <request-map uri="getCustomerAlertDetails">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="getCustomerAlertDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getviewopp">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getviewopp" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+    <request-map uri="saveSrReview">
+        <security https="true" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="saveSrReview"/>
+        <response name="success" type="view" value="ViewServiceRequest">
+        <redirect-parameter name="srNumber" />
+        </response>
+        <response name="error" type="view" value="ViewServiceRequest">
+        <redirect-parameter name="srNumber" />
+        </response>
+    </request-map>
+  	<request-map uri="addServiceRequestEvent">
+ 		<event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="addServiceRequestEvent"/>
+  		 <response name="success" type="request-redirect" value="viewServiceRequest">
+            <redirect-parameter name="srNumber" from="externalId"/>
+            <redirect-parameter name="requestFrom" value="CREATE"/>
+        </response>
+   		<response name="error" type="request-redirect" value="addservicerequest"/>
+   	</request-map>
+   	<request-map uri="findSRCustomers">
+        <security https="false" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="findSRCustomers"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	 
+    
+    <request-map uri="findOppServiceRequest">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getCustRequestSrSummary"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+     <request-map uri="findOppCampaignListsAjax">
+		<event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="findCampaignListsAjax"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	
+	<request-map uri="getProductDetails">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="getProductDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getDataSourceDetails">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="getDataSourceDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createSalesOpportunityDetails">
+		<security https="true" auth="true"/>
+	    <event type="service" invoke="createSalesOpportunityDetails"/>
+	    <response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId" />
+		</response>
+    	<response name="error" type="request-redirect-noparam" value="findServiceRequests"/>
+	</request-map>
+	
+ 	<request-map uri="viewOpportunity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewOpportunity" />
+		<response name="error" type="view" value="viewOpportunity" />
+	</request-map>
+	
+	<request-map uri="findOpportunity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="findOpportunity" />
+		<response name="error" type="view" value="findOpportunity" />
+	</request-map>
+    <request-map uri="getOwnerTeam">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents"
+            invoke="getOwnerTeam" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+    <request-map uri="getBusinessUnitName">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="getBusinessUnitName" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+    
+    <request-map uri="UpdateReasignActivity">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="UpdateReasignActivity" />
+        <response name="success" type="request-redirect-noparam"  value="findSrActivity"/>
+        <response name="error" type="view"  value="findSrActivity" />
+    </request-map>
+    <request-map uri="updateSRResolveStatus">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="resolveServiceRequest" />
+        <response name="success" type="request-redirect-noparam"  value="serviceRequestHome"/>
+        <response name="error" type="view"  value="serviceRequestHome" />
+    </request-map>
+    
+    <request-map uri="updateSRReopen">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="saveServiceRequest" />
+        <response name="success" type="request-redirect-noparam"  value="serviceRequestHome"/>
+        <response name="error" type="view"  value="serviceRequestHome" />
+    </request-map>
+    <request-map uri="reassignServiceRequest">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="reassignSr" />
+        <response name="success" type="request-redirect"  value="viewServiceRequest"/>
+        <response name="error" type="view"  value="viewServiceRequest" />
+    </request-map>
+     <request-map uri="resolveServiceRequest">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="resolveServiceRequest" />
+        <response name="success" type="request-redirect"  value="viewServiceRequest"/>
+        <response name="error" type="view"  value="viewServiceRequest" />
+    </request-map>
+     <request-map uri="saveServiceRequest">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="saveServiceRequest" />
+        <response name="success" type="none"/>
+        <response name="error" type="none" />
+    </request-map>
+    <request-map uri="reopenServiceRequest">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="saveServiceRequest" />
+        <response name="success" type="none"/>
+        <response name="error" type="none" />
+    </request-map>
+    <request-map uri="createSrNotesAndAttachment">
+		<security https="false" auth="false"/>
+		<event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="createNotesAndAttachment"/>
+	    <response name="success" type="request-redirect" value="viewServiceRequest">
+        <redirect-parameter name="srNumber" />
+        </response>
+    	<response name="error" type="request-redirect" value="viewServiceRequest">
+        <redirect-parameter name="srNumber" />
+        </response>
+	</request-map>
+	<request-map uri="getCustomerForAddServiceRequest">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getCustomerInfoForAddServiceRequest" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="viewServiceActivityDetails">
+       <security https="true" auth="true" />
+	   <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="viewServiceActivityDetails" />
+	   <response name="success" type="view" value="viewActivity" />
+   </request-map>
+   <request-map uri="updateServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="service" invoke="updateServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  </request-map> 
+ <request-map uri="closedServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="service" invoke="closedServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  </request-map>
+  <request-map uri="getActivityCommunicationInfo">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getActivityCommunicationInfo" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+  </request-map>
+   <request-map uri="viewCalendar">
+        <security https="true" auth="true" />
+        <response name="success" type="view"  value="viewCalendar"/>
+        <response name="error" type="view"  value="viewCalendar" />
+    </request-map>
+    <request-map uri="updateServiceRequest">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateServiceRequest"/>
+        <response name="error" type="request-redirect" value="updateServiceRequest">
+			<redirect-parameter name="srNumber" from="srNumber"/>
+		</response>
+    </request-map>
+    <request-map uri="updateServiceRequestAction">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="updateServiceRequestEvent"/>
+		<response name="success" type="request-redirect" value="viewServiceRequest" >
+  			 <redirect-parameter name="srNumber" from="externalId" />
+  		</response>
+		<response name="error" type="request-redirect" value="updateServiceRequest">
+			<redirect-parameter name="srNumber" from="srNumber"/>
+		</response>
+	</request-map>
+	<request-map uri="updateActivityEvent">
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="updateActivityEvent"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+         <redirect-parameter name="workEffortId" from="workEffortId"/>
+         <redirect-parameter name="partyId" from="partyId"/>
+         </response>
+        <response name="error" type="request-redirect" value="viewActivity" >
+        <redirect-parameter name="workEffortId" from="workEffortId"/>
+        <redirect-parameter name="partyId" from="partyId"/>
+        </response>
+    </request-map>	
+	<request-map uri="updateActivity">
+        <security https="true" auth="true" />
+        <response name="success" type="view"  value="updateActivity"/>
+        <response name="error" type="view"  value="updateActivity" />
+    </request-map>
+    <request-map uri="searchServiceRequests">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchServiceRequests" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+	 <request-map uri="personResponsibleParty">
+        <!-- <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="reAssignSR"/> -->
+        <event type="service" invoke="srPortal.reassignSr"/>
+       <response name="success" type="request-redirect" value="viewServiceRequest">
+         <redirect-parameter name="srNumber" />
+         </response>
+        <response name="error" type="request-redirect" value="viewServiceRequest" >
+        <redirect-parameter name="srNumber" />
+        </response>
+    </request-map>
+    <request-map uri="getPartyRoleTypeId">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getPartyRoleTypeId" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getAllSrStatuses">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getAllSrStatuses" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+   <request-map uri="createattachmentData">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createAttachmentData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="removeattachmentData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="removeAttachmentData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="updateSr">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="updateServiceRequest" />
+        <response name="success" type="none" />
+		<response name="error" type="none" />
+    </request-map>
+	<request-map uri="updateSrStatus">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="updateSrStatus" />
+        <response name="success" type="none" />
+		<response name="error" type="none" />
+    </request-map>
+	
+	<request-map uri="updateSrClosedDate">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents"   invoke="updateSrClosedDate" />
+        <response name="success" type="none" />
+		<response name="error" type="none" />
+    </request-map>
+    
+    <request-map uri="createServiceRequest"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="updateServiceRequest" />
+        <response name="error" type="view" value="updateServiceRequest" />
+    </request-map>
+	<request-map uri="addContactToSr">
+		<security https="true" auth="true"/>
+		<event type="service" invoke="srPortal.addContactToSr"/>
+		<response name="success" type="request-redirect" value="viewServiceRequest">
+         <redirect-parameter name="srNumber" />
+         </response>
+        <response name="error" type="request-redirect" value="viewServiceRequest" >
+        <redirect-parameter name="srNumber" />
+        </response>
+	</request-map>  
+	
+	 <request-map uri="remooveContactFromSr">
+        <security https="true" auth="true" />
+        <event type="service" invoke="srPortal.removeContactFromSr" />
+       <response name="success" type="request-redirect" value="viewServiceRequest">
+         <redirect-parameter name="srNumber" />
+         </response>
+        <response name="error" type="request-redirect" value="viewServiceRequest" >
+        <redirect-parameter name="srNumber" />
+        </response>
+    </request-map>
+	  <request-map uri="noteDataDetails">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="noteDataDetails" />
+		<response name="error" type="view" value="noteDataDetails" />
+	</request-map>
+	
+	<!-- Activities For Service Request -->
+    
+    <request-map uri="createTaskActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createTaskActivity" />
+	</request-map>
+	
+	<request-map uri="createTaskActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+			<redirect-parameter name="srNumber" from="domainEntityId" />
+			<redirect-parameter name="partyId" from="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="createTaskActivity">
+			<redirect-parameter name="partyId" from="partyId" />
+			<redirect-parameter name="domainEntityType" from="domainEntityType" />
+			<redirect-parameter name="domainEntityId" from="domainEntityId" />
+			<redirect-parameter name="srNumber" from="custRequestId" />
+		</response>
+	</request-map>
+
+	<request-map uri="createPhoneCallActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createPhoneCallActivity" />
+	</request-map>
+
+	<request-map uri="createPhoneCallActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+			<redirect-parameter name="srNumber" from="domainEntityId" />
+			<redirect-parameter name="partyId" from="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="createPhoneCallActivity">
+			<redirect-parameter name="partyId" from="partyId" />
+			<redirect-parameter name="domainEntityType" from="domainEntityType" />
+			<redirect-parameter name="domainEntityId" from="domainEntityId" />
+			<redirect-parameter name="srNumber" from="custRequestId" />
+		</response>
+	</request-map>
+
+	<request-map uri="createEmailActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createEmailActivity" />
+	</request-map>
+	
+	<request-map uri="createEmailActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+			<redirect-parameter name="srNumber" from="domainEntityId" />
+			<redirect-parameter name="partyId" from="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="createEmailActivity">
+			<redirect-parameter name="partyId" from="partyId" />
+			<redirect-parameter name="domainEntityType" from="domainEntityType" />
+			<redirect-parameter name="domainEntityId" from="domainEntityId" />
+			<redirect-parameter name="srNumber" from="custRequestId" />
+		</response>
+	</request-map>
+
+	<request-map uri="createAppointmentActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createAppointmentActivity" />
+	</request-map>
+
+	<request-map uri="createAppointmentActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+			<redirect-parameter name="srNumber" from="domainEntityId" />
+			<redirect-parameter name="partyId" from="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="createAppointmentActivity">
+			<redirect-parameter name="partyId" from="partyId" />
+			<redirect-parameter name="domainEntityType" from="domainEntityType" />
+			<redirect-parameter name="domainEntityId" from="domainEntityId" />
+			<redirect-parameter name="srNumber" from="custRequestId" />
+		</response>
+	</request-map>
+	
+	<request-map uri="createCommunicationHistoryEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="custRequestId" />
+			<!-- <redirect-parameter name="activeTab" value="communication-history"/> -->
+		</response>
+		<response name="error" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="custRequestId" />
+		</response>
+	</request-map>
+	<request-map uri="getAllCommunicationHistory">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAllCommunicationHistory"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="createCommunicationHistorySmsEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.CommonEvents"
+			invoke="createCommunicationHistorySmsEvent" />
+		<response name="success" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="custRequestId" />
+			<!-- <redirect-parameter name="activeTab" value="communication-history"/> -->
+		</response>
+		<response name="error" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="custRequestId" />
+		</response>
+	</request-map>
+	
+	<request-map uri="getTemplate">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="getTemplate"/>
+    </request-map>
+    
+    <request-map uri="redirectSRParty">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="redirectSRParty"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+     <request-map uri="srDashboard">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="srDashboard"/>
+    </request-map>
+    
+     <request-map uri="getSrByUserChartData">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/charts/SRbyUserChartData.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="none"/>
+    </request-map>
+      <request-map uri="getSrByTypeChartData">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/charts/SRbyTypeChartData.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="none"/>
+    </request-map>
+     <request-map uri="getSrByCateChartData">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/charts/SRbyCateChartData.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getSrBarChartData">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/charts/SRbarChartData.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="none"/>
+    </request-map>
+     <request-map uri="getSrEowLineChartData">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/charts/SReowLineChartData.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="none"/>
+    </request-map>
+     <request-map uri="getSrCumLineChartData">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/charts/SRCumLineChartData.groovy"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="findSRs">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="findServiceRequests" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="searchSrHistorys">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="searchSRHistorys" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getSrActivityTimeEntries">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrActivityTimeEntries" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getSrActivityIssueMaterials">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrActivityIssueMaterials" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getPartyList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getPartyList" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <!-- SR attribute [start] -->
+    <request-map uri="createUpdateCustom">
+   		<security https="true" auth="true"/>	
+		<event type="service-multi" invoke="customfield.createUpdateCustomValueMulti"/>
+	    <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper" />
+	</request-map>
+    <!-- <request-map uri="updateAttribute">
+   		<security https="true" auth="true"/>	
+		<event type="service-multi" invoke="srPortal.updateAttribute"/>
+	    <response name="success" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="custRequestId" />
+			<redirect-parameter name="activeTab" value="attributes"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewServiceRequest">
+			<redirect-parameter name="srNumber" from="custRequestId" />
+			<redirect-parameter name="activeTab" value="attributes"/>
+		</response>
+	</request-map>
+	<request-map uri="createAttribute">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="createSrAttribute" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeAttribute">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="removeSrAttribute" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map> -->
+    <!-- SR attribute [end] -->
+    
+    <request-map uri="getSrAssocParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrAssocParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	
+	<request-map uri="removeSrAssociatedParty">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="removeSrAssociatedParty" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getAllParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAllParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createSrPartyAssoc">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="addPartyToSr"/>
+        <response name="success" type="request-redirect" value="viewServiceRequest">
+            <redirect-parameter name="srNumber"/>
+            <redirect-parameter name="activeTab" />
+        </response>
+        <response name="error" type="request-redirect" value="viewServiceRequest">
+            <redirect-parameter name="srNumber"/>
+            <redirect-parameter name="activeTab" />
+        </response>
+    </request-map>
+	
+	<request-map uri="getSortedSrNotesList">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSortedSrNotesList" />
+		<response name="success" type="request-redirect" value="viewAllSrNotes"/>
+        <response name="error" type="request-redirect" value="viewAllSrNotes"/>
+	</request-map>
+	
+    <!-- SR and Order assoc [start] -->
+    
+    <request-map uri="createSrOrderAssoc">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createSrOrderAssoc"/>
+    </request-map>
+    <request-map uri="createSrOrderAssocAction">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="createSrOrderAssocAction"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateSrOrderAssoc">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateSrOrderAssoc"/>
+    </request-map>
+    <request-map uri="updateSrOrderAssocAction">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="activity.updateSrOrderAssoc"/>        
+        <response name="success" type="request-redirect" value="updateSrOrderAssoc">
+        	<redirect-parameter name="srNumber"/>
+        </response>
+        <response name="error" type="request-redirect" value="updateSrOrderAssoc">
+        	<redirect-parameter name="srNumber"/>
+        </response>
+    </request-map>
+    
+    <request-map uri="getOrderDetail">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="getOrderDetail"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getOrderLines">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="getOrderLines"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchOrders">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="searchOrders"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeOrderLineAssocData">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="removeOrderLineAssocData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateOrderLineData">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="updateOrderLineData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateSrAssocPartyData">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="updateSrAssocPartyData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="validateOrderDetails">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="validateOrderDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getProofData">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="getProofData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="performProof">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="performProof"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="syncReebOrder">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="syncReebOrder"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getSrDashboardList">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrDashboardDataList" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    
+    <request-map uri="getSrDashboardCountList">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getSrDashboardDataCountList" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+	
+	<request-map uri="createTechnicianLocation">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="createTechnicianLocation"/>
+        <response name="error" type="view" value="createTechnicianLocation" />
+    </request-map>
+    
+    <request-map uri="createTechnicianLocationAction">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="createTechnicianLocation"/>
+        <response name="success" type="request-redirect" value="viewTechnicianLocation">
+        	<redirect-parameter name="stateId"/>
+        	<redirect-parameter name="countyId"/>
+        </response>
+        <response name="error" type="request-redirect" value="createTechnicianLocation"/>
+    </request-map>
+    
+    <request-map uri="updateTechnicianLocation">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="updateTechnicianLocation"/>
+        <response name="error" type="view" value="updateTechnicianLocation" />
+    </request-map>
+    
+    <request-map uri="updateTechnicianLocationAction">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="updateTechnicianLocation"/>
+        <response name="success" type="request-redirect" value="viewTechnicianLocation">
+        	<redirect-parameter name="stateId"/>
+        	<redirect-parameter name="countyId"/>
+        </response>
+        <response name="error" type="request-redirect" value="viewTechnicianLocation">
+        	<redirect-parameter name="stateId"/>
+        	<redirect-parameter name="countyId"/>
+        </response>
+    </request-map>
+    
+    <request-map uri="viewTechnicianLocation">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="viewTechnicianLocation"/>
+        <response name="error" type="view" value="viewTechnicianLocation" />
+    </request-map>
+    
+    <request-map uri="findTechnicianLocation">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="findTechnicianLocation"/>
+        <response name="error" type="view" value="findTechnicianLocation" />
+    </request-map>
+    
+    <request-map uri="getTechnicianLocation">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getTechnicianLocation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="removeTechnicianLocation">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="removeTechnicianLocation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+     <request-map uri="getContractorTechnicians">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getContractorTechnicians"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getProductStores">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getProductStores"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="updateSrJustifiation">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="updateSrJustifiation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getTimeEntry">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getTimeEntry"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="updateTimeEntry">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="updateTimeEntry"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+	<request-map uri="createSrTimeEntryService">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="createSrActivityTimeEntry"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	
+	<request-map uri="activityHome">
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="activityHome" />
+        <response name="error" type="view" value="activityHome" />
+    </request-map>
+    
+    <request-map uri="getActivityDashboardData">
+	    <security https="true" auth="false" />
+	    <event type="java" path="org.groupfio.activity.portal.event.AjaxEvents" invoke="getActivityDashboardData" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    
+    <request-map uri="getActivityDashboardCountList">
+	    <security https="true" auth="false" />
+	    <event type="java" path="org.groupfio.activity.portal.event.AjaxEvents" invoke="getActivityDashboardCountList" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    
+    <request-map uri="getWorkEffortDetails">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://sr-portal/webapp/sr-portal/WEB-INF/actions/activity/GetWorkEffortDetails.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    		
+    <request-map uri="findActivity">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findActivity"/>
+    </request-map>
+    
+    <request-map uri="approveIssueMaterial">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.fio.sr.portal.event.OrderEvents" invoke="approveIssueMaterial"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    		
+    <view-map name="updateActivity" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#updateActivity"/>
+    <!-- View Mappings -->
+    <view-map name="noteDataDetails" type="screen" page="component://common-portal/widget/common/CommonScreens.xml#noteDataDetails"/>
+    <view-map name="srDashboard" type="screen" page="component://sr-portal/widget/dashboard/DashboardScreens.xml#srDashboard"/>
+    
+    
+    <view-map name="findOpportunity" type="screen" page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#findOpportunity" />
+    <view-map name="viewOpportunity" type="screen" page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#viewOpportunity" />
+    <view-map name="error" page="/error/error.jsp"/>
+    <view-map name="main" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#ServiceRequestHome"/>
+    <view-map name="login" type="screen" page="component://admin-portal/widget/common/CommonScreens.xml#login"/>
+    <view-map name="serviceRequestHome" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#ServiceRequestHome"/>
+    <view-map name="activityHome" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#HomeActivity"/>
+    <view-map name="findServiceRequest" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#FindServiceRequest"/>
+    <view-map name="ActivityHome" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#ActivityHome"/>
+    <view-map name="findSrActivity" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#findSrActivity"/>
+    <view-map name="SrAddTask" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#SrAddTask"/>
+    <view-map name="SrAddPhoneCall" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#SrAddPhoneCall"/>
+    <view-map name="SrAddEmail" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#SrAddEmail"/>
+    <view-map name="SrAddAppointment" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#SrAddAppointment"/>
+    <view-map name="SrAddOthers" type="screen" page="component://sr-portal/widget/services/ServiceScreens.xml#SrAddOthers"/>
+	<view-map name="findSROverDueSummary" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#FindSROverDueSummary"/>
+    <view-map name="findcustsatisfaction" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#FindCustSatisfaction"/>
+    <view-map name="addservicerequest" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#AddServiceRequest"/>
+    <view-map name="ViewServiceRequest" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#ViewServiceRequest"/>
+	<view-map name="pwebRelatedDetails" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#pwebRelatedDetails"/>
+    <view-map name="newOpportunity" type="screen" page="component://sales-portal/widget/tele-sales/TeleSalesScreens.xml#newOpportunity"/>
+    <view-map name="contactDetails" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#contactDetails"/>
+    <view-map name="viewActivity" type="screen"  page="component://sr-portal/widget/services/ServiceScreens.xml#viewActivity" />
+   <!-- <view-map name="noteDataDetails" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#noteDataDetails"/> -->
+    <view-map name="viewCustomerAlerts" type="screen" page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#viewCustomerAlerts" />
+    <view-map name="viewCalendar" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#viewCalendar"/>
+    <view-map name="updateServiceRequest" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#UpdateServiceRequest"/>
+	    
+    <view-map name="createTaskActivity" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#CreateTaskActivity"/>
+    <view-map name="createPhoneCallActivity" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#CreatePhoneCallActivity"/>
+    <view-map name="createAppointmentActivity" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#CreateAppointmentActivity"/>
+    <view-map name="createEmailActivity" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#CreateEmailActivity"/>
+    <view-map name="getTemplate" type="screen" page="component://campaign/webapp/widget/campaign/screens/template/TemplateScreens.xml#getTemplate"/>
+    
+    <!-- SR and Order assoc [start] -->
+    
+    <view-map name="createSrOrderAssoc" type="screen" page="component://sr-portal/widget/order/OrderScreens.xml#CreateSrOrderAssoc"/>
+    <view-map name="updateSrOrderAssoc" type="screen" page="component://sr-portal/widget/order/OrderScreens.xml#UpdateSrOrderAssoc"/>
+    
+    <!-- SR and Order assoc [end] -->
+    
+    <view-map name="createTechnicianLocation" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#CreateTechnicianLocation"/>
+    <view-map name="updateTechnicianLocation" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#UpdateTechnicianLocation"/>
+    <view-map name="findTechnicianLocation" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#FindTechnicianLocation"/>
+    <view-map name="viewTechnicianLocation" type="screen" page="component://sr-portal/widget/services/ServicesScreens.xml#ViewTechnicianLocation"/>
+    <view-map name="findActivity" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#FindActivity"/>
+    
+    <!-- Invoice related screens [start]-->
+    
+     <view-map name="viewInvoice" type="screen" page="component://common-portal/widget/common/CommonScreens.xml#ViewInvoice"/>
+     
+      <!-- Invoice related screens [end]-->
+</site-conf>

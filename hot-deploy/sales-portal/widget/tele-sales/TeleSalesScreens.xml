@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+
+<screen name="opportunity">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/teleSales/opportunity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="teleSales">
+        <section>
+        <actions>
+        <set field="titleProperty" value="Tale Sales" global="true"/>
+                <set field="sectionName" value="sales-portal" global="true"/>
+			<script location="component://sales-portal/webapp/sales-portal/WEB-INF/action/teleSales/teleSales.groovy" />
+        </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/teleSales/tele-sales.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+  <screen name="newOpportunity">
+        <section>
+        <actions>
+        <set field="titleProperty" value="Add Opportunity" global="true"/>
+        <set field="sectionName" value="sales-portal" global="true"/>
+        </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/teleSales/newOpportunity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

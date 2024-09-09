@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+	<include location="component://common/webcommon/WEB-INF/security-controller.xml"/>
+	<include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+    <description>customer-portal Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+	<after-login>
+		<event name="setUserLoggedIn" type="java" path="org.groupfio.common.portal.event.BirthdayRemainderEvents" invoke="setUserLoggedIn" />
+	</after-login>
+    <!-- Request Mappings -->
+    <request-map uri="main"><security https="true" auth="true"/>
+    <response name="success" type="view" value="main"/>
+    </request-map>
+	<request-map uri="donePageRequestHelper">
+		<security https="true" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.util.UtilCommon"
+			invoke="donePageRequestHelper" />
+		<response name="viewContact" type="request-redirect" value="viewContact">
+			<redirect-parameter name="partyId" />
+	    </response>
+	   <response name="viewAccount" type="request-redirect" value="viewAccount">
+			<redirect-parameter name="partyId" />
+	    </response>
+	   <response name="viewLead" type="request-redirect" value="viewLead">
+			<redirect-parameter name="partyId" />
+	    </response>
+	   <response name="viewCustomer" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId" />
+	    </response>  
+	    <response name="viewActivity" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+	    </response>
+	    <response name="viewCallListCustomer" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="partyId" />
+			<redirect-parameter name="marketingCampaignId" />
+			<redirect-parameter name="contactListId" />
+	    </response>
+	</request-map>
+    
+    <request-map uri="createCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createCustomer"/>
+    </request-map>
+    <request-map uri="createCustomerAction">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="cp.createCustomer"/>        
+        <response name="success" type="request-redirect" value="viewCustomer">
+        	<redirect-parameter name="partyId"/>
+        </response>
+        <response name="error" type="request-redirect-noparam" value="createCustomer">
+        </response>
+    </request-map>
+    <request-map uri="viewCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewCustomer"/>
+    </request-map>
+    <request-map uri="viewCustomerProfile">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewCustomerProfile"/>
+    </request-map>
+   <request-map uri="findCustomer">
+     	<security https="true" auth="true"/>
+     <response name="success" type="view" value="findCustomer"/>
+     </request-map>
+    <request-map uri="customerHome">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="homeCustomer"/>
+    </request-map>
+    <request-map uri="updateCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateCustomer"/>
+    </request-map>
+    <request-map uri="updateCustomerSingle">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateCustomerSingle"/>
+    </request-map>
+    <request-map uri="createTaskActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createTaskActivity" />
+	</request-map>
+	
+	<request-map uri="createTaskActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+			<redirect-parameter name="partyId" from="cNo"/>
+		</response>
+		<response name="error" type="request-redirect" value="createTaskActivity">
+			<redirect-parameter name="partyId" from="cNo"/>
+		</response>
+	</request-map>
+	<request-map uri="createPhoneCallActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createPhoneCallActivity" />
+	</request-map>
+	<request-map uri="viewOrder">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewOrder"/>
+    </request-map>
+	<request-map uri="createPhoneCallActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+			<redirect-parameter name="partyId" from="cNo"/>
+		</response>
+		<response name="error" type="request-redirect" value="createPhoneCallActivity"/>
+	</request-map>
+	<request-map uri="getIASubTypes">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.admin.portal.util.TripletUtil"
+			invoke="getIASubTypes" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="addEmail">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="addEmail" />
+	</request-map>
+	<request-map uri="addEmailEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+			<response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="addEmail">
+			<redirect-parameter name="partyId"/>
+			<redirect-parameter name="domainEntityType"/>
+			<redirect-parameter name="domainEntityId"/>
+		</response>
+	</request-map>
+	<request-map uri="createAppointmentActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="createAppointmentActivity" />
+	</request-map>
+	
+	<request-map uri="createAppointmentActivityAction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewActivity">
+       		 <redirect-parameter name="workEffortId"/>
+			<redirect-parameter name="partyId" from="cNo"/>
+		</response>
+		<response name="error" type="request-redirect" value="createAppointmentActivity">
+			<redirect-parameter name="partyId" from="cNo"/>
+		</response>
+	</request-map>
+	<request-map uri="viewActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewActivity" />
+	</request-map>
+	<request-map uri="getActivityDetails">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="viewSalesActivityDetails" />
+		<response name="success" type="request-redirect" value="viewActivity"/>
+	</request-map>
+	<!--  Contact Information Start -->
+    <request-map uri="createEmailAddress">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createPartyEmailAddress"/>
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <request-map uri="createPostalAddress">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="common.createPartyPostalAddress"/>
+        <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper"/>
+    </request-map>
+    <request-map uri="createTelecomNumber">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="common.createPartyTNExtForDndValidation"/>
+        <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper"/>
+    </request-map>
+    <request-map uri="createContactMech">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createPartyContactMech"/>
+        <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper"/>
+    </request-map>
+    <request-map uri="createSocialMediaTypeWebm">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createPartySocialMediaType"/>
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <!-- added for updating party details with purposes -->
+    <request-map uri="updatePostalAddressWithPurpose">
+        <security https="true" auth="true" />
+        <event type="service" invoke="common.updatePostalAddressWithPurpose" />
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <request-map uri="updateTelecomNumberWithPurpose">
+        <security https="true" auth="true" />
+        <event type="service" invoke="common.updateTelecomNumberWithPurpose" />
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <request-map uri="updateEmailWithPurpose">
+        <security https="true" auth="true" />
+        <event type="service" invoke="common.updateEmailWithPurpose" />
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <request-map uri="updateContactMechWithPurpose">
+        <security https="true" auth="true" />
+        <event type="service" invoke="common.updateContactMechWithPurpose" />
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <request-map uri="updateSocialMediaTypeWebmWithPurpose">
+        <security https="true" auth="true" />
+        <event type="service" invoke="common.updateSocialMediaTypeWebmWithPurpose" />
+        <response name="success" type="request" value="donePageRequestHelper" />
+        <response name="error" type="request" value="donePageRequestHelper" />
+    </request-map>
+    <!-- ended -->
+    <request-map uri="personResponsibleParty">
+        <security https="true" auth="true" />
+        <event type="service" invoke="crmsfa.updatePersonResponsibleFor" />
+        <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper"/>
+    </request-map>
+   <request-map uri="updateCustomerAction">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="cp.updateCustomer"/>        
+        <response name="success" type="request-redirect" value="viewCustomer">
+        	<redirect-parameter name="partyId"/>
+        </response>
+        <response name="error" type="request-redirect-noparam" value="updateCustomer">
+        </response>
+    </request-map>
+    <request-map uri="noteDataDetails">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="noteDataDetails" />
+		<response name="error" type="view" value="noteDataDetails" />
+	</request-map>
+	<request-map uri="getNoteData">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="getNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="createattachmentData">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createAttachmentData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+       <request-map uri="mergeCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="mergeCustomerForm"/>
+    </request-map>
+     <request-map uri="mergeCustomerAction">
+		<security https="true" auth="true"/>
+		<event type="service" invoke="common.mergeParty"/>
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="view" value="mergeCustomerForm"/>
+	</request-map>
+	<request-map uri="updateActivityEvent">
+        <event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="updateActivityEvent"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+         <redirect-parameter name="workEffortId" from="workEffortId"/>
+         <redirect-parameter name="partyId" from="partyId"/>
+         </response>
+        <response name="error" type="request-redirect" value="viewActivity" >
+        <redirect-parameter name="workEffortId" from="workEffortId"/>
+        <redirect-parameter name="partyId" from="partyId"/>
+        </response>
+    </request-map>
+	<request-map uri="updateActivity">
+        <security https="true" auth="true" />
+        <response name="success" type="view"  value="updateActivity"/>
+        <response name="error" type="view"  value="updateActivity" />
+    </request-map>
+    <request-map uri="updateServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="updateServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  	</request-map>
+  	<request-map uri="closedServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="closedServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  	</request-map>
+  	<request-map uri="createUpdateCustom">
+   		<security https="true"  auth="true"/>	
+		<event type="service-multi" invoke="customfield.createUpdateCustomValueMulti"/>
+	    <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper" />
+	</request-map>
+	<request-map uri="getRfmMetricData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getRfmMetricData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="editCustomerAction">
+			<security https="false" auth="true"/>
+	        <event type="service"  invoke="cp.editCustomer"/>        
+	        <response name="success" type="request-redirect" value="viewCustomer">
+	        	<redirect-parameter name="partyId"/>
+	        </response>
+	        <response name="error" type="request-redirect-noparam" value="viewCustomer">
+	        </response>
+	</request-map>
+	<request-map uri="createOpenEmmOrderFromRmsNew">
+		<security https="true" auth="false"/>
+		<event type="service" invoke="createOpenEmmOrderFromRmsNew"/>
+		<response name="success" type="view" value="serviceOutXml"/>
+	</request-map>
+	<request-map uri="loadTemplate">
+        <security https="false" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="loadTemplate"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createInviteUser">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createInviteUser" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+    
+    <request-map uri="resetPassword">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="resetPassword" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="resetUserLoginStatus">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="resetUserLoginStatus" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+		
+	<request-map uri="activateDeactivateParty">
+    	<event type="service" invoke="ap.activateDeactivateParty" />
+    	<response name="success" type="request-redirect" value="viewCustomer">
+    		<redirect-parameter name="partyId"/>
+    	</response>
+    	<response name="error" type="request-redirect" value="viewCustomer">
+    		<redirect-parameter name="partyId"/>
+    	</response>
+    </request-map>
+    <request-map uri="searchCoupon">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="searchCoupon"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchPromoCampaignCoupons">
+        <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="searchPromoCampaignCoupons"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map> 
+    <request-map uri="updateCoupon">
+        <security auth="true" https="true"/>
+        <response name="success" type="view"  value="updateCoupon" />
+        <response name="error" type="view"  value="updateCoupon" />
+    </request-map>
+    <request-map uri="editCoupon">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.customer.portal.event.CouponEvents" invoke="updateCoupon"/>
+        <response name="success" type="request-redirect" value="updateCoupon">
+                     <redirect-parameter name="productPromoCodeId"/>
+        </response>    
+        <response name="error" type="request-redirect" value="updateCoupon">
+            <redirect-parameter name="productPromoCodeId"/>
+        </response> 
+    </request-map>
+    <request-map uri="updateEreceiptEnabled">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="updateEreceiptEnabled"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="updateloyalid">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="updateloyaltyidEnabled"/>
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+	</request-map>
+	<request-map uri="replaceLoyalty">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="replaceLoyalty"/>
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+	</request-map>
+	<request-map uri="getAssignedOrNewLoyaltyNumber">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getAssignedOrNewLoyaltyNumber"/>
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+	</request-map>
+	<request-map uri="partyReceiptData">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="partyReceiptData"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="promotionsList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="promotionsList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getPromoCampaign">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getPromoCampaign"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchOrders">
+        <security https="true" auth="true" />
+        <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="searchOrders" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+    <request-map uri="searchInvoiceOrders">
+        <security https="true" auth="true" />
+        <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="searchInvoiceOrders" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+ <!-- Note[Start] -->   
+   <request-map uri="listOfNotes">
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchNotes" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	  <request-map uri="createNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="updateNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="updateNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="removeNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="removeNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="earnedValue">
+        <security auth="true" https="true"/>
+        <response name="success" type="view"  value="earnedValue" />
+        <response name="error" type="view"  value="earnedValue" />
+    </request-map>
+	<request-map uri="addEarnedValue">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="addEarnedValue" />
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCustomer" >
+        <redirect-parameter name="partyId" from="partyId"/>
+        </response>
+	</request-map>
+	<request-map uri="viewTransactionInvoice">
+		<security https="true" auth="true"/>
+		<response name="success" type="view" value="viewTransactionInvoice"/>
+	</request-map>
+	    <!-- Note[End] -->
+	<!-- Customer Report configuration starts here -->
+	<request-map uri="foodJournal">
+		<security https="true" auth="true"/>
+		<response name="success" type="view" value="foodJournal"/>
+	</request-map>
+	<request-map uri="foodJournalList">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.report.portal.event.AjaxEvents" invoke="foodJournal"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+		<request-map uri="waterTracker">
+		<security https="true" auth="true"/>
+		<response name="success" type="view" value="waterTracker"/>
+	</request-map>
+	<request-map uri="waterTrackerReports">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.report.portal.event.AjaxEvents" invoke="waterTracker"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="checklist">
+		<security https="true" auth="true"/>
+		<response name="success" type="view" value="checklist"/>
+	</request-map>
+	<request-map uri="dailyChecklist">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.report.portal.event.AjaxEvents" invoke="checklist"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>	
+	<request-map uri="weightReports">
+		<security https="true" auth="true"/>
+		<response name="success" type="view" value="weightReports"/>
+	</request-map>
+	<request-map uri="weightGoalReports">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.report.portal.event.AjaxEvents" invoke="weightReports"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="createCommunicationHistoryEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId" />
+		</response>
+		<response name="error" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId" />
+		</response>
+	</request-map>
+	<!-- Customer Report configuration ends here -->
+	 <request-map uri="viewCallListCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewCallListCustomer"/>
+    </request-map>
+    <request-map uri="viewCallListPhoneLogs">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewCallListPhoneLogs"/>
+    </request-map>
+    <request-map uri="viewCallListCustomerProfile">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewCallListCustomerProfile"/>
+    </request-map>
+    <request-map uri="callStatusUpdate">
+    <security https="true" auth="true" />
+    <event type="java" path="org.fio.campaign.outboundCallList.CallList" invoke="callStatusUpdate"/>
+   	<response name="success" type="request-redirect" value="viewCallListCustomer">
+		<redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+	<response name="error" type="view" value="viewCallListCustomer">
+		<redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+	</request-map>
+	<request-map uri="callStatusAndCallBackDateUpdate">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.campaign.outboundCallList.CallList" invoke="callStatusAndCallBackDateUpdate" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="updateCallStatus">
+    <security https="true" auth="true" />
+    <event type="java" path="org.fio.campaign.outboundCallList.CallList" invoke="callStatusUpdate"/>
+   	<response name="success" type="request-redirect" value="viewCustomer">
+		<redirect-parameter name="partyId"/>
+	</response>
+	<response name="error" type="view" value="viewCustomer">
+		<redirect-parameter name="partyId"/>
+	</response>
+	</request-map>
+	<request-map uri="updatePersonResponsibleParty">
+    <security https="true" auth="true" />
+    <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="updatePersonResponsible"/>
+    <response name="success" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+    <response name="error" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+    </request-map>
+    <request-map uri="removeResponsiblePerson">
+	<security https="true" auth="true"/>
+	<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="removePersonResponsible"/>
+	<response name="success" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+    <response name="error" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+	</request-map>
+	<request-map uri="blockBirthdayReminder">
+		<event type="java" path="org.groupfio.common.portal.event.BirthdayRemainderEvents" invoke="blockBirthdayReminder"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+    <!-- View Mappings -->
+    <request-map uri="callHistory">
+		<security https="true" auth="true"/>
+		<response name="success" type="view" value="callHistory"/>
+	</request-map>
+	<request-map uri="getCallStatusHistory">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getCallStatusHistory"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	 <request-map uri="updateBirthdayDate">
+        <security https="false" auth="true"/>
+       <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="updateBirthDate"/>
+        <response name="success" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+        </response>
+       <response name="error" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	   </response>
+    </request-map>
+    <request-map uri="removeBirthdayDate">
+	<security https="true" auth="true"/>
+	<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="removeBirthDate"/>
+	<response name="success" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+        <redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+    <response name="error" type="request-redirect" value="viewCallListCustomer">
+        <redirect-parameter name="partyId"/>
+        <redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+	</response>
+	</request-map>
+    <request-map uri="updateBirthDate">
+       <security https="false" auth="true"/>
+       <event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="updateBirthDate"/>
+        <response name="success" type="request-redirect" value="viewCustomer">
+        	<redirect-parameter name="partyId"/>
+        </response>
+       <response name="error" type="request-redirect" value="viewCustomer">
+        <redirect-parameter name="partyId"/>
+	   </response>
+    </request-map>
+     <request-map uri="removeBirthDate">
+	<security https="true" auth="true"/>
+	<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="removeBirthDate"/>
+	<response name="success" type="request-redirect" value="viewCustomer">
+        <redirect-parameter name="partyId"/>
+	</response>
+    <response name="error" type="request-redirect" value="viewCustomer">
+        <redirect-parameter name="partyId"/>
+	</response>
+	</request-map>
+	<request-map uri="createCallListTelecomNumber">
+		<security https="true" auth="true" />
+		<event type="service" invoke="common.createPartyTNExtForDndValidation" />
+		<response name="success" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="externalLoginKey" />
+			<redirect-parameter name="partyId" />
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="externalLoginKey" />
+			<redirect-parameter name="partyId" />
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+		</response>
+	</request-map>
+	<request-map uri="updatePostalAddress">
+		<security https="true" auth="true" />
+		<event type="service" invoke="common.updatePostalAddressWithPurpose" />
+		<response name="success" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="externalLoginKey" />
+			<redirect-parameter name="partyId" />
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="externalLoginKey" />
+			<redirect-parameter name="partyId" />
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+		</response>
+	</request-map>
+	<request-map uri="updateTelecomNumber">
+        <security https="true" auth="true" />
+        <event type="service" invoke="common.updateTelecomNumberWithPurpose" />
+		<response name="success" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="externalLoginKey" />
+			<redirect-parameter name="partyId" />
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+		</response>
+		<response name="error" type="request-redirect" value="viewCallListCustomer">
+			<redirect-parameter name="externalLoginKey" />
+			<redirect-parameter name="partyId" />
+		<redirect-parameter name="contactListId" />
+		<redirect-parameter name="marketingCampaignId"/>
+		</response>
+    </request-map>
+    <request-map uri="setCampaignListToSession">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.fio.campaign.events.AjaxEvents" invoke="setCampaignListToSession"/>
+		<response name="success" type="request-redirect" value="viewCustomer">
+			<redirect-parameter name="partyId"/>
+		</response>
+		<response name="error" type="view" value="viewCustomer"/>
+	</request-map>
+	<!--  Out bound Call List Start-->
+	<request-map uri="outBoundCallList">
+		<security https="true" auth="true"/>
+        <response name="success" type="view" value="outBoundCallList"/>
+    </request-map>
+    <request-map uri="searchOutBoundCallList">
+		<security https="true" auth="true"/>
+        <event type="java" path="org.fio.campaign.events.AjaxEvents" invoke="searchOutBoundCallList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+    <request-map uri="searchOutBoundCallListCampaignCount">
+		<security https="true" auth="true"/>
+        <event type="java" path="org.fio.campaign.events.AjaxEvents" invoke="searchOutBoundCallList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="csrPartyReassign">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="rmPartyReassign"/>
+        <response name="success" type="request-redirect" value="outBoundCallList">
+            <redirect-parameter name="externalLoginKey"/>
+            <redirect-parameter name="campaignId"/>
+            <redirect-parameter name="csrPartyId"/>
+            <redirect-parameter name="callStatus"/>
+            <redirect-parameter name="noOfDaysSinceLastCall"/>
+            <redirect-parameter name="callBackDate"/>
+            <redirect-parameter name="defaultTimeZoneId"/>
+        </response>
+        <response name="error" type="request-redirect" value="outBoundCallList">
+           <redirect-parameter name="externalLoginKey"/>
+           <redirect-parameter name="campaignId"/>
+           <redirect-parameter name="csrPartyId"/>
+           <redirect-parameter name="callStatus"/>
+           <redirect-parameter name="noOfDaysSinceLastCall"/>
+           <redirect-parameter name="callBackDate"/>
+           <redirect-parameter name="defaultTimeZoneId"/>
+       </response>
+    </request-map>
+	    <!--  Out bound Call List End-->
+	    	<!-- birthday Reminder [Start] -->
+	<request-map uri="birthdayReminderList">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="birthdayReminderList" />
+	</request-map>
+	<request-map uri="blockBirthdayReminder">
+		<event type="java" path="org.groupfio.common.portal.event.BirthdayRemainderEvents" invoke="blockBirthdayReminder" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getBirthDayRemainderList">
+		<event type="java" path="org.groupfio.common.portal.event.BirthdayRemainderEvents" invoke="getBirthdayRemainder" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getDaysLastCallCountDropdown">
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getDaysLastCallCountDropdown" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<!-- birthday Reminder [End] -->
+	<request-map uri="searchCampaigns">
+		<event type="java" path="org.groupfio.common.portal.event.CampaignEvents" invoke="searchCampaigns"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="storeSessionPageParams">
+        <event type="java" path="org.fio.campaign.outboundCallList.CallList" invoke="storeSessionPageParams" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+	<request-map uri="createOrUpdateCalllistJSON">
+        <event type="java" path="org.fio.campaign.outboundCallList.CallList" invoke="createOrUpdateOutboundCallList" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+	<request-map uri="createOrUpdateCalllist">
+        <event type="service" invoke="createOrUpdateOutboundCallList" />
+        <response name="success" type="request-redirect" value="outBoundCallList">
+           <redirect-parameter name="externalLoginKey"/>
+       </response>
+       <response name="error" type="request-redirect" value="outBoundCallList">
+           <redirect-parameter name="externalLoginKey"/>
+       </response>
+    </request-map>
+    <request-map uri="removeOutBoundCallListDetails">
+        <event type="service" invoke="createOrUpdateOutboundCallList" />
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="personResposibleForReport">
+		<security https="true" auth="true"/>
+        <response name="success" type="view" value="personResposibleForReport"/>
+    </request-map>
+    <request-map uri="personResponsibleForReportEvent">
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getPersonResponsibleForReport" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="accountManagerReport">
+		<security https="true" auth="true"/>
+        <response name="success" type="view" value="accountManagerReport"/>
+    </request-map>
+    <request-map uri="accountManagerCountsEvent">
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getAccountManagerCountsReport" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+    <request-map uri="checkWhetherShowBirthdayListViewReminder">
+		<event type="java" path="org.groupfio.common.portal.event.BirthdayRemainderEvents" invoke="checkWhetherShowBirthdayListViewReminder"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="setUserViewedBirthdayListViewReminder">
+		<event type="java" path="org.groupfio.common.portal.event.BirthdayRemainderEvents" invoke="setUserViewedBirthdayListViewReminder"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getCsrDropdown">
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getCsrDropdown" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="dailySummary">
+		<security https="true" auth="true"/>
+        <response name="success" type="view" value="dailySummary"/>
+    </request-map>
+    <request-map uri="getDailySummaryReport">
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getDailySummaryReport" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="contactRatesReport">
+		<security auth="true" https="true" />
+		<response type="view" name="success"
+			value="contactRatesReport" />
+	</request-map>
+	<request-map uri="getContactRatesReport">
+		<event invoke="getContactRatesReport" path="org.groupfio.customer.portal.event.AjaxEvents" type="java" />
+		<response type="none" name="success" />
+		<response type="none" name="error" />
+	</request-map>
+	<request-map uri="detailsByDay">
+		<security https="true" auth="true"/>
+        <response name="success" type="view" value="detailsByDay"/>
+    </request-map>
+    <request-map uri="detailsByDayEvent">
+		<event type="java" path="org.groupfio.customer.portal.event.AjaxEvents" invoke="getDetailsByDayList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+    <!--<view-map name="main" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#main"/>-->
+    <view-map name="serviceOutXml" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#serviceOutXml"/>
+    <!--<view-map name="main" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#FindCustomer"/>-->
+    <view-map name="main" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#HomeCustomer"/>
+    <view-map name="findCustomer" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#FindCustomer"/>
+	<view-map name="homeCustomer" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#HomeCustomer"/>
+    <view-map name="createCustomer" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#createCustomer"/>
+    <view-map name="viewCustomer" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#viewCustomer"/>
+    <view-map name="viewCustomerProfile" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#viewCustomerProfile"/>
+	<view-map name="updateCustomer" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#updateCustomer"/>
+	<view-map name="updateCustomerSingle" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#updateCustomerSingle"/>
+	<view-map name="noteDataDetails" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#noteDataDetails"/>
+	<view-map name="mergeCustomerForm" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#MergeCustomerForm"/>
+	<view-map name="createPhoneCallActivity" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#CreatePhoneCallActivity"/>
+    <view-map name="createAppointmentActivity" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#CreateAppointmentActivity"/>
+    <view-map name="createTaskActivity" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#CreateTaskActivity"/>
+    <view-map name="addEmail" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#addEmail" />
+    <view-map name="viewActivity" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#ViewActivity"/>
+    <view-map name="viewOrder" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#ViewOrder"/>
+    <view-map name="updateActivity" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#updateActivity"/>
+    <view-map name="updateCoupon" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#updateCoupon" />
+    <view-map name="earnedValue" type="screen" page="component://customer-portal/widget/CustomerScreens.xml#earnedValue" />
+    <view-map name="viewTransactionInvoice" type="screen" page="component://common-portal/widget/general/GeneralScreens.xml#viewTransactionInvoice"/>
+	<!-- Customer Reports starts here -->
+	<view-map name="foodJournal" type="screen" page="component://report-portal/widget/customer/CustomerScreens.xml#FoodJournal"/>
+	<view-map name="waterTracker" type="screen" page="component://report-portal/widget/customer/CustomerScreens.xml#WaterTracker"/>
+	<view-map name="checklist" type="screen" page="component://report-portal/widget/customer/CustomerScreens.xml#DailyChecklist"/>
+	<view-map name="weightReports" type="screen" page="component://report-portal/widget/customer/CustomerScreens.xml#WeightReports"/>
+	<!-- Customer Reports ends here -->
+	<view-map name="viewCallListCustomer" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#viewCallListCustomer"/>
+	<view-map name="viewCallListPhoneLogs" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#viewCallListPhoneLogs"/>
+	<view-map name="viewCallListCustomerProfile" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#viewCallListCustomerProfile"/>
+	<view-map name="callHistory" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#callHistory"/>
+    <view-map name="outBoundCallList" type="screen" page="component://campaign/webapp/widget/campaign/screens/campaign/CampaignScreens.xml#outBoundCallList"/>
+    <view-map name="birthdayReminderList" type="screen" page="component://campaign/webapp/widget/campaign/screens/campaign/CampaignScreens.xml#birthdayReminderList"/>
+    <view-map name="personResposibleForReport" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#personResposibleForReport"/>
+    <view-map name="accountManagerReport" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#accountManagerReport"/>
+    <view-map name="dailySummary" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#dailySummary"/>
+    <view-map type="screen" name="contactRatesReport" page="component://customer-portal/widget/customer-portalScreens.xml#findContactRatesReport"/>
+    <view-map name="detailsByDay" type="screen" page="component://customer-portal/widget/customer-portalScreens.xml#DetailsByDay"/>
+
+</site-conf>

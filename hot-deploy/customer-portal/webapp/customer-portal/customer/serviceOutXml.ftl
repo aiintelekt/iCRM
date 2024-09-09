@@ -1,0 +1,1 @@
+${StringUtil.wrapString(requestAttributes.XmlOutput?if_exists)}

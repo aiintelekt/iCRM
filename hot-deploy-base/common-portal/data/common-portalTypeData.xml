@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+<EnumerationType  enumTypeId="CONTENT_CLASS" description="Content Classification" />
+
+<EnumerationType description="Indicator type" enumTypeId="INDICATOR_TYPE" hasTable="N" parentTypeId=""/>
+<Enumeration description="Yes" enumCode="Y" enumId="INDICATOR_TYPE_Y" sequenceId="01" enumTypeId="INDICATOR_TYPE"/>
+<Enumeration description="No" enumCode="N" enumId="INDICATOR_TYPE_N" sequenceId="02" enumTypeId="INDICATOR_TYPE"/>
+
+</entity-engine-xml>

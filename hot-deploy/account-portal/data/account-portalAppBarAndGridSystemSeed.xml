@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<AppBarType appBarTypeId="DASHBOARD" appBarTypeName="Dashboard App Bar" appBarTypeUilabel="Dash Board" lastUpdatedStamp="2020-03-04 19:14:13.0" lastUpdatedTxStamp="2020-03-04 19:14:13.0" createdStamp="2020-03-04 19:14:13.0" createdTxStamp="2020-03-04 19:14:13.0"/>
+	<AppBarType appBarTypeId="KPI" appBarTypeName="KPI App Bar" appBarTypeUilabel="KPI App Bar" lastUpdatedStamp="2020-07-06 15:40:01.0" lastUpdatedTxStamp="2020-07-06 15:40:00.0" createdStamp="2020-07-06 15:40:01.0" createdTxStamp="2020-07-06 15:40:01.0"/>
+	<AppBarType appBarTypeId="ACTION" appBarTypeName="Action App Bar" appBarTypeUilabel="Action App Bar" lastUpdatedStamp="2020-07-06 15:39:43.0" lastUpdatedTxStamp="2020-07-06 15:39:43.0" createdStamp="2020-07-06 15:39:43.0" createdTxStamp="2020-07-06 15:39:43.0"/>
+
+    <AppBar appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarName="Account KPI Dashboard" appBarNameUilabel="Kpi Bar" appBarDescription="Account KPI" appBarStatus="ENABLED" appBarDirection="HORIZONTAL" appBarMaxElements="40" appBarAccessLevel="SYSTEM_LEVEL" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 06:00:21.0" modifiedOn="2024-06-05 08:32:30.0" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2024-06-05 08:32:30.0" lastUpdatedTxStamp="2024-06-05 08:32:30.0"/>
+	<AppBar appBarId="MY_ACCOUNT_DASH" appBarTypeId="DASHBOARD" appBarName="Account Home Screen KPI Dashboard" appBarDescription="Account Home Screen KPI Dashboard" appBarStatus="ENABLED" appBarSecurityGroup="MY_ACCOUNT_DASH_DASHBOARD_GRP" appBarDirection="HORIZONTAL" appBarHeight="0" appBarWidth="0" appBarMaxElements="5" appBarAccessLevel="SYSTEM_LEVEL" createdBy="admin" modifiedBy="admin" createdOn="2020-07-15 14:50:00" modifiedOn="2022-08-24 07:01:55" defaultMessage="Account Dashboard - Not Enabled - Contact Administrator" lastUpdatedStamp="2022-08-24 07:01:55" createdTxStamp="2020-07-29 07:25:13" lastUpdatedTxStamp="2022-08-24 07:01:55" createdStamp="2020-07-29 07:25:13" />
+    <AppBar appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarName="Activity Action Bar" appBarNameUilabel="Activity Action Bar" appBarDescription="Activity Action Bar" appBarStatus="ENABLED" appBarSecurityGroup="ACT_KPI_BAR_ACTION_GRP" appBarDirection="HORIZONTAL" appBarMaxElements="7" appBarAccessLevel="SYSTEM_LEVEL" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-17 13:47:33.0" modifiedOn="2020-08-17 13:47:33.0" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-08-17 13:47:33.0" lastUpdatedTxStamp="2020-08-17 13:47:33.0" createdStamp="2020-08-17 13:47:33.0" createdTxStamp="2020-08-17 13:47:33.0"/>
+    <AppBar appBarId="ACT_KPI_BAR" appBarTypeId="KPI" appBarName="Activity KPI Bar" appBarNameUilabel="Activity KPI Bar" appBarDescription="Activity KPI Bar" appBarStatus="ENABLED" appBarSecurityGroup="ACT_KPI_BAR_KPI_GRP" appBarDirection="HORIZONTAL" appBarMaxElements="7" appBarAccessLevel="SYSTEM_LEVEL" createdBy="saibaba" modifiedBy="nishana" createdOn="2020-08-18 03:33:06.0" modifiedOn="2020-09-03 06:50:02.0" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-09-03 06:50:02.0" lastUpdatedTxStamp="2020-09-03 06:50:02.0" createdStamp="2020-08-18 03:33:06.0" createdTxStamp="2020-08-18 03:33:06.0"/>
+    <AppBar appBarId="MY_ACT_DASH" appBarTypeId="DASHBOARD" appBarName="Activity Home Dashboard" appBarNameUilabel="Activity Home Dashboard" appBarDescription="Activity Home Dashboard" appBarStatus="ENABLED" appBarSecurityGroup="MY_ACT_DASH_DASHBOARD_GRP" appBarDirection="HORIZONTAL" appBarAccessLevel="SYSTEM_LEVEL" createdBy="admin" modifiedBy="admin" createdOn="2020-09-17 18:59:21.0" modifiedOn="2020-09-17 18:59:21.0" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-09-17 18:59:21.0" lastUpdatedTxStamp="2020-09-17 18:59:20.0" createdStamp="2020-09-17 18:59:21.0" createdTxStamp="2020-09-17 18:59:20.0"/>
+	
+	<AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="1" elementId="10060" elementKey="account-since" elementName="Account Enrolled Date" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="2" elementId="10053" elementKey="CLV" elementName="CLV" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="3" elementId="10012" elementKey="callBackDate" elementName="Call Back Date"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="4" elementId="10054" elementKey="ytd" elementName="YTD" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="5" elementId="10055" elementKey="lytd" elementName="LYTD" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="6" elementId="10105" elementKey="recent-campaign" elementName="Recent Campaign" isDisplayElementData="Y" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="7" elementId="10056" elementKey="last-clicked-date" elementName="Last Clicked Date" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="8" elementId="10006" elementKey="open-opportunity-count" elementName="# Open Opportunities" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="9" elementId="10057" elementKey="last-open-date" elementName="Last Open Date" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="10" elementId="10004" elementKey="openSlaSr" elementName="# Open SRs within SLA" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="11" elementId="10005" elementKey="openSlaOutSr" elementName="# Open SRs out of SLA" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="12" elementId="10008" elementKey="active-campaign-count" elementName="Active Campaigns Count" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="13" elementId="10009" elementKey="open-sr-count" elementName="Open SRs " lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="14" elementId="10007" elementKey="open-activity-count" elementName="# Open Activities" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="15" elementId="10010" elementKey="openOrders" elementName="# Open Orders" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="16" elementId="10011" elementKey="openOffers" elementName="# Open Offers" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="17" elementId="10013" elementKey="noOfDaySinceLastCall" elementName="Days since last call" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="18" elementId="10058" elementKey="LastEngagedDate" elementName="Last Engaged Date" isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="19" elementId="10014" elementKey="lastClickedEmail" elementName="Last Clicked Date"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="20" elementId="10015" elementKey="lastOpenedEmail" elementName="Last Open Date"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="21" elementId="10059" elementKey="LastEngagedSource" elementName="Last Engaged Channel " isDisplayElementData="Y"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="22" elementId="10016" elementKey="noOfAppoSevenDays" elementName="# of Appointments in coming 7 Days" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="23" elementId="10107" elementName="Mood" isDisplayElementData="N"/>
+    <AppBarDataDefinitions appBarId="ACCOUNT_KPI_BAR" fieldSeqNo="24" elementId="10106" elementKey="expire-opportunity-count" elementName="# of Opportunity Expire in next 7 days" isDisplayElementData="N" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="1" elementId="10070" elementKey="name" elementName="Account/Lead Name" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="2" elementId="10071" elementKey="alerts" elementName="View Alerts" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="3" elementId="10072" elementKey="addNotes" elementName="Create Note" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="4" elementId="10073" elementKey="addServiceRequest" elementName="Create SR" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="5" elementId="10074" elementKey="addOpportunity" elementName="Create Opportunity" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="6" elementId="10075" elementKey="addActivity" elementName="Create Activity" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="7" elementId="10076" elementKey="primaryEmail" elementName="Email Address" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACT_ACTION_BAR" fieldSeqNo="8" elementId="10077" elementKey="primaryPhone" elementName="Contact Number" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACT_KPI_BAR" fieldSeqNo="1" elementId="10080" elementName="Days Since Last Call" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACT_KPI_BAR" fieldSeqNo="2" elementId="10081" elementName="Days Since Last Conversation" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="MY_ACCOUNT_DASH" fieldSeqNo="1" elementId="10020" elementKey="account-active" elementName="Active Accounts" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="MY_ACCOUNT_DASH" fieldSeqNo="2" elementId="10210" elementKey="account-open-sr" elementName="Open Service Requests" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="MY_ACCOUNT_DASH" fieldSeqNo="3" elementId="10021" elementKey="account-open-oppo" elementName="Open Opportunities" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="MY_ACCOUNT_DASH" fieldSeqNo="4" elementId="10022" elementKey="account-open-act" elementName="Activities" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="MY_ACCOUNT_DASH" fieldSeqNo="5" elementId="10211" elementKey="account-open-order" elementName="Orders" isDisplayElementData="Y"/>
+	
+	<AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10004" appBarElementSeqNum="8" appBarElementName="# Open SRs within SLA" appBarElementUilabel="Count of open SRs within SLA" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="openSlaSr" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-18 14:29:51.0" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10005" appBarElementSeqNum="9" appBarElementName="# Open SRs out of SLA" appBarElementUilabel="Count of open SRs out of SLA" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="openSlaOutSr" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-18 14:30:03.0" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10006" appBarElementSeqNum="7" appBarElementName="Open Opportunities" appBarElementUilabel="Count of open opportunities" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="open-opportunity-count" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-18 14:51:59.0" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10007" appBarElementSeqNum="11" appBarElementName="Open Activities" appBarElementUilabel="Count of Open Activities" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10043_PERM" elementKey="open-activity-count" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-18 15:20:39.0" lastUpdatedStamp="2024-05-17 09:57:24.0" lastUpdatedTxStamp="2024-05-17 09:57:24.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10008" appBarElementSeqNum="9" appBarElementName="Active Campaigns" appBarElementUilabel="Count of Active Campaigns" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="active-campaign-count" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-18 14:51:36.0" lastUpdatedStamp="2020-09-18 14:51:36.0" lastUpdatedTxStamp="2020-09-18 14:51:36.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10009" appBarElementSeqNum="10" appBarElementName="Open SRs " appBarElementUilabel="Count Open SRs " appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="open-sr-count" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-18 14:52:31.0" lastUpdatedStamp="2020-09-18 14:52:31.0" lastUpdatedTxStamp="2020-09-18 14:52:31.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10010" appBarElementSeqNum="11" appBarElementName="Open Orders" appBarElementUilabel="Count of Open Orders" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="openOrders" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-10 07:51:05.0" lastUpdatedStamp="2020-08-10 07:51:05.0" lastUpdatedTxStamp="2020-08-10 07:51:05.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10011" appBarElementSeqNum="12" appBarElementName="Open Offers" appBarElementUilabel="Count of Open Offers" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="openOffers" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-10 07:51:19.0" lastUpdatedStamp="2020-08-10 07:51:19.0" lastUpdatedTxStamp="2020-08-10 07:51:19.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10012" appBarElementSeqNum="4" appBarElementName="Call Back Date" appBarElementUilabel="Call Back Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="callBackDate" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-10-08 04:07:10.0" lastUpdatedStamp="2020-10-08 04:07:10.0" lastUpdatedTxStamp="2020-10-08 04:07:10.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10013" appBarElementSeqNum="14" appBarElementName="# Days Since Last Call" appBarElementUilabel="# Days since last call" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="noOfDaySinceLastCall" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-10 07:52:34.0" lastUpdatedStamp="2020-08-10 07:52:34.0" lastUpdatedTxStamp="2020-08-10 07:52:34.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10014" appBarElementSeqNum="15" appBarElementName="Last Clicked Date" appBarElementUilabel="Last Clicked Email" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="lastClickedEmail" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-10 07:55:54.0" lastUpdatedStamp="2020-08-10 07:55:54.0" lastUpdatedTxStamp="2020-08-10 07:55:54.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10015" appBarElementSeqNum="16" appBarElementName="Last Open Date" appBarElementUilabel="Last Open Email" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="lastOpenedEmail" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-10 07:56:09.0" lastUpdatedStamp="2020-08-10 07:56:09.0" lastUpdatedTxStamp="2020-08-10 07:56:09.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10016" appBarElementSeqNum="17" appBarElementName="No of Appointments in coming 7 Days" appBarElementUilabel="No of Appointments in coming 7 Days" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " elementKey="noOfAppoSevenDays" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-10 07:53:12.0" lastUpdatedStamp="2020-08-10 07:53:12.0" lastUpdatedTxStamp="2020-08-10 07:53:12.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10053" appBarElementSeqNum="2" appBarElementName="CLV" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10053_PERM" isDisplayElementData="Y" elementKey="CLV" createdBy="admin" modifiedBy="saibaba" createdOn="2020-08-05 08:56:05.0" modifiedOn="2020-09-18 14:28:20.0" lastUpdatedStamp="2020-09-18 14:28:20.0" lastUpdatedTxStamp="2020-09-18 14:28:20.0" createdStamp="2020-08-05 08:56:05.0" createdTxStamp="2020-08-05 08:56:04.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10054" appBarElementSeqNum="3" appBarElementName="YTD" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10054_PERM" isDisplayElementData="Y" elementKey="ytd" createdBy="admin" modifiedBy="admin" createdOn="2020-08-05 08:57:34.0" modifiedOn="2024-06-05 08:33:21.0" lastUpdatedStamp="2024-06-05 08:33:21.0" lastUpdatedTxStamp="2024-06-05 08:33:21.0" createdStamp="2020-08-05 08:57:34.0" createdTxStamp="2020-08-05 08:57:34.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10055" appBarElementSeqNum="2" appBarElementName="LYTD" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10055_PERM" isDisplayElementData="Y" elementKey="lytd" createdBy="admin" modifiedBy="admin" createdOn="2020-08-05 08:58:02.0" modifiedOn="2024-06-05 08:33:19.0" lastUpdatedStamp="2024-06-05 08:33:19.0" lastUpdatedTxStamp="2024-06-05 08:33:19.0" createdStamp="2020-08-05 08:58:02.0" createdTxStamp="2020-08-05 08:58:02.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10056" appBarElementSeqNum="6" appBarElementName="Last Clicked Date" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10056_PERM" isDisplayElementData="Y" elementKey="last-clicked-date" createdBy="admin" modifiedBy="admin" createdOn="2020-08-05 09:04:02.0" modifiedOn="2022-04-05 10:26:18.0" lastUpdatedStamp="2022-04-05 10:26:18.0" lastUpdatedTxStamp="2022-04-05 10:26:18.0" createdStamp="2020-08-05 09:04:02.0" createdTxStamp="2020-08-05 09:04:02.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10057" appBarElementSeqNum="7" appBarElementName="Last Open Date" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10057_PERM" isDisplayElementData="Y" elementKey="last-open-date" createdBy="admin" modifiedBy="admin" createdOn="2020-08-05 09:04:28.0" modifiedOn="2022-04-05 10:26:21.0" lastUpdatedStamp="2022-04-05 10:26:21.0" lastUpdatedTxStamp="2022-04-05 10:26:21.0" createdStamp="2020-08-05 09:04:28.0" createdTxStamp="2020-08-05 09:04:28.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10058" appBarElementSeqNum="14" appBarElementName="Last Engaged Date" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10058_PERM" isDisplayElementData="Y" elementKey="LastEngagedDate" createdBy="admin" modifiedBy="saibaba" createdOn="2020-08-05 09:04:54.0" modifiedOn="2020-09-18 14:30:53.0" lastUpdatedStamp="2020-09-18 14:30:53.0" lastUpdatedTxStamp="2020-09-18 14:30:53.0" createdStamp="2020-08-05 09:04:54.0" createdTxStamp="2020-08-05 09:04:54.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10059" appBarElementSeqNum="16" appBarElementName="Last Engaged Channel " appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10059_PERM" isDisplayElementData="Y" elementKey="LastEngagedSource" createdBy="admin" modifiedBy="saibaba" createdOn="2020-08-05 09:05:32.0" modifiedOn="2020-09-18 14:31:11.0" lastUpdatedStamp="2020-09-18 14:31:11.0" lastUpdatedTxStamp="2020-09-18 14:31:11.0" createdStamp="2020-08-05 09:05:32.0" createdTxStamp="2020-08-05 09:05:32.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10060" appBarElementSeqNum="1" appBarElementName="Account Start Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10060_PERM" isDisplayElementData="Y" elementKey="account-since" createdBy="admin" modifiedBy="admin" createdOn="2020-08-05 09:09:11.0" modifiedOn="2024-06-05 08:32:52.0" lastUpdatedStamp="2024-06-05 08:32:52.0" lastUpdatedTxStamp="2024-06-05 08:32:52.0" createdStamp="2020-08-05 09:09:11.0" createdTxStamp="2020-08-05 09:09:11.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10105" appBarElementSeqNum="5" appBarElementName="Most Recent Campaign" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10105_PERM" isDisplayElementData="Y" elementKey="recent-campaign" createdBy="admin" modifiedBy="saibaba" createdOn="2020-09-18 11:55:52.0" modifiedOn="2020-09-18 14:28:44.0" lastUpdatedStamp="2020-09-18 14:28:44.0" lastUpdatedTxStamp="2020-09-18 14:28:44.0" createdStamp="2020-09-18 11:55:52.0" createdTxStamp="2020-09-18 11:55:52.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10106" appBarElementSeqNum="23" appBarElementName="No of Opp Expire in Next 7 days" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="ACCOUNT_KPI_BAR_10106_PERM" isDisplayElementData="Y" elementKey="expire-opportunity-count" createdBy="admin" modifiedBy="saibaba" createdOn="2020-09-18 11:58:29.0" modifiedOn="2020-09-18 14:32:32.0" lastUpdatedStamp="2020-09-18 14:32:32.0" lastUpdatedTxStamp="2020-09-18 14:32:32.0" createdStamp="2020-09-18 11:58:29.0" createdTxStamp="2020-09-18 11:58:29.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10107" appBarElementSeqNum="22" appBarElementName="Mood" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="ACCOUNT_KPI_BAR_10107_PERM" isDisplayElementData="Y" createdBy="admin" modifiedBy="saibaba" createdOn="2020-09-18 12:06:57.0" modifiedOn="2020-09-18 14:31:54.0" lastUpdatedStamp="2020-09-18 14:31:54.0" lastUpdatedTxStamp="2020-09-18 14:31:54.0" createdStamp="2020-09-18 12:06:57.0" createdTxStamp="2020-09-18 12:06:57.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10220" appBarElementSeqNum="6" appBarElementName="Open Orders Count" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10220_PERM" isDisplayElementData="Y" elementKey="no_of_order" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 05:26:34.0" modifiedOn="2024-06-05 08:34:03.0" lastUpdatedStamp="2024-06-05 08:34:03.0" lastUpdatedTxStamp="2024-06-05 08:34:03.0" createdStamp="2022-02-22 05:26:34.0" createdTxStamp="2022-02-22 05:26:34.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10221" appBarElementSeqNum="7" appBarElementName="30 Past" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10221_PERM" isDisplayElementData="Y" elementKey="BAL_30" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 05:27:44.0" modifiedOn="2022-02-22 05:28:16.0" lastUpdatedStamp="2022-02-22 05:28:16.0" lastUpdatedTxStamp="2022-02-22 05:28:16.0" createdStamp="2022-02-22 05:27:44.0" createdTxStamp="2022-02-22 05:27:44.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10222" appBarElementSeqNum="8" appBarElementName="60 Past" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10222_PERM" isDisplayElementData="Y" elementKey="BAL_60" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 05:28:05.0" modifiedOn="2022-02-22 05:28:05.0" lastUpdatedStamp="2022-02-22 05:28:05.0" lastUpdatedTxStamp="2022-02-22 05:28:05.0" createdStamp="2022-02-22 05:28:05.0" createdTxStamp="2022-02-22 05:28:05.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10223" appBarElementSeqNum="9" appBarElementName="90 Past" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10223_PERM" isDisplayElementData="Y" elementKey="BAL_90" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 05:29:40.0" modifiedOn="2022-02-22 05:29:40.0" lastUpdatedStamp="2022-02-22 05:29:40.0" lastUpdatedTxStamp="2022-02-22 05:29:40.0" createdStamp="2022-02-22 05:29:40.0" createdTxStamp="2022-02-22 05:29:40.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10224" appBarElementSeqNum="10" appBarElementName="120 Past" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10224_PERM" isDisplayElementData="Y" elementKey="BAL_120" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 05:29:58.0" modifiedOn="2022-02-22 05:29:58.0" lastUpdatedStamp="2022-02-22 05:29:58.0" lastUpdatedTxStamp="2022-02-22 05:29:58.0" createdStamp="2022-02-22 05:29:58.0" createdTxStamp="2022-02-22 05:29:58.0"/>
+    <AppBarElements appBarId="ACCOUNT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10225" appBarElementSeqNum="11" appBarElementName="150 Past" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACCOUNT_KPI_BAR_10225_PERM" isDisplayElementData="Y" elementKey="BAL_150" createdBy="admin" modifiedBy="admin" createdOn="2022-02-22 05:30:17.0" modifiedOn="2022-02-22 05:30:17.0" lastUpdatedStamp="2022-02-22 05:30:17.0" lastUpdatedTxStamp="2022-02-22 05:30:17.0" createdStamp="2022-02-22 05:30:17.0" createdTxStamp="2022-02-22 05:30:17.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10070" appBarElementSeqNum="1" appBarElementName="Account/Lead Name" appBarElementActive="Y" appBarElementPosition="L" appBarElementType="LINK" appBarElementCustomClass="h2 text-info disabled" securityPermissionId="ACT_KPI_BAR_10070_PERM" isDisplayElementData="Y" elementKey="name" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-17 13:49:47.0" modifiedOn="2020-08-17 13:49:47.0" lastUpdatedStamp="2020-08-17 13:49:47.0" lastUpdatedTxStamp="2020-08-17 13:49:47.0" createdStamp="2020-08-17 13:49:47.0" createdTxStamp="2020-08-17 13:49:47.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10071" appBarElementSeqNum="2" appBarElementName="View Alerts" appBarElementActive="Y" appBarElementFavIcon="fa fa-bell-o custicons" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACT_KPI_BAR_10071_PERM" isDisplayElementData="N" elementKey="alerts" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-17 22:59:58.0" modifiedOn="2020-08-18 01:15:46.0" lastUpdatedStamp="2020-08-18 01:15:46.0" lastUpdatedTxStamp="2020-08-18 01:15:46.0" createdStamp="2020-08-17 22:59:58.0" createdTxStamp="2020-08-17 22:59:58.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10072" appBarElementSeqNum="3" appBarElementName="Create Note" appBarElementActive="Y" appBarElementIconUrl="/bootstrap/images/add-customer-alert.png" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACT_KPI_BAR_10072_PERM" isDisplayElementData="N" elementKey="addNotes" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-17 23:01:09.0" modifiedOn="2020-08-18 01:16:24.0" lastUpdatedStamp="2020-08-18 01:16:24.0" lastUpdatedTxStamp="2020-08-18 01:16:24.0" createdStamp="2020-08-17 23:01:09.0" createdTxStamp="2020-08-17 23:01:09.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10073" appBarElementSeqNum="4" appBarElementName="Create SR" appBarElementActive="Y" appBarElementFavIcon="fa fa-plus-square custicons" appBarElementPosition="L" appBarElementType="LINK" appBarElementTargetUrl="/sr-portal/control/addservicerequest?externalLoginKey=${externalLoginKey}" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACT_KPI_BAR_10073_PERM" isDisplayElementData="N" elementKey="addServiceRequest" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-17 23:02:06.0" modifiedOn="2020-08-18 01:16:10.0" lastUpdatedStamp="2020-08-18 01:16:10.0" lastUpdatedTxStamp="2020-08-18 01:16:10.0" createdStamp="2020-08-17 23:02:06.0" createdTxStamp="2020-08-17 23:02:06.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10074" appBarElementSeqNum="5" appBarElementName="Create Opportunity" appBarElementActive="Y" appBarElementIconUrl="/bootstrap/images/add-opportunities.png" appBarElementPosition="L" appBarElementType="LINK" appBarElementTargetUrl="/opportunity-portal/control/createOpportunity?externalLoginKey=${externalLoginKey}" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACT_KPI_BAR_10074_PERM" isDisplayElementData="N" elementKey="addOpportunity" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-18 01:12:22.0" modifiedOn="2020-08-18 01:12:22.0" lastUpdatedStamp="2020-08-18 01:12:22.0" lastUpdatedTxStamp="2020-08-18 01:12:22.0" createdStamp="2020-08-18 01:12:22.0" createdTxStamp="2020-08-18 01:12:22.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10075" appBarElementSeqNum="6" appBarElementName="Create Activity" appBarElementActive="Y" appBarElementIconUrl="/bootstrap/images/add-activity.png" appBarElementPosition="L" appBarElementType="DROPDOWN" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACT_KPI_BAR_10075_PERM" isDisplayElementData="Y" elementKey="addActivity" createdBy="nishana" modifiedBy="nishana" createdOn="2020-08-18 01:13:19.0" modifiedOn="2020-08-18 01:13:19.0" lastUpdatedStamp="2020-08-18 01:13:19.0" lastUpdatedTxStamp="2020-08-18 01:13:19.0" createdStamp="2020-08-18 01:13:19.0" createdTxStamp="2020-08-18 01:13:19.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10076" appBarElementSeqNum="7" appBarElementName="Email Address" appBarElementActive="Y" appBarElementFavIcon="fa fa-envelope fa-1 " appBarElementPosition="R" appBarElementType="LINK" appBarElementTargetUrl="/account-portal/control/addEmail?partyId=${partyId}" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="ACT_KPI_BAR_10076_PERM" isDisplayElementData="Y" elementKey="primaryEmail" createdBy="nishana" modifiedBy="PrabhakaraRao" createdOn="2020-08-18 01:14:29.0" modifiedOn="2020-09-01 08:30:19.0" lastUpdatedStamp="2020-09-01 08:30:19.0" lastUpdatedTxStamp="2020-09-01 08:30:19.0" createdStamp="2020-08-18 01:14:29.0" createdTxStamp="2020-08-18 01:14:29.0"/>
+	<AppBarElements appBarId="ACT_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10077" appBarElementSeqNum="8" appBarElementName="Contact Number" appBarElementActive="Y" appBarElementFavIcon="fa fa-phone fa-1" appBarElementPosition="R" appBarElementType="LINK" appBarElementTargetUrl="/account-portal/control/createPhoneCallActivity?partyId=${partyId}" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="ACT_KPI_BAR_10077_PERM" isDisplayElementData="Y" elementKey="primaryPhone" createdBy="nishana" modifiedBy="PrabhakaraRao" createdOn="2020-08-18 01:15:20.0" modifiedOn="2020-09-01 08:29:56.0" lastUpdatedStamp="2020-09-01 08:29:56.0" lastUpdatedTxStamp="2020-09-01 08:29:56.0" createdStamp="2020-08-18 01:15:20.0" createdTxStamp="2020-08-18 01:15:20.0"/>
+	<AppBarElements appBarId="ACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10080" appBarElementSeqNum="1" appBarElementName="Days Since Last Call" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACT_KPI_BAR_10080_PERM" isDisplayElementData="Y" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-08-18 03:33:50.0" modifiedOn="2020-08-18 03:33:50.0" lastUpdatedStamp="2020-08-18 03:33:50.0" lastUpdatedTxStamp="2020-08-18 03:33:50.0" createdStamp="2020-08-18 03:33:50.0" createdTxStamp="2020-08-18 03:33:50.0"/>
+	<AppBarElements appBarId="ACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10081" appBarElementSeqNum="2" appBarElementName="Days Since Last Conversation" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="ACT_KPI_BAR_10081_PERM" isDisplayElementData="Y" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-08-18 03:34:35.0" modifiedOn="2020-08-18 03:34:35.0" lastUpdatedStamp="2020-08-18 03:34:35.0" lastUpdatedTxStamp="2020-08-18 03:34:35.0" createdStamp="2020-08-18 03:34:35.0" createdTxStamp="2020-08-18 03:34:35.0"/>
+	<AppBarElements appBarId="MY_ACCOUNT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10020" appBarElementSeqNum="1" appBarElementName="Active Accounts" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-ticket text-light" appBarElementColor="bg-s" appBarElementPosition="L" securityPermissionId="MY_ACCOUNT_DASH_10020_PERM" isDisplayElementData="Y" elementKey="account-active" createdBy="admin" modifiedBy="admin" createdOn="2020-07-15 14:54:22.0" modifiedOn="2020-10-12 10:05:55.0" lastUpdatedStamp="2020-10-12 10:05:55.0" lastUpdatedTxStamp="2020-10-12 10:05:55.0" createdStamp="2020-07-15 14:54:22.0" createdTxStamp="2020-07-15 14:54:21.0"/>
+	<AppBarElements appBarId="MY_ACCOUNT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10021" appBarElementSeqNum="3" appBarElementName="Open Opportunities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-users text-light" appBarElementColor="bg-w" appBarElementPosition="L" securityPermissionId="MY_ACCOUNT_DASH_10021_PERM" isDisplayElementData="Y" elementKey="account-open-oppo" createdBy="admin" modifiedBy="admin" createdOn="2020-07-15 14:56:41.0" modifiedOn="2020-10-12 10:06:22.0" lastUpdatedStamp="2020-10-12 10:06:22.0" lastUpdatedTxStamp="2020-10-12 10:06:22.0" createdStamp="2020-07-29 07:25:13.0" createdTxStamp="2020-07-29 07:25:13.0"/>
+	<AppBarElements appBarId="MY_ACCOUNT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10022" appBarElementSeqNum="4" appBarElementName="Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-exclamation-triangle text-light" appBarElementColor="bg-o" appBarElementPosition="L" securityPermissionId="MY_ACCOUNT_DASH_10022_PERM" isDisplayElementData="Y" elementKey="account-open-act" createdBy="admin" modifiedBy="admin" createdOn="2020-07-15 14:58:08.0" modifiedOn="2020-10-12 10:06:30.0" lastUpdatedStamp="2020-10-12 10:06:30.0" lastUpdatedTxStamp="2020-10-12 10:06:30.0" createdStamp="2020-07-29 07:25:13.0" createdTxStamp="2020-07-29 07:25:13.0"/>
+	<AppBarElements appBarId="MY_ACCOUNT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10210" appBarElementSeqNum="2" appBarElementName="Open Service Requests" appBarElementActive="N" appBarElementNolabel="N" appBarElementFavIcon="fa-bell text-light" appBarElementColor="bg-i" appBarElementPosition="L" securityPermissionId="MY_ACCOUNT_DASH_10210_PERM" isDisplayElementData="Y" elementKey="account-open-sr" createdBy="admin" modifiedBy="admin" createdOn="2020-09-30 16:59:57.0" modifiedOn="2022-02-17 05:05:45.0" lastUpdatedStamp="2022-02-17 05:05:45.0" lastUpdatedTxStamp="2022-02-17 05:05:45.0" createdStamp="2020-09-30 16:59:57.0" createdTxStamp="2020-09-30 16:59:56.0"/>
+	<AppBarElements appBarId="MY_ACCOUNT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10211" appBarElementSeqNum="5" appBarElementName="Orders" appBarElementActive="N" appBarElementNolabel="N" appBarElementFavIcon="fa-bell text-light" appBarElementColor="bg-w" appBarElementPosition="L" securityPermissionId="MY_ACCOUNT_DASH_10211_PERM" isDisplayElementData="Y" elementKey="account-open-order" createdBy="admin" modifiedBy="saibaba" createdOn="2020-09-30 17:00:49.0" modifiedOn="2020-10-05 07:07:59.0" lastUpdatedStamp="2020-10-05 07:07:59.0" lastUpdatedTxStamp="2020-10-05 07:07:59.0" createdStamp="2020-09-30 17:00:49.0" createdTxStamp="2020-09-30 17:00:49.0"/>
+	<AppBarElements appBarId="MY_ACT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10160" appBarElementSeqNum="1" appBarElementName="Open Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa-calendar text-light" appBarElementColor="bg-s" appBarElementPosition="L" securityPermissionId="MY_ACT_DASH_10160_PERM" isDisplayElementData="Y" elementKey="activity-open" createdBy="admin" modifiedBy="admin" createdOn="2020-09-17 19:00:31.0" modifiedOn="2020-09-17 19:00:31.0" lastUpdatedStamp="2020-09-17 19:00:31.0" lastUpdatedTxStamp="2020-09-17 19:00:31.0" createdStamp="2020-09-17 19:00:31.0" createdTxStamp="2020-09-17 19:00:31.0"/>
+	<AppBarElements appBarId="MY_ACT_DASH" appBarTypeId="DASHBOARD" appBarElementId="10161" appBarElementSeqNum="2" appBarElementName="Completed Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa-users text-light" appBarElementColor="bg-w" appBarElementPosition="L" securityPermissionId="MY_ACT_DASH_10161_PERM" isDisplayElementData="Y" elementKey="activity-completed" createdBy="admin" modifiedBy="admin" createdOn="2020-09-17 19:01:31.0" modifiedOn="2020-09-17 19:01:31.0" lastUpdatedStamp="2020-09-17 19:01:31.0" lastUpdatedTxStamp="2020-09-17 19:01:31.0" createdStamp="2020-09-17 19:01:31.0" createdTxStamp="2020-09-17 19:01:31.0"/>
+	
+		<AppBar appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarName="Action bar" appBarNameUilabel="Action bar" appBarDescription="Action bar" appBarService="" appBarStatus="ENABLED" appBarSecurityGroup="ACTION_APP_BAR_GRP" appBarDirection="HORIZONTAL" appBarHeight="100" appBarWidth="100" appBarMaxElements="20" appBarAccessLevel="SYSTEM_LEVEL" appBarDataLevel="" appBarIsServiceBased="" createdBy="admin" modifiedBy="admin" approvedBy="admin" approvedDate="2020-07-06 15:50:54" autoApprove="" createdOn="2020-07-06 15:50:54" modifiedOn="2022-09-19 11:33:07" geoId="" appBarRefreshType="" appBarRefreshMinRate="" defaultMessage="" lastUpdatedStamp="2022-09-19 11:33:07" createdTxStamp="2020-07-06 15:50:54" lastUpdatedTxStamp="2022-09-19 11:33:07" createdStamp="2020-07-06 15:50:54"/>
+
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="1" elementId="E10000" elementKey="name" elementName="Account/Contact/Customer Name" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="2" elementId="E10001" elementKey="portfolio" elementName="Portfolio" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="3" elementId="E10002" elementKey="dashboard" elementName="Dashboard" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="4" elementId="E10003" elementKey="alerts" elementName="Alerts" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="5" elementId="E10006" elementKey="addOpportunity" elementName="Add Opportunity" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="6" elementId="E10005" elementKey="addServiceRequest" elementName="Add Service Request" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="7" elementId="E10004" elementKey="addNotes" elementName="Add Notes" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="8" elementId="E10007" elementKey="addActivity" elementName="Add Activity" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="9" elementId="E10008" elementKey="phoneSolicitation" elementName="Phone" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="10" elementId="E10009" elementKey="emailSolicitation" elementName="Email" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="11" elementId="E10010" elementKey="primaryEmail" elementName="Email Address" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="ACTION_APP_BAR" fieldSeqNo="12" elementId="E10011" elementKey="primaryPhone" elementName="Contact Number" isDisplayElementData="Y"/>
+
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="10230" appBarElementSeqNum="13" appBarElementName="Important Notes" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-sticky-note-o" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="ACTION_APP_BAR_10230_PERM" isDisplayElementData="Y" elementKey="ab-im-notes" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 05:50:29.0" modifiedOn="2022-09-19 11:34:50.0" lastUpdatedStamp="2022-09-19 11:34:50.0" lastUpdatedTxStamp="2022-09-19 11:34:50.0" createdStamp="2022-09-19 05:50:29.0" createdTxStamp="2022-09-19 05:50:29.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="10240" appBarElementSeqNum="14" appBarElementName="Open Service Request" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-ticket marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="ACTION_APP_BAR_10240_PERM" isDisplayElementData="Y" elementKey="ab-sr" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 11:37:28.0" modifiedOn="2022-09-19 11:37:28.0" lastUpdatedStamp="2022-09-19 11:37:28.0" lastUpdatedTxStamp="2022-09-19 11:37:28.0" createdStamp="2022-09-19 11:37:28.0" createdTxStamp="2022-09-19 11:37:28.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="10241" appBarElementSeqNum="15" appBarElementName="Open Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-tasks marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="ACTION_APP_BAR_10241_PERM" isDisplayElementData="Y" elementKey="ab-activity" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 11:41:25.0" modifiedOn="2022-09-19 11:50:09.0" lastUpdatedStamp="2022-09-19 11:50:09.0" lastUpdatedTxStamp="2022-09-19 11:50:09.0" createdStamp="2022-09-19 11:41:25.0" createdTxStamp="2022-09-19 11:41:25.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="10242" appBarElementSeqNum="16" appBarElementName="Open Opportunity" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-usd marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="ACTION_APP_BAR_10242_PERM" isDisplayElementData="Y" elementKey="ab-oppo" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 11:47:18.0" modifiedOn="2022-09-19 11:47:18.0" lastUpdatedStamp="2022-09-19 11:47:18.0" lastUpdatedTxStamp="2022-09-19 11:47:18.0" createdStamp="2022-09-19 11:47:18.0" createdTxStamp="2022-09-19 11:47:18.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10000" appBarElementSeqNum="1" appBarElementName="Account/Contact/Customer Name" appBarElementUilabel="Account/Contact/Customer Name" appBarElementActive="Y" appBarElementPosition="L" appBarElementCustomClass="h2 text-info disabled" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="name" createdBy="admin" modifiedBy="PrabhakaraRao" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-19 01:30:06.0" lastUpdatedStamp="2020-08-19 01:30:06.0" lastUpdatedTxStamp="2020-08-19 01:30:06.0" createdStamp="2020-06-24 19:11:41.0" createdTxStamp="2020-06-24 19:11:41.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10001" appBarElementSeqNum="2" appBarElementName="Portfolio" appBarElementUilabel="Portfolio" appBarElementActive="N" appBarElementFavIcon="fa fa-briefcase custicons" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="portfolio" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-24 09:11:35.0" lastUpdatedStamp="2020-09-24 09:11:35.0" lastUpdatedTxStamp="2020-09-24 09:11:35.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10002" appBarElementSeqNum="3" appBarElementName="Dashboard" appBarElementUilabel="Dashboard" appBarElementActive="N" appBarElementFavIcon="fa fa-area-chart custicons" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="dashboard" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-24 09:11:50.0" lastUpdatedStamp="2020-09-24 09:11:50.0" lastUpdatedTxStamp="2020-09-24 09:11:50.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10003" appBarElementSeqNum="4" appBarElementName="Alerts" appBarElementUilabel="Alerts" appBarElementActive="N" appBarElementFavIcon="fa fa-bell-o custicons" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="alerts" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-24 09:12:06.0" lastUpdatedStamp="2020-09-24 09:12:06.0" lastUpdatedTxStamp="2020-09-24 09:12:06.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10004" appBarElementSeqNum="7" appBarElementName="Add Notes" appBarElementUilabel="Add Notes" appBarElementActive="N" appBarElementIconUrl="/bootstrap/images/add-customer-alert.png" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="addNotes" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-24 14:24:50.0" lastUpdatedStamp="2020-09-24 14:24:50.0" lastUpdatedTxStamp="2020-09-24 14:24:50.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10005" appBarElementSeqNum="6" appBarElementName="Add Service Request" appBarElementUilabel="Add Service Request" appBarElementActive="Y" appBarElementFavIcon="fa fa fa-ticket cust-icon" appBarElementPosition="L" appBarElementType="LINK" appBarElementTargetUrl="/ticket-portal/control/addservicerequest?partyId=${partyId}&amp;externalLoginKey=${externalLoginKey}" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="addServiceRequest" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2022-09-23 04:06:55.0" lastUpdatedStamp="2022-09-23 04:06:55.0" lastUpdatedTxStamp="2022-09-23 04:06:55.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10006" appBarElementSeqNum="5" appBarElementName="Add Opportunity" appBarElementUilabel="Add Opportunity" appBarElementActive="Y" appBarElementIconUrl="/bootstrap/images/add-opportunities.png" appBarElementFavIcon="fa fa fa-usd cust-icon" appBarElementPosition="L" appBarElementType="LINK" appBarElementTargetUrl="/opportunity-portal/control/createOpportunity?partyId=${partyId}&amp;externalLoginKey=${externalLoginKey}" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="addOpportunity" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2022-09-23 04:02:45.0" lastUpdatedStamp="2022-09-23 04:02:45.0" lastUpdatedTxStamp="2022-09-23 04:02:45.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10007" appBarElementSeqNum="8" appBarElementName="Add Activity" appBarElementUilabel="Add Activity" appBarElementActive="Y" appBarElementIconUrl="/bootstrap/images/add-activity.png" appBarElementFavIcon="fa fa-calendar cust-icon" appBarElementPosition="L" appBarElementType="DROPDOWN" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="addActivity" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2022-09-23 04:07:26.0" lastUpdatedStamp="2022-09-23 04:07:26.0" lastUpdatedTxStamp="2022-09-23 04:07:26.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10008" appBarElementSeqNum="9" appBarElementName="Phone" appBarElementUilabel="Phone" appBarElementActive="N" appBarElementPosition="R" appBarElementType="LABEL" appBarElementCustomClass="bglight text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="phoneSolicitation" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-24 09:18:16.0" lastUpdatedStamp="2020-09-24 09:18:16.0" lastUpdatedTxStamp="2020-09-24 09:18:16.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10009" appBarElementSeqNum="10" appBarElementName="Email" appBarElementUilabel="Email" appBarElementActive="N" appBarElementPosition="R" appBarElementType="LABEL" appBarElementCustomClass="bglight text-dark left-icones mr-5" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="emailSolicitation" createdBy="admin" modifiedBy="PrabhakaraRao" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-18 15:14:37.0" lastUpdatedStamp="2020-08-18 15:14:37.0" lastUpdatedTxStamp="2020-08-18 15:14:37.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10010" appBarElementSeqNum="11" appBarElementName="Email Address" appBarElementUilabel="Email Address" appBarElementActive="Y" appBarElementFavIcon="fa fa-envelope fa-1 " appBarElementPosition="R" appBarElementType="LINK" appBarElementTargetUrl="/account-portal/control/addEmail?partyId=${partyId}" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="primaryEmail" createdBy="admin" modifiedBy="anand" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-08-25 06:10:17.0" lastUpdatedStamp="2020-08-25 06:10:17.0" lastUpdatedTxStamp="2020-08-25 06:10:17.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="ACTION_APP_BAR" appBarTypeId="ACTION" appBarElementId="E10011" appBarElementSeqNum="12" appBarElementName="Contact Number" appBarElementUilabel="Contact Number" appBarElementActive="Y" appBarElementFavIcon="fa fa-phone fa-1" appBarElementPosition="R" appBarElementType="LINK" appBarElementTargetUrl="/account-portal/control/createPhoneCallActivity?partyId=${partyId}" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="primaryPhone" createdBy="admin" modifiedBy="saibaba" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-25 04:56:51.0" lastUpdatedStamp="2020-09-25 04:56:51.0" lastUpdatedTxStamp="2020-09-25 04:56:51.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	
+  <GridUserPreferences instanceId="ACCOUNTS" userId="admin" role="ADMIN" description="Account Home &amp; Find Grid Fields List" name="Account Home &amp; Find Grid Fields List" appliedRequestVerb="post" appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" lastUpdatedStamp="2024-05-29 05:27:08.0" lastUpdatedTxStamp="2024-05-29 05:27:08.0" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Account Name",
+		"field": "groupName","filter": true,"floatingFilter": true,"headerCheckboxSelection": true, "checkboxSelection": true,"headerCheckboxSelectionFilteredOnly": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter",
+		"lockPosition": true,
+		"cellRenderer":"groupName"
+	}, {
+		"headerName": "Status",
+		"field": "statusDescription","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Primary Contact",
+		"field": "primaryContactName","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Primary Contact Email",
+		"field": "primaryContactEmail","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"primaryContactEmail"
+	}, {
+		"headerName": "Primary Contact Phone",
+		"field": "primaryContactPhone","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"primaryContactPhone"
+	},{
+		"headerName": "Account Phone",
+		"field": "contactNumber","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"contactNumber"
+	}, {
+		"headerName": "Source",
+		"field": "dataSourceDesc","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Account Email","filter": true,"floatingFilter": true,
+		"field": "infoString","minWidth":200,
+		"sortable": true,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"infoString"
+	},{
+		"headerName": "RM","filter": true,"floatingFilter": true,
+		"field": "relationshipManager","minWidth":200,
+		"sortable": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "City",
+		"field": "city","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	},{
+		"headerName": "State",
+		"field": "state","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Country",
+		"field": "country","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	},  {
+		"headerName": "Postal Code",
+		"field": "postalCode","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	},  {
+		"headerName": "Time Zone",
+		"field": "timeZoneDescription","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	},   {
+		"headerName": "Preferred Currency",
+		"field": "uomDescription","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Industry",
+		"field": "industryDescription","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth":200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "iCRM Account ID","minWidth":200,
+		"field": "partyId","filter": true,"floatingFilter": true,
+		"sortable": true
+	}, {
+		"headerName": "External ID","minWidth":200,
+		"field": "externalId","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"filter": "agTextColumnFilter"
+	}],
+	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 15,
+	"filter": true,	"rowSelection": "multiple",
+	"floatingFilter": true,
+	"domLayout": "autoHeight","components": { "groupName": groupName,"infoString":infoString,"contactNumber":contactNumber,"primaryContactEmail":primaryContactEmail,"primaryContactPhone":primaryContactPhone},
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Account.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+	<GridUserPreferences instanceId="ACCOUNT_PICKER" userId="admin" role="ADMIN" description="Account List" name="Account List" appliedRequestVerb="post" lastUpdatedStamp="2023-02-09 18:32:54.0" lastUpdatedTxStamp="2023-02-09 18:32:54.0" createdStamp="2023-02-06 19:30:43.0" createdTxStamp="2023-02-06 19:30:43.0">
+		<gridOptionsJsString>
+			<![CDATA[{
+    "columnDefs": [{
+        "headerName": "Party Id",
+        "field": "partyId",
+        "sortable": false,"filter": true,"floatingFilter": true,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter",
+        "cellRenderer": params =>
+	 `<a href="#" onclick="setPickerWindowValue('${params.value}', '${params.data.partyId}');">${params.data.partyId}</a>`
+	}, {
+        "headerName": "Group Name",
+        "field": "groupName",
+        "sortable": false,"filter": true,"floatingFilter": true,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "External Id",
+        "field": "externalId","filter": true,"floatingFilter": true,
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "Status Id",
+        "field": "statusId","filter": true,"floatingFilter": true,
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "Phone Number",
+        "field": "phoneNumber","filter": true,"floatingFilter": true,
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "Info String",
+        "field": "infoString","filter": true,"floatingFilter": true,
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "City","filter": true,"floatingFilter": true,
+        "field": "city",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "State",
+        "field": "state","filter": true,"floatingFilter": true,
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }],
+    "defaultColDef": {
+        "flex": 1,
+        "wrapText": true,
+        "autoHeight": true,
+        "sortable": true
+    },
+    "scrollbarWidth": 20,
+    "enableBrowserTooltips": true,
+    "pagination": true,
+    "paginationPageSize": 10,
+    "filter": true,
+    "floatingFilter": true,
+    "domLayout": "autoHeight",
+    "custom": {
+        "dataUniqueIdField": "partyId",
+        "rowSelection": "multiple",
+        "csvExportOptions": {
+            "fileName": "List_of_Accounts.csv",
+            "skipHeader": false
+        }
+    }
+}
+]]>
+		</gridOptionsJsString>
+	</GridUserPreferences>
+	<GridUserPreferences instanceId="CHILD_ACCOUNTS" userId="admin" role="ADMIN" description="Account List" name="Child Accounts List" appliedRequestVerb="post" lastUpdatedStamp="2023-02-09 21:44:28.0" lastUpdatedTxStamp="2023-02-09 21:44:28.0" createdStamp="2023-02-06 19:30:43.0" createdTxStamp="2023-02-06 19:30:43.0">
+		<gridOptionsJsString>
+			<![CDATA[{
+    "columnDefs": [{
+        "headerName": "Party Id","filter": true,"floatingFilter": true,
+        "field": "partyId",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter",
+        "cellRenderer": params =>
+	 `<a href="#" onclick="setPickerWindowValue('${params.value}', '${params.data.partyId}');">${params.data.partyId}</a>`
+	}, {
+        "headerName": "Group Name",
+        "field": "groupName","filter": true,"floatingFilter": true,
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "External Id","filter": true,"floatingFilter": true,
+        "field": "externalId",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "Status Id","filter": true,"floatingFilter": true,
+        "field": "statusId",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }],
+    "defaultColDef": {
+        "flex": 1,
+        "wrapText": true,
+        "autoHeight": true,
+        "sortable": true
+    },
+    "scrollbarWidth": 20,
+    "enableBrowserTooltips": true,
+    "pagination": true,
+    "paginationPageSize": 10,
+    "filter": true,
+    "floatingFilter": true,
+    "domLayout": "autoHeight",
+    "custom": {
+        "dataUniqueIdField": "partyId",
+        "rowSelection": "multiple",
+        "csvExportOptions": {
+            "fileName": "List_of_Accounts.csv",
+            "skipHeader": false
+        }
+    }
+}
+]]>
+		</gridOptionsJsString>
+	</GridUserPreferences>
+	<GridUserPreferences instanceId="CHILD_ACCOUNT_PICKER" userId="admin" role="ADMIN" description="Child Account List" name="Child Account List" appliedRequestVerb="post" lastUpdatedStamp="2023-02-07 12:30:37.0" lastUpdatedTxStamp="2023-02-07 12:30:37.0" createdStamp="2023-02-06 19:30:43.0" createdTxStamp="2023-02-06 19:30:43.0">
+		<gridOptionsJsString>
+			<![CDATA[{
+    "columnDefs": [{
+        "headerName": "Party Id",
+        "field": "partyId",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter",
+        "cellRenderer": params => `<a href="/account-portal/control/viewAccount?partyId=${params.value}" target="_blank">${params.value}</a>`
+    }, {
+        "headerName": "Party Name",
+        "field": "partyName",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "External Id",
+        "field": "externalId",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }, {
+        "headerName": "Location",
+        "field": "location_desc",
+        "sortable": false,
+        "minWidth": 200,
+        "filter": "agTextColumnFilter"
+    }],
+    "defaultColDef": {
+        "flex": 1,
+        "wrapText": true,
+        "autoHeight": true,
+        "sortable": true
+    },
+    "scrollbarWidth": 20,
+    "enableBrowserTooltips": true,
+    "pagination": true,
+    "paginationPageSize": 10,
+    "filter": true,
+    "floatingFilter": true,
+    "domLayout": "autoHeight",
+    "custom": {
+        "dataUniqueIdField": "partyId",
+        "rowSelection": "multiple",
+        "csvExportOptions": {
+            "fileName": "List_of_ChildAccounts.csv",
+            "skipHeader": false
+        }
+    }
+}
+]]>
+		</gridOptionsJsString>
+	</GridUserPreferences>
+	 <GridUserPreferences instanceId="INVITE_USERS_LIST" userId="admin" role="ADMIN" description="View Account - Onboarding Tab Grid Fields" name="View Account - Onboarding Tab Grid Fields" appliedRequestUrl="/account-portal/control/inviteUsersList" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 12:21:59.0" lastUpdatedTxStamp="2024-03-06 12:21:59.0" createdStamp="2020-11-11 18:13:23.0" createdTxStamp="2020-11-11 18:13:23.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Contact Name",
+		"field": "name",
+		"sortable": true,
+		"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter",
+		"cellRenderer": function(params) {
+			return '<a target="_blank" href="/contact-portal/control/viewContact?partyId=' + params.data.invitePartyId + '&domainEntityType=' + "CONTACT" + '">' + params.data.name + '</a>';
+
+		}
+	}, {
+		"headerName": "Primary",
+		"field": "isPrimary",
+		"sortable": true,
+		"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Primary Email",
+		"field": "primaryContactEmail",
+		"sortable": true,
+		"filter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Primary Phone",
+		"field": "primaryContactPhone",
+		"sortable": true,
+		"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Designation",
+		"field": "designation",
+		"sortable": true,
+		"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Enable/Disable Login",
+		"sortable": false,
+		"filter": false,
+		"minWidth": 200,
+		"cellRenderer": function(params) {
+			if (params.data.enabled != null && params.data.enabled != "" && params.data.enabled == "Y")
+
+				return '<a  href="#onboarding" class="btn btn-xs btn-primary" onclick="disableLogin(\'' + params.data.invitePartyId + '\')"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>' + " Disable Login" + '</a>';
+			else
+				return '<a  href="#onboarding" class="btn btn-xs btn-primary" onclick="enableLogin(\'' + params.data.invitePartyId + '\')"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>' + " Enable Login" + '</a>';
+		}
+	}, {
+		"headerName": "Reset Password",
+		"field": "",
+		"sortable": false,
+		"filter": false,
+		"minWidth": 200,
+		"cellRenderer": function(params) {
+			if (params.data.enabled != null && params.data.enabled != "" && params.data.enabled == "Y")
+				//return '<span class=" btn btn-xs btn-primary" title="" onclick="resetPasswordForContact(\''+params.data.invitePartyId+'\')"></span>'
+				return '<a  href="#onboarding" class="btn btn-xs btn-primary" onclick="resetPasswordForContact(\'' + params.data.invitePartyId + '\')"><i class="fa fa-key" aria-hidden="true"></i>' + " Reset Password" + '</a>';
+		}
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+
+		"sortable": true
+	},
+	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "invitePartyId",
+		"rowSelection": "single",
+		"csvExportOptions": {
+			"fileName": "List_Of_InviteUsers.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+    
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-activities" tabName="Activities" isEnabled="Y" tabContent="component://common-portal/widget/activity/ActivityScreens.xml#ListActivity" sequenceNo="10" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-administration" tabName="Administration" isEnabled="N" tabContent="component://account-portal/widget/account/AccountScreens.xml#AdministrationInfo" sequenceNo="18" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-attachments" tabName="Bookmarks and Files" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#Attachments" sequenceNo="12" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-campaigns" tabName="Campaigns" isEnabled="Y" tabContent="component://common-portal/widget/campaign/CampaignScreens.xml#campaignList" sequenceNo="14" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-communicationInfo" tabName="Communication History" isEnabled="Y" favIcon="fa fa-address-book-o fa-1" tabContent="component://common-portal/widget/general/GeneralScreens.xml#CommunicationHistory" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-contactInfo" tabName="Contact Info" isEnabled="Y" tabContent="component://common-portal/widget/contact/ContactScreens.xml#ContactInfo" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-contacts" tabName="Related Parties" isEnabled="Y" tabContent="component://common-portal/widget/contact/ContactScreens.xml#PartyContacts" sequenceNo="5" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-contracts" tabName="Contracts" isEnabled="N" tabContent="component://customer-portal/widget/customer-portalScreens.xml#Contracts" sequenceNo="20" lastUpdatedStamp="2024-07-24 10:26:12.0" lastUpdatedTxStamp="2024-07-24 10:26:12.0" createdStamp="2024-07-24 10:26:12.0" createdTxStamp="2024-07-24 10:26:12.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-details" tabName="Account Profile" isEnabled="Y" tabContent="component://account-portal/widget/account/AccountScreens.xml#ViewAccountProfile" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-invoice" tabName="Invoice" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListInvoices" sequenceNo="6" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-kpiMetrics" tabName="Persona" isEnabled="Y" tabContent="component://account-portal/widget/account/AccountScreens.xml#AccountPersona" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-mergedParties" tabName="Merged Account" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#MergedParties" sequenceNo="15" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-note" tabName="Notes" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListNote" sequenceNo="11" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-onboarding" tabName="Onboarding" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#Onboarding" sequenceNo="13" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-opportunities" tabName="Opportunites" isEnabled="Y" tabContent="component://common-portal/widget/opportunity/OpportunityScreens.xml#ListOpportunity" sequenceNo="8" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-orders" tabName="Orders" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListOrder" sequenceNo="7" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="a-sr" tabName="Service Requests" isEnabled="Y" tabContent="component://common-portal/widget/service-request/ServiceRequestScreens.xml#ListServiceRequest" sequenceNo="9" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="quotes" tabName="Quotes" isEnabled="N" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListQuote" sequenceNo="17" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="rebate" tabName="Rebate" isEnabled="N" tabContent="component://common-portal/widget/rebate/RebateScreens.xml#ListRebate" sequenceNo="16" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT" tabId="survey" tabName="Survey" isEnabled="N" tabContent="component://survey-portal/widget/survey/SurveyScreens.xml#SurveyDetails" sequenceNo="19" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT_PERSONA" tabId="customFields" tabName="Attributes" isEnabled="Y" favIcon="fa fa-address-book-o fa-1" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewCustomField" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT_PERSONA" tabId="economicMetric" tabName="Economic Metrics" isEnabled="Y" favIcon="fa fa-history fa-1" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewEconomicMetric" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT_PERSONA" tabId="rfmMetric" tabName="RFM Metrics" isEnabled="Y" favIcon="fa fa-history fa-1" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#RrmMetric" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACCOUNT_PERSONA" tabId="segmentation" tabName="Segmentations" isEnabled="Y" favIcon="fa fa-history fa-1" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewSegmentation" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="act-attachments" tabName="Bookmarks and Files" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ActivityAttachments" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="act-note" tabName="Notes" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListNote" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="activityDetails" tabName="Activity Details" isEnabled="Y" tabContent="component://account-portal/widget/account/AccountScreens.xml#ViewActivityDetails" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="customFields" tabName="Attributes" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewCustomField" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="ACCOUNT_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="rebate" tabName="Rebate" isEnabled="N" tabContent="component://common-portal/widget/rebate/RebateScreens.xml#ListRebate" sequenceNo="5" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+   
+</entity-engine-xml>

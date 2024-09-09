@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>lead.portal Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <!-- Creating Lead -->
+    <service name="ledportal.createLead" engine="java" 
+    	location="org.groupfio.lead.portal.service.LeadServices" invoke="createLead">
+        <description>Creates an Lead, which is a combination of Party, PartyGroup, Person, and PartySupplementalData.
+        Leads can be created by anyone with CRMSFA_ACCOUNT_CREATE permission.</description>
+        <implements service="ledportal.leadInterface"/>
+        <implements service="crmsfa.createBasicContactInfoForParty"/>
+        <attribute name="initialTeamPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="dataSourceId" type="String" mode="IN" optional="true"/>
+        <attribute name="marketingCampaignId" type="String" mode="IN" optional="true"/>
+        <attribute name="forceComplete" type="String" mode="IN" optional="true"/>
+        <attribute name="partyClassificationGroupId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="isExempt" type="String" mode="IN" optional="true"/>
+        <attribute name="partyTaxId" type="String" mode="IN" optional="true"/>
+        <attribute name="accountOrLead" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="timeZoneDesc" type="String" mode="IN" optional="true"/>
+        <attribute name="personResponsible" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="firstName" type="String" mode="IN" optional="true"/>
+       	<attribute name="lastName" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="partyId" type="String" mode="OUT" optional="false"/>
+       	<attribute name="duplicateAccountsWithName" type="Set" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="ledportal.updateLead" engine="java" location="org.groupfio.lead.portal.service.LeadServices" invoke="updateLead">
+		<description>updates an Lead, which is a combination of Party, PartyGroup, Person, and PartySupplementalData. 
+            The userLogin will need CRMSFA_ACCOUNT_UPDATE permission on this account.</description>
+		<implements service="ledportal.leadInterface"/>
+		<attribute name="partyId" type="String" mode="IN" optional="false"/>
+		<attribute name="partyClassificationGroupId" type="String" mode="IN" optional="true"/>
+		<attribute name="isExempt" type="String" mode="IN" optional="true"/>
+		<attribute name="partyTaxId" type="String" mode="IN" optional="true"/>
+		<attribute name="timeZoneDesc" type="String" mode="IN" optional="true"/>
+	</service>
+    
+    <service name="ledportal.leadInterface" engine="interface" location="" invoke="">
+        <!-- Party and PartyGroup fields -->
+        <attribute name="leadName" type="String" mode="IN" optional="false"/>
+        <attribute name="groupNameLocal" type="String" mode="IN" optional="true"/>
+        <attribute name="officeSiteName" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <!-- PartySupplementalData fields -->
+        <attribute name="parentPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="annualRevenue" type="java.math.BigDecimal" mode="IN" optional="true"/>
+        <attribute name="currencyUomId" type="String" mode="IN" optional="true"/>
+        <attribute name="numberEmployees" type="Long" mode="IN" optional="true"/>
+        <attribute name="industryEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="ownershipEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="sicCode" type="String" mode="IN" optional="true"/>
+        <attribute name="tickerSymbol" type="String" mode="IN" optional="true"/>
+        <attribute name="importantNote" type="String" mode="IN" optional="true"/>
+        <attribute name="timeZoneDesc" type="String" mode="IN" optional="true"/>
+        <attribute name="personResponsible" type="String" mode="IN" optional="true"/>
+        <attribute name="basePrimaryEmail" type="String" mode="IN" optional="true"/>
+        <attribute name="basePrimaryPhoneNumber" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="dataSourceId" type="String" mode="IN" optional="true"/>
+        <attribute name="initialTeamPartyId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="ledportal.convertLead" engine="java" location="org.groupfio.lead.portal.service.LeadServices" invoke="convertLead">
+		<description>Convert lead to Account/Customer</description>
+		<attribute name="leadPartyId" type="String" mode="IN" optional="false"/>
+		<attribute name="leadConvertType" type="String" mode="IN" optional="true"/>
+		<attribute name="externalLoginKey" type="String" mode="INOUT" optional="true"/>
+		<attribute name="partyId" type="String" mode="OUT" optional="false"/>
+		<attribute name="convertedRoleTypeId" type="String" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="ledportal.updateLeadStatus" engine="java" location="org.groupfio.lead.portal.service.LeadServices" invoke="updateLeadStatus">
+		<description>Convert lead to Account/Customer</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="partyId" type="String" mode="IN" optional="false"/>
+		<attribute name="statusId" type="String" mode="IN" optional="false"/>
+		<attribute name="oldStatusId" type="String" mode="OUT" optional="false"/>
+	</service>
+	
+</services>

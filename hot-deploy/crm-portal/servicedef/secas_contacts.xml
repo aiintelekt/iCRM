@@ -1,0 +1,9 @@
+
+<service-eca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/service-eca.xsd">
+
+    <!-- after creating a contact, if the initial account was specified, assign the contact to the account -->
+   <!--<eca service="crm.createContact" event="commit">
+        <condition field-name="accountPartyId" operator="is-not-empty"/>
+        <action service="crm.assignContactToAccount" mode="sync"/>
+    </eca>-->
+    </service-eca>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * Copyright (c) Open Source Strategies, Inc.
+ * 
+ * Opentaps is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Opentaps is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Opentaps.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!--
+ *  Copyright (c) 2001-2005 The Open For Business Project - www.ofbiz.org
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a
+ *  copy of this software and associated documentation files (the "Software"),
+ *  to deal in the Software without restriction, including without limitation
+ *  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ *  and/or sell copies of the Software, and to permit persons to whom the
+ *  Software is furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included
+ *  in all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ *  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ *  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ *  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ *  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+ *  OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+ *  THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>CRM SFA Activities Services</description>
+    <vendor>Open Source Strategies, Inc.</vendor>
+    <version>1.0</version>
+    
+    <service name="crmsfa.sendActivityEmail" engine="java" location="org.fio.crm.activities.ActivitiesServices" invoke="sendActivityEmail">
+        <description>Send an email to someone in the system. Creats a completed Task (WorkEffort) and an associated, completed CommunicationEvent. 
+            To send a saved email, pass in the communicationEventId and the workEffortId of the saved data.
+            No security at the moment.</description>
+        <implements service="crmsfa.emailInterface"/>
+        <implements service="crmsfa.activityAssociationInterface"/>
+        <attribute name="orderId" type="String" mode="IN" optional="true"/>
+        <attribute name="action" type="String" mode="IN" optional="true"/>
+        <attribute name="workEffortId" type="String" mode="OUT"/>
+        <attribute name="partyId" type="String" mode="INOUT" optional="true"/>
+    </service>
+    
+    <!-- note that our services are prefixed with "crmsfa." to easily distinguish them from other services; perhaps a namespace system would be useful here -->
+
+    <service name="crmsfa.emailInterface" engine="interface" location="" invoke="">
+        <!-- comm event and work effort -->
+        <attribute name="contactMechIdFrom" type="String" mode="IN" optional="false"/>
+        <attribute name="contactMechIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="toEmail" type="String" mode="IN" optional="false"/>
+        <attribute name="ccEmail" type="String" mode="IN" optional="true"/>
+        <attribute name="bccEmail" type="String" mode="IN" optional="true"/>
+        <attribute name="subject" type="String" mode="IN" optional="false"/>
+        <attribute name="content" type="String" mode="IN" optional="false" allow-html="any"/>
+        <attribute name="contentMimeTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="note" type="String" mode="IN" optional="true"/>
+        <!-- TODO: this will become a date/time/duration trio of input -->
+        <attribute name="datetimeStarted" type="Timestamp" mode="IN" optional="true"/>
+        <!-- saved emails can be sent/saved by passing in these parameters -->
+        <attribute name="communicationEventId" type="String" mode="IN" optional="true"/>
+        <attribute name="workEffortId" type="String" mode="IN" optional="true"/>
+        <!-- to handle uploaded attachments -->
+        <attribute name="multiPartMap" type="Map" mode="IN" optional="true"/>
+        <!-- used when replying or forwarding emails -->
+        <attribute name="origCommEventId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="crmsfa.activityAssociationInterface" engine="interface" location="" invoke="">
+        <description>For activity services that need to associate with an internal party, case, or opportunity</description>
+        <attribute name="internalPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="custRequestId" type="String" mode="IN" optional="true"/>
+        <attribute name="salesOpportunityId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="crmsfa.logTask" engine="java" location="org.fio.crm.activities.ActivitiesServices" invoke="logTask">
+        <description>Logs an email, phone call, or specified work effort purpose type. The userLogin must have _UPDATE permissions for the associated parties,
+            cases and opportunities as well as basic CRMSFA_ACT_CREATE permission. Note that we aren't associating any contact mechs for now.</description>
+        <implements service="crmsfa.activityAssociationInterface"/>
+        <attribute name="fromPartyId" type="String" mode="IN" optional="false"/>
+        <attribute name="outbound" type="String" mode="IN" optional="false"/>
+        <attribute name="workEffortName" type="String" mode="IN" optional="false"/>
+        <attribute name="workEffortPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="content" type="String" mode="IN" optional="true" allow-html="any"/>
+        <attribute name="actualStartDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="actualCompletionDate" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="duration" type="String" mode="IN" optional="true"/>
+        <attribute name="workEffortId" type="String" mode="OUT" optional="false"/>
+    </service>
+    <service name="crmsfa.activityAssociationInterface" engine="interface" location="" invoke="">
+        <description>For activity services that need to associate with an internal party, case, or opportunity</description>
+        <attribute name="internalPartyId" type="String" mode="IN" optional="true"/>
+        <!-- <attribute name="custRequestId" type="String" mode="IN" optional="true"/> -->
+        <attribute name="salesOpportunityId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="crmsfa.deleteCallLog" engine="java" location="org.fio.crm.activities.ActivitiesServices" invoke="deleteCallLog">
+        <description>Removes a communicationEventWorkEff, communicationEvent and by default the attachments as well.</description>
+        <attribute name="workEffortId" type="String" mode="IN" optional="false"/>
+        <attribute name="communicationEventId" type="String" mode="IN" optional="true"/>
+        <attribute name="delContentDataResource" type="String" mode="IN" optional="true"/>
+        <attribute name="donePage" type="String" mode="INOUT" optional="true"/>
+    </service>
+</services>
+

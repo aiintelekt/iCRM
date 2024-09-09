@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * Copyright (c) Open Source Strategies, Inc.
+ *
+ * Opentaps is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Opentaps is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Opentaps.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Party Services</description>
+    <vendor></vendor>
+
+   	<service name="updatePartySupplementalData" engine="java"
+        location="org.fio.crm.party.PartyServices" invoke="updatePartySupplementalData">
+        <description>Update party contact mech. Replace OfBiz service with the same name but internally call it</description>
+        <attribute name="partyId" mode="IN" type="String" optional="true"/>
+        <attribute name="contactMechId" mode="IN" type="String"/>
+        <attribute name="newContactMechId" mode="IN" type="String" optional="true"/>
+        <attribute name="contactMechTypeId" mode="IN" type="String"/>
+    </service>
+    <service name="clearPartySupplementalData" engine="java"
+        location="org.fio.crm.party.PartyServices" invoke="clearPartySupplementalData" auth="true">
+        <description>Clear party supplemental contact mech id if it has been deleted.</description>
+        <attribute name="partyId" mode="IN" type="String" optional="true"/>
+        <attribute name="contactMechId" mode="IN" type="String"/>
+    </service>
+    <service name="createPartyNote" engine="java" location="org.fio.crm.party.PartyServices" invoke="createPartyNote" auth="true">
+        <description>Create a note item and associate with a party. If a noteId is passed, creates an assoication to that note instead.</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="noteName" type="String" mode="IN" optional="true"/>
+        <attribute name="noteId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="note" type="String" mode="IN" optional="true"/>
+        <attribute name="isImportant" type="String" mode="IN" optional="true"/>
+        <attribute name="loyaltyPointsId" type="String" mode="IN" optional="true"/>
+        <attribute name="noteNameExt" type="String" mode="IN" optional="true"/>
+        <attribute name="isImportant" type="String" mode="IN" optional="true"/>
+        <attribute name="campaignNoteId" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="noteType" type="String" mode="IN" optional="true"/>
+        <attribute name="callBackDate" type="String" mode="IN" optional="true"/>
+        <attribute name="subProduct" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="crmsfa.updatePersonResponsible" engine="java" location="org.fio.crm.party.PartyServices" invoke="updatePersonResponsible">
+        <description>Getting Party Id</description>
+        <attribute name="partyId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="roleTypeIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="accountPartyId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="crmsfa.updatePersonResponsibleFor" engine="java" location="org.fio.crm.party.PartyServices" invoke="updatePersonResponsibleFor">
+        <description>Getting Party Id</description>
+        <attribute name="partyId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="roleTypeIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="accountPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="salesOpportunityId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="crmsfa.updateDefaultContact" engine="java" location="org.fio.crm.party.PartyServices" invoke="updateDefaultContact">
+        <description>Update Default Contact</description>
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="false"/>
+        <attribute name="partyId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="roleTypeIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="isMarketable" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="crmsfa.removeContact" engine="java" location="org.fio.crm.party.PartyServices" invoke="removeContact">
+        <description>removeContact</description>
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="false"/>
+        <attribute name="partyId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="roleTypeIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="isMarketable" type="String" mode="IN" optional="true"/>
+    </service>			
+    <service name="createPartySocialMediaType" engine="simple" location="component://crm/script/org/groupfio/crm/party/contact/PartyContactMechServices.xml" invoke="createPartySocialMediaType" auth="true">
+        <description>Create PartySocialMediaType</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE"/>
+        <auto-attributes entity-name="ContactMech" include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="socialMediaId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="updatePartySocialMediaType" engine="simple" location="component://crm/script/org/groupfio/crm/party/contact/PartyContactMechServices.xml" invoke="updatePartySocialMediaTypeWebm" auth="true">
+        <description>Update SkypeName</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="UPDATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="INOUT" optional="false"/>
+        <!-- the out paramater is the id of the new address -->
+        <attribute name="socialMediaId" type="String" mode="IN" optional="false"/>
+        <attribute name="oldContactMechId" type="String" mode="OUT" optional="false"/>
+        <!-- this is the id of the old address -->
+    </service>
+</services>

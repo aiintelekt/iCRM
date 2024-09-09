@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="ListOpportunity">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/opportunity/OpportunityStatistic.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/opportunity/find_opportunity.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/opportunity/list_opportunity.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="OpportunityContacts">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/opportunity/OpportunityContacts.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/opportunity/opportunity_contacts.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/contact/list_contact.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="RelatedOpportunitys">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/opportunity/find_related_opportunity.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/opportunity/list_opportunity.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

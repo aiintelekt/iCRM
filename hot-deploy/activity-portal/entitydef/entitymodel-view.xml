@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of an Open For Business Project Component</title>
+    <description>None</description>
+    <copyright>Copyright 2001-2008 The Apache Software Foundation</copyright>
+    <author>None</author>
+    <version>1.0</version>
+    
+	<view-entity entity-name="SrWorkEffort"
+            package-name="org.ofbiz.workeffort.workeffort"
+            title="SR Work Effort And Party Assignment Entity">
+       	
+       	<member-entity entity-alias="CRWE" entity-name="CustRequestWorkEffort"/>
+       	<member-entity entity-alias="CR" entity-name="CustRequest"/>
+		<member-entity entity-alias="CRS" entity-name="CustRequestSupplementory"/>
+      	<member-entity entity-alias="WE" entity-name="WorkEffort"/>
+      	<member-entity entity-alias="WEPA" entity-name="WorkEffortPartyAssignment"/>
+      	
+      	<alias entity-alias="CRWE" name="custRequestId" field="custRequestId"/>
+      	
+      	<alias entity-alias="CR" name="srStatus" field="statusId"/>
+        <alias entity-alias="CR" name="srType" field="custRequestTypeId"/>
+        <alias entity-alias="CR" name="srName" field="custRequestName"/>
+        <alias entity-alias="CR" name="fromPartyId" field="fromPartyId"/>
+        <alias entity-alias="CR" name="custRequestTypeId" field="custRequestTypeId"/>
+        <alias entity-alias="CR" name="custRequestCategoryId" field="custRequestCategoryId"/>
+        <alias entity-alias="CR" name="custRequestSubCategoryId" field="custRequestSubCategoryId"/>
+        <alias entity-alias="CR" name="priority" field="priority"/>
+        <alias entity-alias="CR" name="custRequestName" field="custRequestName"/>
+        <alias entity-alias="CR" name="responsiblePerson" field="responsiblePerson"/>
+        <alias entity-alias="CR" name="statusId" field="statusId"/>
+        
+        <alias entity-alias="CRS" name="pstlAttnName" field="pstlAttnName"/>
+        <alias entity-alias="CRS" name="pstlAddress1" field="pstlAddress1"/>
+        <alias entity-alias="CRS" name="pstlAddress2" field="pstlAddress2"/>
+        <alias entity-alias="CRS" name="pstlPostalCity" field="pstlPostalCity"/>
+        <alias entity-alias="CRS" name="pstlCountyGeoId" field="pstlCountyGeoId"/>
+        <alias entity-alias="CRS" name="pstlPostalCode" field="pstlPostalCode"/>
+        <alias entity-alias="CRS" name="pstlPostalCodeExt" field="pstlPostalCodeExt"/>
+        <alias entity-alias="CRS" name="pstlCountryGeoId" field="pstlCountryGeoId"/>
+        <alias entity-alias="CRS" name="pstlStateProvinceGeoId" field="pstlStateProvinceGeoId"/>
+        <alias entity-alias="CRS" name="latitude" field="latitude"/>
+        <alias entity-alias="CRS" name="longitude" field="longitude"/>
+        <alias entity-alias="CRS" name="isUspsAddrVerified" field="isUspsAddrVerified"/>
+        <alias entity-alias="CRS" name="commitDate" field="commitDate"/>
+        <alias entity-alias="CRS" name="preEscalationDate" field="preEscalationDate"/>
+        <alias entity-alias="CRS" name="homePhoneNumber" field="homePhoneNumber"/>
+        <alias entity-alias="CRS" name="offPhoneNumber" field="offPhoneNumber"/>
+        <alias entity-alias="CRS" name="mobileNumber" field="mobileNumber"/>
+        <alias entity-alias="CRS" name="contractorEmail" field="contractorEmail"/>
+        <alias entity-alias="CRS" name="contractorOffPhone" field="contractorOffPhone"/>
+        <alias entity-alias="CRS" name="contractorMobilePhone" field="contractorMobilePhone"/>
+		<alias entity-alias="CRS" name="contractorHomePhone" field="contractorHomePhone"/>
+		      	
+      	<alias entity-alias="WE" name="workEffortId" field="workEffortId" group-by="true"/>
+      	<alias entity-alias="WE" name="externalId" field="externalId" />
+      	<alias entity-alias="WE" name="workEffortTypeId" field="workEffortTypeId"/>
+      	<alias entity-alias="WE" name="workEffortServiceType" field="workEffortServiceType"/>
+      	<alias entity-alias="WE" name="workEffortSubServiceType" field="workEffortSubServiceType"/>
+      	<alias entity-alias="WE" name="scopeEnumId" field="scopeEnumId"/>
+      	<alias entity-alias="WE" name="currentStatusId" field="currentStatusId"/>
+      	<alias entity-alias="WE" name="currentSubStatusId" field="currentSubStatusId"/>
+      	<alias entity-alias="WE" name="workEffortName" field="workEffortName"/>
+      	<alias entity-alias="WE" name="description" field="description"/>
+      	<alias entity-alias="WE" name="phoneNumber" field="phoneNumber"/>
+      	<alias entity-alias="WE" name="wfNationalId" field="wfNationalId"/>
+      	<alias entity-alias="WE" name="wfVplusId" field="wfVplusId"/>
+      	<alias entity-alias="WE" name="estimatedStartDate" field="estimatedStartDate"/>
+      	<alias entity-alias="WE" name="estimatedCompletionDate" field="estimatedCompletionDate"/>
+      	<alias entity-alias="WE" name="actualStartDate" field="actualStartDate"/>
+      	<alias entity-alias="WE" name="actualCompletionDate" field="actualCompletionDate"/>
+      	<alias entity-alias="WE" name="duration" field="duration"/>
+      	<alias entity-alias="WE" name="lastModifiedByUserLogin" field="lastModifiedByUserLogin"/>
+      	<alias entity-alias="WE" name="channelId" field="channelId"/>
+      	<alias entity-alias="WE" name="wfOnceDone" field="wfOnceDone"/>
+      	<alias entity-alias="WE" name="lastUpdatedStamp" field="lastUpdatedStamp"/>
+      	<alias entity-alias="WE" name="createdByUserLogin" field="createdByUserLogin"/>
+      	<alias entity-alias="WE" name="primOwnerId" field="primOwnerId"/>
+      	<!-- <alias entity-alias="WE" name="emplTeamId" field="emplTeamId"/> -->
+      	<alias entity-alias="WE" name="createdDate" field="createdDate"/>
+      	<alias entity-alias="WE" name="lastModifiedDate" field="lastModifiedDate"/>
+      	<alias entity-alias="WE" name="sourceReferenceId" field="sourceReferenceId"/>
+      	<alias entity-alias="WE" name="cif" field="cif"/>
+      	<alias entity-alias="WE" name="businessUnitName" field="businessUnitName"/>
+      	<alias entity-alias="WE" name="priority" field="priority"/>
+      	<alias entity-alias="WE" name="direction" field="direction"/>
+      	<alias entity-alias="WE" name="ownerPartyId" field="ownerPartyId"/>
+      	<alias entity-alias="WE" name="locationDesc" field="locationDesc"/>
+      	<alias entity-alias="WE" name="domainEntityId" field="domainEntityId"/>
+      	<alias entity-alias="WE" name="domainEntityType" field="domainEntityType"/>
+      	<alias entity-alias="WE" name="completedBy" field="completedBy"/>
+      	<alias entity-alias="WE" name="closedDateTime" field="closedDateTime"/>
+      	<alias entity-alias="WE" name="closedByUserLogin" field="closedByUserLogin"/>
+		      
+      	<alias entity-alias="WEPA" name="partyId" field="partyId"/>
+      	<alias entity-alias="WEPA" name="roleTypeId" field="roleTypeId"/>
+      	<alias entity-alias="WEPA" name="fromDate" field="fromDate"/>
+      	<alias entity-alias="WEPA" name="thruDate" field="thruDate"/>
+      	<alias entity-alias="WEPA" name="statusId" field="statusId"/>
+      	<alias entity-alias="WEPA" name="statusDateTime" field="statusDateTime"/>
+      	<alias entity-alias="WEPA" name="callOutCome" field="callOutCome"/>
+      	<alias entity-alias="WEPA" name="assignedByUserLoginId" field="assignedByUserLoginId"/>
+      	<alias entity-alias="WEPA" name="partyAssignFacilityId" field="facilityId"/>
+      	<alias entity-alias="WEPA" name="ownerId" field="ownerId"/>
+      	<alias entity-alias="WEPA" name="emplTeamId" field="emplTeamId"/>
+      	<alias entity-alias="WEPA" name="businessUnit" field="businessUnit"/>
+	    
+	    <view-link entity-alias="CRWE" rel-entity-alias="CR" rel-optional="false">
+            <key-map field-name="custRequestId"/>
+        </view-link>
+        <view-link entity-alias="CRWE" rel-entity-alias="WE" rel-optional="false">
+            <key-map field-name="workEffortId"/>
+        </view-link>
+	    <view-link entity-alias="CR" rel-entity-alias="CRS" rel-optional="true">
+            <key-map field-name="custRequestId"/>
+        </view-link>    
+      	<view-link entity-alias="WE" rel-entity-alias="WEPA" rel-optional="true">
+        	<key-map field-name="workEffortId" rel-field-name="workEffortId"/>
+      	</view-link>
+      	
+    </view-entity>
+    
+    <view-entity entity-name="SrWorkEffortTwo"
+            package-name="org.ofbiz.workeffort.workeffort"
+            title="SR Work Effort And work effort Entity">
+       	
+       	<member-entity entity-alias="CRWE" entity-name="CustRequestWorkEffort"/>
+      	<member-entity entity-alias="WE" entity-name="WorkEffort"/>
+      	
+      	<alias entity-alias="CRWE" name="custRequestId" field="custRequestId"/>
+      	
+      	<alias entity-alias="WE" name="workEffortId" field="workEffortId" group-by="true"/>
+      	<alias entity-alias="WE" name="externalId" field="externalId" />
+      	<alias entity-alias="WE" name="workEffortTypeId" field="workEffortTypeId"/>
+      	<alias entity-alias="WE" name="workEffortPurposeTypeId" field="workEffortPurposeTypeId"/>
+      	<alias entity-alias="WE" name="currentStatusId" field="currentStatusId"/>
+      	<alias entity-alias="WE" name="estimatedStartDate" field="estimatedStartDate"/>
+      	<alias entity-alias="WE" name="estimatedCompletionDate" field="estimatedCompletionDate"/>
+      	<alias entity-alias="WE" name="actualStartDate" field="actualStartDate"/>
+      	<alias entity-alias="WE" name="actualCompletionDate" field="actualCompletionDate"/>
+      	
+        <view-link entity-alias="CRWE" rel-entity-alias="WE" rel-optional="false">
+            <key-map field-name="workEffortId"/>
+        </view-link>
+      	
+    </view-entity>
+	
+</entitymodel>

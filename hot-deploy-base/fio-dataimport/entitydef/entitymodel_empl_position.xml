@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (c) Open Source Strategies, Inc.
+ *
+ * Opentaps is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Opentaps is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Opentaps.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+  <!-- ========================================================= -->
+  <!-- ======================== Defaults ======================= -->
+  <!-- ========================================================= -->
+    <title>Customer Data Import Entities</title>
+    <description>Defines intermediate entities for importing supplier data</description>
+    <copyright>Copyright (c) Open Source Strategies, Inc.</copyright>
+    <author>Si Chen (sichen@opensourcestrategies.com)</author>
+    <version>1.0</version>
+
+    <!-- ================================= -->
+    <!-- org.opentaps.dataimport.customers -->  
+    <!-- ================================= -->
+
+    <!-- for precise definitions of the field types see the file framework/entity/fieldtype/fieldtypeXXX.xml for your database XXX -->
+
+    <entity entity-name="DataImportEmplPosition"
+        package-name="org.opentaps.dataimport.lead"
+        title="Intermediate import entity for lead data.">
+        
+        <field name="batchId" type="id-ne"/>
+        <field name="dataImportEmplPositionId" type="id-ne"/>
+        
+        <field name="companyId" type="id-long"/>
+        <field name="reportingPositionType" type="id"/>
+        <field name="managedByPositionType" type="id"/>
+        
+        <field name="reportingMemberName" type="name"/>
+        <field name="mangedMemberName" type="name"/>
+        
+        <field name="reporting1bankid" type="id-vlong"/>
+        <field name="managed1bankid" type="id-vlong"/>
+        
+        <field name="reportingEmail" type="long-varchar"/>
+        <field name="mangedEmail" type="long-varchar"/>
+        <field name="teamId" type="id-long"></field>
+        <field name="isAccess" type="indicator" />
+        
+        <field name="countryGeo" type="id"></field>
+        <field name="city" type="name"></field>
+        
+        <field name="note" type="very-long"/>
+        
+        <field name="importStatusId" type="id-ne"><description>Status of record import.  Null is the same as DATAIMP_NOT_PROC.</description></field>
+        <field name="importError" type="very-long"><description>Error report for failed imports.</description></field>
+        <field name="processedTimestamp" type="date-time">
+            <description>Special field for system to record when entry was successfully imported.  
+                Do not use for any other purpose.</description>
+        </field>
+        
+        <field name="errorCodes" type="very-long"/>
+        <field name="uploadedByUserLoginId" type="id-vlong"></field>
+        
+        <prim-key field="batchId"/>
+        <prim-key field="dataImportEmplPositionId"/>
+        
+    </entity>
+    
+</entitymodel>

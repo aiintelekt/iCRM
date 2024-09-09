@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="crm"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+    <!-- define resource loaders; most common is to use the component resource loader -->
+    <resource-loader name="main" type="component"/>
+
+    <!-- place the config directory on the classpath to access configuration files -->
+    <classpath type="dir" location="config"/>
+    <classpath type="dir" location="dtd"/>
+
+    <!-- load single or multiple external libraries -->
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="jar" location="lib/*"/>
+
+    <!-- entity resources: model(s), eca(s), group, and data definitions -->
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel-extend.xml"/>
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel-view.xml"/>
+		    
+    <!-- <entity-resource type="eca" reader-name="main" loader="main" location="entitydef/eecas.xml"/> -->
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/crmTypeData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/crmSecurityPermissionSeedData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/crmSecurityGroupDemoData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/crmDemoData.xml"/>
+
+    <!-- service resources: model(s), eca(s) and group definitions -->
+    <service-resource type="model" loader="main" location="servicedef/services.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_accounts.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_marketing.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_contacts.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_leads.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_content.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_activities.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_party.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_customer.xml"/>
+    <service-resource type="eca" loader="main" location="servicedef/secas.xml"/>
+    <!--
+    <service-resource type="eca" loader="main" location="servicedef/secas.xml"/>
+    <service-resource type="group" loader="main" location="servicedef/groups.xml"/>
+    -->
+
+    <test-suite loader="main" location="testdef/crmTests.xml"/>
+
+    <!-- web applications; will be mounted when using the embedded container -->
+    <webapp name="crm"
+        title="crm"
+        server="default-server"
+        location="webapp/crm"
+        mount-point="/crm"
+     	app-bar-display="true"/>
+     <webapp name="crm-resource_js"
+        title="CRM Resources"
+        server="default-server"
+        location="/webapp/crm-resource/js"
+        mount-point="/crm-resource_js"
+        app-bar-display="false"/>
+     <webapp name="crm-resource_css"
+        title="CRM Resources"
+        server="default-server"
+        location="/webapp/crm-resource/css"
+        mount-point="/crm-resource_css"
+        app-bar-display="false"/>
+     <webapp name="crm-resource_images"
+        title="CRM Resources"
+        server="default-server"
+        location="/webapp/crm-resource/images"
+        mount-point="/crm-resource_images"
+        app-bar-display="false"/>  
+   	<webapp name="crm-resource"
+        title="CRM Resources including css, images, js"
+        server="default-server"
+        location="webapp/crm-resource"
+        mount-point="/crm-resource"
+        app-bar-display="false"/> 	     
+     
+</ofbiz-component>

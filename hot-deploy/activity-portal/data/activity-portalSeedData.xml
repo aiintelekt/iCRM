@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	
+	<SecurityGroup description="Activity Portal" groupId="ACTIVITY_PORTAL" customSecurityGroupType="Y"/>
+	
+	<SecurityPermission description="Activity Portal Component Access Permission" permissionId="ACTPR" actionType="COMPONENT" securityResourceType="SCREEN"/>
+	
+	<SecurityPermission description="Activity Task" permissionId="ACTPR_TSK" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Activity Task Create" permissionId="ACTPR_TSK_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="ACTPR_TSK"/>
+	<SecurityPermission description="Activity Task View" permissionId="ACTPR_TSK_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="ACTPR_TSK"/> 
+	<SecurityPermission description="Activity Task Edit" permissionId="ACTPR_TSK_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="ACTPR_TSK"/> 
+	<SecurityPermission description="Activity Task Audit" permissionId="ACTPR_TSK_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="ACTPR_TSK"/>
+	
+	<SecurityPermission description="Activity Appointment" permissionId="ACTPR_APNT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Activity Appointment Create" permissionId="ACTPR_APNT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="ACTPR_APNT"/>
+	<SecurityPermission description="Activity Appointment View" permissionId="ACTPR_APNT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="ACTPR_APNT"/> 
+	<SecurityPermission description="Activity Appointment Edit" permissionId="ACTPR_APNT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="ACTPR_APNT"/> 
+	<SecurityPermission description="Activity Appointment Audit" permissionId="ACTPR_APNT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="ACTPR_APNT"/>
+	
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_TSK"/>
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_TSK_CREATE"/>
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_TSK_VIEW"/>
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_TSK_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_TSK_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_APNT"/>
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_APNT_CREATE"/>
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_APNT_VIEW"/>
+	<SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_APNT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="ACTIVITY_PORTAL" permissionId="ACTPR_APNT_AUDIT"/> -->
+	
+	<OfbizComponentAccess componentId="ACTIVITY_PORTAL" componentName="activity-portal" description="Activity" isHide="N" permissionId="ACTPR" requestUri="/activity-portal/control/main" seqId="1005" uiLabels="Activity"/>
+	
+	<OfbizPageSecurity componentId="ACTIVITY_PORTAL" favIcon="fa fa-home" isExternal="N" pageId="ACT_HOME" pageType="TAB" permissionId="ACTPR_TSK_VIEW" seqId="1000" tabId="ACT_HOME" uiLabels="Activity Home" requestUri="/activity-portal/control/homeActivity"/>
+	<OfbizPageSecurity componentId="ACTIVITY_PORTAL" favIcon="fa fa-picture-o" isExternal="N" pageId="ACT_DSH" pageType="TAB" permissionId="ACTPR_TSK_VIEW" seqId="1001" tabId="ACT_DSH" uiLabels="Activity Dashboard" requestUri="/activity-portal/control/dashboardActivity"/>
+	<OfbizPageSecurity componentId="ACTIVITY_PORTAL" favIcon="fa fa-clipboard" isExternal="N" pageId="ACT_TSK_CREATE" pageType="TAB" permissionId="ACTPR_TSK_CREATE" seqId="1001" tabId="ACT_TSK_CREATE" uiLabels="Create Task" requestUri="/activity-portal/control/createTask"/>
+	<OfbizPageSecurity componentId="ACTIVITY_PORTAL" favIcon="fa fa-calendar" isExternal="N" pageId="ACT_APNT_CREATE" pageType="TAB" permissionId="ACTPR_APNT_CREATE" seqId="1002" tabId="ACT_APNT_CREATE" uiLabels="Create Appointment" requestUri="/activity-portal/control/createApnt"/>
+	<OfbizPageSecurity componentId="ACTIVITY_PORTAL" favIcon="fa fa-tasks" isExternal="N" pageId="ACT_FIND" pageType="TAB" permissionId="ACTPR_TSK_VIEW" seqId="1003" tabId="LEADPR_FIND" uiLabels="Find Activities" requestUri="/activity-portal/control/findActivity"/>     
+		
+	<!-- Activity Gen Dyna Field Changes -->
+	<DynaScreenConfigField dynaConfigId="FIND_ACT_GEN" dynaFieldId="srPrimaryContactId" fieldName="SR. Prim. Contact" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" lookupTypeId="CUSTOM" sequenceNum="15"/>
+	<DynaScreenConfigField dynaConfigId="FIND_ACT_GEN" dynaFieldId="srPartyId" fieldName="Sr Party" fieldType="PICKER" isCreate="Y" isDisabled="N" isEdit="N" isRequired="N" isView="N" pickerWindowId="partyPicker" sequenceNum="13"/>
+	<DynaScreenConfigField dynaConfigId="FIND_ACT_GEN" dynaFieldId="srNo" fieldName="SR ID" fieldType="TEXT" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" sequenceNum="16"/>
+
+	<!-- Customer appointment dyna config [start] -->
+	<DynaScreenConfig componentMountPoint="admin-portal" createdBy="admin" defaultMessage="Appointment Activity - Configuration Not Found" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" inputColSize="" isDisabled="N" isFullscreen="" isPrimary="Y" labelColSize="" layoutType="2C" screenDisplayName="Appointment Activity - Customer" securityGroupId=""/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate" fieldDataPattern="YYYY-MM-DD" fieldName="End Date" fieldType="DATE_TIME" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" sequenceNum="22"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate" fieldDataPattern="YYYY-MM-DD" fieldName="Start Date" fieldType="DATE_TIME" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" sequenceNum="21"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="contactId" fieldName="Activity Primary Contact" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" lookupTypeId="CUSTOM" sequenceNum="3"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="domainEntityId" fieldName="Source ID" fieldType="TEXT" isCreate="N" isDisabled="N" isEdit="N" isRequired="N" isView="Y" sequenceNum="14"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="domainEntityType" fieldName="Source Component" fieldType="TEXT" isCreate="N" isDisabled="N" isEdit="N" isRequired="N" isView="Y" sequenceNum="13"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="location" fieldName="Location" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" lookupFieldService="dynaScreen.getDynamicData" lookupTypeId="DYNAMIC_DATA" sequenceNum="23">
+	<lookupFieldFilter><![CDATA[
+		{ "entity_name": "CustomFieldMultiValue", "name_field": "description", "value_field": "fieldValue", "filter_value": { "customFieldId": "10181", "hide": "N" } }
+		]]>
+	</lookupFieldFilter>
+	</DynaScreenConfigField>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="optionalAttendees" fieldName="Optional Attendees" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="N" lookupTypeId="CUSTOM" sequenceNum="19"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="optionalAttendeesDesc" fieldName="Optional Attendees" fieldType="TEXT" isCreate="N" isDisabled="N" isEdit="N" isRequired="N" isView="Y" sequenceNum="17"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="owner" fieldName="Owner" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="Y" isView="Y" lookupTypeId="CUSTOM" sequenceNum="10"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="ownerBuDesc" fieldName="Owner BU" fieldType="TEXT" isCreate="N" isDisabled="N" isEdit="N" isRequired="N" isView="Y" sequenceNum="11"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="partyId" fieldName="Party" fieldType="HIDDEN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="N" sequenceNum="50"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="priority" fieldName="Priority" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="Y" lookupFieldService="dynaScreen.getDynamicData" lookupTypeId="DYNAMIC_DATA" sequenceNum="7">
+	<lookupFieldFilter><![CDATA[
+		{ "entity_name": "Enumeration", "name_field": "description", "value_field": "enumId", "order_by": "sequenceId", "filter_value": { "enumTypeId": "PRIORITY_LEVEL", "isEnabled": "Y" } }
+		]]>
+	</lookupFieldFilter>
+	</DynaScreenConfigField>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="requiredAttendees" fieldName="Required Attendees" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="N" isView="N" lookupTypeId="CUSTOM" sequenceNum="18"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="requiredAttendeesDesc" fieldName="Required Attendees" fieldType="TEXT" isCreate="N" isDisabled="N" isEdit="N" isRequired="N" isView="Y" sequenceNum="16"/>
+	<DynaScreenConfigField defaultValue="IA_MSCHEDULED" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="statusId" fieldName="Activity Status" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="Y" isView="Y" lookupFieldService="dynaScreen.getDynamicData" lookupTypeId="DYNAMIC_DATA" sequenceNum="12">
+	<lookupFieldFilter><![CDATA[
+		{ "entity_name": "StatusItem", "name_field": "description", "value_field": "statusId", "order_by": "sequenceId", "filter_value": { "statusTypeId": "IA_STATUS_ID", "isEnabled": "Y" } }
+		]]>
+	</lookupFieldFilter>
+	</DynaScreenConfigField>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="subject" fieldName="Activity Name" fieldType="TEXT" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="Y" isView="Y" sequenceNum="1"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="type" fieldName="Activity Type" fieldType="TEXT" isCreate="Y" isDisabled="N" isEdit="Y" isRequired="Y" isView="N" sequenceNum="5"/>
+	<DynaScreenConfigField dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="workEffortId" fieldName="Activity Id" fieldType="TEXT" isCreate="N" isDisabled="Y" isEdit="Y" isRequired="Y" isView="N" sequenceNum="24"/>
+	<DynaScreenConfigFieldAttribute attrName="disableFutureDate" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="disablePastDate" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isCreateDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isCurrentDefaultTime" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isEditDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isMeridianTimeMode" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isShowSeconds" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="minuteStep" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="secondStep" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualCompletionDate"/>
+	<DynaScreenConfigFieldAttribute attrName="disableFutureDate" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="disablePastDate" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isCreateDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isCurrentDefaultTime" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isEditDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isMeridianTimeMode" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isShowSeconds" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="minuteStep" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="secondStep" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="actualStartDate"/>
+	<DynaScreenConfigFieldAttribute attrName="isLinkDisplay" attrValue="Y" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="contactId"/>
+	<DynaScreenConfigFieldAttribute attrName="isCreateDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="domainEntityId"/>
+	<DynaScreenConfigFieldAttribute attrName="isEditDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="domainEntityId"/>
+	<DynaScreenConfigFieldAttribute attrName="isLinkDisplay" attrValue="Y" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="domainEntityId"/>
+	<DynaScreenConfigFieldAttribute attrName="isCreateDisplay" attrValue="Y" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="location"/>
+	<DynaScreenConfigFieldAttribute attrName="isEditDisplay" attrValue="Y" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="location"/>
+	<DynaScreenConfigFieldAttribute attrName="isLinkDisplay" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="location"/>
+	<DynaScreenConfigFieldAttribute attrName="isMultiple" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="location"/>
+	<DynaScreenConfigFieldAttribute attrName="isMultiple" attrValue="Y" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="optionalAttendees"/>
+	<DynaScreenConfigFieldAttribute attrName="isMultiple" attrValue="Y" dynaConfigId="CREATE_APPOINTMENT_ACTIVITY_CUST" dynaFieldId="requiredAttendees"/>
+	<!-- Customer appointment dyna config [end] -->
+	
+</entity-engine-xml>

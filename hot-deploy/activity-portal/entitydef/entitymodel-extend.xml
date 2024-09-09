@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of activity-portal Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+	  
+	<extend-entity entity-name="WorkEffort">
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+    </extend-entity>  
+    
+    <extend-entity entity-name="ResourceAvailability">
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+		<field name="startDate" type="date-time"></field>
+		<field name="endDate" type="date-time"></field>
+    </extend-entity>
+	  
+</entitymodel>

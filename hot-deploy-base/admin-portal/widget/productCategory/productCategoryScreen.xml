@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+   	     
+    <screen name="findProductCatalog">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindProductCatalog" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCatalog/findProductCatalog.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCatalog/findProductCatalog.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="createProductCatalog">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateProductCatalog" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCatalog/createProductCatalog.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCatalog/createProductCatalog.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="updateProductCatalog">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateProductCatalog" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCatalog/updateProductCatalog.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCatalog/updateProductCatalog.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewProductCatalog">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewProductCatalog" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCatalog/viewProductCatalog.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCatalog/viewProductCatalog.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="findProductCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindProductCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCategory/findProductCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCategory/findProductCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewProductCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewProductCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCategory/viewProductCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCategory/viewProductCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="createProductCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateProductCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCategory/createProductCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCategory/createProductCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="updateProductCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateProductCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productCategory/updateProductCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productCategory/updateProductCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="findProductSubCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindProductSubCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productSubCategory/findProductSubCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productSubCategory/findProductSubCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewProductSubCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewProductSubCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productSubCategory/viewProductSubCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productSubCategory/viewProductSubCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="createProductSubCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateProductSubCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productSubCategory/createProductSubCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productSubCategory/createProductSubCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="updateProductSubCategory">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateProductSubCategory" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/productSubCategory/updateProductSubCategory.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/productSubCategory/updateProductSubCategory.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="findProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindProduct" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/product/findProduct.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/product/findProduct.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewProduct" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/product/viewProduct.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/product/viewProduct.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="createProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateProduct" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/product/createProduct.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/product/createProduct.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="updateProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateProduct" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="auditPermissionId" value="" global="true"/>
+                <set field="actionPermissionId" value="" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/productCategory/product/updateProduct.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/productCategory/product/updateProduct.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+ </screens>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="account-portal_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="account-portal_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="account-portal_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="account-portal_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="account-portal_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="account-portal_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="account-portal_ADMIN"/>
+</entity-engine-xml>

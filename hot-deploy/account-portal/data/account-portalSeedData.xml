@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<SecurityGroup description="Security Group for Admin" groupId="VND_SG_ADMIN" customSecurityGroupType="Y"/>	
+
+	<!-- Component level security permission [start] -->
+	
+	<SecurityPermission description="Admin Portal Component Access Permission" permissionId="DBS_ADMPR" actionType="COMPONENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Account Portal Component Access Permission" permissionId="DBS_ACCTPR" actionType="COMPONENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Lead Portal Component Access Permission" permissionId="DBS_LEADPR" actionType="COMPONENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Contact Portal Component Access Permission" permissionId="DBS_CONTPR" actionType="COMPONENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Opportunity Portal Component Access Permission" permissionId="DBS_OPPOPR" actionType="COMPONENT" securityResourceType="SCREEN"/>
+			
+	<!-- Component level security permission [end] -->
+	
+	<!-- Shortcut level security permission [start] -->
+	
+	<!-- Admin portal [start] -->
+	
+	<SecurityPermission description="Organization Hierarchy Permission" permissionId="DBS_ADMPR_OH" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Business Units Permission" permissionId="DBS_ADMPR_OH_BU" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Teams Permission" permissionId="DBS_ADMPR_OH_TM" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="User Management Permission" permissionId="DBS_ADMPR_UM" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Users and Roles Permission" permissionId="DBS_ADMPR_UM_RLE" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="User Login History Permission" permissionId="DBS_ADMPR_UM_HRY" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Security Group Setup Permission" permissionId="DBS_ADMPR_SGS" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Security Permission Permission" permissionId="DBS_ADMPR_SGS_SP" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Security Group Permission" permissionId="DBS_ADMPR_SGS_SG" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Security Roles Permission" permissionId="DBS_ADMPR_SGS_SR" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Entity Operations Permission" permissionId="DBS_ADMPR_SGS_EO" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Global Parameter Setup Permission" permissionId="DBS_ADMPR_GPS" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Parameter Setup Permission" permissionId="DBS_ADMPR_GPS_PS" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Audit Setup and Logs Permission" permissionId="DBS_ADMPR_ASL" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Entity  Audit Configuration Permission" permissionId="DBS_ADMPR_ASL_EAC" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Audit Log by Entity Permission" permissionId="DBS_ADMPR_ASL_ALE" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="External API Integration Permission" permissionId="DBS_ADMPR_EAI" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Access Setup Permission" permissionId="DBS_ADMPR_EAI_AS" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="API Logs Permission" permissionId="DBS_ADMPR_EAI_AL" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Maker and Checker Audit Permission" permissionId="DBS_ADMPR_MCA" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Maker Checker Logs Permission" permissionId="DBS_ADMPR_MCA_MCL" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Maker Checker Management Permission" permissionId="DBS_ADMPR_MCA_MCM" actionType="" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Maker Checker Audit Operator" permissionId="DBS_ADMPR_MCA_OPRT" actionType="" securityResourceType="SCREEN"/>
+	
+	<!-- Paramunit Setup [start] -->
+	
+	<SecurityPermission description="Paramunit Setup Permission" permissionId="DBS_ADMPR_PUS" actionType="" securityResourceType="SCREEN"/>
+	
+	<SecurityPermission description="SR Type" permissionId="DBS_ADMPR_PUS_SRT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="SR Type Create" permissionId="DBS_ADMPR_PUS_SRT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRT"/>
+	<SecurityPermission description="SR Type View" permissionId="DBS_ADMPR_PUS_SRT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRT"/> 
+	<SecurityPermission description="SR Type Edit" permissionId="DBS_ADMPR_PUS_SRT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRT"/> 
+	<SecurityPermission description="SR Type Audit" permissionId="DBS_ADMPR_PUS_SRT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRT"/>
+	
+	<SecurityPermission description="SR Category" permissionId="DBS_ADMPR_PUS_SRC" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="SR Category Create" permissionId="DBS_ADMPR_PUS_SRC_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRC"/>
+	<SecurityPermission description="SR Category View" permissionId="DBS_ADMPR_PUS_SRC_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRC"/> 
+	<SecurityPermission description="SR Category Edit" permissionId="DBS_ADMPR_PUS_SRC_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRC"/> 
+	<SecurityPermission description="SR Category Audit" permissionId="DBS_ADMPR_PUS_SRC_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRC"/>
+	
+	<SecurityPermission description="SR Sub Category" permissionId="DBS_ADMPR_PUS_SRSC" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="SR Sub Category Create" permissionId="DBS_ADMPR_PUS_SRSC_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRSC"/>
+	<SecurityPermission description="SR Sub Category View" permissionId="DBS_ADMPR_PUS_SRSC_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRSC"/> 
+	<SecurityPermission description="SR Sub Category Edit" permissionId="DBS_ADMPR_PUS_SRSC_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRSC"/> 
+	<SecurityPermission description="SR Sub Category Audit" permissionId="DBS_ADMPR_PUS_SRSC_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SRSC"/>
+	
+	<SecurityPermission description="SLA Setup" permissionId="DBS_ADMPR_PUS_SLAS" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="SLA Setup Create" permissionId="DBS_ADMPR_PUS_SLAS_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SLAS"/>
+	<SecurityPermission description="SLA Setup View" permissionId="DBS_ADMPR_PUS_SLAS_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SLAS"/> 
+	<SecurityPermission description="SLA Setup Edit" permissionId="DBS_ADMPR_PUS_SLAS_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SLAS"/> 
+	<SecurityPermission description="SLA Setup Audit" permissionId="DBS_ADMPR_PUS_SLAS_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_SLAS"/>
+	
+	<SecurityPermission description="Activity Parent" permissionId="DBS_ADMPR_PUS_AP" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Activity Parent Create" permissionId="DBS_ADMPR_PUS_AP_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AP"/>
+	<SecurityPermission description="Activity Parent View" permissionId="DBS_ADMPR_PUS_AP_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AP"/> 
+	<SecurityPermission description="Activity Parent Edit" permissionId="DBS_ADMPR_PUS_AP_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AP"/> 
+	<SecurityPermission description="Activity Parent Audit" permissionId="DBS_ADMPR_PUS_AP_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AP"/>
+	
+	<SecurityPermission description="Activity Types" permissionId="DBS_ADMPR_PUS_AT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Activity Types Create" permissionId="DBS_ADMPR_PUS_AT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AT"/>
+	<SecurityPermission description="Activity Types View" permissionId="DBS_ADMPR_PUS_AT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AT"/> 
+	<SecurityPermission description="Activity Types Edit" permissionId="DBS_ADMPR_PUS_AT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AT"/> 
+	<SecurityPermission description="Activity Types Audit" permissionId="DBS_ADMPR_PUS_AT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AT"/>
+	
+	<SecurityPermission description="Activity Sub Types" permissionId="DBS_ADMPR_PUS_AST" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Activity Sub Types Create" permissionId="DBS_ADMPR_PUS_AST_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AST"/>
+	<SecurityPermission description="Activity Sub Types View" permissionId="DBS_ADMPR_PUS_AST_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AST"/> 
+	<SecurityPermission description="Activity Sub Types Edit" permissionId="DBS_ADMPR_PUS_AST_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AST"/> 
+	<SecurityPermission description="Activity Sub Types Audit" permissionId="DBS_ADMPR_PUS_AST_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_AST"/>
+	
+	<SecurityPermission description="Alert Category Setup" permissionId="DBS_ADMPR_PUS_ACS" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Alert Category Setup Create" permissionId="DBS_ADMPR_PUS_ACS_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_ACS"/>
+	<SecurityPermission description="Alert Category Setup View" permissionId="DBS_ADMPR_PUS_ACS_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_ACS"/> 
+	<SecurityPermission description="Alert Category Setup Edit" permissionId="DBS_ADMPR_PUS_ACS_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_ACS"/> 
+	<SecurityPermission description="Alert Category Setup Audit" permissionId="DBS_ADMPR_PUS_ACS_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_ACS"/>
+	
+	<SecurityPermission description="Calendar Non-Working Days - Public Holiday Update Permission" permissionId="DBS_ADMPR_PUS_CAL" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Calendar Non-Working Days Create" permissionId="DBS_ADMPR_PUS_CAL_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_CAL"/>
+	<SecurityPermission description="Calendar Non-Working Days View" permissionId="DBS_ADMPR_PUS_CAL_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_CAL"/> 
+	<SecurityPermission description="Calendar Non-Working Days Edit" permissionId="DBS_ADMPR_PUS_CAL_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_CAL"/> 
+	<SecurityPermission description="Calendar Non-Working Days Audit" permissionId="DBS_ADMPR_PUS_CAL_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_CAL"/>
+	
+	<SecurityPermission description="Opp. Stage Configuration" permissionId="DBS_ADMPR_PUS_OPPSTG" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Opp. Stage Configuration Create" permissionId="DBS_ADMPR_PUS_OPPSTG_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_OPPSTG"/>
+	<SecurityPermission description="Opp. Stage Configuration View" permissionId="DBS_ADMPR_PUS_OPPSTG_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_OPPSTG"/> 
+	<SecurityPermission description="Opp. Stage Configuration Edit" permissionId="DBS_ADMPR_PUS_OPPSTG_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_OPPSTG"/> 
+	<SecurityPermission description="Opp. Stage Configuration Audit" permissionId="DBS_ADMPR_PUS_OPPSTG_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ADMPR_PUS_OPPSTG"/>
+		 
+	<!-- Paramunit Setup [end] -->
+	
+	<!-- Lead portal [start] -->
+	
+	<SecurityPermission description="Lead" permissionId="DBS_LEADPR_SRT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Lead Create" permissionId="DBS_LEADPR_SRT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_LEADPR_SRT"/>
+	<SecurityPermission description="Lead View" permissionId="DBS_LEADPR_SRT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_LEADPR_SRT"/> 
+	<SecurityPermission description="Lead Edit" permissionId="DBS_LEADPR_SRT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_LEADPR_SRT"/> 
+	<SecurityPermission description="Lead Audit" permissionId="DBS_LEADPR_SRT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_LEADPR_SRT"/>
+	
+	<!-- Lead portal [end] -->
+	
+	<!-- Account portal [start] -->
+	
+	<SecurityPermission description="Account" permissionId="DBS_ACCTPR_SRT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Account Create" permissionId="DBS_ACCTPR_SRT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_ACCTPR_SRT"/>
+	<SecurityPermission description="Account View" permissionId="DBS_ACCTPR_SRT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_ACCTPR_SRT"/> 
+	<SecurityPermission description="Account Edit" permissionId="DBS_ACCTPR_SRT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ACCTPR_SRT"/> 
+	<SecurityPermission description="Account Audit" permissionId="DBS_ACCTPR_SRT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_ACCTPR_SRT"/>
+	
+	<!-- Account portal [end] -->
+	
+	<!-- Contact portal [start] -->
+	
+	<SecurityPermission description="Contact" permissionId="DBS_CONTPR_SRT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Contact Create" permissionId="DBS_CONTPR_SRT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_CONTPR_SRT"/>
+	<SecurityPermission description="Contact View" permissionId="DBS_CONTPR_SRT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_CONTPR_SRT"/> 
+	<SecurityPermission description="Contact Edit" permissionId="DBS_CONTPR_SRT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_CONTPR_SRT"/> 
+	<SecurityPermission description="Contact Audit" permissionId="DBS_CONTPR_SRT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_CONTPR_SRT"/>
+	
+	<!-- Contact portal [end] -->
+	
+	<!-- Opportunity portal [start] -->
+	
+	<SecurityPermission description="Contact" permissionId="DBS_OPPOPR_SRT" actionType="PARENT" securityResourceType="SCREEN"/>
+	<SecurityPermission description="Contact Create" permissionId="DBS_OPPOPR_SRT_CREATE" actionType="CREATE" securityResourceType="SCREEN" parentPermissionId="DBS_OPPOPR_SRT"/>
+	<SecurityPermission description="Contact View" permissionId="DBS_OPPOPR_SRT_VIEW" actionType="VIEW" securityResourceType="SCREEN" parentPermissionId="DBS_OPPOPR_SRT"/> 
+	<SecurityPermission description="Contact Edit" permissionId="DBS_OPPOPR_SRT_EDIT" actionType="EDIT" securityResourceType="SCREEN" parentPermissionId="DBS_OPPOPR_SRT"/> 
+	<SecurityPermission description="Contact Audit" permissionId="DBS_OPPOPR_SRT_AUDIT" actionType="AUDIT" securityResourceType="SCREEN" parentPermissionId="DBS_OPPOPR_SRT"/>
+	
+	<!-- Opportunity portal [end] -->
+	
+	<!-- Admin portal [end] -->
+	
+	<!-- Shortcut level security permission [end] -->
+	
+	<!-- Group permission [start] -->
+	
+	<!-- Admin portal [start] -->
+		
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR"/>
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS"/>
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRT"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRT_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRT_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRT_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRC"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRC_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRC_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRC_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRC_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRSC"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRSC_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRSC_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRSC_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SRSC_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SLAS"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SLAS_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SLAS_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SLAS_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_SLAS_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AP"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AP_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AP_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AP_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AP_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AT"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AT_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AT_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AT_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AST"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AST_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AST_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AST_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_AST_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_ACS"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_ACS_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_ACS_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_ACS_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_ACS_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_CAL"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_CAL_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_CAL_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_CAL_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_CAL_AUDIT"/> -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_OPPSTG"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_OPPSTG_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_OPPSTG_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_OPPSTG_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ADMPR_PUS_OPPSTG_AUDIT"/> -->
+	
+	<!-- Admin portal [end] -->
+	
+	<!-- Lead portal [start] -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_LEADPR"/>
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_LEADPR_SRT"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_LEADPR_SRT_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_LEADPR_SRT_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_LEADPR_SRT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_LEADPR_SRT_AUDIT"/> -->
+	
+	<!-- Lead portal [start] -->
+	
+	<!-- Account portal [start] -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ACCTPR"/>
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ACCTPR_SRT"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ACCTPR_SRT_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ACCTPR_SRT_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ACCTPR_SRT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_ACCTPR_SRT_AUDIT"/> -->
+	
+	<!-- Account portal [start] -->
+	
+	<!-- Contact portal [start] -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_CONTPR"/>
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_CONTPR_SRT"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_CONTPR_SRT_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_CONTPR_SRT_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_CONTPR_SRT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_CONTPR_SRT_AUDIT"/> -->
+	
+	<!-- Contact portal [start] -->
+	
+	<!-- Opportunity portal [start] -->
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_OPPOPR"/>
+	
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_OPPOPR_SRT"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_OPPOPR_SRT_CREATE"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_OPPOPR_SRT_VIEW"/>
+	<SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_OPPOPR_SRT_EDIT"/>
+	<!-- <SecurityGroupPermission groupId="VND_SG_ADMIN" permissionId="DBS_OPPOPR_SRT_AUDIT"/> -->
+	
+	<!-- Opportunity portal [start] -->
+	
+	<!-- Group permission [end] -->
+	
+	<!-- Ofbiz component access [start] -->
+	
+	<OfbizComponentAccess componentId="ADMIN_PORTAL" componentName="admin-portal" description="Admin" isHide="N" permissionId="DBS_ADMPR" requestUri="/admin-portal/control/main" seqId="1003" uiLabels="Admin"/> 
+	<OfbizComponentAccess componentId="LEAD_PORTAL" componentName="lead-portal" description="Lead" isHide="N" permissionId="DBS_LEADPR" requestUri="/lead-portal/control/main" seqId="1001" uiLabels="Lead"/>
+	<OfbizComponentAccess componentId="ACCOUNT_PORTAL" componentName="account-portal" description="Account" isHide="N" permissionId="DBS_ACCTPR" requestUri="/account-portal/control/main" seqId="1002" uiLabels="Account"/>
+	<OfbizComponentAccess componentId="CONTACT_PORTAL" componentName="contact-portal" description="Contact" isHide="N" permissionId="DBS_CONTPR" requestUri="/contact-portal/control/main" seqId="1004" uiLabels="Contact"/>
+	<OfbizComponentAccess componentId="OPPORTUNITY_PORTAL" componentName="opportunity-portal" description="Opportunity" isHide="N" permissionId="DBS_OPPOPR" requestUri="/opportunity-portal/control/main" seqId="1004" uiLabels="Opportunity"/>
+	
+	<!-- Ofbiz component access [end] -->
+	
+	<!-- Admin portal [start] -->
+	
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-cogs" isExternal="N" pageId="ADT_SETUP_LOG" pageType="TAB" permissionId="DBS_ADMPR_ASL" seqId="1005" tabId="ADMPR_ASL" uiLabels="Audit Setup and Logs"/>     
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-tasks" isExternal="N" pageId="EXT_API_INTG" pageType="TAB" permissionId="DBS_ADMPR_EAI" seqId="1006" tabId="ADMPR_EAI" uiLabels="External API Integration"/>     
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-globe" isExternal="N" pageId="GBL_PARAM" pageType="TAB" permissionId="DBS_ADMPR_GPS" seqId="1004" tabId="ADMPR_GPS" uiLabels="Global Parameter Setup"/>     
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-sitemap" isExternal="N" pageId="ORG_HRCHY" pageType="TAB" permissionId="DBS_ADMPR_OH" seqId="1000" tabId="ADMPR_OH" uiLabels="Organization Hierarchy"/>     
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-shield" isExternal="N" pageId="SRTY_GRP_SETUP" pageType="TAB" permissionId="DBS_ADMPR_SGS" seqId="1002" tabId="ADMPR_SGS" uiLabels="Security Group Setup"/>     
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-user" isExternal="N" pageId="USR_MGMT" pageType="TAB" permissionId="DBS_ADMPR_UM" seqId="1001" tabId="ADMPR_UM" uiLabels="User Management"/>
+	
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="auditLogEntity" pageType="SHORTCUT" permissionId="DBS_ADMPR_ASL_ALE" requestUri="#" seqId="1001" shortcutId="ADMPR_ASL_ALE" tabId="ADMPR_ASL" uiLabels="Audit Log by Entity"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="entityAuditConfig" pageType="SHORTCUT" permissionId="DBS_ADMPR_ASL_EAC" requestUri="#" seqId="1000" shortcutId="ADMPR_ASL_EAC" tabId="ADMPR_ASL" uiLabels="Entity Audit Configuration"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="apiLogs" pageType="SHORTCUT" permissionId="DBS_ADMPR_EAI_AL" requestUri="/admin-portal/control/apiLogs" seqId="1001" shortcutId="ADMPR_EAI_AL" tabId="ADMPR_EAI" uiLabels="API Logs"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="accessSetup" pageType="SHORTCUT" permissionId="DBS_ADMPR_EAI_AS" requestUri="/admin-portal/control/accessSetup" seqId="1000" shortcutId="ADMPR_EAI_AS" tabId="ADMPR_EAI" uiLabels="Access Setup"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="globalParameter" pageType="SHORTCUT" permissionId="DBS_ADMPR_GPS_PS" requestUri="/admin-portal/control/globalParameter" seqId="1000" shortcutId="ADMPR_GPS_PS" tabId="ADMPR_GPS" uiLabels="Parameter Setup"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-briefcase" isExternal="N" pageId="businessUnits" pageType="SHORTCUT" permissionId="DBS_ADMPR_OH_BU" requestUri="/admin-portal/control/businessUnits" seqId="1000" shortcutId="ADMPR_OH_BU" tabId="ADMPR_OH" uiLabels="Business Units"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-users" isExternal="N" pageId="teams" pageType="SHORTCUT" permissionId="DBS_ADMPR_OH_TM" requestUri="/admin-portal/control/teams" seqId="1001" shortcutId="ADMPR_OH_TM" tabId="ADMPR_OH" uiLabels="Teams"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="entityOpsConfigure" pageType="SHORTCUT" permissionId="DBS_ADMPR_SGS_EO" requestUri="/admin-portal/control/entityOpsConfigure" seqId="1003" shortcutId="ADMPR_SGS_EO" tabId="ADMPR_SGS" uiLabels="Entity Operations"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findSecurityGroups" pageType="SHORTCUT" permissionId="DBS_ADMPR_SGS_SG" requestUri="/admin-portal/control/findSecurityGroups" seqId="1001" shortcutId="ADMPR_SGS_SG" tabId="ADMPR_SGS" uiLabels="Security Group"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findSecurityPermissions" pageType="SHORTCUT" permissionId="DBS_ADMPR_SGS_SP" requestUri="/admin-portal/control/findSecurityPermissions" seqId="1000" shortcutId="ADMPR_SGS_SP" tabId="ADMPR_SGS" uiLabels="Security Permission"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findSecurityRole" pageType="SHORTCUT" permissionId="DBS_ADMPR_SGS_SR" requestUri="/admin-portal/control/findSecurityRole" seqId="1002" shortcutId="ADMPR_SGS_SR" tabId="ADMPR_SGS" uiLabels="Security Roles"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-history" isExternal="N" pageId="userLoginHistory" pageType="SHORTCUT" permissionId="DBS_ADMPR_UM_HRY" requestUri="/admin-portal/control/userLoginHistory" seqId="1001" shortcutId="ADMPR_UM_HRY" tabId="ADMPR_UM" uiLabels="User Login History"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-users" isExternal="N" pageId="findUser" pageType="SHORTCUT" permissionId="DBS_ADMPR_UM_RLE" requestUri="/admin-portal/control/findUser" seqId="1000" shortcutId="ADMPR_UM_RLE" tabId="ADMPR_UM" uiLabels="Users and Roles"/>
+		
+	<!-- Paramunit Setup menu access [START] -->	
+	
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-cog" isExternal="N" pageId="PARAMUNIT_SETUP" pageType="TAB" permissionId="DBS_ADMPR_PUS" seqId="1003" tabId="ADMPR_PUS" uiLabels="Paramunit Setup"/>     
+		
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="srType" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_SRT" requestUri="/admin-portal/control/srType" seqId="1000" shortcutId="ADMPR_PUS_SRT" tabId="ADMPR_PUS" uiLabels="SR Type"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="activeSrArea" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_SRC" requestUri="/admin-portal/control/activeSrArea" seqId="1001" shortcutId="ADMPR_PUS_SRC" tabId="ADMPR_PUS" uiLabels="SR Category"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="activeSrSubCategory" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_SRSC" requestUri="/admin-portal/control/activeSrSubCategory" seqId="1002" shortcutId="ADMPR_PUS_SRSC" tabId="ADMPR_PUS" uiLabels="SR Sub Category"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findSlaSetup" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_SLAS" requestUri="/admin-portal/control/findSlaSetup" seqId="1003" shortcutId="ADMPR_PUS_SLAS" tabId="ADMPR_PUS" uiLabels="SLA Setup"/>
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="activeActivityParent" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_AP" requestUri="/admin-portal/control/activeActivityParent" seqId="1005" shortcutId="ADMPR_PUS_AP" tabId="ADMPR_PUS" uiLabels="Activity Parent"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="activeActivityType" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_AT" requestUri="/admin-portal/control/activeActivityType" seqId="1006" shortcutId="ADMPR_PUS_AT" tabId="ADMPR_PUS" uiLabels="Activity Types"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="activeActivitySubTypes" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_AST" requestUri="/admin-portal/control/activeActivitySubTypes" seqId="1007" shortcutId="ADMPR_PUS_AST" tabId="ADMPR_PUS" uiLabels="Activity Sub Types"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findAlertCategory" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_ACS" requestUri="/admin-portal/control/findAlertCategory" seqId="1010" shortcutId="ADMPR_PUS_ACS" tabId="ADMPR_PUS" uiLabels="Alert Category Setup"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findHolidaysList" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_CAL" requestUri="/admin-portal/control/findHolidaysList" seqId="1011" shortcutId="ADMPR_PUS_CAL" tabId="ADMPR_PUS" uiLabels="Calendar Non-Working Days - Public Holiday Update"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="findOppoStage" pageType="SHORTCUT" permissionId="DBS_ADMPR_PUS_OPPSTG" requestUri="/admin-portal/control/findOppoStage" seqId="1016" shortcutId="ADMPR_PUS_OPPSTG" tabId="ADMPR_PUS" uiLabels="Opp. Stage Config"/>     
+	     
+	<!-- Paramunit Setup menu access [END] -->
+	
+	<!-- Maker and Cheker menu access [START] -->
+	
+	<OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-check-circle" isExternal="N" pageId="MKR_CHR_ADT" pageType="TAB" permissionId="DBS_ADMPR_MCA" seqId="1007" tabId="ADMPR_MCA" uiLabels="Maker and Checker Audit"/>     
+			
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="makerCheckerLog" pageType="SHORTCUT" permissionId="DBS_ADMPR_MCA_MCL" requestUri="/admin-portal/control/viewPendingRequests" seqId="1000" shortcutId="ADMPR_MCA_MCL" tabId="ADMPR_MCA" uiLabels="Maker Checker Logs"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="makerCheckerMgmt" pageType="SHORTCUT" permissionId="DBS_ADMPR_MCA_MCM" requestUri="/admin-portal/control/userAuditConfiguration" seqId="1001" shortcutId="ADMPR_MCA_MCM" tabId="ADMPR_MCA" uiLabels="Maker Checker Management"/>     
+	<OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-chevron-circle-right" isExternal="N" pageId="makerCheckerOperator" pageType="SHORTCUT" permissionId="DBS_ADMPR_MCA_OPRT" requestUri="/admin-portal/control/findUserAuditOperator" seqId="1002" shortcutId="ADMPR_MCA_MCO" tabId="ADMPR_MCA" uiLabels="Audit Operator"/>     
+		
+	<!-- Maker and Cheker menu access [end] -->	
+		
+	<!-- Admin portal [end] -->	
+	
+	<!-- Lead portal [start] -->
+	
+	<OfbizPageSecurity componentId="LEAD_PORTAL" favIcon="fa fa-cogs" isExternal="N" pageId="LEAD_HOME" pageType="TAB" permissionId="DBS_LEADPR_SRT" seqId="1005" tabId="LEADPR_HOME" uiLabels="Lead Home" requestUri="/lead-portal/control/homeLead"/>     
+	<OfbizPageSecurity componentId="LEAD_PORTAL" favIcon="fa fa-tasks" isExternal="N" pageId="LEAD_FIND" pageType="TAB" permissionId="DBS_LEADPR_SRT_VIEW" seqId="1006" tabId="LEADPR_FIND" uiLabels="Find Lead" requestUri="/lead-portal/control/findLead"/>     
+	<OfbizPageSecurity componentId="LEAD_PORTAL" favIcon="fa fa-globe" isExternal="N" pageId="LEAD_CREATE" pageType="TAB" permissionId="DBS_LEADPR_SRT_CREATE" seqId="1007" tabId="LEADPR_CREATE" uiLabels="Create Lead" requestUri="/lead-portal/control/createLead"/>     
+		
+	<!-- Lead portal [end] -->
+	
+	<!-- Account portal [start] -->
+	
+	<OfbizPageSecurity componentId="ACCOUNT_PORTAL" favIcon="fa fa-cogs" isExternal="N" pageId="ACCT_HOME" pageType="TAB" permissionId="DBS_ACCTPR_SRT" seqId="1005" tabId="LEADPR_HOME" uiLabels="Account Home" requestUri="/account-portal/control/homeAccount"/>     
+	<OfbizPageSecurity componentId="ACCOUNT_PORTAL" favIcon="fa fa-tasks" isExternal="N" pageId="ACCT_FIND" pageType="TAB" permissionId="DBS_ACCTPR_SRT_VIEW" seqId="1006" tabId="LEADPR_FIND" uiLabels="Find Account" requestUri="/account-portal/control/findAccount"/>     
+	<OfbizPageSecurity componentId="ACCOUNT_PORTAL" favIcon="fa fa-globe" isExternal="N" pageId="ACCT_CREATE" pageType="TAB" permissionId="DBS_ACCTPR_SRT_CREATE" seqId="1007" tabId="LEADPR_CREATE" uiLabels="Create Account" requestUri="/account-portal/control/createAccount"/>     
+		
+	<!-- Account portal [end] -->
+	
+	<!-- Contact portal [start] -->
+	
+	<OfbizPageSecurity componentId="CONTACT_PORTAL" favIcon="fa fa-cogs" isExternal="N" pageId="CONT_HOME" pageType="TAB" permissionId="DBS_CONTPR_SRT" seqId="1005" tabId="CONTPR_HOME" uiLabels="Contact Home" requestUri="/contact-portal/control/homeContact"/>     
+	<OfbizPageSecurity componentId="CONTACT_PORTAL" favIcon="fa fa-tasks" isExternal="N" pageId="CONT_FIND" pageType="TAB" permissionId="DBS_CONTPR_SRT_VIEW" seqId="1006" tabId="CONTPR_FIND" uiLabels="Find Contact" requestUri="/contact-portal/control/findContact"/>     
+	<OfbizPageSecurity componentId="CONTACT_PORTAL" favIcon="fa fa-globe" isExternal="N" pageId="CONT_CREATE" pageType="TAB" permissionId="DBS_CONTPR_SRT_CREATE" seqId="1007" tabId="CONTPR_CREATE" uiLabels="Create Contact" requestUri="/contact-portal/control/createContact"/>     
+		
+	<!-- Contact portal [end] -->
+	
+	<!-- Opportunity portal [start] -->
+	
+	<OfbizPageSecurity componentId="OPPORTUNITY_PORTAL" favIcon="fa fa-cogs" isExternal="N" pageId="CONT_HOME" pageType="TAB" permissionId="DBS_OPPOPR_SRT" seqId="1005" tabId="OPPOPR_HOME" uiLabels="Opportunity Home" requestUri="/opportunity-portal/control/homeOpportunity"/>     
+	<OfbizPageSecurity componentId="OPPORTUNITY_PORTAL" favIcon="fa fa-tasks" isExternal="N" pageId="CONT_FIND" pageType="TAB" permissionId="DBS_OPPOPR_SRT_VIEW" seqId="1006" tabId="OPPOPR_FIND" uiLabels="Find Opportunity" requestUri="/opportunity-portal/control/findOpportunity"/>     
+	<OfbizPageSecurity componentId="OPPORTUNITY_PORTAL" favIcon="fa fa-globe" isExternal="N" pageId="CONT_CREATE" pageType="TAB" permissionId="DBS_OPPOPR_SRT_CREATE" seqId="1007" tabId="OPPOPR_CREATE" uiLabels="Create Opportunity" requestUri="/opportunity-portal/control/createOpportunity"/>     
+		
+	<!-- Opportunity portal [end] -->
+	
+		
+	<!-- Additional security permission [start] -->
+	
+	<SecurityGroup description="Security Group for Maker" groupId="DBS_ADMPR_MAKER" customSecurityGroupType=""/>
+	<SecurityPermission description="Maker Authorized" permissionId="DBS_ADMPR_MAKER" actionType="MAKER" securityResourceType="SCREEN"/>
+	
+	<SecurityGroup description="Security Group for Cheker" groupId="DBS_ADMPR_CHEKER" customSecurityGroupType=""/>
+	<SecurityPermission description="Checker Authorized" permissionId="DBS_ADMPR_CHECKER" actionType="CHECKER" securityResourceType="SCREEN"/>
+	
+	<SecurityGroupPermission groupId="DBS_ADMPR_MAKER" permissionId="DBS_ADMPR_MAKER"/>
+	<SecurityGroupPermission groupId="DBS_ADMPR_CHEKER" permissionId="DBS_ADMPR_CHEKER"/>
+	
+	<!-- Additional security permission [end] --> 
+	
+	
+	<!-- User login security group [START] -->
+	
+	<UserLoginSecurityGroup userLoginId="admin" groupId="VND_SG_ADMIN" fromDate="2001-01-01 12:00:00.0"/>
+	
+	<UserLoginSecurityGroup userLoginId="admin" groupId="DBS_ADMPR_MAKER" fromDate="2001-01-01 12:00:00.0"/>
+	<UserLoginSecurityGroup userLoginId="admin" groupId="DBS_ADMPR_CHEKER" fromDate="2001-01-01 12:00:00.0"/>
+	
+	<!-- User login security group [END] -->
+	
+	<!-- Dummy UserLogin for maker cheker [start] -->
+	
+	<!-- 
+	<UserLogin currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" enabled="Y" hasLoggedOut="N" partyId="admin" successiveFailedLogins="0" userLoginId="maker"/> 
+	<UserLogin currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" enabled="Y" hasLoggedOut="N" partyId="admin" successiveFailedLogins="0" userLoginId="cheker"/> 
+	<UserLogin currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a" enabled="Y" hasLoggedOut="N" partyId="admin" successiveFailedLogins="0" userLoginId="makerAndCheker"/> 
+	
+	<UserLoginSecurityGroup userLoginId="maker" groupId="DBS_ADMPR_MAKER" fromDate="2001-01-01 12:00:00.0"/>
+	<UserLoginSecurityGroup userLoginId="maker" groupId="VND_SG_ADMIN" fromDate="2001-01-01 12:00:00.0"/>
+	
+	<UserLoginSecurityGroup userLoginId="cheker" groupId="DBS_ADMPR_CHEKER" fromDate="2001-01-01 12:00:00.0"/>
+	<UserLoginSecurityGroup userLoginId="cheker" groupId="VND_SG_ADMIN" fromDate="2001-01-01 12:00:00.0"/>
+	
+	<UserLoginSecurityGroup userLoginId="makerAndCheker" groupId="DBS_ADMPR_MAKER" fromDate="2001-01-01 12:00:00.0"/>
+	<UserLoginSecurityGroup userLoginId="makerAndCheker" groupId="DBS_ADMPR_CHEKER" fromDate="2001-01-01 12:00:00.0"/> 
+	<UserLoginSecurityGroup userLoginId="makerAndCheker" groupId="VND_SG_ADMIN" fromDate="2001-01-01 12:00:00.0"/>
+	-->
+	
+	<!-- Dummy UserLogin for maker cheker [end] -->
+	
+
+
+
+
+
+
+
+	<!-- Batch data report [start] -->
+
+	<SecurityPermission description="Report screens permission" permissionId="ADMPR_REP"/>
+    <OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-desktop" isExternal="N" pageId="REP_SCRN" pageType="TAB" permissionId="ADMPR_REP" seqId="1009" tabId="ADMPR_REP" uiLabels="Reports"/>
+
+    <SecurityPermission description="Configurable screens permission View" permissionId="ADMPR_REP_VCS"/>
+
+    <OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-eye" isExternal="N" pageId="batchStatusFind" pageType="SHORTCUT" permissionId="ADMPR_REP_VCS" requestUri="/batch-portal/control/batchDataStatus" seqId="1000" shortcutId="ADMPR_REP_VCS" tabId="ADMPR_REP" uiLabels="Find Batch Status"/>
+		
+	<!-- Batch data report [end] -->
+
+</entity-engine-xml>

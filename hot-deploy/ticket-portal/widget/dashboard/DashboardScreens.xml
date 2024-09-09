@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+<screen name="srDashboard">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Dashboard" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                     <script location="component://ticket-portal/webapp/ticket-portal/WEB-INF/actions/charts/SrDashboardChart.groovy"/>
+          
+            
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                             	<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/sr_dashboard_charts.ftl"/>
+                             
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="srByDayChart">
+        <section>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/createdclosed_sr_by_day.ftl"/>
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="srByCateChart">
+        <section>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/outstanding_sr_by_cate.ftl"/>
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="srByCumChart">
+        <section>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/outstanding_sr_by_cum.ftl"/>
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="srByEowChart">
+        <section>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/outstanding_sr_by_eow.ftl"/>
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="srByTypeChart">
+        <section>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/outstanding_sr_by_type.ftl"/>
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="srByuserChart">
+        <section>
+            <widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://ticket-portal/webapp/ticket-portal/charts/dashboard/outstanding_sr_by_user.ftl"/>
+					</html>
+				</platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>
+
+
+

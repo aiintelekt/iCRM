@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>crm-portal SR Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="crmPortal.createServiceRequest" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceRequestServiceImpl" invoke="createServiceRequest">
+       	<description> Create Service Request </description>
+
+       	<!-- Notification registry service fields append -->
+       	<implements service="notificationEventInterface"/>
+       	
+       	<attribute name="custRequestContext" type="Map" mode="IN" optional="true"/>
+       	<attribute name="supplementoryContext" type="Map" mode="IN" optional="true"/>
+       	<attribute name="channelPwebContext" type="Map" mode="IN" optional="true"/>
+       	
+       	<attribute name="documents" type="List" mode="IN" optional="true"/>
+       	<attribute name="dynaList" type="List" mode="IN" optional="true"/>
+       	
+       	<attribute name="endPointType" type="String" mode="IN" optional="true"/>
+       		
+       	<attribute name="custRequestId" type="String" mode="OUT" optional="false"/>
+       	
+    </service>
+    
+    <service name="crmPortal.updateServiceRequest" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceRequestServiceImpl" invoke="updateServiceRequest">
+       	<description> Update Service Request </description>
+		<!-- Notification registry service fields append -->
+       	<implements service="notificationEventInterface"/>
+       
+       	<attribute name="custRequestContext" type="Map" mode="IN" optional="true"/>
+       	<attribute name="supplementoryContext" type="Map" mode="IN" optional="true"/>
+		       	
+       	<attribute name="documents" type="List" mode="IN" optional="true"/>
+       	<attribute name="dynaList" type="List" mode="IN" optional="true"/>
+       	<attribute name="activityList" type="List" mode="IN" optional="true"/>
+       	
+       	<attribute name="endPointType" type="String" mode="IN" optional="true"/>
+       		
+       	<attribute name="custRequestId" type="String" mode="OUT" optional="false"/>
+		
+    </service>
+    
+    <service name="crmPortal.detailServiceRequest" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceRequestServiceImpl" invoke="detailServiceRequest">
+       	<description> Detail Service Request </description>
+       
+       	<attribute name="workEffortId" type="String" mode="IN" optional="false"/>
+       	
+       	<attribute name="workEffortId" type="String" mode="OUT" optional="false"/>
+       	<attribute name="partyId" type="String" mode="OUT" optional="true"/>
+       	<attribute name="roleTypeId" type="String" mode="OUT" optional="true"/>
+       	<attribute name="activity" type="Object" mode="OUT" optional="false"/>
+       	<attribute name="callOutCome" type="String" mode="OUT" optional="true"/>
+		       	
+    </service>
+    
+    <service name="crmPortal.findServiceRequest" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceRequestServiceImpl" invoke="findServiceRequest">
+        <description> Find Service Request </description>
+        
+        <attribute name="customerRelatedType" type="String" mode="IN" optional="true"/>
+        <attribute name="vplusCustId" type="String" mode="IN" optional="true"/>
+        <attribute name="nationalId" type="String" mode="IN" optional="true"/>
+        <attribute name="fromPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="responsiblePerson" type="String" mode="IN" optional="true"/>
+        <attribute name="caseId" type="String" mode="IN" optional="true"/>
+        <attribute name="createdDateRangeStart" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="createdDateRangeEnd" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="modifiedDateRangeStart" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="modifiedDateRangeEnd" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="subStatusId" type="String" mode="IN" optional="true"/>
+        <attribute name="dueDateRangeStart" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="dueDateRangeEnd" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="priority" type="Long" mode="IN" optional="true"/>
+        <attribute name="srType" type="String" mode="IN" optional="true"/>
+        <attribute name="srCategory" type="String" mode="IN" optional="true"/>
+        <attribute name="srSubCategory" type="String" mode="IN" optional="true"/>
+        <attribute name="msguid" type="String" mode="IN" optional="true"/>
+        <attribute name="requestedTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="systemName" type="String" mode="IN" optional="true"/>
+        <attribute name="nextPageNum" type="String" mode="IN" optional="true"/>
+        <attribute name="responsibleLoginIds" type="List" mode="IN" optional="true"/>
+        <attribute name="emplLoginIds" type="List" mode="IN" optional="true"/>
+        <attribute name="createdBy" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="serviceRequestList" type="List" mode="OUT" optional="true"/>
+        <attribute name="totalCount" type="Long" mode="OUT" optional="true"/>
+        
+       	
+    </service>
+    <service name="crmPortal.createLeaveOrder" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.LeaveOrderServiceImpl" invoke="createLeaveOrder">
+        <attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+        <attribute name="custRequestId" type="String" mode="OUT" optional="false"/>
+        <attribute name="externalId" type="String" mode="OUT" optional="false"/>
+        <attribute name="objRefId" type="String" mode="OUT" optional="false"/>
+    </service>
+    <service name="crmPortal.updateLeaveOrder" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.LeaveOrderServiceImpl" invoke="updateLeaveOrder">
+        <attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+        <attribute name="custRequestId" type="String" mode="OUT" optional="false"/>
+        <attribute name="externalId" type="String" mode="OUT" optional="false"/>
+        <attribute name="objRefId" type="String" mode="OUT" optional="false"/>
+    </service>
+    <service name="crmPortal.findLeaveOrder" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.LeaveOrderServiceImpl" invoke="findLeaveOrder">
+        <attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+        <attribute name="custRequestId" type="String" mode="OUT" optional="false"/>
+        <attribute name="externalId" type="String" mode="OUT" optional="false"/>
+        <attribute name="objRefIdList" type="List" mode="OUT" optional="false"/>
+    </service>
+    
+</services>

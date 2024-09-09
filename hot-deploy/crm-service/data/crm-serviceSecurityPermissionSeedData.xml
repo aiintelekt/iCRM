@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the crm-portal Component." permissionId="crm-portal_VIEW"/>
+    <SecurityPermission description="Create operations in the crm-portal Component." permissionId="crm-portal_CREATE"/>
+    <SecurityPermission description="Update operations in the crm-portal Component." permissionId="crm-portal_UPDATE"/>
+    <SecurityPermission description="Delete operations in the crm-portal Component." permissionId="crm-portal_DELETE"/>
+    <SecurityPermission description="ALL operations in the crm-portal Component." permissionId="crm-portal_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="crm-portal_ADMIN"/>
+
+</entity-engine-xml>

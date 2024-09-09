@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>FIO Custom Field Services</description>
+    <vendor>Open Source Strategies, Inc.</vendor>
+    <version>1.0</version>
+	
+	<!-- Value Config [start] -->
+	
+	<service name="segment.createValueConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.ValueConfigServices" invoke="createValueConfig">
+       	<description> Create Value Config </description>
+       
+       	<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="customFieldId" type="String" mode="IN" optional="false"/>
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueSeqNum" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="valueMin" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueMax" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueData" type="String" mode="IN" optional="true"/>
+       	    	
+    </service>
+    
+    <service name="segment.updateValueConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.ValueConfigServices" invoke="updateValueConfig">
+       	<description> Update Value Config </description>
+       
+       	<attribute name="groupId" type="String" mode="INOUT" optional="false"/>
+       	<attribute name="customFieldId" type="String" mode="INOUT" optional="false"/>
+       	<attribute name="valueCapture" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="valueSeqNum" type="String" mode="INOUT" optional="true"/>
+       	
+       	<attribute name="valueMin" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueMax" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueData" type="String" mode="IN" optional="true"/>
+       	
+    </service>
+    
+    <service name="segment.deleteValueConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.ValueConfigServices" invoke="deleteValueConfig">
+       	<description> Delete Value Config </description>
+       
+       	<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="customFieldId" type="String" mode="IN" optional="false"/>
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueSeqNum" type="String" mode="IN" optional="true"/>
+		       	
+    </service>
+    
+    <!-- Value Config [end] -->
+    
+    <!-- Micro Service [start] -->
+	
+	<service name="segment.createMicroServiceConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.MicroServiceConfigServices" invoke="createMicroServiceConfig">
+       	<description> Create Micro Service Config </description>
+       
+       	<attribute name="microUrl" type="String" mode="IN" optional="false"/>
+       	<attribute name="microSeqNum" type="String" mode="IN" optional="true"/>
+       	<attribute name="authKey" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+		       	    	
+    </service>
+    
+    <service name="segment.updateMicroServiceConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.MicroServiceConfigServices" invoke="updateMicroServiceConfig">
+       	<description> Update Micro Service Config </description>
+       
+       	<attribute name="configId" type="String" mode="INOUT" optional="false"/>
+       	
+       	<attribute name="microUrl" type="String" mode="IN" optional="false"/>
+       	<attribute name="microSeqNum" type="String" mode="IN" optional="true"/>
+       	<attribute name="authKey" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+       	
+    </service>
+    
+    <service name="segment.deleteMicroServiceConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.MicroServiceConfigServices" invoke="deleteMicroServiceConfig">
+       	<description> Delete Micro Service Config </description>
+       
+       	<attribute name="configId" type="String" mode="IN" optional="false"/>
+		       	
+    </service>
+    
+    <!-- Micro Service [end] -->
+    
+    <!-- Webhook [start] -->
+	
+	<service name="segment.createWebhookConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.WebhookConfigServices" invoke="createWebhookConfig">
+       	<description> Create Webhook Config </description>
+       
+       	<attribute name="webhookUrl" type="String" mode="IN" optional="false"/>
+       	<attribute name="webhookSeqNum" type="String" mode="IN" optional="true"/>
+       	<attribute name="authKey" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+		       	    	
+    </service>
+    
+    <service name="segment.updateWebhookConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.WebhookConfigServices" invoke="updateWebhookConfig">
+       	<description> Update Webhook Config </description>
+       
+       	<attribute name="configId" type="String" mode="INOUT" optional="false"/>
+       	
+       	<attribute name="webhookUrl" type="String" mode="IN" optional="false"/>
+       	<attribute name="webhookSeqNum" type="String" mode="IN" optional="true"/>
+       	<attribute name="authKey" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+       	
+    </service>
+    
+    <service name="segment.deleteWebhookConfig" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.WebhookConfigServices" invoke="deleteWebhookConfig">
+       	<description> Delete Webhook Config </description>
+       
+       	<attribute name="configId" type="String" mode="IN" optional="false"/>
+		       	
+    </service>
+    
+    <!-- Webhook [end] -->
+    
+    <!-- Grouping Code [start] -->
+	
+	<service name="segment.createGroupingCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.GroupingCodeServices" invoke="createGroupingCode">
+       	<description> Create Grouping Code </description>
+       
+       	<attribute name="groupingCode" type="String" mode="IN" optional="false"/>
+       	<attribute name="description" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="groupType" type="String" mode="INOUT" optional="false"/>
+
+		<attribute name="groupingCodeId" type="String" mode="OUT" optional="false"/>       	    	
+    </service>
+    
+    <service name="segment.updateGroupingCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.GroupingCodeServices" invoke="updateGroupingCode">
+       	<description> Update Grouping Code </description>
+       
+       	<attribute name="groupingCode" type="String" mode="IN" optional="false"/>
+       	<attribute name="description" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="groupType" type="String" mode="INOUT" optional="false"/>
+
+		<attribute name="groupingCodeId" type="String" mode="INOUT" optional="false"/> 
+       	
+    </service>
+    
+    <service name="segment.copyGroupingCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.GroupingCodeServices" invoke="copyGroupingCode">
+       	<description> Copy Grouping Code </description>
+       
+       	<attribute name="groupingCode" type="String" mode="IN" optional="false"/>
+       	<attribute name="description" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+       	<attribute name="groupType" type="String" mode="IN" optional="false"/>
+       	<attribute name="parentGroupingCodeId" type="String" mode="IN" optional="false"/>
+       	
+		<attribute name="groupingCodeId" type="String" mode="OUT" optional="false"/> 
+    </service>
+    
+    <service name="segment.deleteGroupingCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.GroupingCodeServices" invoke="deleteGroupingCode">
+       	<description> Delete Grouping Code </description>
+       
+       	<attribute name="groupingCodeId" type="String" mode="IN" optional="false"/> 
+       	<attribute name="groupType" type="String" mode="OUT" optional="false"/>      	    
+		       	
+    </service>
+    
+    <!-- Grouping Code [end] -->
+    
+</services>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of common-portal Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+	  
+	<extend-entity entity-name="OrderHeader">
+       	<field name="partyId" type="id"/>
+    </extend-entity> 
+    
+    <extend-entity entity-name="SalesOpportunity">
+       	<field name="partyId" type="id"/>
+       	<index name="SLSOPP_INDEX_01">
+			<index-field name="partyId" />
+		</index>
+		<index name="SLSOPP_INDEX_02">
+			<index-field name="partyId" />
+			<index-field name="opportunityStatusId" />
+			<index-field name="opportunityStageId" />
+		</index>
+    </extend-entity> 
+    
+    <extend-entity entity-name="PartySupplementalData">
+       	<field name="isExempt" type="indicator"/>
+       	<field name="supplementalPartyTypeId" type="id"/>
+       	
+       	<index name="PRT_SPPLML_DT_IDX01">
+			<index-field name="partyId" />
+			<index-field name="primaryPostalAddressId" />
+		</index>
+		<index name="PRT_SPPLML_DT_IDX02">
+			<index-field name="partyId" />
+			<index-field name="primaryEmailId" />
+		</index>
+		<index name="PRT_SPPLML_DT_IDX03">
+			<index-field name="partyId" />
+			<index-field name="primaryTelecomNumberId" />
+		</index>
+    </extend-entity>
+    
+    <extend-entity entity-name="DataSource">
+       	<field name="sequenceId" type="id"/>
+       	<field name="createdByUserLogin" type="id"></field>
+		<field name="lastModifiedByUserLogin" type="id"></field>
+		<field name="name" type="id-long"/>
+		<field name="dataSourceSequenceId" type="id-int"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="Enumeration">
+       	<field name="createdByUserLogin" type="id"></field>
+		<field name="lastModifiedByUserLogin" type="id"></field>
+		<field name="name" type="long-varchar"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="SalesOpportunityStage">
+		<field name="name" type="id-long"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="CustRequestNote">
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+    </extend-entity>
+    <extend-entity entity-name="PartyNote">
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="Content">
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+		<field name="linkedFrom" type="id"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="CustRequest">
+       	<field name="actualResolution" type="very-long"></field>
+       	<field name="custRequestDomainType" type="id"></field>
+       	<field name="parentCustRequestId" type="id"></field>
+        <field name="custEstimatedMilliSeconds" type="floating-point"></field>
+        <field name="custSequenceNum" type="numeric"></field>
+        <field name="billed" type="indicator"></field>
+        <field name="cardNumber" type="name"></field>
+        <field name="sentLastEmail" type="indicator"></field>
+        <field name="ownerBranchCode" type="long-varchar"></field>
+        <field name="prospectId" type="id"></field>
+        <field name="custReqEmpName" type="name"></field>
+        <field name="customerTypeId" type="id"></field>
+        <field name="custReqResult" type="long-text"></field>
+        <field name="custReqReasonCode" type="id-very-long"></field>
+        <field name="geoId" type="id"></field>
+        <field name="entityTimeZoneId" type="id"></field>
+        <field name="postalContactMech" type="long-varchar"></field>
+        <field name="ownerId" type="id"></field>
+        <field name="escalationCheck" type="indicator"></field>
+        <field name="createdTeamId" type="id"></field>
+        <field name="customerRelatedType" type="id"></field>
+        
+        <relation type="one" fk-name="ownerid4" rel-entity-name="UserLogin">
+			<key-map field-name="ownerId" rel-field-name="userLoginId" />
+		</relation>
+		<relation type="one" fk-name="CUST_REQ_PARENT" rel-entity-name="CustRequest">
+			<key-map field-name="parentCustRequestId" rel-field-name="custRequestId" />
+		</relation>
+    </extend-entity> 
+    
+    <extend-entity entity-name="CustRequestSupplementory">
+       	<field name="pstlAttnName" type="id-vlong-ne"></field>
+      	<field name="pstlAddress1" type="id-vlong-ne"></field>
+      	<field name="pstlAddress2" type="id-vlong-ne"></field>
+      	<field name="pstlPostalCity" type="id-vlong-ne"></field>
+      	<field name="pstlPostalCode" type="short-varchar"></field>
+      	<field name="pstlPostalCodeExt" type="short-varchar"></field>
+      	<field name="pstlCountryGeoId" type="id"></field>
+      	<field name="pstlStateProvinceGeoId" type="id"></field>
+      	<field name="pstlCountyGeoId" type="id"></field>
+      	<field name="primPhoneNumber" type="very-short"/>
+      	<field name="contractorEmail" type="id"/>
+      	<field name="contractorOffPhone" type="id"/>
+      	<field name="contractorMobilePhone" type="id"/>
+      	<field name="contractorHomePhone" type="id"/>
+      	
+      	<field name="descriptionRawTxt" type="very-long"></field>
+       	<field name="resolutionRawTxt" type="very-long"></field>
+       	<field name="purchaseOrder" type="id-long"/>
+       	
+       	<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+		
+		<field name="statusEscTime" type="date-time"></field>
+		<field name="statusClosedEscTime" type="date-time"></field>
+    </extend-entity> 
+     
+    <extend-entity entity-name="NoteData">
+		<field name="createdByUserLoginRoleTypeId" type="id"></field>
+		<field name="expiredDate" type="date-time" />
+    </extend-entity>
+
+	<extend-entity entity-name="RmsTransactionMaster">
+		<field name="purchaseOrder" type="id-long" />
+		<field name="shipmentAddress_1" type="id-very-long" />
+		<field name="shipmentAddress_2" type="id-very-long" />
+		<field name="shipmentCity" type="name" />
+		<field name="shipmentStateProvince" type="id" />
+		<field name="shipmentPostalCode" type="id-long" />
+		<field name="shipmentPhone" type="very-short" />
+		<field name="shipDate" type="date-time" />
+	</extend-entity>
+
+    <extend-entity entity-name="PartyDataSource">
+		<field name="thruDate" type="date-time"></field> 
+	</extend-entity>
+	
+	<extend-entity entity-name="PostalAddress">
+    	<field name="isBusiness" type="indicator"></field>
+    	<field name="isVacant" type="indicator"></field>
+    	<field name="latitude" type="id"></field>
+		<field name="longitude" type="id"></field>
+		<field name="isUspsAddrVerified" type="indicator"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="DataTagConfiguration">
+       	<field name="dataTagValue" type="id-vlong"/>
+    </extend-entity>
+	    
+    <extend-entity entity-name="TemplateMaster">
+		<field name="createdByUserLogin" type="id"></field>
+		<field name="lastModifiedByUserLogin" type="id"></field>
+		<field name="senderUserLoginId" type="id"></field>
+		<field name="replyUserLoginId" type="id"></field>
+		<field name="cloneTemplateId" type="id"></field>
+		<field name="emailEngine" type="id"></field>
+		<field name="purposeTypeId" type="id"></field>
+		<field name="useOfTemplate" type="very-long"></field>
+		<field name="benefitOfTemplate" type="very-long"></field>
+    </extend-entity>
+    
+    <!-- <extend-entity entity-name="WorkEffortContent">
+    	<field name="helpfulLink" type="indicator" />
+    </extend-entity> -->
+	<extend-entity entity-name="RmsTransactionMaster">
+		<field name="marginCost" type="currency-amount" />
+		<field name="productCategoryId_1" type="id" />
+		<field name="productCategoryName_1" type="long-varchar" />
+		<field name="productCategoryId_2" type="id" />
+		<field name="productCategoryName_2" type="long-varchar" />
+		<field name="productCategoryId_3" type="id" />
+		<field name="productCategoryName_3" type="long-varchar" />
+		<field name="productCategoryId_4" type="id" />
+		<field name="productCategoryName_4" type="long-varchar" />
+		<field name="businessType" type="id" />
+		<field name="shipmentCountry" type="id" />
+		<field name="operationsWorkCenter" type="id-vlong" />
+		<field name="custRequestId" type="id" />
+		<field name="worker" type="long-varchar" />
+		<field name="user" type="long-varchar" />
+		<field name="rebatePayout" type="id" />
+		<field name="rebateType" type="id" />
+		<field name="productionDate" type="date" />
+		<field name="feeAmount" type="currency-amount" />
+		<field name="addlDiscAmt" type="currency-amount" />
+	</extend-entity>
+	<extend-entity entity-name="CustRequestNote">
+		<field name="geoId" type="id" />
+		<field name="entityTimeZoneId" type="id-long" />
+		<field name="createdDate" type="date-time" />
+		<field name="createdByUserLogin" type="id-long" />
+		<field name="lastModifiedDate" type="date-time" />
+		<field name="lastModifiedByUserLogin" type="id-long" />
+		<field name="ownerId" type="id-long" />
+		<field name="ownerBusinessUnit" type="id-long" />
+		<field name="emplTeamId" type="id-long" />
+		<relation type="one" fk-name="ownerbu16" rel-entity-name="ProductStoreGroup">
+			<key-map field-name="ownerBusinessUnit" rel-field-name="productStoreGroupId" />
+		</relation>
+		<relation type="one" fk-name="ownerid9" rel-entity-name="UserLogin">
+			<key-map field-name="ownerId" rel-field-name="userLoginId" />
+		</relation>
+		<index name="ownerbunit" >
+			<index-field name="ownerBusinessUnit" />
+		</index>
+		<index name="ownerid_CRN">
+			<index-field name="ownerId" />
+		</index>
+	</extend-entity>
+
+	<extend-entity entity-name="DataTagConfiguration">
+		<field name="entityName" type="id-mlong" />
+		<field name="entityKeyFieldName" type="id-ne" />
+		<field name="entityFieldName" type="id-mlong" />
+	</extend-entity>
+	<extend-entity entity-name="Enumeration">
+		<field name="createdUserLoginId" type="id-long" />
+		<field name="modifiedUserLoginId" type="id-long" />
+		<field name="geoId" type="id-long" />
+		<field name="emplTeamId" type="id-long" />
+		<field name="enumSequenceId" type="id-int" />
+	</extend-entity>
+	<extend-entity entity-name="EnumerationType">
+		<field name="entityTimeZoneId" type="id-long" />
+		<field name="geoId" type="id-ne" />
+		<field name="emplTeamId" type="id-long" />
+		<field name="isMultiLingual" type="id-long" />
+		<field name="sequenceId" type="id-long" />
+	</extend-entity>
+	
+	<extend-entity entity-name="ContactMech">
+		<index name="CNTCT_MCH_INDEX01">
+			<index-field name="contactMechId" />
+			<index-field name="infoString" />
+		</index>
+	</extend-entity>
+	<extend-entity entity-name="TelecomNumber">
+		<index name="TLCM_NMBR_INDEX01">
+			<index-field name="contactMechId" />
+			<index-field name="contactNumber" />
+		</index>
+	</extend-entity>
+	<extend-entity entity-name="CallRecordMaster">
+		<index name="CLL_RCD_MSR_IDX01">
+			<index-field name="startDate" />
+		</index>
+		<index name="CLL_RCD_MSR_IDX02">
+			<index-field name="endDate" />
+		</index>
+		<index name="CSR1_PARTY_ID_CRM">
+			<index-field name="csr1PartyId" />
+		</index>
+	</extend-entity>
+	<extend-entity entity-name="WorkEffort">
+       	<index name="WE_INDEX_01">
+			<index-field name="workEffortId" />
+			<index-field name="currentStatusId" />
+			<index-field name="workEffortPurposeTypeId" />
+		</index>
+		<index name="WE_INDEX_02">
+			<index-field name="currentStatusId" />
+			<index-field name="workEffortPurposeTypeId" />
+		</index>
+    </extend-entity>
+    
+    <extend-entity entity-name="ProductPromoCode">
+       	<field name="scannedDate" type="date-time" />
+    </extend-entity>
+    
+    <extend-entity entity-name="EreceiptTransaction">
+        <field name="processMessage" type="very-long"></field>
+		<field name="emailEngine" type="id"></field>
+		<field name="requestedTime" type="date-time"></field> 
+		<field name="responsedTime" type="date-time"></field>
+		<field name="responsedData" type="very-long"/> 
+		<field name="responsedHeaders" type="very-long"/> 
+		<field name="responseCode" type="id" />
+		
+		<field name="sent" type="indicator"/>
+		<field name="opened" type="indicator"/>
+		<field name="clicked" type="indicator"/>
+		<field name="bounced" type="indicator"/>
+		<field name="unsubscribed" type="indicator"/>
+		<field name="blocked" type="indicator"/>
+		<field name="processed" type="indicator"/>
+		<field name="dropped" type="indicator"/>
+		<field name="deferred" type="indicator"/>
+		<field name="uniqueMailKey" type="id-vlong"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="InvoiceTransactionMaster">
+        <field name="productId" type="id"></field>
+        <field name="productIdentificationTypeId" type="id"></field>
+        <field name="originalTransactionNumber" type="id"></field>
+        
+        <field name="itemAutoSold" type="id" />
+        <field name="companyName" type="id" />
+        <field name="recordType" type="id"/>
+        <field name="orginalAmount" type="currency-amount" />
+        <field name="originalOrderLineSeq" type="id-long" />
+        <field name="docNumber" type="id" />
+        <field name="itemAccountType" type="id" />
+        <field name="itemAccountNumber" type="id" />
+		<field name="businessLogicStamp" type="date-time" />
+		<field name="skuOwner" type="id"/>
+		<field name="skuOwnerType" type="id"/>
+		<field name="skuItemType" type="id"/>
+		<field name="orderItemType" type="id"/>
+		<field name="lineType" type="id"/>
+		<field name="lineItemImage" type="very-long"/>
+		<field name="detailNumber" type="id"/>
+		<field name="parentNumber" type="id"/>
+		<field name="billSolicit" type="indicator"/>
+		<field name="shipmentAddress1" type="very-long"/>
+		<field name="shipmentCity" type="id"/>
+		<field name="shipmentStateProvince" type="id"/>
+		<field name="shipmentCountry" type="id"/>
+		<field name="shipmentSolicit" type="indicator"/>
+    </extend-entity>  
+	
+	<extend-entity entity-name="InvoiceTransactionMaster">
+		<field name="billToPartyName" type="description" />
+		<field name="billToPartyRefId" type="id-long" />
+		<field name="parentBillPartyName" type="id-long" />
+		<field name="discountLine" type="id-long" />
+		<field name="cmdsgp" type="id-long" />
+		<field name="department" type="id-long" />
+		<field name="fiscalQuater" type="id-int" />
+		<index name="BILL_TO_PARTY_REF_IDX">
+        	<index-field name="billToPartyRefId"/>
+    	</index>
+		<index name="BILL_TO_PARTY_Name_IDX">
+        	<index-field name="billToPartyName"/>
+    	</index>
+		<index name="PARENT_NAME_IDX">
+        	<index-field name="parentBillPartyName"/>
+    	</index>
+	</extend-entity>
+		
+</entitymodel>

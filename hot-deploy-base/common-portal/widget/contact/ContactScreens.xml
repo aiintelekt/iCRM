@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="ContactInfo">
+		<section>
+			<actions>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/contact/PartyContactInfo.groovy"/>
+            </actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/contact/contact_info.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ContactModals">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/contact/modal_window.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="PartyContacts">
+		<section>
+			<actions>
+				<property-map resource="common-portalUiLabels" map-name="uiLabelMap" global="true"/>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/contact/PartyContacts.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/contact/party_contacts.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ContactAndPartyAssoc">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://common-portal/webapp/common-portal/contact/contact_party_assoc.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+		
+</screens>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+
+    <description>AbAgGridSupport Component Site Configuration File</description>
+    
+    <request-map uri="main">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="main"/>
+    </request-map>
+    
+    <request-map uri="performFindList">
+		<security https="false" auth="false" />
+		<event type="service" invoke="fio.performFindList" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+		
+	<request-map uri="allGridUserConfig">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.gridperference.GridUserPreferenceConfigServices"
+			invoke="fetchAllGridUserConfig" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>	
+	<request-map uri="getGridUserConfig">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.gridperference.GridUserPreferenceConfigServices"
+			invoke="getGridUserConfig" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="saveGridUserConfig">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.gridperference.GridUserPreferenceConfigServices"
+			invoke="saveGridConfigFromAgGridUI" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	
+	
+	<request-map uri="adminSaveGrid">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.gridperference.GridUserPreferenceConfigServices"
+			invoke="saveGridConfigFromGridAdmin" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="adminRemoveGrid">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.gridperference.GridUserPreferenceConfigServices" invoke="removeGridConfigFromGridAdmin" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="dataCreate">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.griddata.AgGridCrudEntityAutoServices" invoke="dataCreate" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="dataUpdate">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.griddata.AgGridCrudEntityAutoServices" invoke="dataUpdate" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="dataRemove">
+		<security https="false" auth="false" />
+		<event type="java"
+			path="com.groupfio.griddata.AgGridCrudEntityAutoServices" invoke="dataRemove" />
+		<response name="success" type="none" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://ab-ag-grid-support/widget/AbAgGridSupportScreens.xml#main"/>
+    
+</site-conf>

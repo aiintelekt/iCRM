@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="CreateApplicationRegistry">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateApplicationRegistry"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/application/CreateApplicationRegistry.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/application/create_application_registry.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListApplicationRegistry"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListApplicationRegistry">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/application/ListApplicationRegistry.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/application/list_application_registry.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="UpdateApplicationRegistry">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateApplicationRegistry"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/application/UpdateApplicationRegistry.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/application/update_application_registry.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListApplicationStatus"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListApplicationStatus">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/application/ListApplicationStatus.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/application/list_application_status.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!--  Added by rajasekar -->
+    <screen name="walletOperations">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Find Wallets"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/walletOperations/walletOperation.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/walletOperations/findEwallet.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/walletOperations/listEwallet.ftl"/></html></platform-specific>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="editEWallet">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Edit E-Wallet"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/walletOperations/updateEwallet.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://custom-field/webapp/custom-field/walletOperations/updateEwallet.ftl"/>
+							</html>
+						</platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://custom-field/webapp/custom-field/walletOperations/viewEwallet.ftl"/>
+							</html>
+						</platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <!-- End by rajasekar -->
+</screens>

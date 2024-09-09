@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>crm Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    <!-- Creating Basic Contact Information For Party -->
+    <service name="crmsfa.createBasicContactInfoForParty" engine="java" location="org.fio.crm.party.PartyContactServices" invoke="createBasicContactInfoForParty" auth="true">
+        <description>Helper service to create the primary phone number, primary email, primary web url, and general correspondence postal address for a party.
+        The userLogin must have CRMSFA_ACCOUNT_CREATE permission on this party.</description>
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryEmail" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryWebUrl" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryPhoneCountryCode" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryPhoneAreaCode" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryPhoneNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryPhoneExtension" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryPhoneAskForName" type="String" mode="IN" optional="true"/>
+        <!-- address fields -->
+        <attribute name="generalToName" type="String" mode="IN" optional="true"/>
+        <attribute name="generalAttnName" type="String" mode="IN" optional="true"/>
+        <attribute name="generalAddress1" type="String" mode="IN" optional="true"/>
+        <attribute name="generalAddress2" type="String" mode="IN" optional="true"/>
+        <attribute name="generalCity" type="String" mode="IN" optional="true"/>
+        <attribute name="generalStateProvinceGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="generalPostalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="generalPostalCodeExt" type="String" mode="IN" optional="true"/>
+        <attribute name="generalCountryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="TimeZone" type="String" mode="IN" optional="true"/>
+        <attribute name="countyGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="isBusiness" type="String" mode="IN" optional="true"/>
+        <attribute name="isVacant" type="String" mode="IN" optional="true"/>
+        <attribute name="isUspsAddrVerified" type="String" mode="IN" optional="true"/>
+        
+        <!-- output fields which are set only if generated -->
+        <attribute name="primaryEmailContactMechId" type="String" mode="OUT" optional="true"/>
+        <attribute name="primaryWebUrlContactMechId" type="String" mode="OUT" optional="true"/>
+        <attribute name="primaryPhoneContactMechId" type="String" mode="OUT" optional="true"/>
+        <attribute name="generalAddressContactMechId" type="String" mode="OUT" optional="true"/>
+        <!-- Brand Solication Changes @Prabha-->
+        <attribute name="allowSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="brandCode" type="String" mode="IN" optional="true"/>
+        <!-- Brand Solication Changes @Prabha-->
+        <!-- Address Validation Flage changes @Prabha-->
+        <attribute name="addressValidInd" type="String" mode="IN" optional="true"/>
+        <!-- Address Validation Flage changes @Prabha-->
+        <attribute name="postalPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="emailPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="phonePurposeTypeId" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="postalSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="emailSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="phoneSolicitation" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="createCustomCrossReference" engine="java" location="org.fio.crm.party.PartyServices" invoke="createCustomCrossReference" auth="true" use-transaction="false">
+        <attribute name="crossReferenceId" type="String" mode="IN" optional="false"/>
+        <attribute name="referenceValue" type="String" mode="IN" optional="true"/>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+    </service>
+   	
+     <service name="assignSegmentValuetoParty" engine="java" location="org.fio.crm.common.CrmSegmentServices" invoke="createSegmentToParty" auth="true"  use-transaction="false">
+		<attribute name="segmentValue" type="String" mode="IN" optional="true" />
+        <attribute name="groupId" type="String" mode="IN" optional="true"  />
+        <attribute name="partyId" type="String" mode="IN" optional="true"  />
+    </service> 
+    <service name="removeSegmentValuetoParty" engine="java" location="org.fio.crm.common.CrmSegmentServices" invoke="removeSegmentValuetoParty" auth="true"  use-transaction="false">
+		<attribute name="segmentValue" type="String" mode="IN" optional="true" />
+        <attribute name="groupId" type="String" mode="IN" optional="true"  />
+        <attribute name="partyId" type="String" mode="IN" optional="true"  />
+    </service> 
+	    
+    <service name="crmsfa.createPartyPostalAddress" engine="java" location="org.fio.crm.party.PartyContactServices" invoke="createPartyPostalAddress" auth="true">
+        <description>Helper service to create the general correspondence postal address for a party.
+        The userLogin must have CRMSFA_ACCOUNT_CREATE permission on this party.</description>
+        <!-- address fields -->
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="PostalAddress" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="paymentMethodId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="brandCode" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="countyGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="isBusiness" type="String" mode="IN" optional="true"/>
+        <attribute name="isVacant" type="String" mode="IN" optional="true"/>
+        <attribute name="isUspsAddrVerified" type="String" mode="IN" optional="true"/>
+		        
+        <attribute name="contactMechId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="getContactAndAccountAssoc" engine="java" location="org.fio.crm.common.contactAndAccountAssoc" invoke="getContactAndAccountAssoc">
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="accountContactAssoc" type="List" mode="OUT" optional="true"/>
+    </service> 
+    
+    <service name="updatePostalAddressData" engine="java" location="org.fio.crm.party.PartyContactServices" invoke="updatePostalAddressData">
+        <attribute name="contactMechId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCodeExt" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="userLogin" engine="java" location="org.fio.crm.common.login.LoginServices" invoke="ldapUserLoginService">
+        <description>Used to Automatically Authenticate a username/password; create a UserLogin object</description>
+        <implements service="authenticationInterface"/>
+        <attribute name="roleTypeIds" type="List" mode="OUT" optional="true"/>
+        <attribute name="securityGroups" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="getLDAPSecurityGroups" engine="java" invoke="getLDAPSecurityGroups" location="org.fio.crm.common.login.LoginServices">
+        <description>Get LDAP Security Groups</description>
+        <attribute name="inputFields" type="Map" mode="IN" optional="false"/>
+        <attribute name="status" type="String" mode="OUT" optional="true"/>
+        <attribute name="securityGroups" type="List" mode="OUT" optional="true" />
+     </service>
+     <service name="createSecurityGroupFromPosition" engine="java" invoke="createSecurityGroupFromPosition" location="org.fio.crm.common.login.LoginServices">
+        <description>Get LDAP Security Groups</description>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="userName" type="String" mode="IN" optional="false"/>
+     </service>
+     <service name="updatePartyTNExtForDndValidation" engine="java" invoke="updatePartyTNExtForDndValidation" location="org.fio.crm.party.PartyContactServices" auth="true">
+        <description>Update a Telecommunications Number</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="UPDATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="INOUT" optional="false"/>
+     </service>
+     <service name="createPartyTNExtForDndValidation" engine="java" invoke="createPartyTNExtForDndValidation" location="org.fio.crm.party.PartyContactServices" auth="true">
+        <description>Create a Telecommunications Number</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="OUT" optional="false"/>
+    </service>
+    <service name="rmReassignFromLead" engine="java" location="org.fio.crm.party.PartyServices" invoke="rmReassignFromLead" auth="true">
+        <description>Add Party to ContactList</description>
+        <attribute name="partyList" type="String" mode="IN" optional="true"/>
+        <attribute name="reAssignPartyId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="getLeadAndAccountAssoc" engine="java" location="org.fio.crm.common.contactAndAccountAssoc" invoke="getLeadAndAccountAssoc">
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="leadContactAssoc" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="createImpCall" engine="java" location="org.fio.lms.mobile.service.CallService" invoke="createImpCall" auth="false">
+        <attribute name="leadId" type="String" mode="IN" optional="false"/>
+        <attribute name="contactId" type="String" mode="IN" optional="false"/>
+        <attribute name="contactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="isMainLine" type="String" mode="IN" optional="true"/>
+        <attribute name="callLogId" type="String" mode="OUT" optional="true"/>
+        <attribute mode="IN" name="userLogin" optional="true" type="org.ofbiz.entity.GenericValue"/>
+    </service> 
+    <service name="createImpCallLog" engine="java" location="org.fio.lms.mobile.service.CallService" invoke="createLmsCallLog" auth="false">
+        <description>Creates an Lms Call.</description>
+        <attribute name="callAction" type="String" mode="IN" optional="false"/>
+        <attribute name="leadId" type="String" mode="IN" optional="false"/>
+        <attribute name="personId" type="List" mode="IN" optional="true"/>
+        <attribute name="emailCalendarInvite" type="String" mode="IN" optional="true"/>
+        <attribute name="estimatedStartDate" type="String" mode="IN" optional="true"/>
+        <attribute name="estimatedCompletionDate" type="String" mode="IN" optional="true"/>
+        <attribute name="callSheduledDate" type="String" mode="IN" optional="true"/>
+        <attribute name="callSheduledEndDate" type="String" mode="IN" optional="true"/>
+        <attribute name="callNote" type="String" mode="IN" optional="true"/>
+        <attribute name="locationId" type="String" mode="IN" optional="true"/>
+        <attribute name="addAddressToLead" type="String" mode="IN" optional="true"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="unitNo" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="state" type="String" mode="IN" optional="true"/>
+        <attribute name="reasonId" type="String" mode="IN" optional="true"/>
+        <attribute name="reasonNote" type="String" mode="IN" optional="true"/>
+        <attribute name="callLogId" type="String" mode="INOUT" optional="false"/>
+         <attribute mode="IN" name="userLogin" optional="true" type="org.ofbiz.entity.GenericValue"/>
+    </service>
+</services>

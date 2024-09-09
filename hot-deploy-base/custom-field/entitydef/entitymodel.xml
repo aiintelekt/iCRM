@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of an Open For Business Project Component</title>
+    <description>None</description>
+    <copyright>Copyright 2001-2008 The Apache Software Foundation</copyright>
+    <author>None</author>
+    <version>1.0</version>
+    
+    <entity entity-name="CustomFieldGroup"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldGroup Entity">
+            
+		<field name="groupId" type="id-ne"></field>
+		<field name="groupName" type="description" />
+		<field name="sequence" type="numeric"></field>
+		
+		<field name="groupType" type="id"></field>
+		<field name="parentId" type="id"></field>
+				
+		<field name="levelNum" type="id"></field>
+		
+		<!-- <field name="roleConfigId" type="id"></field>
+		<field name="roleTypeId" type="id"></field> -->
+		
+		<field name="groupingCode" type="id-vlong"></field>
+		<field name="serviceName" type="description"></field>
+		
+		<field name="serviceTypeId" type="id"></field>
+		<field name="serviceConfigId" type="id"></field>
+
+		<field name="historicalCapture" type="indicator"></field>
+		<field name="valueCapture" type="id"></field>
+		<field name="isCampaignUse" type="indicator"></field>
+		<field name="classType" type="id"></field>
+		<field name="type" type="id"></field>
+		<field name="isActive" type="indicator"/>
+		<field name="isUseDynamicEntity" type="indicator"/>
+		
+		<field name="hide" type="indicator"/>
+		
+		<!-- 
+		<field name="customPage" type="date-time"/> -->
+		
+      	<prim-key field="groupId"/>
+      	
+      	<relation type="one" fk-name="CFG_CFGC_FK" rel-entity-name="CustomFieldGroupingCode">
+        	<key-map field-name="groupingCode" rel-field-name="customFieldGroupingCodeId"/>
+      	</relation>
+      	
+    </entity>
+    
+    <entity entity-name="CustomFieldValue"
+            package-name="org.groupfio.custom.field"
+            title="CustomField Entity">
+            
+		<field name="customFieldId" type="id-ne"></field>
+		<field name="partyId" type="id-ne" />
+		
+		<field name="fieldValue" type="very-long"/>
+		<field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+		
+      	<prim-key field="customFieldId"/>
+      	<prim-key field="partyId"/>
+      	
+      	<relation type="one" fk-name="CustomFieldValue_CFV_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFV_PTY_FK" rel-entity-name="Party">
+        	<key-map field-name="partyId"/>
+      	</relation>
+      	<index name="CFV_FRM_DT">
+            <index-field name="fromDate"/>
+        </index>
+        <index name="CFV_TRU_DT">
+            <index-field name="thruDate"/>
+        </index>
+    </entity>
+	    
+    <entity entity-name="CustomFieldMultiValue"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldMultiValue Entity">
+            
+		<field name="customFieldId" type="id-ne"></field>
+		<field name="multiValueId" type="id-ne" />
+		
+		<field name="fieldValue" type="very-long"/>
+		<field name="description" type="description"/>
+		<field name="hide" type="indicator"/>
+		<field name="sequenceNumber" type="numeric"></field>
+		
+      	<prim-key field="customFieldId"/>
+      	<prim-key field="multiValueId"/>
+      	
+      	<relation type="one" fk-name="CFMV_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	
+    </entity>
+    
+    <entity entity-name="CustomField"
+            package-name="org.groupfio.custom.field"
+            title="CustomField Entity">
+            
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		
+		<!-- <field name="roleTypeId" type="name" /> -->
+		<field name="groupId" type="id-vlong"></field>
+		<field name="groupType" type="id"></field>
+		<field name="groupName" type="description" />
+		
+		<field name="customFieldFormat" type="name"/>
+		<field name="customFieldName" type="description"/>
+		<field name="customFieldExtName" type="description"/>
+		<field name="locale" type="id" />
+		<field name="sequenceNumber" type="numeric"></field>
+		<field name="customFieldType" type="name" />
+		<field name="customFieldLength" type="numeric" />
+		<field name="hide" type="indicator"/>
+		
+		<field name="isEnabled" type="indicator"/>
+		<field name="subClassGroupId" type="id"></field>
+		<field name="groupCount" type="numeric"></field>
+		<field name="paramData" type="very-long"/>
+		
+      	<prim-key field="customFieldId"/>
+				      	
+      	<!-- <relation type="one" fk-name="FIOATTRTEMP_ROLE" rel-entity-name="RoleType">
+        	<key-map field-name="roleTypeId"/>
+      	</relation> -->
+      	<relation type="one" fk-name="CF_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<index name="CSTM_FLD_NAME">
+            <index-field name="customFieldName"/>
+        </index>
+    </entity>
+    
+    <entity entity-name="CustomFieldDataSource"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldDataSource Entity">
+            
+		<field name="customFieldDataSourceId" type="id-ne"></field>
+		
+		<field name="dataSourceTable" type="description" />
+		<field name="dataSourceTrackTable" type="description"></field>
+		<field name="groupId" type="id"></field>
+		
+      	<prim-key field="customFieldDataSourceId"/>
+      	
+      	<relation type="one" fk-name="CFDS_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+			
+    </entity>
+    <!-- 
+    <entity entity-name="CustomFieldSegmentTracking"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldSegmentTracking Entity">
+            
+		<field name="customFieldId" type="id-ne"></field>
+		<field name="groupId" type="id-ne"></field>
+		
+		<field name="partyId" type="id" />
+		<field name="valueSeqNum" type="id"></field>
+		<field name="entryDate" type="date-time"></field>
+		<field name="exitDate" type="date-time"></field>
+		<field name="groupActualValue" type="very-long" />
+		
+      	<prim-key field="customFieldId"/>
+      	<prim-key field="groupId"/>
+			
+    </entity>
+     -->
+    <entity entity-name="CustomFieldValueConfig"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldValueConfig Entity">
+            
+        <field name="groupId" type="id-ne"></field>    
+		<field name="customFieldId" type="id-ne"></field>
+		<field name="valueCapture" type="id"></field>
+		<field name="valueSeqNum" type="numeric"></field>
+		
+		<field name="valueMin" type="id"></field>
+		<field name="valueMax" type="id"></field>
+		<field name="valueData" type="very-long"></field>
+		<field name="description" type="description"/>
+		<field name="hide" type="indicator"/>
+		
+		<prim-key field="groupId"/>
+      	<prim-key field="customFieldId"/>
+      	<prim-key field="valueCapture"/>
+      	<prim-key field="valueSeqNum"/>
+      	
+      	<relation type="one" fk-name="CustomFieldValueConfig_groupId" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="custom_field_value_config_customFieldId" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+		<index name="GID_VD">
+    		<index-field name="groupId"/>
+    	</index>
+    	<index name="VD">
+    		<index-field name="valueData"/>
+    	</index>	
+    </entity>
+    
+    <entity entity-name="CustomFieldCampaignConfig"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldCampaignConfig Entity">
+            
+        <field name="groupId" type="id-ne"></field>    
+		<field name="customFieldId" type="id-ne"></field>
+		
+		<field name="configType" type="id"></field> <!-- BATCH, TRIGGER -->
+		<field name="isCouponSegment" type="indicator"></field>
+		
+		<field name="configBatchType" type="id"></field> <!-- SPEC_DATE, DAY_SINCE -->
+		<prim-key field="groupId"/>
+      	<prim-key field="customFieldId"/>
+      	
+      	<relation type="one" fk-name="CFVC_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFVC_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+		<index name="CFVC_CFID">
+			<index-field name="customFieldId" />
+		</index>
+		<index name="CFVC_CFGID">
+			<index-field name="groupId" />
+		</index>	
+    </entity>
+    
+    <entity entity-name="CustomFieldCampaignConfigAssoc"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldCampaignConfigAssoc Entity">
+            
+		<field name="customFieldId" type="id-ne"></field>
+		<field name="sequenceNumber" type="numeric"></field>
+		
+		<field name="specificDate" type="date-time"></field>
+		<field name="daySince" type="numeric"></field>
+		<field name="triggerUrl" type="very-long"></field>
+		
+		<field name="marketingCampaignId" type="id-ne"></field>
+		<field name="isProcessed" type="indicator"></field>
+		
+      	<prim-key field="customFieldId"/>
+      	<prim-key field="sequenceNumber"/>
+      	
+      	<relation type="one" fk-name="CFCCA_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFCCA_MC_FK" rel-entity-name="MarketingCampaign">
+        	<key-map field-name="marketingCampaignId"/>
+      	</relation>
+			
+    </entity>
+    
+    <entity entity-name="CustomFieldMicroServiceConfig"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldMicroServiceConfig Entity">
+            
+		<field name="customFieldMicroServiceConfigId" type="id-ne"></field>
+		
+		<field name="microUrl" type="very-long"></field>
+		<field name="microSeqNum" type="numeric"></field>
+		<field name="authKey" type="very-long"></field>
+		<field name="serviceName" type="long-text"></field>
+		<field name="isEnabled" type="indicator"></field>
+		
+      	<prim-key field="customFieldMicroServiceConfigId"/>
+					
+    </entity>
+    
+    <entity entity-name="CustomFieldWebhookConfig"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldWebhookConfig Entity">
+            
+		<field name="customFieldWebhookConfigId" type="id-ne"></field>
+		
+		<field name="webhookUrl" type="very-long"></field>
+		<field name="webhookSeqNum" type="numeric"></field>
+		<field name="authKey" type="very-long"></field>
+		<field name="serviceName" type="long-text"></field>
+		<field name="isEnabled" type="indicator"></field>
+		<field name="jsonDataRequest" type="very-long"></field>
+		
+      	<prim-key field="customFieldWebhookConfigId"/>
+					
+    </entity>
+    
+    <entity entity-name="CustomFieldRoleConfig"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldRoleConfig Entity">
+        
+        <field name="customFieldRoleConfigId" type="id"></field>    
+        
+		<field name="groupId" type="id"></field>
+		<field name="customFieldId" type="id"></field>
+		
+		<field name="roleTypeId" type="id"></field>
+		<field name="sequenceNumber" type="numeric"></field>
+		
+      	<prim-key field="customFieldRoleConfigId"/>
+      	
+      	<relation type="one" fk-name="CFRC_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFRC_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFRC_RT_FK" rel-entity-name="RoleType">
+        	<key-map field-name="roleTypeId"/>
+      	</relation>
+					
+    </entity>
+    
+    <entity entity-name="CustomFieldGroupingCode"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldGroupingCode Entity">
+            
+        <field name="customFieldGroupingCodeId" type="id-ne"></field>    
+        
+		<field name="groupingCode" type="id-vlong"></field>
+		<field name="description" type="very-long"></field>
+		<field name="sequenceNumber" type="numeric"></field>
+		
+		<field name="groupType" type="id"></field>
+		
+		<prim-key field="customFieldGroupingCodeId"/>
+      	
+    </entity>
+    
+    <entity entity-name="CustomFieldPartyClassification"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldPartyClassification Entity">
+            
+        <field name="groupId" type="id-ne"></field>    
+		<field name="customFieldId" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		
+		<field name="groupActualValue" type="long-varchar"></field>
+		<field name="inceptionDate" type="date-time"></field>
+		
+		<field name="isRemoved" type="indicator"></field>
+		
+		<prim-key field="groupId"/>
+		<prim-key field="customFieldId"/>
+		<prim-key field="partyId"/>
+		
+		<relation type="one" fk-name="CFPC_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPC_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPC_PRT_FK" rel-entity-name="Party">
+        	<key-map field-name="partyId"/>
+      	</relation>
+      	<index name="CFPC_INCEPTION_DT">
+			<index-field name="inceptionDate"/>
+		</index>
+		<index name="CUST_FLD_IDX">
+			<index-field name="groupId"/>
+			<index-field name="customFieldId"/>
+		</index>
+		<index name="GRP_ACT_VALUE">
+			<index-field name="groupActualValue"/>
+		</index>
+      	<index name="IDX_THREE_FLD">
+			<index-field name="partyId"/>
+			<index-field name="groupId"/>
+		</index>
+    </entity>
+    <entity entity-name="CustomFieldPartyClassificationExt"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldPartyClassification Entity">
+            
+        <field name="groupId" type="id-vlong-ne"></field>    
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="sequenceNumber" type="id-ne"></field>
+		
+		<field name="groupActualValue" type="very-long"></field>
+		<field name="inceptionDate" type="date-time"></field>
+		<field name="entryDate" type="date-time"></field>
+		<prim-key field="groupId"/>
+		<prim-key field="customFieldId"/>
+		<prim-key field="partyId"/>
+		<prim-key field="sequenceNumber"/>
+		
+		<relation type="one" fk-name="CFPC_CFG_EXT_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPC_CF_EXT_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPC_PRT_EXT_FK" rel-entity-name="Party">
+        	<key-map field-name="partyId"/>
+      	</relation>
+      	
+    </entity>
+    
+    <entity entity-name="CustomFieldPartyClassificationTrk"
+            package-name="org.groupfio.custom.field"
+            title="CustomFieldPartyClassificationTrk Entity">
+            
+        <field name="groupId" type="id-vlong-ne"></field>    
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="valueSeqNum" type="numeric"></field>
+		
+		<field name="entryDate" type="date-time"></field>
+		<field name="exitDate" type="date-time"></field>
+		
+		<field name="groupActualValue" type="very-long"></field>
+		
+		<prim-key field="groupId"/>
+		<prim-key field="customFieldId"/>
+		<prim-key field="partyId"/>
+		<prim-key field="valueSeqNum"/>
+		
+		<relation type="one" fk-name="CFPCT_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPCT_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPCT_PRT_FK" rel-entity-name="Party">
+        	<key-map field-name="partyId"/>
+      	</relation>
+      	
+    </entity>
+    
+    <entity entity-name="CustomFieldRoleType" package-name="org.groupfio.custom.field"
+		title="Role Type Entity">
+		
+		<field name="roleTypeId" type="id-ne"></field>
+		<field name="parentTypeId" type="id"></field>
+		<field name="hasTable" type="indicator"></field>
+		<field name="description" type="description"></field>
+		
+		<prim-key field="roleTypeId" />
+		
+		<relation type="one" fk-name="CFRT_RT_PAR_FK" title="Parent" rel-entity-name="RoleType">
+        	<key-map field-name="parentTypeId" rel-field-name="roleTypeId" />
+      	</relation>
+		
+	</entity>
+	
+	<entity entity-name="PartyMetricIndicator"
+            package-name="org.groupfio.crm.account"
+            title="PartyMetricIndicator Entity">
+       
+       	<field name="groupId" type="id-vlong-ne"></field>    
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		
+		<field name="groupingCode" type="id-vlong"></field>
+		
+		<field name="propertyName" type="description"></field>
+		<field name="propertyValue" type="very-long"></field>
+		
+		<field name="sequenceNumber" type="numeric"></field>
+		
+      	<prim-key field="groupId"/>
+		<prim-key field="customFieldId"/>
+		<prim-key field="partyId"/>
+      	
+      	<relation type="one" fk-name="PMI_PTY_FK" rel-entity-name="Party">
+        	<key-map field-name="partyId"/>
+      	</relation>
+      	<relation type="one" fk-name="PMI_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="PMI_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	
+    </entity>
+    
+    <entity entity-name="CustomFieldCampaignAction" package-name="org.groupfio.custom.field"
+		title="CustomFieldCampaignAction entity">
+		
+		<field name="campaignTypeId" type="id"></field>
+		
+		<field name="serviceTypeId" type="id"></field>
+		<field name="serviceConfigId" type="id"></field>
+		
+		<field name="description" type="very-long"></field>
+		
+		<prim-key field="campaignTypeId" />
+		
+	</entity>
+	<entity entity-name="CustomFieldCampaignActionType" package-name="org.groupfio.custom.field"
+		title="CustomFieldCampaignActionType entity">
+		
+		<field name="campaignTypeId" type="id"></field>
+		<field name="actionType" type="id"></field>
+		<field name="actionName" type="description"></field>
+		
+		<field name="hasTable" type="indicator"></field>
+		<field name="description" type="very-long"></field>
+		<field name="sequenceNumber" type="numeric"></field>
+		
+		<prim-key field="campaignTypeId" />
+		<prim-key field="actionType" />
+		
+	</entity>
+	
+	<entity entity-name="CustomFieldGroupService" package-name="org.groupfio.custom.field" 
+		title="CustomFieldGroupService entity">
+		
+		<field name="customFieldGroupServiceId" type="id-ne"></field>
+		
+		<field name="sequenceNumber" type="numeric"></field>
+		
+      	<field name="serviceName" type="id-long" />
+      	<field name="description" type="id-vlong" />
+      	<field name="isEnabled" type="indicator"></field>
+      
+      	<prim-key field="customFieldGroupServiceId" />
+      	
+    </entity>
+    <entity entity-name="CustomFieldFileUpload" package-name="org.groupfio.custom.field"
+        title="CustomFieldFileUpload entity">
+        <field name="requestId" type="id-vlong"></field>
+        <field name="customFieldType" type="name"></field>
+        <field name="customFieldGroupId" type="id-vlong"></field>
+        <field name="segmentValueId" type="id-vlong"></field>
+        <field name="status" type="id-ne"></field>
+        <field name="originalFileName" type="id-vlong"></field>
+        <field name="systemFileName" type="id-vlong"></field>
+        <field name="folderLocation" type="url"></field>
+        <field name="updateMode" type="id-ne"></field>
+        <field name="noOfRecordsUploaded" type="numeric"></field>
+        <field name="noOfRecordsProcessed" type="numeric"></field>
+        <field name="uploadedBy" type="id-ne"></field>
+        <field name="message" type="very-long"></field>
+        <prim-key field="requestId" />
+        <prim-key field="customFieldType" />
+        <prim-key field="customFieldGroupId" />
+    </entity>
+    
+    <entity entity-name="CustomFieldSegmentImportTemp" package-name="org.groupfio.custom.field"
+        title="CustomFieldSegmentImportTemp entity">
+        <field name="requestId" type="id-vlong"></field>
+        <field name="customFieldGroupId" type="id-vlong"></field>
+        <field name="segmentValueId" type="id-vlong"></field>
+        <field name="customFieldType" type="name"></field>
+        <field name="partyId" type="id-ne"></field>
+        <field name="groupActualValue" type="very-long"></field>
+        <field name="inceptionDate" type="date-time"></field>
+        <field name="metricValue" type="very-long"></field>
+        <field name="status" type="id-ne"></field>
+        <field name="message" type="very-long"></field>
+        <prim-key field="requestId" />
+        <prim-key field="partyId" />
+        <prim-key field="customFieldGroupId" />
+        <prim-key field="segmentValueId" />
+    </entity>
+    
+    <!-- non party entity [start] -->
+    
+    <entity entity-name="AttributeValueAssoc"
+            package-name="org.groupfio.custom.field"
+            title="AttributeValueAssoc Entity">
+            
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+		
+		<field name="fieldValue" type="very-long"/>
+		<field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+		
+      	<prim-key field="customFieldId"/>
+      	<prim-key field="domainEntityId"/>
+      	<prim-key field="domainEntityType"/>
+      	
+      	<relation type="one" fk-name="CFV_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<index name="CFV_CFId">
+            <index-field name="customFieldId"/>
+        </index>
+    </entity>
+    
+    <entity entity-name="SegmentationValueAssoc"
+            package-name="org.groupfio.custom.field"
+            title="SegmentationValueAssoc Entity">
+            
+        <field name="groupId" type="id-vlong-ne"></field>    
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+		
+		<field name="groupActualValue" type="very-long"></field>
+		<field name="inceptionDate" type="date-time"></field>
+		
+		<field name="isRemoved" type="indicator"></field>
+		
+		<prim-key field="groupId"/>
+		<prim-key field="customFieldId"/>
+		<prim-key field="domainEntityId"/>
+		<prim-key field="domainEntityType"/>
+		
+		<relation type="one" fk-name="CFPC_CFDG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="CFPC_CFD_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<index name="SVA_INCEPTION_DT">
+			<index-field name="inceptionDate"/>
+		</index>
+      	
+    </entity>
+    
+    <entity entity-name="EconomicMetricValueAssoc"
+            package-name="org.groupfio.custom.field"
+            title="EconomicMetricValueAssoc Entity">
+       
+       	<field name="groupId" type="id-vlong-ne"></field>    
+		<field name="customFieldId" type="id-vlong-ne"></field>
+		<field name="domainEntityId" type="id"></field>
+		<field name="domainEntityType" type="id"></field>
+		
+		<field name="groupingCode" type="id-vlong"></field>
+		
+		<field name="propertyName" type="description"></field>
+		<field name="propertyValue" type="very-long"></field>
+		
+		<field name="sequenceNumber" type="numeric"></field>
+		
+      	<prim-key field="groupId"/>
+		<prim-key field="customFieldId"/>
+		<prim-key field="domainEntityId"/>
+		<prim-key field="domainEntityType"/>
+      	
+      	<relation type="one" fk-name="PMI_CFG_FK" rel-entity-name="CustomFieldGroup">
+        	<key-map field-name="groupId"/>
+      	</relation>
+      	<relation type="one" fk-name="PMI_CF_FK" rel-entity-name="CustomField">
+        	<key-map field-name="customFieldId"/>
+      	</relation>
+      	<index name="PMI_CF_FK_customFieldId">
+    		<index-field name="customFieldId"/>
+    	</index>
+    	<index name="PMI_CFG_FK_groupId">
+    		<index-field name="groupId"/>
+    	</index>
+    </entity>
+    
+    <!-- non party entity [end] -->
+    
+    <entity entity-name="AttrEntityType" package-name="org.groupfio.custom.field"
+		title="Attr Entity Type Entity">
+		
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="parentTypeId" type="id"></field>
+		<field name="hasTable" type="indicator"></field>
+		<field name="description" type="description"></field>
+		
+		<prim-key field="domainEntityType" />
+		
+		<relation type="one" fk-name="ATTR_ET_PAR_FK" title="Parent" rel-entity-name="AttrEntityType">
+        	<key-map field-name="parentTypeId" rel-field-name="domainEntityType" />
+      	</relation>
+		
+	</entity>
+	
+	<entity entity-name="AttrEntityAssoc" package-name="org.groupfio.custom.field"
+		title="Attr Entity Assoc Entity">
+		
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="entityName" type="id-ne"></field>
+		<field name="domainEntityIdColumn" type="id-ne"></field>
+		<field name="customFieldIdColumn" type="id-ne"></field>
+		<field name="fieldValueColumn" type="id-ne"></field>
+		<field name="groupIdColumn" type="id-ne"></field>
+				
+		<prim-key field="domainEntityType" />
+				
+		<relation type="one" fk-name="ATTR_ENTITY_TYPE" rel-entity-name="AttrEntityType">
+			<key-map field-name="domainEntityType" />
+		</relation>
+				
+	</entity>
+	<entity entity-name="SegmentMapping" package-name="org.groupfio.custom.field" title="SegmentMapping">
+		<field name="dwFieldId" type="id-long"/>
+		<field name="dwFieldTable" type="id-long"/>
+		<field name="segmentId" type="id-long"/>
+		<field name="dwTypeId" type="id-long"/>
+		<prim-key field="dwFieldId"/>
+		<prim-key field="dwFieldTable"/>
+		<prim-key field="segmentId"/>
+	</entity>
+</entitymodel>

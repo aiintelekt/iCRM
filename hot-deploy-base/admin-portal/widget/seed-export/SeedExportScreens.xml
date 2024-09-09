@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">	
+	
+	<screen name="ExportSeedData">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="ExportSeedData" global="true"/>
+			  <set field="sectionName" value="admin-portal" global="true"/>
+			  <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/seed-export/ExportXmlSeedData.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://admin-portal/webapp/admin-portal/seed-export/export_xml_seed_data.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

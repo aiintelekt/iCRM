@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of hello Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    <extend-entity entity-name="Payment">
+        <field name="appliedAmount" type="currency-precise"/>
+        <field name="openAmount" type="currency-precise"/>
+    </extend-entity>
+     <extend-entity entity-name="OrderHeader">
+        <field name="billFromPartyId" type="id-ne"/>
+        <field name="billToPartyId" type="id-ne"/>
+        <relation fk-name="OH_FROM_PTY" title="BillFromVendor" rel-entity-name="Party" type="one">
+            <key-map field-name="billFromPartyId" rel-field-name="partyId"/>
+        </relation>
+        <relation fk-name="OH_TO_PTY" title="BillToCustomer" rel-entity-name="Party" type="one">
+            <key-map field-name="billToPartyId" rel-field-name="partyId"/>
+        </relation>
+    </extend-entity>
+    <extend-entity entity-name="PartyGroup">
+        <field name="isIncorporated" type="indicator"/>
+        <field name="federalTaxId" type="long-varchar" encrypt="true"/>
+        <field name="requires1099" type="indicator"/>
+    </extend-entity>
+	<entity entity-name="DataImportInvoiceHeader" package-name="org.ofbiz.order.order" title="Create Invoice Details">
+		
+		<field name="batchId" type="id-ne"/>
+		<field name="invoiceId" type="id-ne"/>
+		<field name="invoiceTypeId" type="id-long"/>
+		<field name="invoiceDate" type="date-time"/>
+		<field name="currencyUomId" type="id"/>
+		<field name="partyIdFrom" type="id-long"/>
+		<field name="partyId" type="id-long"/>
+		<field name="dueDate" type="date-time"/>
+		<field name="description" type="id-long"/>
+		<field name="referenceNumber" type="id-long"/>
+		<field name="adjustedAmount" type="currency-amount"/>
+		<field name="appliedAmount" type="currency-amount"/>
+		<field name="invoiceTotal" type="currency-amount"/>
+		<field name="openAmount" type="currency-amount"/>
+		<field name="paidDate" type="date-time"/>
+		
+		<prim-key field="batchId" />
+		<prim-key field="invoiceId" />		
+	</entity>  
+	<entity entity-name="DataImportInvoiceItem" package-name="org.ofbiz.order.order" title="Create Invoice Item Details">
+		
+		<field name="batchId" type="id-ne"/>
+		<field name="invoiceId" type="id-ne"/>
+		<field name="invoiceItemSeqId" type="id-long"/>
+		<field name="invoiceItemTypeId" type="id-long"/>
+		<field name="amount" type="currency-amount"/>
+		<field name="description" type="id-vlong"/>
+		<field name="quantity" type="currency-amount"/>
+		<field name="productId" type="id-long"/>
+			
+		<prim-key field="batchId" />	
+		<prim-key field="invoiceId" />
+		<prim-key field="invoiceItemSeqId" />		
+	</entity>
+	<extend-entity entity-name="DataImportInvoiceHeader">
+		<field name="importStatusId" type="id-long"></field>
+	</extend-entity>
+	<extend-entity entity-name="DataImportInvoiceItem">
+		<field name="importStatusId" type="id-long"></field>
+	</extend-entity>
+	<entity entity-name="DataImportLogError" package-name="" title="LogProcError">
+		<field name="seqId" type="id-ne"/>
+		<field name="taskId" type="id-ne"/>
+		<field name="taskName" type="very-long"/>
+		<field name="timeStamp" type="date-time"/>
+		<field name="processId" type="id-long"/>
+		<field name="listId" type="id-long"/>
+		<field name="status" type="very-long"/>
+		<field name="tableName" type="very-long"/>
+		<field name="logMsg1" type="very-long"/>
+		<field name="logMsg2" type="very-long"/>
+		<field name="logMsg3" type="very-long"/>
+		<prim-key field="seqId"/>
+		<prim-key field="taskId"/>
+	</entity>
+	<entity entity-name="SftpConfiguration" package-name="" title="SftpConfiguration">
+			<field name="seqId" type="id-ne"/>
+			<field name="userName" type="id-vlong"/>
+			<field name="password" type="id-vlong"/>
+			<field name="port" type="id-vlong"/>
+			<field name="host" type="id-vlong"/>
+			<prim-key field="seqId"/>
+	</entity>
+	<extend-entity entity-name="SftpConfiguration">
+			<field name="enable" type="indicator"></field>
+	</extend-entity>
+<!--  Error code -->
+ <entity entity-name="ErrorCode" package-name="" title="ErrorCode Entity">
+		<field name="errorCodeId" type="id-ne"></field>
+      	<field name="code" type="description"/>	
+      	<field name="codeDescription" type="very-long"/>
+      	<field name="solutionDescription" type="very-long"/>
+      	<field name="fromDate" type="date-time"/>
+        <field name="thruDate" type="date-time"/>
+        <field name="userRequirement" type="very-long"/>
+        <field name="inUse" type="indicator">
+            <description>If set to N or n, the code is not use in implementation, if Y then its means code use in implementation</description>
+        </field>
+        <field name="implementedBy" type="description"/>
+      	<prim-key field="errorCodeId"/>
+    </entity>
+    
+     <extend-entity entity-name="Agreement">
+        <field name="statusId" type="id"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="AgreementTerm">
+        <field name="currencyUomId" type="id">
+            <description>Currency on this AgreementTerm</description>
+        </field>
+    </extend-entity>
+    <entity entity-name="DataImportCategory"
+            package-name="org.ofbiz.product.category"
+            title="Product Category Entity">
+      <field name="batchId" type="id-ne"></field>
+      <field name="categoryId" type="id-ne"></field>
+      <field name="productCategoryTypeId" type="id"></field>
+      <field name="primaryParentCategoryId" type="id"></field>
+      <field name="categoryName" type="name"></field>
+      <field name="description" type="description"></field>
+      <field name="longDescription" type="very-long"></field>
+      <field name="categoryImageUrl" type="url"></field>
+      <field name="linkOneImageUrl" type="url"></field>
+      <field name="linkTwoImageUrl" type="url"></field>
+      <field name="detailScreen" type="long-varchar"></field>
+      <field name="showInSelect" type="indicator"></field>
+	  <field name="importStatusId" type="id-ne"><description>Status of record import.  Null is the same as DATAIMP_NOT_PROC.</description></field>
+        <field name="importError" type="very-long"><description>Error report for failed imports.</description></field>
+        <field name="processedTimestamp" type="date-time">
+            <description>Special field for system to record when entry was successfully imported.  
+                Do not use for any other purpose.</description>
+      </field>
+      <prim-key field="batchId"/>
+      <prim-key field="categoryId"/>
+    </entity>
+    
+	<entity entity-name="DataImportProductSupplementary" package-name="org.ofbiz.order.order">
+		<field name="batchId" type="id"/>
+    	<field name="productId" type="id" />
+		<field name="dataType" type="id" />
+		<field name="suppilerPartyId" type="id" />
+		<field name="suppilerName" type="name" />
+		<field name="suppilerAddress" type="id-very-long" />
+		<field name="suppilerRating" type="id" />
+		<field name="suppilerLogo" type="id-very-long" />
+		<field name="productType" type="id" />
+		<field name="productTitle" type="description" />
+		<field name="productStatus" type="id" />
+		<field name="productRating" type="id" />
+		<field name="productMetric" type="id" />
+		<field name="productValue" type="id" />
+		<field name="productCurrency" type="id" />
+		<field name="productDescription" type="description" />
+		<field name="offerDate" type="date-time" />
+		<field name="expirationDate" type="date-time" />
+		<field name="saleCommPerc" type="id" />
+		<field name="clickCommPerc" type="id" /> 
+		<field name="leadCommPerc" type="id" /> 
+		<field name="promotionType" type="id" />
+		<field name="eventInfo" type="id-very-long" /> 
+		<field name="couponCode" type="id" />  
+		<field name="distance" type="id" />
+		<field name="productCity" type="id" />
+		<field name="productState" type="id" />
+		<field name="productCountry" type="id" />
+		<field name="productZip" type="id" />
+		<field name="productGeoLat" type="id" />
+		<field name="productGeoLng" type="id" />
+		<field name="productSource" type="id" />
+		<field name="productLink" type="id-very-long" />
+		<field name="productContentId" type="id" />
+		<field name="productImageUrl" type="id-very-long" />
+		<field name="productImageResolutionOne" type="id" />
+		<field name="productImageResolutionTwo" type="id" />
+		<field name="productImageResolutionThree" type="id" />
+		<field name="productImageResolutionFour" type="id" />
+		<field name="productImageResolutionFive" type="id" />
+		<field name="productCategoryIdOne" type="id" />
+		<field name="productCategoryIdTwo" type="id" />
+		<field name="productCategoryIdThree" type="id" />
+		<field name="productCategoryNameOne" type="description" />
+		<field name="productCategoryNameTwo" type="description" />
+		<field name="productCategoryNameThree" type="description" />
+		<field name="importStatusId" type="id"/>
+		<field name="importError" type="very-long"/>
+		<field name="processedTimestamp" type="date-time"/>
+		<field name="uploadedByUserLoginId" type="id"/>
+    	<prim-key field="productId"/>
+    	<prim-key field="dataType"/>
+    </entity>
+    
+    <entity entity-name="DataImportActivity" package-name="org.ofbiz.order.order">
+    	<field name="batchId" type="id"/>
+    	<field name="activityId" type="id"/>
+    	<field name="workEffortName" type="name"/>
+        <field name="contactId" type="id"/>
+    	<field name="domainEntityId" type="id"/>
+    	<field name="domainName" type="id"/>
+    	<field name="priority" type="id"/>
+    	<field name="workEffortTypeId" type="id"/>
+    	<field name="workEffortPurposeTypeId" type="id"/>
+    	<field name="currentStatusId" type="id"/>
+    	<field name="isSchedulingRequired" type="id"/>
+    	<field name="duration" type="id"/>
+    	<field name="arrivalWindow" type="id"/>
+    	<field name="estimatedStartDate" type="date-time"/>
+    	<field name="estimatedCompletionDate" type="date-time"/>
+    	<field name="owner" type="id"/>
+    	<field name="importStatusId" type="id"/>
+		<field name="importError" type="very-long"/>
+		<field name="processedTimestamp" type="date-time"/>
+		<field name="uploadedByUserLoginId" type="id"/>
+		<field name="messages" type="very-long"/>
+	    <prim-key field="batchId"/>
+		<prim-key field="activityId"/>
+	</entity>
+    
+</entitymodel>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the lead-service Component." permissionId="lead-service_VIEW"/>
+    <SecurityPermission description="Create operations in the lead-service Component." permissionId="lead-service_CREATE"/>
+    <SecurityPermission description="Update operations in the lead-service Component." permissionId="lead-service_UPDATE"/>
+    <SecurityPermission description="Delete operations in the lead-service Component." permissionId="lead-service_DELETE"/>
+    <SecurityPermission description="ALL operations in the lead-service Component." permissionId="lead-service_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="lead-service_ADMIN"/>
+
+</entity-engine-xml>

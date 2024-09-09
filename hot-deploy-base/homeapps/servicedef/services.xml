@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>homeapps Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="getComponentMenuList" engine="java" auth="true"
+             location="org.fio.homeapps.menu.model.ComponentMenuList" invoke="getComponentMenuList">
+        <description> Get Menu List </description>
+        <attribute name="activeApp" type="String" mode="IN" optional="false"/>
+        <attribute name="sectionName" type="String" mode="IN" optional="true"/>
+        <attribute name="menuList" type="List" mode="OUT" optional="false"/>
+        <attribute name="tabId" type="String" mode="OUT" optional="true"/>
+        <attribute name="shortcutId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="getComponents" engine="java" auth="false" 
+    	location="org.fio.homeapps.menu.model.ComponentMenuList" invoke="getComponents">
+    	<description> Get Menu List </description>
+        <attribute name="activeApp" type="String" mode="IN" optional="true"/>
+        <attribute name="sectionName" type="String" mode="IN" optional="true"/>
+        <attribute name="webApps" type="List" mode="OUT" optional="false"/>
+        <attribute name="session" type="javax.servlet.http.HttpSession" mode="IN" optional="true"/>
+        <attribute name="request" mode="IN" type="javax.servlet.http.HttpServletRequest" optional="true" />
+    </service>
+    
+    <!-- User Audit [start] -->
+    
+    <service name="homeapps.userAuditInterface" engine="interface" location="" invoke="">
+        <description>User Audit Interface</description>
+        
+        <attribute name="isPerformUserAudit" type="String" mode="IN" optional="true"/>
+        <attribute name="userAuditRequestId" type="String" mode="IN" optional="true"/>
+        <attribute name="oldContextMap" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="userAuditRequestId" type="String" mode="OUT" optional="true"/>
+        
+    </service>
+    
+    <service name="homeapps.createUserAuditRequest" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.fio.homeapps.service.impl.UserAuditServiceImpl" invoke="createUserAuditRequest">
+       	<description> Create User Audit Request </description>
+       
+       	<attribute name="serviceRequestType" type="String" mode="IN" optional="true"/>
+       	<attribute name="makerPartyId" type="String" mode="IN" optional="true"/>
+       	<attribute name="modeOfAction" type="String" mode="IN" optional="true"/>
+       	<attribute name="remarks" type="String" mode="IN" optional="true"/>
+       	<attribute name="oldContextMap" type="String" mode="IN" optional="true"/>
+       	<attribute name="contextMap" type="Map" mode="IN" optional="true"/>
+       	<attribute name="userAuditRequestId" type="String" mode="IN" optional="true"/>
+		       	
+       	<attribute name="userAuditRequestId" type="String" mode="OUT" optional="false"/>
+		       	
+    </service>
+    
+    <service name="homeapps.expireUserAuditRequest" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.fio.homeapps.service.impl.UserAuditServiceImpl" invoke="expireUserAuditRequest">
+       	<description> Expire User Audit Request </description>
+       
+       	<attribute name="userAuditRequestId" type="String" mode="IN" optional="true"/>
+		       	
+    </service>
+	
+    <!-- User Audit [end] -->
+    
+    <!-- Security matrix [start] -->
+    
+    <service name="homeapps.securityMatrixInterface" engine="interface" location="" invoke="">
+        <description>Security Matrix Interface</description>
+        
+        <attribute name="securityMatrix" type="Map" mode="IN" optional="true"/>
+        
+    </service>
+    
+    <!-- Security matrix [end] -->
+    
+    <!-- LDAP start -->
+    
+    <service name="getLDAPSecurityGroups" engine="java" invoke="getLDAPSecurityGroups" location="org.fio.homeapps.service.impl.LDAP.LDAPSecurityGroupServices">
+        <description>Get LDAP Security Groups</description>
+        <attribute name="username" type="String" mode="IN" optional="false"/>
+        <attribute name="password" type="String" mode="IN" optional="false"/>
+        <attribute name="status" type="String" mode="OUT" optional="true"/>
+        <attribute name="message" type="String" mode="OUT" optional="true" />
+     </service>
+     <service name="userLogin" engine="java" location="org.fio.homeapps.service.impl.LoginServices" invoke="ldapUserLoginService">
+        <description>Used to Automatically Authenticate a username/password; create a UserLogin object</description>
+        <implements service="authenticationInterface"/>
+        <attribute name="securityGroups" type="List" mode="OUT" optional="true"/>
+    </service>
+    
+    <!-- LDAP end -->
+    
+    <!-- Application Registry [start] -->
+	
+	<service name="homeapps.createAppRegistry" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ApplicationServiceImpl" invoke="createAppRegistry">
+       	<description> Create App Registry </description>
+       
+       	<attribute name="clientName" type="String" mode="IN" optional="false"/>
+       	<attribute name="clientDomain" type="String" mode="IN" optional="false"/>
+       	<attribute name="comments" type="String" mode="IN" optional="true"/>
+       	<attribute name="clientAppPassword" type="String" mode="IN" optional="true"/>
+       	<attribute name="appStatusId" type="String" mode="IN" optional="false"/>
+       	<attribute name="externalReferenceId" type="String" mode="IN" optional="true"/>
+       	<attribute name="sourceInvoked" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="fromDate" type="java.sql.Timestamp" mode="IN" optional="true"/>
+        <attribute name="thruDate" type="java.sql.Timestamp" mode="IN" optional="true"/>
+       	
+       	<attribute name="clientRegistryId" type="String" mode="OUT" optional="false"/>
+       	<attribute name="secretCode" type="String" mode="OUT" optional="true"/>
+       	
+    </service>
+    
+    <service name="homeapps.updateAppRegistry" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ApplicationServiceImpl" invoke="updateAppRegistry">
+       	<description> Update App Registry </description>
+       
+       	<attribute name="clientName" type="String" mode="IN" optional="false"/>
+       	<attribute name="clientDomain" type="String" mode="IN" optional="false"/>
+       	<attribute name="comments" type="String" mode="IN" optional="true"/>
+       	<attribute name="clientAppPassword" type="String" mode="IN" optional="true"/>
+       	<attribute name="appStatusId" type="String" mode="IN" optional="true"/>
+       	<attribute name="externalReferenceId" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="clientRegistryId" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="appStatusId" type="String" mode="OUT" optional="false"/>
+       	<attribute name="secretCode" type="String" mode="OUT" optional="true"/>
+       	
+    </service>
+    
+    <service name="homeapps.createAppStatus" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ApplicationServiceImpl" invoke="createAppStatus">
+       	<description> Create App Status </description>
+       
+       	<attribute name="sourceInvoked" type="String" mode="IN" optional="true"/>
+       
+       	<attribute name="fromDate" type="java.sql.Timestamp" mode="IN" optional="true"/>
+        <attribute name="thruDate" type="java.sql.Timestamp" mode="IN" optional="true"/>
+       	
+       	<attribute name="clientRegistryId" type="String" mode="INOUT" optional="false"/>
+       	<attribute name="secretCode" type="String" mode="OUT" optional="true"/>
+       	
+    </service>
+    
+    <service name="homeapps.deleteAppStatus" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ApplicationServiceImpl" invoke="deleteAppStatus">
+       	<description> Delete App Status </description>
+       
+       	<attribute name="clientStatusId" type="String" mode="IN" optional="false"/>
+       	
+       	<attribute name="clientRegistryId" type="String" mode="INOUT" optional="false"/>
+       	
+    </service>
+    
+    <service name="homeapps.expireAppStatus" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ApplicationServiceImpl" invoke="expireAppStatus">
+       	<description> Expire App Status </description>
+       
+       	<attribute name="clientStatusId" type="String" mode="IN" optional="false"/>
+       	
+       	<attribute name="clientRegistryId" type="String" mode="INOUT" optional="false"/>
+       	
+    </service>
+    
+    <!-- Application Registry [end] -->
+    
+    <!-- Service Configuration [start] -->
+	
+	<service name="homeapps.createServiceConfig" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ConfigurationServiceImpl" invoke="createServiceConfig">
+       	<description> Create Service Config </description>
+       
+       	<attribute name="serviceName" type="String" mode="IN" optional="false"/>
+       	<attribute name="componentName" type="String" mode="IN" optional="false"/>
+       	<attribute name="isPublic" type="String" mode="IN" optional="false"/>
+       	
+    </service>
+    
+    <service name="homeapps.updateServiceConfig" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ConfigurationServiceImpl" invoke="updateServiceConfig">
+       	<description> Update Service Config </description>
+       
+       	<attribute name="serviceConfigId" type="String" mode="IN" optional="false"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="false"/>
+       	<attribute name="componentName" type="String" mode="IN" optional="false"/>
+       	<attribute name="isPublic" type="String" mode="IN" optional="false"/>
+       	
+    </service>
+    
+    <service name="homeapps.deleteServiceConfig" engine="java" use-transaction="true" auth="true"
+             location="org.fio.homeapps.service.impl.ConfigurationServiceImpl" invoke="deleteServiceConfig">
+       	<description> Delete Service Config </description>
+       
+       	<attribute name="serviceConfigId" type="String" mode="IN" optional="false"/>
+       	
+    </service>
+    
+    <!-- Service Configuration [end] -->
+    
+</services>

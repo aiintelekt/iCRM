@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of common-portal Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+	
+	<entity entity-name="WorkEffortContact"
+            package-name="org.groupfio.common.portal"
+            title="WorkEffortContact Entity">
+		<field name="workEffortId" type="id"></field>
+		<field name="partyId" type="id"></field>
+		<field name="roleTypeId" type="id"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="createdOn" type="date-time"></field>
+		<field name="createdByUserLogin" type="id"></field>
+		<field name="modifiedOn" type="date-time"></field>
+		<field name="modifiedByUserLogin" type="id"></field>
+
+      	<prim-key field="workEffortId"/>
+      	<prim-key field="partyId"/>
+		<prim-key field="roleTypeId"/>
+		<prim-key field="fromDate"/>      	
+
+    </entity>
+    
+    <entity entity-name="CommonNote" package-name="org.groupfio.common.portal"
+		title="Common Note Entity">
+		
+		<field name="domainEntityId" type="id-ne"></field>
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="noteId" type="id-ne"></field>
+		
+		<field name="isImportant" type="indicator"></field>
+		
+		<prim-key field="domainEntityId" />
+		<prim-key field="domainEntityType" />
+		<prim-key field="noteId" />
+		
+		<relation type="one" fk-name="OPPO_NOTE_NOTE" rel-entity-name="NoteData">
+			<key-map field-name="noteId" />
+		</relation>
+		<index name="OPPO_NOTE_NOTE_ID">
+      	<index-field name="noteId"/>
+      </index>
+	</entity>
+	<entity entity-name="CommonContent" package-name="org.groupfio.common.portal"
+		title="Common Content Entity">
+		
+		<field name="domainEntityId" type="id-ne"></field>
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="contentId" type="id-ne"></field>
+		<field name="contentTypeId" type="id-ne"></field>
+		
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		
+		<prim-key field="domainEntityId" />
+		<prim-key field="domainEntityType" />
+		<prim-key field="contentId" />
+		
+		<relation type="one" fk-name="COMMON_CONT" rel-entity-name="Content">
+			<key-map field-name="contentId" />
+		</relation>
+	</entity>
+	<entity entity-name="CommonPartyAssoc" package-name="org.groupfio.common.portal"
+		title="Common Party Assoc Entity">
+		<field name="domainEntityId" type="id-ne"></field>
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="roleTypeId" type="id-ne"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		
+		<prim-key field="domainEntityId" />
+		<prim-key field="domainEntityType" />
+		<prim-key field="partyId" />
+		<prim-key field="roleTypeId" />
+		<prim-key field="fromDate" />
+	</entity>
+	
+	<entity entity-name="IcrmSegmentationStats"
+            package-name="org.groupfio.common.portal"
+            title="Icrm Segmentation Stats Entity">
+		<field name="timeComputed" type="date"></field>
+		<field name="segmentGroupCode" type="id"></field>
+		<field name="segmentCode" type="id"></field>
+		<field name="segmentValue" type="id"></field>
+		<field name="roleTypeId" type="id"></field>
+		<field name="subGroupId" type="id"></field>
+		<field name="dataMergeType" type="id"></field>
+		<field name="segmentCodeTotalRows" type="id-int"></field>
+		<field name="segmentValueTotalRows" type="id-int"></field>
+		<field name="totalEntityCount" type="id-int"></field>
+		<field name="totalEntityActiveCount" type="id-int"></field>
+		<field name="segmentValuePerByCode" type="fixed-point"></field>
+		<field name="segmentCodePerByRole" type="fixed-point"></field>
+		<field name="segmentCodePerByActiveRole" type="fixed-point"></field>
+      	<prim-key field="timeComputed"/>     	
+      	<prim-key field="segmentGroupCode"/>     	
+      	<prim-key field="segmentCode"/>     	
+      	<prim-key field="segmentValue"/>     	
+      	<prim-key field="roleTypeId"/>
+    </entity>	
+    
+    <entity entity-name="ZipCodeAssoc" package-name="org.groupfio.common.portal"
+		title="ZipCodeAssoc Entity">
+		
+		<field name="zip" type="very-short"></field>
+		<field name="city" type="id"></field>
+		<field name="state" type="id"></field>
+		<field name="county" type="id"></field>
+		<field name="latitude" type="long-varchar"></field>
+		<field name="longitude" type="long-varchar"></field>
+		<field name="timezone" type="id"></field>
+		<field name="daylightSavingsTimeFlag" type="id"></field>
+		<field name="geopoint" type="long-varchar"></field>
+		<field name="countyFips" type="id"></field>
+		<field name="stateFips" type="id"></field>
+		<prim-key field="city" />
+		<prim-key field="zip" />
+		<prim-key field="county" />
+		<prim-key field="state" />
+		
+		<index name="ZIP_IDX">
+			<index-field name="zip" />
+		</index>
+		<index name="COUNTY_IDX">
+			<index-field name="county" />
+		</index>
+	</entity>
+	
+	<entity entity-name="CustRequestEmailConfig" package-name="org.groupfio.common.portal"
+		title="CustRequestEmailConfig Entity">
+		
+		<field name="statusId" type="id"></field>
+		<field name="emailTemplateId" type="id"></field>
+		<field name="escalationTime" type="id"></field>
+		<field name="escalationTimeUnit" type="id"></field>
+		<field name="sequenceId" type="id"/>
+				
+		<prim-key field="statusId" />
+	</entity>
+	
+	<entity entity-name="LogProc" package-name="org.groupfio.common.portal"
+		title="LogProc Entity">
+		
+		<field name="seqId" type="id-int"/>
+		<field name="timeStamp" type="date-time"/>
+		<field name="processId" type="id-vlong"/>
+		<field name="status" type="very-short"/>
+		<field name="tableName" type="long-varchar"/>
+		<field name="id" type="id"/>
+		<field name="logMsg1" type="very-long"/>
+		<field name="logMsg2" type="very-long"/>
+		<field name="logMsg3" type="very-long"/>
+		
+		<field name="isNotificationSend" type="indicator"></field>
+				
+		<prim-key field="seqId" />
+		<index name="LP_ID">
+    		<index-field name="id"/>
+    	</index>
+    	<index name="LP_PROCESS_ID">
+    		<index-field name="processId"/>
+    	</index>
+    	<index name="LP_STATUS">
+    		<index-field name="status"/>
+    	</index>
+    	<index name="LP_TIME_STAMP">
+    		<index-field name="timeStamp"/>
+    	</index>
+	</entity>
+	
+	<entity entity-name="TemplateContent" package-name="org.groupfio.common.portal"
+		title="Template Content Entity">
+		
+		<field name="templateContentId" type="id-ne"></field>
+		
+		<field name="domainEntityId" type="id-ne"></field>
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="templateId" type="id-ne"></field>
+		<field name="tagId" type="id-ne"></field>
+		<field name="contentTitle" type="id-vlong"></field>
+		<field name="contentText" type="very-long"></field>
+		<field name="sequenceId" type="id"></field>
+		<field name="isDefault" type="indicator"></field>
+				
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		
+		<field name="createdOn" type="date-time"></field>
+		<field name="createdByUserLogin" type="id"></field>
+		<field name="modifiedOn" type="date-time"></field>
+		<field name="modifiedByUserLogin" type="id"></field>
+		
+		<prim-key field="templateContentId" />
+	</entity>
+	
+	<entity entity-name="TemplateContentDomainAssoc" package-name="org.groupfio.common.portal"
+		title="Template Content Domain Assoc Entity">
+		
+		<field name="domainEntityType" type="id-ne"></field>
+		<field name="templateId" type="id-ne"></field>
+		<field name="templateName" type="id-ne"></field>
+		<field name="sequenceId" type="id"></field>
+		<field name="isEnabled" type="indicator"></field>
+		
+		<prim-key field="domainEntityType" />
+		<prim-key field="templateId" />
+	</entity>
+	
+	<entity entity-name="OrderWorkEffort" package-name="org.fio.common.portal">
+		<description>Order work effort assoc</description>
+		<field name="orderId" type="id-long-ne"></field>
+        <field name="workEffortId" type="id-long-ne"></field>
+        <field name="createdDate" type="date-time"></field>
+		<field name="createdByUserLogin" type="id"></field>
+		<field name="modifiedDate" type="date-time"></field>
+		<field name="modifiedByUserLogin" type="id"></field>
+        <prim-key field="orderId"/>
+        <prim-key field="workEffortId"/>
+        <relation type="one" fk-name="OWE_RTM" rel-entity-name="RmsTransactionMaster">
+            <key-map field-name="orderId"/>
+        </relation>
+        <relation type="one" fk-name="OWE_WEFF" rel-entity-name="WorkEffort">
+            <key-map field-name="workEffortId"/>
+        </relation>
+	</entity>
+	
+	<entity entity-name="NotifyEmailData" package-name="org.groupfio.common.portal"
+		title="Notify Email Data Entity">
+		
+		<field name="seqId" type="id-ne"></field>
+		
+		<field name="subject" type="id-vlong"></field>
+		<field name="description" type="very-long"></field>
+		<field name="publishDate" type="date-time"></field>
+		<field name="fromEmail" type="id"></field>
+		<field name="toEmail" type="very-long"></field>
+		<field name="ccEmail" type="very-long"></field>
+		<field name="bccEmail" type="very-long"></field>
+		<field name="personalizationTags" type="very-long"></field>
+		<field name="textContent" type="very-long"></field>
+		<field name="referenceId" type="id"></field>
+		<field name="referenceType" type="id"></field>
+		<field name="clientName" type="id-vlong"></field>
+		<field name="intTplId" type="id"></field>
+		<field name="intContactListId" type="id"></field>
+		<field name="extTplId" type="id"></field>
+		<field name="extCampId" type="id"></field>
+		<field name="statusId" type="id"></field>
+		<field name="partyId" type="id"></field>
+		<field name="processMessage" type="very-long"></field>
+		
+		<field name="emailEngine" type="id"></field>
+		<field name="requestedTime" type="date-time"></field> 
+		<field name="responsedTime" type="date-time"></field>
+		<field name="responsedData" type="very-long"/> 
+		<field name="responsedHeaders" type="very-long"/> 
+		<field name="responseCode" type="id" />
+				
+		<field name="createdOn" type="date-time"></field>
+		<field name="createdByUserLogin" type="id"></field>
+		<field name="modifiedOn" type="date-time"></field>
+		<field name="modifiedByUserLogin" type="id"></field>
+		
+		<prim-key field="seqId" />
+	</entity>
+	
+	<entity entity-name="NotifyEmailTemplate" package-name="org.groupfio.common.portal"
+		title="Notify Email Template Entity">
+		
+		<field name="seqId" type="id-ne"></field>
+		
+		<field name="subject" type="id-vlong"></field>
+		
+		<field name="intTplId" type="id"></field>
+		<field name="intPlainContent" type="very-long"></field>
+		<field name="intHtmlContent" type="very-long"></field>
+		<field name="intTemplateName" type="id-vlong"></field>
+		
+		<field name="extTplId" type="id"></field>
+		<field name="extPlainContent" type="very-long"></field>
+		<field name="extHtmlContent" type="very-long"></field>
+		<field name="extTemplateName" type="id-vlong"></field>
+		
+		<field name="statusId" type="id"></field>
+		<field name="processMessage" type="very-long"></field>
+		<field name="updatedAt" type="date-time"></field>
+		<field name="thumbnailUrl" type="id-vlong"></field>
+		
+		<field name="emailEngine" type="id"></field>
+		<field name="requestedTime" type="date-time"></field> 
+		<field name="responsedTime" type="date-time"></field>
+		<field name="responsedData" type="very-long"/> 
+		<field name="responsedHeaders" type="very-long"/> 
+		<field name="responseCode" type="id" />
+		
+		<prim-key field="seqId" />
+	</entity>
+	
+	<entity entity-name="NotifyEmailCampaign" package-name="org.groupfio.common.portal"
+		title="Notify Email Campaign Entity">
+		
+		<field name="seqId" type="id-ne"></field>
+		
+		<field name="subject" type="id-vlong"></field>
+		
+		<field name="intTplId" type="id"></field>
+		<field name="intPlainContent" type="very-long"></field>
+		<field name="intHtmlContent" type="very-long"></field>
+		<field name="intTemplateName" type="id-vlong"></field>
+		
+		<field name="extTplId" type="id"></field>
+		<field name="extTemplateName" type="id-vlong"></field>
+		
+		<field name="statusId" type="id"></field>
+		<field name="processMessage" type="very-long"></field>
+				
+		<field name="emailEngine" type="id"></field>
+		<field name="clientName" type="id-vlong"></field>
+		<field name="marketingCampaignId" type="id"></field>
+		<field name="intContactListId" type="id"></field>
+		<field name="contactPurposeTypeId" type="id"></field>
+		<field name="description" type="very-long"></field>
+		<field name="publishDate" type="date-time"></field>
+		<field name="fromEmail" type="id"></field>
+						
+		<field name="createdOn" type="date-time"></field>
+		<field name="createdByUserLogin" type="id"></field>
+				
+		<prim-key field="seqId" />
+	</entity>
+	
+	<entity entity-name="CampaignPartyNotifyAssoc" package-name="org.groupfio.common.portal"
+		title="Campaign Party Notify Email Data Assoc Entity">
+		
+		<field name="contactListId" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="notifyRefId" type="id" />
+		
+		<field name="uniqueMailKey" type="id-vlong"></field>
+						
+		<prim-key field="contactListId" />
+		<prim-key field="partyId" />
+		<prim-key field="fromDate" />
+		<prim-key field="notifyRefId" />
+	</entity>
+	
+	<entity entity-name="CallRecordMaster" package-name=""
+		title="Call Record Master table">
+		<field name="callRecordId" type="id-ne"/>
+		<field name="marketingCampaignId" type="id-ne"></field>
+		<field name="contactListId" type="id-ne"></field>
+		<field name="partyId" type="id-ne"></field>
+		<field name="externalReferenceId" type="name"></field>
+		<field name="firstName" type="id-long"></field>
+		<field name="lastName" type="id-long"></field>
+		<field name="createdDate" type="date-time"></field>
+		<field name="countryCode" type="very-short"></field>
+		<field name="phoneNumber" type="id-ne"></field>
+		<field name="solicitationStatus" type="very-short"></field>
+		<field name="acctRep1PartyId" type="id-ne"></field>
+		<field name="acctRep2PartyId" type="id-ne"></field>
+		<field name="acctMgrPartyId" type="id-ne"></field>
+		<field name="csr1PartyId" type="id-ne"></field>
+		<field name="csr2PartyId" type="id-ne"></field>
+		<field name="csrMgrPartyId" type="id-ne"></field>
+		<field name="startDate" type="date-time"></field>
+		<field name="endDate" type="date-time"></field>
+		<field name="lastCallStatusId" type="id-ne"></field>
+		<field name="lastCallDuration" type="id-ne"></field>
+		<field name="totalCallsMakeContact" type="id-ne"></field>
+		<field name="totalCallsByCamp" type="id-ne"></field>
+		<field name="totalCallDuration" type="id-ne"></field>
+		<field name="firstContactDate" type="date"></field>
+		<field name="lastContactDate" type="date"></field>
+		<field name="nextActionStatusId" type="id-ne"></field>
+		<field name="callBackDate" type="date"></field>
+		<field name="localTimeZone" type="id-long"></field>
+		<field name="configFieldValue1" type="id-ne"></field>
+		<field name="configFieldValue2" type="id-ne"></field>
+		<field name="configFieldValue3" type="id-ne"></field>
+		<field name="configFieldValue4" type="id-ne"></field>
+		<field name="configFieldValue5" type="id-ne"></field>
+		<field name="configFieldValue6" type="id-ne"></field>
+		<field name="configFieldValue7" type="id-ne"></field>
+		<field name="configFieldValue8" type="id-ne"></field>
+		<field name="configFieldValue9" type="id-ne"></field>
+		<field name="configFieldValue10" type="id-ne"></field>
+		<field name="accountManager" type="indicator"></field>
+		<field name="callFinished" type="indicator"></field>
+		<field name="entityReferenceId" type="id-ne"></field>
+		<field name="entityReferenceTypeId" type="id-ne"></field>
+		<field name="workEffortId" type="id-long-ne"></field>
+		<field name="workEffortTypeId" type="id-long-ne"></field>
+		<field name="externalReferenceTypeId" type="id-long-ne"></field>
+		<field name="callActivityType" type="id-long-ne"></field>
+		<field name="callOutCome" type="name"></field>
+		<field name="responseTypeId" type="id-ne"></field>
+		<field name="responseReasonId" type="id-ne"></field>
+		<field name="plannedDueDate" type="date-time"></field>
+		<field name="accountId" type="id"></field>
+		<field name="regardingId" type="id"></field>
+		<field name="createdByUserLogin" type="description" />
+		<field name="lastModifiedDate" type="date-time"></field>
+		<field name="lastModifiedByUserLogin" type="description"></field>
+		<field name="ownerId" type="id"/>
+		<field name="ownerBusinessUnit" type="id"/>
+		<prim-key field="callRecordId"/>
+		<relation type="one" fk-name="CRM_USERLOGIN" rel-entity-name="Party">
+			<key-map field-name="partyId" />
+		</relation>
+		<relation type="one" fk-name="CRM_MKTCAMP" rel-entity-name="MarketingCampaign">
+			<key-map field-name="marketingCampaignId" />
+		</relation>
+		<relation type="one" fk-name="CRM_CL" rel-entity-name="ContactList">
+			<key-map field-name="contactListId" />
+		</relation>
+		<index name="CRM_EXTREFID_IDX">
+			<index-field name="entityReferenceId"/>
+		</index>
+		<index name="CRM_EXTREFTYPID_IDX">
+			<index-field name="externalReferenceTypeId"/>
+		</index>
+		<index name="crm_index_01">
+			<index-field name="marketingCampaignId"/>
+			<index-field name="contactListId"/>
+			<index-field name="partyId"/>
+		</index>
+	</entity>
+	
+	<entity entity-name="CallRecordDetails" package-name=""
+		title="Call Record Details table">
+		<field name="callRecordId" type="id-ne"/>
+		<field name="callRecordDetailSeqId" type="name" />
+		<field name="partyId" type="id-ne" />
+		<field name="callSequenceNumber" type="currency-amount" />
+		<field name="callDuration" type="id-ne" />
+		<field name="callStartTime" type="date-time" />
+		<field name="callEndTime" type="date-time" />
+		<field name="callStatusId" type="id-ne" />
+		<field name="callSubStatusId" type="id-ne" />
+		<field name="callOutCome" type="name"></field>
+		<field name="responseTypeId" type="id-ne"></field>
+		<field name="responseReasonId" type="id-ne"></field>
+		<field name="noteId" type="id-ne" />
+		<field name="csrPartyId" type="id-ne" />
+		<field name="workEffortId" type="id"/>
+		<field name="workEffortTypeId" type="id"/>
+		<field name="createdDate" type="date-time"/>
+		<field name="createdByUserLogin" type="id"/>
+		<field name="lastModifiedDate" type="date-time"/>
+		<field name="lastModifiedByUserLogin" type="id"/>
+		<field name="requestedPageName" type="id"></field>
+		<prim-key field="callRecordId"/>
+		<prim-key field="callRecordDetailSeqId" />
+		<relation type="one" fk-name="CRD_CRI" rel-entity-name="CallRecordMaster">
+			<key-map field-name="callRecordId"/>
+		</relation>
+		<relation type="one" fk-name="CRD_USERLOGIN" rel-entity-name="Party">
+			<key-map field-name="partyId" />
+		</relation>
+		<relation type="one" fk-name="CRD_MKTCAMP" rel-entity-name="MarketingCampaign">
+			<key-map field-name="marketingCampaignId" />
+		</relation>
+		<relation type="one" fk-name="CRD_CL" rel-entity-name="ContactList">
+			<key-map field-name="contactListId" />
+		</relation>
+	</entity>
+	
+	<entity entity-name="InvoiceTransactionMaster" package-name="org.groupfio.activity.portal" title="InvoiceTransactionMaster">    
+		<field name="invoiceId" type="id" />
+		<field name="invoiceSequenceNumber" type="id" />
+		<field name="invoiceType" type="id" />
+		<field name="invoiceExtRefNumber" type="id" />
+		<field name="storeNumber" type="id" />
+		<field name="storeName" type="id-vlong" />
+		<field name="invoiceDate" type="date-time" />
+		<field name="registerNumber" type="id" />
+		<field name="rollOverNumber" type="id" />
+		<field name="transactionExtNumber" type="id" />
+		<field name="transactionNumber" type="id" />
+		<field name="sequenceNumber" type="id" />
+		<field name="subSequenceNumber" type="id" />
+		<field name="transactionDate" type="date-time" />
+		<field name="transactionType" type="id" />
+		<field name="totalSalesAmount" type="currency-amount" />
+		<field name="invoiceCurrency" type="credit-card-date" />
+		<field name="totalTenderAmount_1" type="currency-amount" />
+		<field name="totalTenderAmount_2" type="currency-amount" />
+		<field name="totalTenderAmount_3" type="currency-amount" />
+		<field name="totalTenderAmount_4" type="currency-amount" />
+		<field name="totalTenderAmount_5" type="currency-amount" />
+		<field name="totalTenderType_1" type="id" />
+		<field name="totalTenderType_2" type="id" />
+		<field name="totalTenderType_3" type="id" />
+		<field name="totalTenderType_4" type="id" />
+		<field name="totalTenderType_5" type="id" />
+		<field name="totalTaxAmount" type="currency-amount" />
+		<field name="headerStatus" type="id" />
+		<field name="cashierNumber" type="id" />
+		<field name="billToPartyId" type="id" />
+		<field name="billToPartyRefId" type="id-long" />
+		<field name="loyaltyId" type="long-varchar" />
+		<field name="employeeNumber" type="id" />
+		<field name="detailTransactionType" type="id-long-ne" />
+		<field name="skuNumber" type="id" />
+		<field name="skuDescription" type="long-varchar" />
+		<field name="season" type="id" />
+		<field name="chainCost" type="fixed-point" />
+		<field name="marginCost" type="fixed-point" />
+		<field name="dealNumber" type="id-int" />
+		<field name="unitRetail" type="currency-amount" />
+		<field name="unitCost" type="fixed-point" />
+		<field name="quantitySold" type="fixed-point" />
+		<field name="itemNetSales" type="currency-amount" />
+		<field name="itemStatus" type="id" />
+		<field name="taxExempt" type="id" />
+		<field name="inventoryTransType" type="id" />
+		<field name="extendedDiscount" type="currency-amount" />
+		<field name="unitRegularPrice" type="currency-amount" />
+		<field name="chainRegularPrice" type="currency-amount" />
+		<field name="itemReasonCodeType" type="id" />
+		<field name="itemReasonCode" type="id" />
+		<field name="originalSalesAssociate" type="id" />
+		<field name="originalStore" type="id" />
+		<field name="originalTransactionDate" type="date-time" />
+		<field name="unitPosPrice" type="currency-amount" />
+		<field name="discTransactionType" type="id-long-ne" />
+		<field name="totalLineTaxAmount" type="currency-amount" />
+		<field name="discountAmount" type="currency-amount" />
+		<field name="discountAmountReward" type="currency-amount" />
+		<field name="discountAmountMkt_1" type="currency-amount" />
+		<field name="discountAmountMkt_2" type="currency-amount" />
+		<field name="discountAmountMkt_3" type="currency-amount" />
+		<field name="discReasonCodeType" type="id" />
+		<field name="discReasonCode" type="id" />
+		<field name="couponNumberReward_1" type="id" />
+		<field name="couponNumberReward_2" type="id" />
+		<field name="couponNumberReward_3" type="id" />
+		<field name="couponNumberReward_4" type="id" />
+		<field name="couponNumberReward_5" type="id" />
+		<field name="couponNumberMkt_1" type="id" />
+		<field name="couponNumberMkt_2" type="id" />
+		<field name="couponNumberMkt_3" type="id" />
+		<field name="promotionIdLoyalty" type="id" />
+		<field name="promotionIdMkt_1" type="id" />
+		<field name="promotionIdMkt_2" type="id" />
+		<field name="promotionIdMkt_3" type="id" />
+		<field name="promoCampaignId" type="id" />
+		<field name="salesChannelEnumId" type="id" />
+		<field name="originFacilityId" type="id" />
+		<field name="blindShip" type="id" />
+		<field name="invoiceStatus" type="id" />
+		<field name="isThirdPartyFulfilled" type="id" />
+		<field name="carrierName" type="name" />
+		<field name="carrierService" type="id" />
+		<field name="carrierFee" type="currency-amount" />
+		<field name="numberOfPackages" type="fixed-point" />
+		<field name="totalInvoiceAmount" type="currency-amount" />
+		<field name="balanceAmount" type="currency-amount" />
+		<field name="isReturn" type="indicator" />
+		<field name="numberOfReturns" type="fixed-point" />
+		<field name="totalReturnedAmount" type="currency-amount" />
+		<field name="returnedStatus" type="id" />
+		<field name="returnedFacility" type="id" />
+		<field name="totalAdjustmentNonTaxAndDiscount" type="currency-amount" />
+		<field name="isGuestPurchase" type="id" />
+		<field name="terminalId" type="id" />
+		<field name="isDrop" type="id" />
+		<field name="isGiftOrder" type="id" />
+		<field name="estimatedDeliveryDate" type="date-time" />
+		<field name="isSplitInvoice" type="id" />
+		<field name="vendorId" type="id" />
+		<field name="numberOfItemsShipped" type="fixed-point" />
+		<field name="numberOfItemsCancelled" type="fixed-point" />
+		<field name="numberOfItemsApproved" type="fixed-point" />
+		<field name="salesRepresentativeId" type="id" />
+		<field name="salesCommissionAmount" type="currency-amount" />
+		<field name="actualShipCost" type="currency-amount" />
+		<field name="primaryBrand" type="id" />
+		<field name="parentBrandCd" type="id" />
+		<field name="isCustomerLoyalty" type="id" />
+		<field name="isCustomerNamed" type="id" />
+		<field name="freeShipment" type="id" />
+		<field name="promotionApplied" type="id" />
+		<field name="invoiceTaxCode" type="id" />
+		<field name="reasonCodeForCancellation" type="id" />
+		<field name="reasonCodeForReturn" type="id" />
+		<field name="shipGroupSequence" type="id" />
+		<field name="originalFacilityId" type="id" />
+		<field name="returnedDate" type="date-time" />
+		<field name="productCategoryId1" type="id" />
+		<field name="productCategoryName1" type="long-varchar" />
+		<field name="productCategoryId2" type="id" />
+		<field name="productCategoryName2" type="long-varchar" />
+		<field name="productCategoryId3" type="id" />
+		<field name="productCategoryName3" type="long-varchar" />
+		<field name="productCategoryId4" type="id" />
+		<field name="productCategoryName4" type="long-varchar" />
+		<field name="businessType" type="id" />
+		<field name="shipmentAddress1" type="id-very-long" />
+		<field name="shipmentAddress2" type="id-very-long" />
+		<field name="shipmentCity" type="id-mlong" />
+		<field name="shipmentStateProvince" type="id" />
+		<field name="shipmentPostalCode" type="id" />
+		<field name="shipmentCountry" type="id" />
+		<field name="shipmentPhone" type="id" />
+		<field name="billAddress1" type="id-very-long" />
+		<field name="billAddress2" type="id-very-long" />
+		<field name="billCity" type="id-mlong" />
+		
+		<field name="billPostalCode" type="id" />
+		<field name="billCountry" type="id" />
+		<field name="billingPhone" type="id" />
+		<field name="externalSalesRepName" type="long-varchar" />
+		<field name="externalSalesRepComm" type="fixed-point" />
+		<field name="shippedDate" type="date-time" />
+		<field name="billStateProvince" type="id" />
+		<field name="operationsWorkCenter" type="id-long-ne" />
+		<field name="agreementId" type="id" />
+		<field name="rebateAmount" type="currency-amount" />
+		<field name="totalInvoiceChannelFee" type="currency-amount" />
+		<field name="earnedAmount" type="currency-amount" />
+		<field name="amountType" type="id" />
+		<field name="payoutFrequency" type="id-ne" />
+		<field name="worker" type="id-ne" />
+		<field name="user" type="id-ne" />
+		<field name="subParentPartyName" type="id-ne" />
+		<field name="partyBillPartyName" type="id-ne" />
+		<field name="headerDiscountAmount" type="currency-amount" />
+		<field name="totalDiscountAmount" type="currency-amount" />
+		
+		<prim-key field="invoiceId"/>
+		<prim-key field="invoiceSequenceNumber"/>
+		<prim-key field="invoiceDate"/>
+		<prim-key field="storeNumber"/>
+		<index name="BILL_TO_PARTY_IDX">
+           <index-field name="billToPartyId"/>
+        </index>
+		<index name="CATEGORY_NAME1_IDX">
+           <index-field name="productCategoryName1"/>
+        </index>
+		<index name="CATEGORY_NAME2_idx">
+           <index-field name="productCategoryName2"/>
+        </index>
+		<index name="CATEGORY_NAME3_IDX">
+           <index-field name="productCategoryName3"/>
+        </index>
+		<index name="CATEGORY_NAME4_IDX">
+           <index-field name="productCategoryName4"/>
+        </index>
+        <index name="STORE_IDX">
+           <index-field name="storeNumber"/>
+        </index>
+        <index name="TRNX_NUM_IDX">
+           <index-field name="transactionNumber"/>
+        </index>
+        <index name="SEQ_NUM_IDX">
+           <index-field name="sequenceNumber"/>
+        </index>
+        <index name="INV_DATE_IDX">
+           <index-field name="invoiceDate"/>
+        </index>
+        <index name="SUB_PARENT_NAME_IDX">
+           <index-field name="subParentPartyName"/>
+        </index>
+         <index name="SPPID">
+           <index-field name="subParentPartyId"/>
+        </index>
+        <index name="SKU_DESC">
+           <index-field name="skuDescription"/>
+        </index>
+        <index name="itm_index_02">
+           <index-field name="transactionNumber"/>
+           <index-field name="storeNumber"/>
+           <index-field name="billToPartyRefId"/>
+           <index-field name="transactionDate"/>
+        </index>
+	</entity>
+	
+	<entity entity-name="InvoiceTransactionAdjustments" package-name="org.groupfio.common.portal" title="InvoiceTransactionAdjustments">
+		<field name="invoiceId" type="id" />
+		<field name="invoiceItemSeqId" type="id" />
+		<field name="adjustmentSeqId" type="id" />
+		<field name="adjustmentLevel" type="id" />
+		<field name="adjustmentType" type="id" />
+		<field name="adjustmentPercent" type="currency-amount" />
+		<field name="adjustmentAmount" type="currency-amount" />
+		<field name="adjustmentDescription" type="description" />
+		<field name="adjustmentMethod" type="id" />
+		<field name="adjustmentRate" type="currency-amount" />
+		<field name="printLine" type="id" />
+		<field name="adjustmentReasonCode" type="id" />
+		<field name="adjustmentReasonCodeType" type="id" />
+		<field name="amountAdjustable" type="id" />
+		<field name="promotionName" type="id-vlong" />
+		<field name="couponCode" type="id" />
+		<field name="marketingCampaignId" type="id" />
+		<field name="marketingCampaignName" type="id-vlong" />
+		<field name="adjustmentVoided" type="id" />
+		<field name="adjustmentVoidedLine" type="id" />
+		
+		<prim-key field="invoiceId"/>
+		<prim-key field="adjustmentSeqId"/>
+		<prim-key field="adjustmentLevel"/>
+		<prim-key field="adjustmentType"/>
+	</entity>
+	
+	<entity entity-name="InvoiceTransactionTaxAdjustments" package-name="org.groupfio.common.portal" title="InvoiceTransactionTaxAdjustments">
+		<field name="invoiceId" type="id" />
+		<field name="invoiceItemSeqId" type="id" />
+		<field name="taxSeqId" type="id" />
+		<field name="taxType" type="id" />
+		<field name="taxAmount" type="currency-amount" />
+		<field name="taxFlag" type="id" />
+		<field name="taxPercentage" type="currency-amount" />
+		<field name="taxDescription" type="description" />
+		<field name="taxAmountExempt" type="id" />
+		<field name="taxDetailNumber" type="id" />
+		<field name="taxDetailNumberVoided" type="id" />
+		<field name="taxNumber" type="id" />
+		<field name="taxRuleCode" type="id" />
+		<field name="taxValueExempt" type="id" />
+		<field name="taxAmountTaxable" type="id" />
+		<field name="taxLineVoided" type="id" />
+		<field name="taxLineVoidingLine" type="id" />
+		<field name="taxAuthority" type="id" />
+		<field name="taxableAmount" type="id" />
+		<field name="taxVoided" type="id" />
+		<field name="taxVoidedLine" type="id" />
+		<field name="taxIncluded" type="indicator" />
+		
+		<prim-key field="invoiceId"/>
+		<prim-key field="invoiceItemSeqId"/>
+		<prim-key field="taxType"/>
+		<prim-key field="taxDescription"/>
+	</entity>
+	
+	<entity entity-name="InvoiceTransactionPayment" package-name="" title="Invoice Transaction Payment Adjustments">
+		<field name="companyId" type="id" />
+		<field name="invoiceId" type="id-ne"></field>
+		<field name="tenderSeq" type="id-ne"></field>
+		<field name="tenderAmount" type="id-ne"></field>
+		<field name="tenderType" type="id-ne"></field>
+		<field name="nameOnTender" type="id-ne"></field>
+		<field name="tenderAccount" type="id-ne"></field>
+		<field name="tenderAuth" type="id-ne"></field>
+		<field name="tenderAmountForeign" type="id-ne"></field>
+		<field name="tenderMediaType" type="id" />
+		<field name="tenderVoided" type="id" />
+		<field name="tenderVoidingLine" type="id-ne"></field>
+		<field name="tenderChequeNumber" type="id-ne"></field>
+		<field name="tenderReference" type="id-ne"></field>
+		
+		<field name="tenderToken" type="id" />
+		<field name="tenderShorttoken" type="id" />
+		<field name="tenderAid" type="id" />
+		<field name="tenderTvr" type="id" />
+		<field name="tenderTc" type="id" />
+		<field name="tenderCid" type="id" />
+		<field name="tenderCvm" type="id" />
+		<field name="tenderCvmResult" type="id" />
+		<field name="tenderTid" type="id" />
+		<field name="tenderTsi" type="id" />
+		<field name="tenderAtc" type="id" />
+		<field name="tenderArqc" type="id" />
+		
+		<prim-key field="invoiceId" />
+		<prim-key field="tenderSeq" />
+	</entity>
+	
+	<entity entity-name="InvoiceTransactionDiscountAdjustments" package-name="" title="Invoice Transaction Discount Adjustments">
+		<field name="companyId" type="id" />
+		<field name="invoiceId" type="id-ne"></field>
+		<field name="invoiceItemSeqId" type="id-ne"></field>
+		<field name="discountPercent" type="id-ne"></field>
+		<field name="discountAmount" type="currency-amount"></field>
+		<field name="discountDescription" type="id-ne"></field>
+		<field name="discountingMethod" type="id-ne"></field>
+		<field name="discountingRate" type="currency-amount"></field>
+		<field name="printLine" type="id-ne"></field>
+		<field name="discountReasonCode" type="id" />
+		<field name="discountReasonCodeType" type="id" />
+		
+		<field name="amountDiscountable" type="id-ne"></field>
+		<field name="discountPromoCode" type="id-ne"></field>
+		<field name="discountVoided" type="id-ne"></field>
+		<field name="discountVoidedLine" type="id-ne"></field>
+		
+		<prim-key field="invoiceId" />
+		<prim-key field="invoiceItemSeqId" />
+		<prim-key field="discountDescription" />
+	</entity>
+	
+	<!-- Template entities [start] -->
+	<entity entity-name="TemplateMaster" package-name="org.ofbiz.marketing.template" title="Template Master">
+      <field name="templateId" type="id-ne"/>
+      <field name="partyId" type="id"/>
+      <field name="templateName" type="name"/>
+      <field name="subject" type="long-varchar"/>
+      <field name="description" type="very-long"/>
+      <field name="templateFormContent" type="very-long"/>
+      <field name="showInSelect" type="indicator"/>
+      <field name="identifier" type="email"/>
+      <field name="layoutId" type="short-varchar"/>
+      <field name="templateType" type="short-varchar"/>
+      <field name="emailCharSet" type="short-varchar"/>
+      <field name="emailLineFeed" type="short-varchar"/>
+      <field name="emailOnePixel" type="id"/>
+      <field name="mailFormat" type="id"/>
+      <field name="smsFormat" type="id"/>
+      <field name="textContent" type="very-long"/>
+      <field name="senderName" type="very-long"/>
+      <field name="senderEmail" type="very-long"/>
+      <field name="replayToName" type="very-long"/>
+      <field name="senderEmailReplay" type="very-long"/>
+      <field name="fromDate" type="date-time"/>
+      <field name="thruDate" type="date-time"/>
+      <field name="thumbnailUrl" type="url"/>
+      <field name="templatePrefix" type="very-short"/>
+      <field name="notificationType" type="very-short"/>
+      <field name="taggedTemplates" type="id"/>
+      <field name="geoCountryCode" type="very-short"/>
+      <prim-key field="templateId"/>
+      <relation type="many" fk-name="PARTY_MRG_FORM_FK" rel-entity-name="Party">
+        <key-map field-name="partyId"/>
+      </relation>
+    </entity>
+    <entity entity-name="DataTagConfiguration" package-name="org.ofbiz.marketing.template" title="Data Tag Configuration">
+      <field name="tagId" type="id-long-ne"/>
+      <field name="tagName" type="id"/>
+      <field name="templateTagTypeId" type="id"/>
+      <field name="customFieldGroupId" type="id-vlong-ne"/>
+      <field name="customFieldId" type="id-vlong-ne"/>
+      <field name="groupingCode" type="id-vlong-ne"/>
+      <field name="isEnabled" type="indicator"/>
+      <field name="fromDate" type="date-time"/>
+      <field name="thruDate" type="date-time"/>
+      <field name="groupSequenceNo" type="numeric" />
+      <field name="fieldSequenceNo" type="numeric" />
+      <field name="isContact" type="indicator" />
+      <prim-key field="tagId"/>
+      <relation type="many" fk-name="TEP_MTG_TY_FK" rel-entity-name="TemplateTagType">
+        <key-map field-name="templateTagTypeId"/>
+      </relation>
+      <relation type="many" fk-name="CUS_FLD_GRP_FK" rel-entity-name="CustomFieldGroup">
+        <key-map field-name="customFieldGroupId"/>
+      </relation>
+      <relation type="many" fk-name="CUS_FLD_GRP_FK" rel-entity-name="CustomField">
+        <key-map field-name="customFieldId"/>
+      </relation>
+	<index name="DTC_IS_CNT">
+		<index-field name="isContact" />
+	</index>
+	<index name="DTC_TAG_NAME">
+		<index-field name="tagName" />
+	</index>
+	<index name="DTC_TMP_TAG_TYP_ID">
+		<index-field name="templateTagTypeId" />
+	</index>
+	<index name="enabled">
+		<index-field name="isEnabled" />
+	</index>
+    </entity>
+    <entity entity-name="TemplateTag" package-name="org.ofbiz.marketing.template" title="Template Tag">
+      <field name="templateId" type="id-ne"/>
+      <field name="tagId" type="id-ne"/>
+      <field name="tagSequence" type="id-int"/>
+      <field name="tagMandatory" type="indicator"/>
+      <prim-key field="templateId"/>
+      <prim-key field="tagId"/>
+      <relation type="many" fk-name="TEP_MAS_FK" rel-entity-name="TemplateMaster">
+        <key-map field-name="templateId"/>
+      </relation>
+      <relation type="many" fk-name="DA_TG_CON_FK" rel-entity-name="DataTagConfiguration">
+        <key-map field-name="tagId"/>
+      </relation>
+    </entity>
+    <entity entity-name="TemplateTagType" package-name="org.ofbiz.marketing.template" title="Template Tag Type">
+      <field name="templateTagTypeId" type="id-ne"/>
+      <field name="description" type="description"/>
+      <prim-key field="templateTagTypeId"/>
+    </entity>
+    <entity entity-name="TemplateToCategory" package-name="org.ofbiz.marketing.template" title="Associates Template and TemplateCategory">
+		<field name="templateCategoryId" type="id-ne"></field>
+		<field name="templateId" type="id-ne"></field>
+		<prim-key field="templateId" />
+		<prim-key field="templateCategoryId" />
+		<relation type="one" fk-name="TEP_FK" rel-entity-name="TemplateMaster">
+			<key-map field-name="templateId" />
+		</relation>
+		<relation type="one" fk-name="TEP_CARY_FK" rel-entity-name="TemplateCategory">
+			<key-map field-name="templateCategoryId" />
+		</relation>
+	</entity>
+    <entity entity-name="TemplateCategory" package-name="org.ofbiz.marketing.template" title="Contact Template Category">
+      <field name="templateCategoryId" type="id-ne"></field>
+      <field name="templateCategoryName" type="name"></field>
+      <field name="parentTemplateCategoryId" type="id-ne"/>
+      <field name="sequenceId" type="id-ne"/>
+      <field name="isEnabled" type="indicator" />
+      <prim-key field="templateCategoryId"/>
+    </entity>
+    <entity entity-name="DeliveryChannelTriplet" package-name="org.fio.ofbiz.campaign" title="Delivery Channel Triplet Entity">
+		<field name="seqNumber" type="id-mlong"/>
+		<field name="type" type="id-mlong"/>
+		<field name="code" type="id-vlong"/>
+		<field name="value" type="id-vlong"/>
+		<field name="parentCode" type="id-vlong"/>
+		<field name="parentValue" type="id-vlong"/>
+		<field name="active" type="indicator" />
+		<field name="sequenceNumber" type="id"/>
+      	<field name="createdOn" type="date-time"/>
+      	<field name="modifiedOn" type="date-time"/>
+		<field name="createdBy" type="id-vlong"/>
+      	<field name="createdDate" type="date-time"/>
+		<field name="modifiedBy" type="id-vlong"/>
+		<prim-key field="seqNumber"/>
+	</entity>
+	<entity entity-name="TemplateAttribute" package-name="org.fio.ofbiz.campaign" title="Template attributes">
+		<field name="templateId" type="id-ne"/>
+		<field name="attrName" type="id-ne"/>
+		<field name="attrValue" type="very-long"/>
+		<prim-key field="templateId"/>
+		<prim-key field="attrName"/>
+	</entity>
+    <!-- Template entities [end] -->
+    
+    <entity entity-name="CampaignType" package-name="com.ofbiz.crmsfa.activities" title="CampaignType Table for OpenEMM integration">
+      <field name="campaignTypeId" type="long-varchar"/>
+      <field name="description" type="long-varchar"/>
+      <field name="sequenceNo" type="id-ne"/>
+      <prim-key field="campaignTypeId"/>
+    </entity>
+    
+    <entity entity-name="ProductInventoryTracking" package-name="org.groupfio.common.portal" title="ProductInventoryTracking">
+    	<field name="seqId" type="id" />
+		<field name="productId" type="id" />
+		<field name="facilityId" type="id" />
+		<field name="locationSeqId" type="id" />
+		<field name="statusDate" type="date-time" />
+		<field name="availableStock" type="currency-amount" />
+		<field name="quantityOnOrder" type="currency-amount" />
+		<field name="maxQuantity" type="currency-amount" />
+		<field name="averageUnitCost" type="currency-amount" />
+		<field name="unitPrice" type="currency-amount" />
+		<field name="importedFrom" type="id"></field>
+				
+		<prim-key field="seqId"/>		
+		<prim-key field="productId"/>
+		<prim-key field="facilityId"/>
+		<prim-key field="locationSeqId"/>
+		<prim-key field="statusDate"/>
+	</entity>
+	
+	<entity entity-name="EreceiptTransaction" package-name="">
+		<description>Entity For Ereceipt Transaction</description>
+		<field name="orderId" type="id-long"/>
+		<field name="openemmTransactionId" type="id-long"/>
+		<field name="createDate" type="date-time"/>
+		<field name="campaignId" type="id"/>
+		<field name="partyId" type="id"/>
+		<field name="criteriaType" type="id"/>
+		<field name="criteriaId" type="id"/>
+		<field name="receiptType" type="id-long"/>
+		<field name="mailStatus" type="id-long"/>
+		<field name="imageUrl" type="long-varchar"/>
+		<field name="HTML" type="very-long"/>
+		<prim-key field="orderId"/>
+		<index name="ereceipt_transaction_openemm_tns_id">
+    		<index-field name="openemmTransactionId"/>
+    	</index>
+	</entity>
+	
+	<entity entity-name="SecurityTracking" package-name="org.fio.customer">
+    	<field name="partyId" type="id"/>
+    	<field name="trackingTypeId" type="id"/>
+    	<field name="value" type="id"/>
+    	<field name="statusId" type="id"/>
+    	<field name="hashCode" type="id-mlong" />
+    	<field name="fromDate" type="date-time" />
+    	<field name="thruDate" type="date-time" />
+    	<prim-key field="partyId"/>
+    	<prim-key field="trackingTypeId"/>
+    </entity>
+    
+    <entity entity-name="StoreAttribute" package-name="" title="Store Attribute">
+	      <field name="productStoreId" type="id-ne"></field>
+	      <field name="attrName" type="id-long-ne"></field>
+      	  <field name="attrValue" type="very-long"></field>	
+	      <prim-key field="productStoreId"/>
+	      <prim-key field="attrName"/>
+	      <relation type="one" fk-name="PRODUCT_STORE_ATTR" rel-entity-name="ProductStore">
+	        <key-map field-name="productStoreId"/>
+	      </relation>	
+  	</entity> 
+      
+	<entity entity-name="ChannelAccessAttribute"
+            package-name="org.fio.shipment.portal"
+            title="ChannelAccessAttribute Entity">
+            
+		<field name="channelAccessId" type="id-ne"></field>
+		
+		<field name="attrName" type="id-vlong"/>
+		<field name="attrValue" type="very-long"></field> 
+		        
+      	<prim-key field="channelAccessId"/>
+      	<prim-key field="attrName"/>
+      	
+    </entity>      
+    
+</entitymodel>

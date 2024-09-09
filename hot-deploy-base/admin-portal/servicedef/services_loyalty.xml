@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>admin-portal Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <!-- Store Receipt [START]-->
+	
+	<service name="loyalty.createStoreReceipt" engine="java" use-transaction="true" transaction-timeout="120" 
+		location="org.fio.admin.portal.service.StoreReceiptServices" invoke="createStoreReceipt" auth="true">
+		<description>Create Store Receipt</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true" />
+		<attribute name="userLogin" mode="IN" type="String" optional="true"/>
+		<attribute name="productStoreId" type="String" mode="OUT" optional="true" />
+	</service>
+	
+	<service name="loyalty.updateStoreReceipt" engine="java" use-transaction="true" transaction-timeout="120" 
+		location="org.fio.admin.portal.service.StoreReceiptServices" invoke="updateStoreReceipt" auth="true">
+		<description>Update Store Receipt</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true" />
+		<attribute name="userLogin" mode="IN" type="String" optional="true"/>
+		<attribute name="productStoreId" type="String" mode="OUT" optional="true" />
+	</service>
+	
+	<service name="loyalty.deleteStoreReceipt" engine="java" use-transaction="true" transaction-timeout="120" 
+		location="org.fio.admin.portal.service.StoreReceiptServices" invoke="deleteStoreReceipt" auth="true">
+		<description>delete Store Receipt</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true" />
+		<attribute name="userLogin" mode="IN" type="String" optional="true"/>
+		<attribute name="productStoreId" type="String" mode="OUT" optional="true" />
+	</service>
+	
+	<service name="loyalty.createStoreReceiptStaging" engine="java" use-transaction="true" transaction-timeout="120" 
+		location="org.fio.admin.portal.service.StoreReceiptServices" invoke="createStoreReceiptStaging" auth="true">
+		<description>Upload Store staging</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true" />
+		<attribute name="userLogin" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<!-- [END] -->
+    
+</services>

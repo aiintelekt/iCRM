@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    <screen name="approveList">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Approve Campaign List" global="true"/>
+                <set field="sectionName" value="ListBar" global="true"/>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="campaignUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://campaign/webapp/campaign/WEB-INF/actions/list/approveList.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific><html><html-template location="component://campaign/webapp/campaign/list/approveList/approveList.ftl"/></html></platform-specific>
+                        <platform-specific><html><html-template location="component://campaign/webapp/campaign/list/approveList/getAccountRelatedContact.ftl"/></html></platform-specific>
+                        <platform-specific><html><html-template location="component://campaign/webapp/campaign/list/approveList/getRMReassign.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="findMarketingCampaigns">
+		<section>
+			<actions>
+			    <set field="titleProperty" value="Find Campaigns" global="true"/>
+                <set field="sectionName" value="ListBar" global="true"/>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="campaignUiLabels" map-name="uiLabelMap" global="true"/>				
+                <set field="listSortTarget" value="findMarketingCampaigns"/>
+				<set field="findMarketingCampaignsTarget" value="findMarketingCampaigns"/>
+				<set field="findMarketingCampaignsWidget" value="findMarketingCampaigns"/>
+				<script location="component://campaign/webapp/campaign/WEB-INF/actions/findMarketingCampaigns.groovy"/>
+			</actions>
+			<widgets>
+				 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<container style="subSectionBlock">
+							<platform-specific>
+								<html>
+									<html-template location="component://campaign/webapp/campaign/campaigns/findMarketingCampaigns.ftl"/>
+								</html>
+							</platform-specific>
+						</container>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListMarketingCampaign"/>
+	              	</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ListMarketingCampaign">
+        <section>
+        	<actions>
+        		<script location="component://campaign/webapp/campaign/WEB-INF/actions/findMarketingCampaigns.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://campaign/webapp/campaign/campaigns/listCrmMarketingCampaign.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewMarketingCampaign">
+		<section>
+			<actions>
+			   <set field="titleProperty" value="Approve Campaign List" global="true"/>
+                <set field="sectionName" value="ListBar" global="true"/>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+				<set field="listSortTarget" value="viewMarketingCampaign"/>
+				<property-map resource="campaignUiLabels" map-name="uiLabelMap" global="true"/>
+				<script location="component://campaign/webapp/campaign/WEB-INF/actions/viewMarketingCampaign.groovy"/>
+				<script location="component://campaign/webapp/campaign/WEB-INF/actions/viewBlueBarCount.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<container style="subSectionBlock">
+							<platform-specific>
+								<html>
+									<html-template location="component://campaign/webapp/campaign/campaigns/viewCrmMarketingCampaign.ftl"/>
+								</html>
+							</platform-specific>
+						</container>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <screen name="outboundCallList">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Outbound Call List"/>
+                <set field="sectionName" value="ListBar" global="true"/>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="campaignUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://campaign/webapp/campaign/WEB-INF/actions/list/outboundCallList/outboundCallList.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific><html><html-template location="component://campaign/webapp/campaign/list/outboundCallList/outboundCallList.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="getTemplate">
+        <section>
+            <actions>
+                <set field="titleProperty" value="viewTemplate" global="true"/>
+                <set field="sectionName" value="ListBar" global="true"/>
+            </actions>
+            <widgets>
+                <!-- <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content"> -->
+                        <platform-specific><html><html-template location="component://campaign/webapp/campaign/template/getTemplate.ftl"/></html></platform-specific>
+                <!--     </decorator-section>
+                </decorator-screen> -->
+            </widgets>
+        </section>
+    </screen>
+</screens>
