@@ -1,2 +1,0 @@
-activityId,taskName,taskPrimaryContact,sourceId,sourceName,taskPriority,activityType,activityWorkType,taskStatus,start&EndTimeReq,duration,techArrivalWindow,sch.StartDate/Time,sch.EndateTime,assignedTo,Description
-123459,New Test,20069362,SR-10550,test 6622,Medium,Task,Work Order,Scheduled,Y,3,9,2023-07-05 12:44:00,2023-07-05 16:45:00,admin,Update test

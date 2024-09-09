@@ -1,1 +1,0 @@
-All the component specified template files needs to be there in this folder.

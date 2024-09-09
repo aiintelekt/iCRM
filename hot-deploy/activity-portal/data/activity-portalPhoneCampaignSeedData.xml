@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Load this seeds only for phone campaign system -->
-<entity-engine-xml>
-   <WorkEffortAssocTriplet entityName="Activity" type="Type" code="EMAIL" value="E-mail" active="Y" lastUpdatedStamp="2022-08-08 08:14:34.0" lastUpdatedTxStamp="2022-08-08 08:14:34.0" createdStamp="2022-08-08 08:14:34.0" createdTxStamp="2022-08-08 08:14:34.0"/>
-    <WorkEffortAssocTriplet entityName="Activity" type="Type" code="PHONE" value="Phone Call" active="Y" lastUpdatedStamp="2022-08-08 08:14:34.0" lastUpdatedTxStamp="2022-08-08 08:14:34.0" createdStamp="2022-08-08 08:14:34.0" createdTxStamp="2022-08-08 08:14:34.0"/>
-    <WorkEffortAssocTriplet entityName="Activity" type="Type" code="TASK" value="Task" active="Y" createdOn="2020-03-03 11:51:58.0" modifiedOn="2020-03-03 11:52:00.0" lastUpdatedStamp="2020-03-03 11:52:00.0" lastUpdatedTxStamp="2020-03-03 11:52:01.0" createdStamp="2020-03-03 11:52:01.0" createdTxStamp="2020-03-03 11:52:02.0"/>
-    <WorkEffortAssocTriplet entityName="Activity" type="Type" code="APPOINTMENT" value="Appointment" active="Y" lastUpdatedStamp="2022-08-08 08:14:34.0" lastUpdatedTxStamp="2022-08-08 08:14:34.0" createdStamp="2022-08-08 08:14:34.0" createdTxStamp="2022-08-08 08:14:34.0"/>
-</entity-engine-xml>
-    

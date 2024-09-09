@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<entity-engine-xml>
-<RoleType createdStamp="2020-02-11 13:30:54.0" createdTxStamp="2020-02-11 13:30:54.0" description="MAINTANANCE ISSUES" lastUpdatedStamp="2020-02-11 13:30:54.0" lastUpdatedTxStamp="2020-02-11 13:30:54.0" roleTypeId="MAINTANANCE_ISSUES"/> 
-<RoleType createdStamp="2020-02-07 12:51:38.0" createdTxStamp="2020-02-07 12:51:38.0" description="SHUT DOWN ISSUES" lastUpdatedStamp="2020-02-14 10:47:58.0" lastUpdatedTxStamp="2020-02-14 10:47:58.0" parentTypeId="MAINTANANCE_ISSUES" roleTypeId="SHUTDOWN_ISSUES"/>
- <PartyRole createdStamp="2020-02-11 01:35:31.0" createdTxStamp="2020-02-11 01:35:31.0" lastUpdatedStamp="2020-02-11 01:35:31.0" lastUpdatedTxStamp="2020-02-11 01:35:31.0" partyId="admin" roleTypeId="SHUTDOWN_ISSUES"/> 
- <GlobalMessageConfig componentId="SR-PORTAL" createdStamp="2020-02-11 12:08:38.0" createdTxStamp="2020-02-11 12:08:38.0" description="System maintenance scheduled for 03-09-2019 from 8 AM SGT to 10 AM SGT. During this time, users may experience unavailability of services" fromDate="2020-01-08 00:02:00.0" isEnabled="Y" lastUpdatedStamp="2020-02-12 04:29:18.0" lastUpdatedTxStamp="2020-02-12 04:29:18.0" roleTypeId="SHUTDOWN_ISSUES"/>
-
- <Enumeration  enumId="01" enumTypeId="NATIONALITY"  enumCode="01" sequenceId="01" description="Indian"/>
-</entity-engine-xml>

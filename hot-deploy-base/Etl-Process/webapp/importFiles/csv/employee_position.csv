@@ -1,2 +1,0 @@
-data_import_empl_position_id,company_id,reporting_position_type,managed_by_position_type,reporting_member_name,manged_member_name,reporting1bankid,managed1bankid,reporting_email,manged_email,team_id,country_geo,city,is_access
-,Company,DBS_SMO,DBS_SH,SMO1 KTest,SH1 KTest,ktsmo1,ktsh1,smo1@ktest.com,sh1@ktest.com,DBS_CENTRAL,IND,Chennai,Y
