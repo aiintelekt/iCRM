@@ -1,1 +1,0 @@
-Type|Action|Prefix|corpCode|vaType|systemName|accNumber|permittedValues|exceptionAllowed|vaName|vaNumber

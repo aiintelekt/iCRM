@@ -1,1 +1,0 @@
-All the component specified images needs to be there in this folder.

@@ -1,1 +1,0 @@
-<%response.sendRedirect("sr-portal/control/main");%>

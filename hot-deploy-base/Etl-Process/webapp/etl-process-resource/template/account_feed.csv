@@ -1,2 +1,0 @@
-accountId,accountName,source,industry,ownershipEnumId,noOfEmployees,annualRevenue,currencyUomId,personResponsible,description,emailAddress,primaryPhoneNumber,groupNameLocal,webAddress,address1,address2,postalCode,postalCodeExt,timeZoneId,city,stateProvinceGeoId,countryGeoId,facebookContact,googleContact,instagramContact,linkedInContact,twitterContact,youtubeContact
-60001,Test 006,DIRECT_MAIL,IND_GEN_SERVICES,OWN_CCORP_N,6000,66000,USD,admin,Test,test006@gmail.com,1817632263,test 006,google.com,Len#12,House#9,1216,,1033,Newyork,NY,USA,,,,,,
