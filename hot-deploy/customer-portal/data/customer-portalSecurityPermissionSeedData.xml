@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the customer-portal Component." permissionId="CUSTOMER_PORTAL_VIEW"/>
+    <SecurityPermission description="Create operations in the customer-portal Component." permissionId="CUSTOMER_PORTAL_CREATE"/>
+    <SecurityPermission description="Update operations in the customer-portal Component." permissionId="CUSTOMER_PORTAL_UPDATE"/>
+    <SecurityPermission description="Delete operations in the customer-portal Component." permissionId="CUSTOMER_PORTAL_DELETE"/>
+    <SecurityPermission description="ALL operations in the customer-portal Component." permissionId="CUSTOMER_PORTAL_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="CUSTOMER_PORTAL_ADMIN"/>
+
+</entity-engine-xml>

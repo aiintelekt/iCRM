@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>admin-portal Resource Availability Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="admin.createResAvail" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+    	location="org.fio.admin.portal.service.ResAvailServices" invoke="createResAvail">
+        <description>Create ResAvail</description>
+        <implements service="admin.resAvailInterface"/>
+        <attribute name="entryId" type="String" mode="OUT" optional="false"/>
+    </service>
+    
+    <service name="admin.updateResAvail" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+    	location="org.fio.admin.portal.service.ResAvailServices" invoke="updateResAvail">
+        <description>Update ResAvail</description>
+        <implements service="admin.resAvailInterface"/>
+        <attribute name="entryId" type="String" mode="INOUT" optional="false"/>
+    </service>
+	    
+    <service name="admin.resAvailInterface" engine="interface" location="" invoke="">
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="reasonId" type="String" mode="IN" optional="false"/>
+        <attribute name="availabilityTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="domainEntityType" type="String" mode="IN" optional="true"/>
+        <attribute name="domainEntityId" type="String" mode="IN" optional="true"/>
+        <attribute name="fromDate_date" type="String" mode="IN" optional="true"/>
+        <attribute name="fromDate_time" type="String" mode="IN" optional="true"/>
+        <attribute name="thruDate_date" type="String" mode="IN" optional="true"/>
+        <attribute name="thruDate_time" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="admin.findResourceAvailability" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.fio.admin.portal.service.ResAvailServices" invoke="findResourceAvailability">
+       	<description> Find Resource Availability </description>
+       	
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+       	
+       	<attribute name="responseContext" type="Map" mode="OUT" optional="true"/>
+										       	
+    </service>
+    
+</services>

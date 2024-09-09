@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="common-portal"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+    <!-- define resource loaders; most common is to use the component resource loader -->
+    <resource-loader name="main" type="component"/>
+
+    <!-- place the config directory on the classpath to access configuration files -->
+    <classpath type="dir" location="config"/>
+    <classpath type="dir" location="dtd"/>
+
+    <!-- load single or multiple external libraries -->
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="jar" location="lib/*"/>
+
+    <!-- entity resources: model(s), eca(s), group, and data definitions -->
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel-extend.xml"/>
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel-view.xml"/>
+    
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/common-portalSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalSecuritySystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalSystemPropertyAndVisualThemeSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalEnumerationCommonSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalEnumerationSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalOfbizTableSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalDataSourceSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/PretailLoyaltyDefaultSeeds.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalBiFiscalSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalRoleTypeAndSecuritySystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalStatusTypeAndItemSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalUomSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalZipCodeSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalTemplateAndCustomFieldSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalPartyAndProductSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalGeoSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalInvoiceAndGlAccountSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalPaymentAndCustRequestSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalZipCodeAssoc1DataSystemSeed.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalZipCodeAssoc2DataSystemSeed.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalDynaScreenConfigSystemSeed.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalGridSystemSeed.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-exportSeedData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/common-portalGeoAssocSystemSeedData.xml"/>
+    <entity-resource type="data" reader-name="custom_seed" loader="main" location="data/common-portalPhoneCampaignSeedData.xml"/>
+
+    <!-- service resources: model(s), eca(s) and group definitions -->
+    <service-resource type="model" loader="main" location="servicedef/services.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_content.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_notification.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_note.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_tpl_content.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_product.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_loyalty.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_campaign.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_export.xml"/>
+    <service-resource type="model" loader="main" location="servicedef/services_email.xml"/>
+    
+    <service-resource type="eca" loader="main" location="servicedef/secas.xml"/>
+	    
+    <!--
+    <service-resource type="eca" loader="main" location="servicedef/secas.xml"/>
+    <service-resource type="group" loader="main" location="servicedef/groups.xml"/>
+    -->
+
+    <test-suite loader="main" location="testdef/common-portalTests.xml"/>
+
+    <!-- web applications; will be mounted when using the embedded container -->
+    <webapp name="common-portal"
+        title="common-portal"
+        server="default-server"
+        location="webapp/common-portal"
+        mount-point="/common-portal"/>
+   	<webapp name="common-portal-resource"
+        title="common-portal Resources including css, images, js"
+        server="default-server"
+        location="webapp/common-portal-resource"
+        mount-point="/common-portal-resource"
+        app-bar-display="false"/>
+          
+</ofbiz-component>

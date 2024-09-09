@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<EtlGrouping groupId="DEFAULT" groupName="Default" sequenceNo="1"/>
+
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.files.location" systemPropertyValue="/home/DEV-CBG/B2B_SIT/hot-deploy-base/Etl-Process/webapp/importFiles/" description="ETL Files Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.csv.files.location" systemPropertyValue="/home/DEV-CBG/B2B_SIT/hot-deploy-base/Etl-Process/webapp/importFiles/csv/" description="ETL CSV Files Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.header.files.location" systemPropertyValue="/home/DEV-CBG/B2B_SIT/hot-deploy-base/Etl-Process/webapp/importFiles/header/" description="ETL Header Files Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.absoulte.files.location" systemPropertyValue="/home/DEV-CBG/B2B_SIT/hot-deploy-base/Etl-Process/webapp/importFiles/absolute/" description="ETL Absolute Files Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.moca.files.location" systemPropertyValue="/home/DEV-CBG/B2B_SIT/hot-deploy-base/Etl-Process/webapp/importFiles/moca/" description="ETL Moca Files Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.base.url" systemPropertyValue="http://35.185.64.191:8080/Etl-Process/" description="ETL Base URL" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.import.location" systemPropertyValue="/home/DEV-CBG/etl-import-files/" description="ETL Import Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.dump.location " systemPropertyValue="/home/DEV-CBG/etl-dump-files/" description="ETL Dump Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.sftp.import.location" systemPropertyValue="/clients/ofbiz-jboss-sharif/sftp-importfiles/" description="ETL SFTP Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.csv.files.extrace.location" systemPropertyValue="/home/DEV-CBG/B2B_SIT/hot-deploy-base/Etl-Process/webapp/extrace/csv/" description="ETL CSV Files Location" />
+    <SystemProperty systemResourceId="Etl-Process" systemPropertyId="etl.orgId.api.url" systemPropertyValue="http://localhost:8080/ewallet/api/CustomerProfile/getOrgId/" description="OrgId API URL"/>
+</entity-engine-xml>

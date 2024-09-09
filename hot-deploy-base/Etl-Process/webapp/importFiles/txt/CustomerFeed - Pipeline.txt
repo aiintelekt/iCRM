@@ -1,0 +1,2 @@
+customerId|companyName|firstName|lastName|attnName|address1|address2|city|stateProvinceGeoId|postalCode|postalCodeExt|countryGeoId|primaryPhoneCountryCode|primaryPhoneAreaCode|primaryPhoneNumber|primaryPhoneExtension|emailAddress|source|shipToCountryGeoId|shipToStateProvinceGeoId|countryGeoId
+ETL7201|GroupFIO|Sharif|Islam|test|add1|add2|chennai|IN-TN|77328|5407|IND|1|281|6599095|2345|fio.sharif401@gmail.com|EXT_PARTY_ID|IND|IN-NL|IND

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	  <screen name="ListNote">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/note/FindNote.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/note/find_note.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/note/list_note.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	<screen name="ViewAllNotes"> 
+        <section>
+            <actions>
+                <set field="titleProperty" value="View All Notes" global="true"/>
+                <!-- <set field="sectionName" value="sr-portal" global="true"/> -->
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/note/ViewAllNotes.groovy" />
+            </actions> 
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/note/list_all_notes.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="NoteDataDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Notes" global="true"/>
+                <!-- <set field="sectionName" value="rebate-portal" global="true"/> -->
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/common/note_detail.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	 <screen name="Attachments">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/note/FindNote.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/attachment/find_attachment.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/attachment/list_attachment.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	
+	<screen name="ActivityAttachments">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/note/FindNote.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/attachment/activity_attachments_list.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	
+	<screen name="ThirdPartyAttachments">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/attachment/FindThirdPtyAttachment.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/attachment/third_party/find_attachment.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/attachment/third_party/list_attachment.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	
+	<screen name="ViewOrder">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Order" global="true"/>
+                <set field="sectionName" value="common-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/order/ViewOrderDetails.groovy"/>
+                
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                                <html>
+                                    <html-template location="component://common-portal/webapp/common-portal/order/view/viewOrder.ftl"/>
+                                </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="ListOrder">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/order/FindOrder.groovy"/>
+				<script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/InitParam.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/order/find_order.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/order/list_order.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ListQuote">
+		<section>
+			<actions>
+				<script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/InitParam.groovy" />
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/quote/find_quote.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/quote/list_quote.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	 <screen name="MergedParties">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/service-request/MergedPartyList.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/service-request/merged_party_list.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	<screen name="Onboarding">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/common/OnboardingDetails.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/common/onboarding_details.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="Invoices">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/invoice/find_invoices.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/invoice/list_invoices.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	
+	<screen name="CommunicationHistory">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/common/list_comm_history.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>	
+	
+	<screen name="ListInvoices">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/invoice/FindInvoice.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/invoice/find_party_invoices.ftl"/> 
+						<html-template location="component://common-portal/webapp/common-portal/invoice/list_party_invoices.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 	
+	<screen name="ListPartyReceipts">
+		<section>
+			<actions>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/receipt/find_party_receipts.ftl"/> 
+						<html-template location="component://common-portal/webapp/common-portal/receipt/list_party_receipts.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 	
+	<screen name="viewTransactionInvoice">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Invoice" global="true"/>
+                <set field="sectionName" value="common-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/invoice/ViewTransactionInvoice.groovy"/>
+                
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                                <html>
+                                    <html-template location="component://common-portal/webapp/common-portal/invoice/viewTransactionInvoice.ftl"/>
+                                </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="viewAwSInstances">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View AWS Instances" global="true"/>
+                <set field="sectionName" value="common-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                                <html>
+                                    <html-template location="component://common-portal/webapp/common-portal/common/view_AWS_instances.ftl"/>
+                                </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="ViewAllCommunicationEvents"> 
+        <section>
+            <actions>
+                <set field="titleProperty" value="View All Communication History" global="true"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/common/ListAllCommunicationHistory.groovy"/>
+            </actions> 
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/common/list_all_communication_events.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="viewAllPics">
+		<section>
+			<actions>
+				<set field="titleProperty" value="View All Pictures" global="true" />
+				<set field="sectionName" value="common-portal" global="true" />
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/attachment/ViewAllAttachments.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://common-portal/webapp/common-portal/attachment/list_all_pics.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>

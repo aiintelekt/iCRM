@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+	<include location="component://common/webcommon/WEB-INF/security-controller.xml"/>
+	<include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+    <description>appbar-portal Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+
+    <!-- Request Mappings -->
+    <request-map uri="main">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="findAppBar"/>
+    </request-map>
+    <request-map uri="findAppBar">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="findAppBar"/>
+    </request-map>
+    <request-map uri="createAppBar">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="createAppBar"/>
+    </request-map>
+    <request-map uri="viewAppBar">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="viewAppBar"/>
+    </request-map>
+    <request-map uri="updateAppBar">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="updateAppBar"/>
+    </request-map>
+    <request-map uri="createAppBarService">
+    	<security https="true" auth="true"/>
+    	<event type="service" invoke="ab.createAppBar" />
+    	<response name="success" type="request-redirect" value="viewAppBar">
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    	<response name="error" type="view" value="createAppBar" />
+    </request-map>
+    
+    <request-map uri="updateAppBarService">
+    	<security https="true" auth="true"/>
+    	<event type="service" invoke="ab.updateAppBar" />
+    	<response name="success" type="request-redirect" value="viewAppBar">
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    	<response name="error" type="view" value="updateAppBar" />
+    </request-map>
+    
+    <request-map uri="getAppBar">
+		<security https="false" auth="false" />
+		<event type="java" path="org.fio.appbar.portal.event.AjaxEvents" invoke="getAppBar" />
+		<response name="success" type="none" />
+		<response name="error" type="none"/>
+	</request-map>
+    
+    <request-map uri="createAppBarElement">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="createAppBarElement"/>
+    </request-map>
+    <request-map uri="viewAppBarElement">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="viewAppBarElement"/>
+    </request-map>
+    <request-map uri="updateAppBarElement">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="updateAppBarElement"/>
+    </request-map>
+    <request-map uri="createAppBarElementService">
+    	<security https="true" auth="true"/>
+    	<event type="service" invoke="ab.createAppBarElement" />
+    	<response name="success" type="request-redirect" value="viewAppBar">
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    	<response name="error" type="request-redirect" value="viewAppBar">
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    </request-map>
+    <request-map uri="updateAppBarElementService">
+    	<security https="true" auth="true"/>
+    	<event type="service" invoke="ab.updateAppBarElement" />
+    	<response name="success" type="request-redirect" value="viewAppBar">
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    	<response name="error" type="view" value="updateAppBarElement" />
+    </request-map>
+    
+    <request-map uri="previewAppBar">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="previewAppBar" />
+    	<response name="error" type="view" value="previewAppBar" />
+    </request-map>
+    
+    <request-map uri="sampleAppBar">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="SampleAppBar" />
+    	<response name="error" type="view" value="SampleAppBar" />
+    </request-map>
+    <request-map uri="createUserPreference">
+    	<security https="true" auth="true"/>
+    	<response name="success" type="view" value="createUserPreference" />
+    	<response name="error" type="view" value="createUserPreference" />
+    </request-map>
+    <request-map uri="configureAppBarUserPreference">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.fio.appbar.portal.event.AjaxEvents" invoke="configureAppBarUserPreference" />
+    	<response name="success" type="request-redirect" value="createUserPreference" >
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    	<response name="error" type="request-redirect" value="createUserPreference" >
+    		<redirect-parameter name="appBarId"/>
+    		<redirect-parameter name="appBarTypeId"/>
+    	</response>
+    </request-map>
+    <request-map uri="getAppBarElements">
+		<security https="false" auth="false" />
+		<event type="java" path="org.fio.appbar.portal.event.AjaxEvents" invoke="getAppBarElements" />
+		<response name="success" type="none" />
+		<response name="error" type="none"/>
+	</request-map>
+	
+	<request-map uri="getUiLabels">
+		<security https="false" auth="false" />
+		<event type="java" path="org.fio.appbar.portal.event.AjaxEvents" invoke="getUiLabels" />
+		<response name="success" type="none" />
+		<response name="error" type="none"/>
+	</request-map>
+	
+	
+    
+    
+    
+    
+    
+    <!-- View Mappings -->
+    <view-map name="findAppBar" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#FindAppBar"/>
+    <view-map name="createAppBar" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#CreateAppBar"/>
+    <view-map name="viewAppBar" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#ViewAppBar"/>
+    <view-map name="updateAppBar" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#UpdateAppBar"/>
+    
+    <view-map name="createAppBarElement" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#CreateAppBarElement"/>
+    <view-map name="viewAppBarElement" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#ViewAppBarElement"/>
+    <view-map name="updateAppBarElement" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#UpdateAppBarElement"/>
+    
+    <view-map name="previewAppBar" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#PreviewAppBar"/>
+    
+    <view-map name="SampleAppBar" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#SampleAppBar"/>
+    <view-map name="createUserPreference" type="screen" page="component://appbar-portal/widget/configuration/ConfigurationScreens.xml#CreateUserPreference"/>
+    
+    
+</site-conf>

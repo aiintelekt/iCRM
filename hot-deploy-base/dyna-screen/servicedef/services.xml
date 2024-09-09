@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>dyna-screen Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="dynaScreen.getDynaScreenRenderDetail" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.dyna.screen.service.impl.GeneralServiceImpl" invoke="getDynaScreenRenderDetail">
+       	<description> Get Dyna Screen Render Detail Service </description>
+       	
+       	<attribute name="dynaConfigId" type="String" mode="IN" optional="false"/>
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+       	
+       	<attribute name="screenConfig" type="Map" mode="OUT" optional="true"/>
+       	<attribute name="screenConfigFieldList" type="List" mode="OUT" optional="true"/>
+       	<attribute name="responseCode" type="String" mode="OUT" optional="true"/>
+				       	
+    </service>
+    
+    <service name="dynaScreen.testDynamicData" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.dyna.screen.service.impl.GeneralServiceImpl" invoke="testDynamicData">
+       	<description> Test dynamic data Service </description>
+       	
+       	<attribute name="filterData" type="Map" mode="IN" optional="false"/>
+       	
+       	<attribute name="filterResult" type="Map" mode="OUT" optional="false"/>
+				       	
+    </service>
+    
+    <service name="dynaScreen.getDynamicData" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.dyna.screen.service.impl.DataServiceImpl" invoke="getDynamicData">
+       	<description> Test dynamic data Service </description>
+       	
+       	<attribute name="filterData" type="Map" mode="IN" optional="false"/>
+       	
+       	<attribute name="filterResult" type="Map" mode="OUT" optional="false"/>
+				       	
+    </service>
+    
+</services>

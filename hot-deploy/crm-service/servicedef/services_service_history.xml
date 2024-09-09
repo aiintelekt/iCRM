@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>crm-portal SH Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <!-- Desc : Create Service Request History-->
+    <service name="crmPortal.createServiceHistory" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceHistoryServiceImpl" invoke="createServiceRequestHistory">
+        <description> Create Service Request History </description>
+        
+        <attribute name="externalId" type="String" mode="IN" optional="true"/>
+        <attribute name="userId" type="String" mode="IN" optional="true"/>
+        <attribute name="stepName" type="String" mode="IN" optional="true"/>
+        <attribute name="stepDescription" type="String" mode="IN" optional="true"/>
+        <attribute name="relAction" type="String" mode="IN" optional="true"/>
+        <attribute name="remark" type="String" mode="IN" allow-html="any" optional="true"/>
+        <attribute name="remarkTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="rejectReason" type="String" mode="IN" optional="true"/>
+        <attribute name="role" type="String" mode="IN" optional="true"/>
+        <attribute name="type" type="String" mode="IN" optional="true"/>
+        <attribute name="startDateTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="endDateTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="message" type="String" mode="IN" optional="true"/>
+        <attribute name="jobId" type="String" mode="IN" optional="true"/>
+        <attribute name="jobStepCode" type="String" mode="IN" optional="true"/>
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="recordType" type="String" mode="IN" optional="true"/>
+        <attribute name="msgUId" type="String" mode="IN" optional="true"/>
+        <attribute name="requestDateTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="systemName" type="String" mode="IN" optional="true"/>
+        <attribute name="srHistoryLogId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="crmPortal.detailServiceHistory" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceHistoryServiceImpl" invoke="detailServiceHistory">
+        <description> Detail Service History </description>
+       
+        <attribute name="srNumber" type="String" mode="IN" optional="false"/>
+        <attribute name="createdBy" type="String" mode="IN" optional="true"/>
+        <attribute name="responsiblePerson" type="String" mode="IN" optional="true"/>
+        <attribute name="caseId" type="String" mode="IN" optional="true"/>
+        <attribute name="createdDateRangeStart" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="createdDateRangeEnd" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="subStatusId" type="String" mode="IN" optional="true"/>
+        <attribute name="msgUId" type="String" mode="IN" optional="true"/>
+        <attribute name="requestDateTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="systemName" type="String" mode="IN" optional="true"/>
+        <attribute name="nextPageNum" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="totalCount" type="Long" mode="OUT" optional="true"/>
+                
+    </service>
+    
+    <service name="crmPortal.findServiceHistory" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.crm.service.service.impl.ServiceHistoryServiceImpl" invoke="findServiceHistory">
+        <description> Detail Service History </description>
+       
+        <attribute name="srNumber" type="String" mode="IN" optional="false"/>
+        <attribute name="createdBy" type="String" mode="IN" optional="true"/>
+        <attribute name="responsiblePerson" type="String" mode="IN" optional="true"/>
+        <attribute name="caseId" type="String" mode="IN" optional="true"/>
+        <attribute name="createdDateRangeStart" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="createdDateRangeEnd" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="statusId" type="String" mode="IN" optional="true"/>
+        <attribute name="subStatusId" type="String" mode="IN" optional="true"/>
+        <attribute name="msguid" type="String" mode="IN" optional="true"/>
+        <attribute name="requestedTime" type="Timestamp" mode="IN" optional="true"/>
+        <attribute name="systemName" type="String" mode="IN" optional="true"/>
+        <attribute name="nextPageNum" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="serviceRequestHistoryList" type="List" mode="OUT" optional="true"/>
+        <attribute name="totalCount" type="Long" mode="OUT" optional="true"/>
+                
+    </service>
+    
+</services>

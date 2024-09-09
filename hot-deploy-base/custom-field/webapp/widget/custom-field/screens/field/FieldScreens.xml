@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="CreateCustomFieldForGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateCustomField"/>
+                <set field="sectionName" value="customField" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/CreateCustomField.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<!-- <decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/lead/createLeadForm.ftl"/></html></platform-specific> 
+	              	</decorator-section> -->
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/create_custom_field.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListCustomFieldAtt"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="CreateCustomField">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateCustomField"/>
+                <set field="sectionName" value="customField" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/CreateCustomField.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<!-- <decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/lead/createLeadForm.ftl"/></html></platform-specific> 
+	              	</decorator-section> -->
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/create_custom_field.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListCustomField">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/ListCustomField.groovy"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/FindCustomField.groovy"/>
+            </actions>
+        	<widgets>
+               <!--  <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/list_custom_field.ftl"/></html></platform-specific> -->
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/find_custom_field.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListCustomFieldAtt">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/ListCustomField.groovy"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/FindCustomField.groovy"/>
+            </actions>
+        	<widgets>
+               <!--  <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/list_custom_field.ftl"/></html></platform-specific> -->
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/find_custom_field_Att.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateCustomField">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateCustomField"/>
+                <set field="sectionName" value="customField" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/UpdateCustomField.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+	              		<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/update_custom_field_view.ftl"/></html></platform-specific>
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListCustomFieldAtt"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="FindCustomField">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindCustomField"/>
+                <set field="sectionName" value="findCustomField" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/FindCustomField.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/find_custom_field.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              <!-- 	<decorator-section name="bottom-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/list_custom_field.ftl"/></html></platform-specific> 
+	              	</decorator-section> -->
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="FieldParamConfig">
+        <section>
+        	<actions>
+        		<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/field/FieldParamConfig.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/field/field_param_config.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

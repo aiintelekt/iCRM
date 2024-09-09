@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<screen name="createCustomer">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="CreateCustomer" global="true"/>
+			  <set field="sectionName" value="crmPeron" global="true"/>
+			  <script location="component://crm/webapp/crm/WEB-INF/actions/customer/CreateCustomer.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://crm/webapp/crm/customer/createCustomer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="findCustomer">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="FindCustomers" global="true"/>
+			  <set field="sectionName" value="crmPeron" global="true"/>
+			  <!-- <script location="component://crm/webapp/crm/WEB-INF/actions/customer/CreateCustomer.groovy"/> -->
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://crm/webapp/crm/customer/findCustomer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewCustomer">
+		<section>
+			<actions>
+			 	<set field="titleProperty" value="ViewCustomer" global="true"/>
+			  	<set field="sectionName" value="crmPeron" global="true"/>
+			  	<set field="currentRole" value="CUSTOMER"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/contacts/getCampaignDetails.groovy"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/contacts/viewContacts.groovy"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/account/partyContactInfo.groovy"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/common/writeEmail.groovy"/>
+				<!-- <script location="component://crm/webapp/crm/WEB-INF/actions/common/notes.groovy"/> -->
+				<script location="component://crm/webapp/crm/WEB-INF/actions/common/getAttribute.groovy"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/common/personResponsibleFor.groovy"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/common/createLogCall.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://crm/webapp/crm/customer/view-customer/viewCustomer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

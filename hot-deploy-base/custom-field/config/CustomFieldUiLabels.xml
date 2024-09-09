@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<!-- This file has been modified by Open Source Strategies, Inc. -->
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<property key="ApplicationTitle">
+        <value xml:lang="en">SEGMENTATION</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="CustomFieldApplicationTitle">
+        <value xml:lang="en">Attribute</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="SegmentApplicationTitle">
+        <value xml:lang="en">Segmentation</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="ConfigApplicationTitle">
+        <value xml:lang="en">Configuration</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="EconomicMetricApplicationTitle">
+        <value xml:lang="en">Economic Metric</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="AppName">
+        <value xml:lang="en">Segmentation</value>
+        <value xml:lang="zh-TW">Segmentation</value>
+    </property>
+    <!-- Page title [start] -->
+    
+   	<property key="ErrorCode">
+   	  	<value xml:lang="en">Error Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="EwalletApp">
+   	  	<value xml:lang="en">eWallet App</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateCustomFieldGroup">
+   	  	<value xml:lang="en">Create Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindCustomFieldGroup">
+   	  	<value xml:lang="en">Find Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateCustomFieldGroup">
+   	  	<value xml:lang="en">Update Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="CreateContactFieldGroup">
+   	  	<value xml:lang="en">Create Contact Field Group</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	
+   	<property key="CreateCustomField">
+   	  	<value xml:lang="en">Create Attribute Field</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateCustomField">
+   	  	<value xml:lang="en">Update Attribute Field</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindCustomField">
+   	  	<value xml:lang="en">Find Attribute Field</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CustomField">
+   	  	<value xml:lang="en">Attribute Field</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateSegmentCode">
+   	  	<value xml:lang="en">Create Segment Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindSegmentCode">
+   	  	<value xml:lang="en">Find Segment Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateSegmentCode">
+   	  	<value xml:lang="en">Update Segment Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateSegmentValue">
+   	  	<value xml:lang="en">Create Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ViewSegmentValue">
+   	  	<value xml:lang="en">View Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateSegmentValue">
+   	  	<value xml:lang="en">Update Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateCampaignConfig">
+   	  	<value xml:lang="en">Update Campaign Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindSegmentValue">
+   	  	<value xml:lang="en">Find Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateEconomicMetric">
+   	  	<value xml:lang="en">Create Economic Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindEconomicMetric">
+   	  	<value xml:lang="en">Find Economic Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateEconomicMetric">
+   	  	<value xml:lang="en">Update Economic Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateEconomicValue">
+   	  	<value xml:lang="en">Create Economic Metric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ViewEconomicValue">
+   	  	<value xml:lang="en">View Economic Metric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateEconomicValue">
+   	  	<value xml:lang="en">Update Economic Metric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindEconomicValue">
+   	  	<value xml:lang="en">Find Economic Metric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateValueConfig">
+   	  	<value xml:lang="en">Create Value Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateValueConfig">
+   	  	<value xml:lang="en">Update Value Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateMicroServiceConfig">
+   	  	<value xml:lang="en">Create Micro Service Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateMicroServiceConfig">
+   	  	<value xml:lang="en">Update Micro Service Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateWebhookConfig">
+   	  	<value xml:lang="en">Create Webhook Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateWebhookConfig">
+   	  	<value xml:lang="en">Update Webhook Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="CreateGroupingCode">
+   	  	<value xml:lang="en">Create Grouping Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UpdateGroupingCode">
+   	  	<value xml:lang="en">Update Grouping Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="AddCustomers">
+   	  	<value xml:lang="en">Add Customers</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+    
+    <!-- Page title [end] -->
+    
+    <!-- Main menu link [start] -->
+    
+    <property key="CustomFieldGroup">
+   	  	<value xml:lang="en">Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ContactFieldGroup">
+   	  	<value xml:lang="en">Contact Field Group</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	<property key="ContactField">
+   	  	<value xml:lang="en">Contact Field</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	<property key="CustomGroups">
+   	  	<value xml:lang="en">Attribute Groups</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="CustomFields">
+   	  	<value xml:lang="en">Attribute Fields</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="CreateCustomGroup">
+   	  	<value xml:lang="en">Create Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindCustomGroup">
+   	  	<value xml:lang="en">Find Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="SegmentCode">
+   	  	<value xml:lang="en">Segment Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="SegmentCodes">
+   	  	<value xml:lang="en">Segment Codes</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="SegmentValue">
+   	  	<value xml:lang="en">Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="SegmentValues">
+   	  	<value xml:lang="en">Segment Values</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="EconomicMetric">
+   	  	<value xml:lang="en">Economic Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="EconomicMetrics">
+   	  	<value xml:lang="en">Economic Codes</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="EconomicValue">
+   	  	<value xml:lang="en">Economic Metric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="EconomicValues">
+   	  	<value xml:lang="en">Economic Metrics</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="ValueConfig">
+   	  	<value xml:lang="en">Value Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="MicroServiceConfig">
+   	  	<value xml:lang="en">MicroService Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="WebhookConfig">
+   	  	<value xml:lang="en">Webhook Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="GroupingCode">
+   	  	<value xml:lang="en">Grouping Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+    <!-- Main menu link [end] -->
+    
+    <!-- Page label [start] -->
+    
+    <property key="Create">
+   	  	<value xml:lang="en">Create</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="Update">
+   	  	<value xml:lang="en">Update</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="List">
+   	  	<value xml:lang="en">List</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="Action">
+   	  	<value xml:lang="en">Action</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="Generate">
+   	  	<value xml:lang="en">Generate</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="Service">
+   	  	<value xml:lang="en">Service</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="Configuration">
+   	  	<value xml:lang="en">Configuration</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="Error">
+   	  	<value xml:lang="en">Error</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="groupId">
+      	<value xml:lang="en">Group Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="groupName">
+      	<value xml:lang="en">Group Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="sequence">
+      	<value xml:lang="en">Sequence No</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="roleTypeId">
+      	<value xml:lang="en">Role Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="customFieldName">
+      	<value xml:lang="en">Attribute Field Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="customGroup">
+      	<value xml:lang="en">Attribute Group</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="customFieldType">
+      	<value xml:lang="en">Attribute Field Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="customFieldFormat">
+      	<value xml:lang="en">Attribute Field Format</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="fieldLength">
+      	<value xml:lang="en">Field Length</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="contactFieldName">
+      	<value xml:lang="en">Contact Field Name</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	<property key="contactFieldGroup">
+      	<value xml:lang="en">Contact Field Group</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	<property key="contactFieldType">
+      	<value xml:lang="en">Contact Field Type</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	<property key="contactFieldFormat">
+      	<value xml:lang="en">Contact Field Format</value>
+      	<value xml:lang="zh"></value>
+   	</property>
+   	
+   	<property key="segmentCodeId">
+      	<value xml:lang="en">Segment Code Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="segmentCodeName">
+      	<value xml:lang="en">Segment Code Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="groupingCode">
+      	<value xml:lang="en">Grouping Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="serviceTypeId">
+      	<value xml:lang="en">Service Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="microService">
+      	<value xml:lang="en">Micro Service</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="webhook">
+      	<value xml:lang="en">Webhook</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="historicalCapture">
+      	<value xml:lang="en">Historical Capture</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="valueCapture">
+      	<value xml:lang="en">Value Capture</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="isCampaignUse">
+      	<value xml:lang="en">Used for Campaign</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="classType">
+      	<value xml:lang="en">Class Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="type">
+      	<value xml:lang="en">Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="segment">
+      	<value xml:lang="en">Segment</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="attribute">
+      	<value xml:lang="en">Attribute</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="segmentValueId">
+      	<value xml:lang="en">Segment Value Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="segmentValueName">
+      	<value xml:lang="en">Segment Value Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="segmentCode">
+      	<value xml:lang="en">Segment Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="segmentMap">
+      	<value xml:lang="en">Segment Mapping</value>
+   	</property>
+   	<property key="type">
+      	<value xml:lang="en">Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="type">
+      	<value xml:lang="en">Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="isEnabled">
+      	<value xml:lang="en">Enabled</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="isDefault">
+      	<value xml:lang="en">Default</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="isUseDynamicEntity">
+   	  	<value xml:lang="en">Store data in dynamic table</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="micro">
+   	  	<value xml:lang="en">Micro</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="webhookPush">
+   	  	<value xml:lang="en">Webhook Push</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="CampaignConfig">
+   	  	<value xml:lang="en">Campaign Configuration</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="segmentValue">
+      	<value xml:lang="en">Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="valueMin">
+      	<value xml:lang="en">Min Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="valueMax">
+      	<value xml:lang="en">Max Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="valueData">
+      	<value xml:lang="en">Data</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="economicMetricId">
+      	<value xml:lang="en">Economic Code Id</value>
+      	<value xml:lang="zh">經濟法典身份證件</value>
+   	</property>
+   	<property key="economicMetricName">
+      	<value xml:lang="en">Economic Code Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="economicValue">
+      	<value xml:lang="en">Economic Metric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="economicValueId">
+      	<value xml:lang="en">Economic Metric Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="economicValueName">
+      	<value xml:lang="en">Economic Metric Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="economicMetric">
+      	<value xml:lang="en">Economic Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="economicCode">
+      	<value xml:lang="en">Economic Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="authKey">
+      	<value xml:lang="en">Auth Key</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="RoleConfig">
+   	  	<value xml:lang="en">Role Config</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="AssignRole">
+   	  	<value xml:lang="en">Assign Role</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="AssignRoleTypes">
+   	  	<value xml:lang="en">Assign Role Types</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ManageCustomers">
+   	  	<value xml:lang="en">Manage Customer</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ManageParty">
+   	  	<value xml:lang="en">Manage Party</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="AssignedCustomer">
+   	  	<value xml:lang="en">Assigned  Customer</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="AddCustomer">
+   	  	<value xml:lang="en">Add  Customer</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="AddParty">
+   	  	<value xml:lang="en">Add Party</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="FindParty">
+   	  	<value xml:lang="en">Find Party</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UploadCustomer">
+   	  	<value xml:lang="en">Upload  Customer</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="UploadParty">
+   	  	<value xml:lang="en">Upload  Party</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ViewMembers">
+   	  	<value xml:lang="en">View Members</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="MultiValue">
+   	  	<value xml:lang="en">Multi Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="fieldValue">
+   	  	<value xml:lang="en">Field Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="hide">
+   	  	<value xml:lang="en">Hide</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="description">
+   	  	<value xml:lang="en">Description</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="single">
+   	  	<value xml:lang="en">Single</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="multiple">
+   	  	<value xml:lang="en">Multiple</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="numeric">
+   	  	<value xml:lang="en">Numeric</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="textArea">
+   	  	<value xml:lang="en">Text Area</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="checkBox">
+   	  	<value xml:lang="en">Check Box</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="text">
+   	  	<value xml:lang="en">Text</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="boolean">
+   	  	<value xml:lang="en">Boolean</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="dropDown">
+   	  	<value xml:lang="en">Drop Down</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="radio">
+   	  	<value xml:lang="en">Radio</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="range">
+   	  	<value xml:lang="en">Range</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="primaryAuto">
+   	  	<value xml:lang="en">Auto Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="primaryMultiAuto">
+   	  	<value xml:lang="en">Multiple Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="predefined">
+   	  	<value xml:lang="en">Predefine Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="primaryStatic">
+   	  	<value xml:lang="en">Static Segment Value</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="nextAction">
+      	<value xml:lang="en">Next Action</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+    <!-- Page label [end] -->
+	
+   	<property key="language">
+      	<value xml:lang="en">Language/語言</value>
+      	<value xml:lang="zh">Language/語言</value>
+   	</property>
+   	<property key="LocaleChinese">
+      <value xml:lang="en">中文</value>
+      <value xml:lang="zh">中文</value>
+   	</property>
+   	<property key="moreApps">
+   	  <value xml:lang="en">More Apps</value>
+      <value xml:lang="zh">更多應用程序</value>
+   	</property>
+   	<property key="settings">
+   	  <value xml:lang="en">Settings</value>
+      <value xml:lang="zh">設置</value>
+   	</property>
+   	<property key="help">
+   	  <value xml:lang="en">Help</value>
+      <value xml:lang="zh">幫幫我</value>
+   	</property>
+   	<property key="logout">
+   	  <value xml:lang="en">Logout</value>
+      <value xml:lang="zh">登出</value>
+   	</property>
+   	
+    <property key="CommonDate">
+        <value xml:lang="en">Date</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="CommonFromDate">
+        <value xml:lang="en">From Date</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="CommonThruDate">
+        <value xml:lang="en">Thru Date</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="UploadedBy">
+        <value xml:lang="en">Uploaded By</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="UploadedDate">
+        <value xml:lang="en">Uploaded Date</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="date">
+   	  <value xml:lang="en">Date</value>
+      <value xml:lang="zh">日期</value>
+   </property>
+   
+   <property key="pickRightFile">
+   	  <value xml:lang="en">Pick the right import file (csv, excel, text, xml, json)</value>
+      <value xml:lang="zh">選擇正確的導入文件（csv，excel，text，xml，json）</value>
+   </property> 
+   <property key="uploadFile">
+   	  <value xml:lang="en">Upload File</value>
+      <value xml:lang="zh">上傳文件</value>
+   </property>
+   <property key="fileToImport">
+   	  <value xml:lang="en">File to Import</value>
+      <value xml:lang="zh">要導入的文件</value>
+   </property>
+   <property key="fileFormat">
+   	  <value xml:lang="en">File Format</value>
+      <value xml:lang="zh">文件格式</value>
+   </property>
+   <property key="removeButton">
+   	  <value xml:lang="en">Remove</value>
+      <value xml:lang="zh">去掉</value>
+   </property>
+   <property key="selectFile">
+   	  <value xml:lang="en">Select file</value>
+      <value xml:lang="zh">選擇文件</value>
+   </property>
+   <property key="change">
+   	  <value xml:lang="en">Change</value>
+      <value xml:lang="zh">更改</value>
+   </property>
+   <property key="processed">
+   	  <value xml:lang="en">Processed</value>
+      <value xml:lang="zh">處理</value>
+   </property>
+   <property key="notProcessed">
+   	  <value xml:lang="en">Not Processed</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="noOfRecords">
+   	  <value xml:lang="en">No of Records</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="recordImported">
+   	  <value xml:lang="en">Imported</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   
+   <property key="CommonYes">
+   	  <value xml:lang="en">Yes</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="CommonNo">
+   	  <value xml:lang="en">No</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="yes">
+   	  <value xml:lang="en">Yes</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="no">
+   	  <value xml:lang="en">No</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   
+   <property key="activated">
+   	  <value xml:lang="en">Activated</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="deActivated">
+   	  <value xml:lang="en">De-Activated</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   
+   <property key="ServiceConfig">
+   	  <value xml:lang="en">Service Configuration</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="serviceName">
+   	  <value xml:lang="en">Service Name</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="isPublic">
+   	  <value xml:lang="en">isPublic ?</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   <property key="internal">
+   	  <value xml:lang="en">Internal</value>
+      <value xml:lang="zh">未加工</value>
+   </property>
+   
+   <property key="createdTxStamp">
+   	  <value xml:lang="en">Created TX Stamp</value>
+      <value xml:lang="zh">創建時間戳</value>
+   </property>
+   <property key="lastUpdatedTxStamp">
+   	  <value xml:lang="en">Last Updated TX Stamp</value>
+      <value xml:lang="zh">最後更新時間戳</value>
+   </property>
+    
+    <property key="fromDate">
+      <value xml:lang="en">From Date</value>
+      <value xml:lang="zh">從日期</value>
+   </property>
+   <property key="thruDate">
+      <value xml:lang="en">Thru Date</value>
+      <value xml:lang="zh">直到日期</value>
+   </property>
+   <property key="edit">
+      <value xml:lang="en">Edit</value>
+      <value xml:lang="zh">編輯</value>
+   </property>
+  
+  <property key="GroupId">
+   	  <value xml:lang="en">Group Id</value>
+   </property>
+    
+    
+  <property key="GroupName">
+   	  <value xml:lang="en">Group Name</value>
+   </property>
+   
+  <property key="FieldId">
+   	  <value xml:lang="en">Field Id</value>
+   </property>
+   
+  <property key="FieldName">
+   	  <value xml:lang="en">Field Name</value>
+   </property>
+   
+  <property key="Standard">
+   	  <value xml:lang="en">Standard</value>
+   </property>
+   
+  <property key="Attribute">
+   	  <value xml:lang="en">Attribute</value>
+   </property>
+    
+    
+  <property key="Segment">
+   	  <value xml:lang="en">Segment</value>
+   </property>
+   
+   <property key="submit">
+   	  <value xml:lang="en">Submit</value>
+   </property>
+    <property key="groupingCode">
+   	  <value xml:lang="en">Grouping Code</value>
+   </property>
+    <property key="segmentCode">
+   	  <value xml:lang="en">Segment Code</value>
+   </property>
+   <property key="enabled">
+   	  <value xml:lang="en">Enabled</value>
+   </property>
+   <property key="pleaseSelect">
+   	  <value xml:lang="en">Please Select</value>
+   </property>
+   <property key="valueCapture">
+   	  <value xml:lang="en">Value Capture</value>
+   </property>
+    <property key="usedForCampaign">
+   	  <value xml:lang="en">Used for Campaign</value>
+   </property>
+   <property key="type">
+   	  <value xml:lang="en">Type</value>
+   </property>  
+   <property key="find">
+   	  <value xml:lang="en">Find</value>
+   </property>  
+  <property key="Economic">
+   	  <value xml:lang="en">Economic</value>
+   </property>
+   <property key="cancel">
+   	  <value xml:lang="en">Cancel</value>
+   </property>
+   
+   <property key="emptyFile">
+      <value xml:lang="en">No data found in the file</value>
+      <value xml:lang="zh">沒有在文件中找到數據</value>
+   </property>
+   <property key="labelText">
+      <value xml:lang="en">Label Text</value>
+      <value xml:lang="zh">標籤文字</value>
+   </property>
+   <property key="AddAndUploadCustomers">
+        <value xml:lang="en">Add and Upload Customers</value>
+        <value xml:lang="zh">添加和上傳客戶</value>
+    </property>
+    <property key="partyId">
+        <value xml:lang="en">Party Id</value>
+        <value xml:lang="zh">黨的身份證件</value>
+    </property>
+    <property key="metricId">
+        <value xml:lang="en">Metric Id</value>
+        <value xml:lang="zh">度量標識文檔</value>
+    </property>
+    <property key="metricValue">
+        <value xml:lang="en">Metric Value</value>
+        <value xml:lang="zh">度量值</value>
+    </property>
+    <property key="message">
+        <value xml:lang="en">Message</value>
+        <value xml:lang="zh">信息</value>
+    </property>
+    <property key="view">
+        <value xml:lang="en">View</value>
+        <value xml:lang="zh">視圖</value>
+    </property>
+    <property key="close">
+        <value xml:lang="en">Close</value>
+        <value xml:lang="zh">關</value>
+    </property>
+    <property key="download">
+        <value xml:lang="en">Download</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    
+    <property key="ParamConfig">
+        <value xml:lang="en">Param Config</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="fieldParamType">
+        <value xml:lang="en">Param Type</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="fieldParamName">
+        <value xml:lang="en">Param Name</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="fieldParamValue">
+        <value xml:lang="en">Param Value</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="fieldParamValueType">
+        <value xml:lang="en">Param Value Type</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="download">
+        <value xml:lang="en">Download</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="download">
+        <value xml:lang="en">Download</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="paramDisplayType">
+        <value xml:lang="en">Param Display Type</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    
+    <property key="valueOverrideType">
+        <value xml:lang="en">Value Override Type</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+    <property key="isDefault">
+        <value xml:lang="en">Is Default</value>
+        <value xml:lang="zh">下載</value>
+    </property>
+</resource>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of loyalty-portal Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	<extend-entity entity-name="WorkEffortCallSummary">
+		<field name="ownerBu" type="id-long" />
+		<field name="activityGUID" type="id-long" />
+		<field name="accomdationMapId" type="id-long" />
+		<field name="accomdationSpotId" type="id-long" />
+		<field name="plannedDue" type="id-long" />
+		<field name="priorityId" type="id-long" />
+		<field name="teamDescription" type="description" />
+		<field name="accountTypeDescription" type="description" />
+	</extend-entity>
+</entitymodel>

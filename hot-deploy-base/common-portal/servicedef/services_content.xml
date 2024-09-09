@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * Copyright (c) Open Source Strategies, Inc.
+ * 
+ * Opentaps is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Opentaps is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Opentaps.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Opentaps Content Services</description>
+    <vendor>Open Source Strategies, Inc.</vendor>
+    <service name="common.createContentInterface" engine="interface" location="" invoke="">
+        <attribute name="contentName" type="String" mode="IN" optional="true"/> <!-- this should really be false for urls -->
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="contentTypeId" type="String" mode="IN" optional="false"/> <!-- the type of content.  in crmsfa, we have general FILE and HYPERLINK types, which can be made more specific.  the ideal is to create a tree of CRMSFA_CONTENT which would be the supported types. -->
+        <attribute name="contentPurposeEnumId" type="String" mode="IN" optional="true"/> <!-- defaults to CRMSFA_GENERAL, which is defined as the main association.  other purposes could be defined for specific implementations, such as a separate section for formal legal documents, and so on -->
+        <attribute name="url" type="String" mode="IN" optional="true"/>
+        <!-- Because we could either be uploading or creating a simple text content, these file metadata fields are optional. -->
+        <attribute name="uploadedFile" type="java.nio.ByteBuffer" mode="IN" optional="true"/>
+        <attribute name="_uploadedFile_fileName" type="String" mode="IN" optional="true"/>
+        <attribute name="_uploadedFile_contentType" type="String" mode="IN" optional="true"/>        
+        <attribute name="classificationEnumId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="common.createContentForParty" engine="java" location="org.groupfio.common.portal.content.ContentServices" invoke="createContentForParty" auth="true">
+        <description>
+            Creates content for a CRMSFA party in a given role.  Content are uploadable or plain text info such as a URL Bookmark, 
+            PDF file, image file, text document, and so on.  This service will upload binary data into the system if provided, 
+            so that it can later be served.
+        </description>
+        <implements service="common.createContentInterface"/>
+        <attribute name="partyId" type="String" mode="INOUT" optional="false"/> <!-- Using OUT here allows the donePageRequestHelper to work correctly because multipart forms don't pass their fields down the chain. -->
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="common.createPartyContent" engine="java" location="org.groupfio.common.portal.content.ContentServices"
+        invoke="createPartyContent" default-entity-name="PartyContent" auth="true">
+        <description>Creates a PartyContent entry and required roles</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false"/>
+        <override name="fromDate" mode="IN" optional="true"/>
+    </service> 
+        <service name="common.updateContentInterface" engine="interface" location="" invoke="">
+        <attribute name="contentId" type="String" mode="IN" optional="false"/>
+        <attribute name="contentName" type="String" mode="IN" optional="true"/> <!-- this should really be false for urls -->
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="classificationEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="url" type="String" mode="IN" optional="true"/>
+    </service>
+
+    <service name="common.updateContentForParty" engine="java" location="org.groupfio.common.portal.content.ContentServices" invoke="updateContentForParty" auth="true">
+        <description>Updates a party content.</description>
+        <implements service="common.updateContentInterface"/>
+        <attribute name="partyId" type="String" mode="INOUT" optional="false"/> <!-- Using OUT here allows the donePageRequestHelper to work correctly because multipart forms don't pass their fields down the chain. -->
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="uploadFile" engine="java" 
+            location="org.groupfio.common.portal.content.ContentServices" invoke="uploadFile" transaction-timeout="3600">
+        <description>Uploads a user supplied file into the content system.  This service uses a simplification of the content datamodel: 
+            All binary files are identified with DataResource.dataResourceTypeId LOCAL_FILE and Content.contentTypeId FILE.  
+            DataResource.objectInfo stores the local path of the file as saved in the filesystem of the server.  Content is a reference 
+            to the DataResource and the object which is associated to other entities in the system, such as party (PartyContent), 
+            WorkEffort (WorkEffortContent), etc.  The net result is a contentId by which the file can be referenced.</description>
+        <attribute name="contentName" type="String" mode="IN" optional="true"/>
+        <attribute name="contentTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="contentIdPrefix" type="String" mode="IN" optional="true"/>
+        <attribute name="uploadedFile" type="java.nio.ByteBuffer" mode="IN" optional="true"/>
+        <attribute name="_uploadedFile_fileName" type="String" mode="IN" optional="true"/>
+        <attribute name="_uploadedFile_contentType" type="String" mode="IN" optional="true"/>
+        <attribute name="uploadFolder" type="String" mode="IN" optional="true"/>
+        <attribute name="classificationEnumId" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="domainEntityId" type="String" mode="IN" optional="true"/>
+        <attribute name="domainEntityType" type="String" mode="IN" optional="true"/>
+        <attribute name="linkedFrom" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="contentId" type="String" mode="OUT" optional="false"/>
+        <attribute name="isOverwrite" type="String" mode="OUT" optional="true"/>
+    </service>
+
+    <service name="uploadUrl" engine="java" 
+            location="org.groupfio.common.portal.content.ContentServices" invoke="uploadUrl">
+        <description>Uploads a user supplied URL into the content system as a hyperlink.  This service uses a simplification of the content datamodel: 
+            All URL hyperlinks are identified with DataResource.dataResourceTypeId URL_RESOURCE and Content.contentTypeId HYPERLINK.  
+            DataResource.objectInfo stores the URL itself.  Content is a reference to the DataResource and the object which is associated
+            to other entities in the system, such as party (PartyContent), WorkEffort (WorkEffortContent), etc.
+            The net result is a contentId by which the file can be referenced.</description>
+        <attribute name="url" type="String" mode="IN" optional="false"/>
+        <attribute name="contentName" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="classificationEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="contentId" type="String" mode="OUT" optional="false"/>
+    </service>
+</services>

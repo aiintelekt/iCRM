@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    <screen name="globalParameter">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Global Configuration" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/globalParameter/viewGlobalParameter.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/globalParameter/globalParameter.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="LogoConfiguration">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Logo Config" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/globalParameter/viewGlobalParameter.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/globalParameter/logoImgConfig.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="HelpContent">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Help Content Configuration" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/globalParameter/helpContent.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="dashboardConfiguration">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Dashboard Configuration" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/dashboard/viewdashboard.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/globalParameter/dashboard.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="transactionHomePage">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Transaction HomePage" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/dashboard/viewdashboard.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/dashboard/transactionmaster.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="globalParameterSeeds">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Global Configuration Default Seed Load" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <!--<script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/globalParameter/viewGlobalParameter.groovy"/>-->
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/globalParameter/globalParameterSeeds.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="lead-portalApplication">
+        <value xml:lang="en">lead-portal Application</value>
+        <value xml:lang="zh">lead-portal应用程序</value>
+        <value xml:lang="zh-TW">lead-portal應用程式</value>
+    </property>
+    <property key="lead-portalCompanyName">
+        <value xml:lang="en">OFBiz: lead-portal</value>
+        <value xml:lang="zh-TW">OFBiz: lead-portal</value>
+    </property>
+    <property key="lead-portalCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="lead-portalViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="CompanyName">
+        <value xml:lang="en">Lead Portal</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="AppName">
+        <value xml:lang="en">Lead Portal</value>
+        <value xml:lang="zh">Lead Portal</value>
+    </property>
+    
+    <!-- Section header [start] -->
+    
+    <property key="ListOfLeads">
+        <value xml:lang="en">List Of Leads</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="CreateLead">
+        <value xml:lang="en">Create Lead</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="UpdateLead">
+        <value xml:lang="en">Update Lead</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="ViewLead">
+        <value xml:lang="en">View Lead</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="HomeLead">
+        <value xml:lang="en">Lead Home</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="FindLead">
+        <value xml:lang="en">Find Leads</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="LeadsList">
+        <value xml:lang="en">Leads List</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="MergeLead">
+        <value xml:lang="en">Merge Lead</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <!-- Section header [end] -->
+    
+    <property key="leadName">
+        <value xml:lang="en">Lead Name</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="leadManager">
+        <value xml:lang="en">Lead Manager</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="leadPartyId">
+        <value xml:lang="en">Lead Id</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="addEmail">
+        <value xml:lang="en">Add Email</value>
+    </property>
+    <property key="Html">
+        <value xml:lang="en">HTML</value>
+    </property>
+    <property key="Convert">
+        <value xml:lang="en">Convert</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="ConvertLead">
+        <value xml:lang="en">Convert Lead</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="createTaskActivity">
+        <value xml:lang="en">Create Task</value>
+    </property>
+    <property key="createPhoneCallActivity">
+        <value xml:lang="en">Create Phone Call</value>
+    </property>
+    <property key="createMailActivity">
+        <value xml:lang="en">Create Email</value>
+    </property>
+    <property key="createAppointmentActivity">
+        <value xml:lang="en">Activity Details</value>
+    </property>
+</resource>

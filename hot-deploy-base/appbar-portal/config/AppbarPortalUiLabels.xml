@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="appbar-portalApplication">
+        <value xml:lang="en">appbar-portal Application</value>
+        <value xml:lang="zh">appbar-portal应用程序</value>
+        <value xml:lang="zh-TW">appbar-portal應用程式</value>
+    </property>
+    <property key="appbar-portalCompanyName">
+        <value xml:lang="en">OFBiz: appbar-portal</value>
+        <value xml:lang="zh-TW">OFBiz: appbar-portal</value>
+    </property>
+    <property key="appbar-portalCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="appbar-portalViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="AppName">
+        <value xml:lang="en">Appbar Portal</value>
+        <value xml:lang="zh-TW">Appbar Portal</value>
+    </property>
+    
+    <property key="ConfigureUserPreferenceAppBar">
+        <value xml:lang="en">User Preference</value>
+        <value xml:lang="zh-TW">User Preference</value>
+    </property>
+    <property key="AppBarUserPreferenceSavedSuccessfully">
+        <value xml:lang="en">User Preference Saved Successfully</value>
+        <value xml:lang="zh-TW">User Preference Saved Successfully</value>
+    </property>
+    <property key="AppBarElementIsEmpty">
+        <value xml:lang="en">App bar element is not found</value>
+        <value xml:lang="zh-TW">App bar element is not found</value>
+    </property>
+    <property key="RequiredParameterMissed">
+        <value xml:lang="en">Required Parameters Missing</value>
+        <value xml:lang="zh-TW">Required Parameters Missing</value>
+    </property>
+    <property key="AppBarDataIsEmpty">
+        <value xml:lang="en">App bar data is not found</value>
+        <value xml:lang="zh-TW">App bar data is not found</value>
+    </property>
+    <property key="AppBarIsEmpty">
+        <value xml:lang="en">App bar configuration is not found</value>
+        <value xml:lang="zh-TW">App bar configuration is not found</value>
+    </property>
+    <property key="SaveUserPreference">
+        <value xml:lang="en">Save User Preference</value>
+        <value xml:lang="zh-TW">Save User Preference</value>
+    </property>
+    <property key="ElementName">
+        <value xml:lang="en">Element Name</value>
+        <value xml:lang="zh-TW">Element Name</value>
+    </property>
+    <property key="ElementId">
+        <value xml:lang="en">Element Id</value>
+        <value xml:lang="zh-TW">Element Id</value>
+    </property>
+    <property key="ElementSequence">
+        <value xml:lang="en">Element Sequence</value>
+        <value xml:lang="zh-TW">Element Sequence</value>
+    </property>
+    <property key="IsEnable">
+        <value xml:lang="en">is Enabled?</value>
+        <value xml:lang="zh-TW">is Enabled?</value>
+    </property>
+    <property key="ElementPosition">
+        <value xml:lang="en">Element Position</value>
+        <value xml:lang="zh-TW">Element Position</value>
+    </property>
+    
+    <property key="CreateAppBar">
+        <value xml:lang="en">Create App Bar</value>
+        <value xml:lang="zh-TW">Create App Bar</value>
+    </property>
+    <property key="ViewAppBar">
+        <value xml:lang="en">View App Bar</value>
+        <value xml:lang="zh-TW">View App Bar</value>
+    </property>
+    
+    <property key="UpdateAppBar">
+        <value xml:lang="en">Update App Bar</value>
+        <value xml:lang="zh-TW">Update App Bar</value>
+    </property>
+    <property key="FindAppBar">
+        <value xml:lang="en">Find App Bar</value>
+        <value xml:lang="zh-TW">Find App Bar</value>
+    </property>
+    <property key="ListOfAppBar">
+        <value xml:lang="en">List of App Bar</value>
+        <value xml:lang="zh-TW">List of App Bar</value>
+    </property>
+    <property key="appBarId">
+        <value xml:lang="en">App Bar Id</value>
+        <value xml:lang="zh-TW">App Bar Id</value>
+    </property>
+    <property key="appBarTypeId">
+        <value xml:lang="en">Type</value>
+        <value xml:lang="zh-TW">Type</value>
+    </property>
+    <property key="appBarName">
+        <value xml:lang="en">Name</value>
+        <value xml:lang="zh-TW">Name</value>
+    </property>
+    <property key="appBarNameUilabel">
+        <value xml:lang="en">UI Label</value>
+        <value xml:lang="zh-TW">UI Label</value>
+    </property>
+    <property key="appBarDescription">
+        <value xml:lang="en">Description</value>
+        <value xml:lang="zh-TW">Description</value>
+    </property>
+    <property key="appBarService">
+        <value xml:lang="en">Service</value>
+        <value xml:lang="zh-TW">Service</value>
+    </property>
+    <property key="appBarStatus">
+        <value xml:lang="en">Status</value>
+        <value xml:lang="zh-TW">Status</value>
+    </property>
+    <property key="appBarSecurityGroup">
+        <value xml:lang="en">Security Group</value>
+        <value xml:lang="zh-TW">Security Group</value>
+    </property>
+    <property key="appBarDirection">
+        <value xml:lang="en">Direction</value>
+        <value xml:lang="zh-TW">Direction</value>
+    </property>
+    <property key="appBarHeight">
+        <value xml:lang="en">Height</value>
+        <value xml:lang="zh-TW">Height</value>
+    </property>
+    <property key="appBarWidth">
+        <value xml:lang="en">Width</value>
+        <value xml:lang="zh-TW">Width</value>
+    </property>
+    <property key="appBarMaxElements">
+        <value xml:lang="en">Max Elements</value>
+        <value xml:lang="zh-TW">Max Elements</value>
+    </property>
+    <property key="appBarAccessLevel">
+        <value xml:lang="en">Access Level</value>
+        <value xml:lang="zh-TW">Access Level</value>
+    </property>
+    <property key="appBarDataLevel">
+        <value xml:lang="en">Data Level</value>
+        <value xml:lang="zh-TW">Data Level</value>
+    </property>
+    <property key="appBarIsServiceBased">
+        <value xml:lang="en">Is Service Based</value>
+        <value xml:lang="zh-TW">Is Service Based</value>
+    </property>
+    <property key="geoId">
+        <value xml:lang="en">Geo Id</value>
+        <value xml:lang="zh-TW">Geo Id</value>
+    </property>
+    <property key="appBarRefreshType">
+        <value xml:lang="en">Refresh Type</value>
+        <value xml:lang="zh-TW">Refresh Type</value>
+    </property>
+    <property key="defaultMessage">
+        <value xml:lang="en">Default Message</value>
+        <value xml:lang="zh-TW">Default Message</value>
+    </property>
+    
+    <property key="CreateAppBarElement">
+        <value xml:lang="en">Create App Bar Element</value>
+        <value xml:lang="zh-TW">Create App Bar Element</value>
+    </property>
+    <property key="ViewAppBarElement">
+        <value xml:lang="en">View App Bar Element</value>
+        <value xml:lang="zh-TW">View App Bar Element</value>
+    </property>
+    <property key="UpdateAppBarElement">
+        <value xml:lang="en">Update App Bar Element</value>
+        <value xml:lang="zh-TW">Update App Bar Element</value>
+    </property>
+    <property key="ListOfElements">
+        <value xml:lang="en">List of Elements</value>
+        <value xml:lang="zh-TW">List of Elements</value>
+    </property>
+    <property key="AppBarElementId">
+        <value xml:lang="en">Element Id</value>
+        <value xml:lang="zh-TW">Element Id</value>
+    </property>
+    <property key="AppBarElementName">
+        <value xml:lang="en">Element Name</value>
+        <value xml:lang="zh-TW">Element Name</value>
+    </property>
+    <property key="AppBarElementPosition">
+        <value xml:lang="en">Position</value>
+        <value xml:lang="zh-TW">Position</value>
+    </property>
+    <property key="AppBarElementFavIcon">
+        <value xml:lang="en">Fav Icon</value>
+        <value xml:lang="zh-TW">Fav Icon</value>
+    </property>
+    <property key="AppBarElementIconUrl">
+        <value xml:lang="en">Icon Url</value>
+        <value xml:lang="zh-TW">Icon Url</value>
+    </property>
+    <property key="AppBarElementCustomClass">
+        <value xml:lang="en">Custom CSS Class</value>
+        <value xml:lang="zh-TW">Custom CSS Class</value>
+    </property>
+    <property key="AppBarElementMaxLen">
+        <value xml:lang="en">Max Length</value>
+        <value xml:lang="zh-TW">Max Length</value>
+    </property>
+    <property key="AppBarElementSeqNum">
+        <value xml:lang="en">Sequence No</value>
+        <value xml:lang="zh-TW">Sequence No</value>
+    </property>
+    <property key="AppBarElementNolabel">
+        <value xml:lang="en">Element with No Label</value>
+        <value xml:lang="zh-TW">Element with No Label</value>
+    </property>
+    <property key="AppBarElementTargetUrl">
+        <value xml:lang="en">Target Url</value>
+        <value xml:lang="zh-TW">Target Url</value>
+    </property>
+    <property key="AppBarElementType">
+        <value xml:lang="en">Element Type</value>
+        <value xml:lang="zh-TW">Element Type</value>
+    </property>
+    <property key="AppBarElementUilabel">
+        <value xml:lang="en">Element UiLabel</value>
+        <value xml:lang="zh-TW">Element UiLabel</value>
+    </property>
+    <property key="AppBarElementActive">
+        <value xml:lang="en">Active</value>
+        <value xml:lang="zh-TW">Active</value>
+    </property>
+    <property key="AppBarElementColor">
+        <value xml:lang="en">Element Color</value>
+        <value xml:lang="zh-TW">Element Color</value>
+    </property>
+    <property key="IsDisplayElementData">
+        <value xml:lang="en">Show Data</value>
+        <value xml:lang="zh-TW">Show Data</value>
+    </property>
+    <property key="SecurityPermissionId">
+        <value xml:lang="en">Security Permission</value>
+        <value xml:lang="zh-TW">Security Permission</value>
+    </property>
+    <property key="ElementKey">
+        <value xml:lang="en">Element Key</value>
+        <value xml:lang="zh-TW">Element Key</value>
+    </property>
+    
+    <property key="AppBarCreatedSuccessfully">
+        <value xml:lang="en">App Bar Created Successfully</value>
+        <value xml:lang="zh-TW">App Bar Created Successfully</value>
+    </property>
+    <property key="AppBarUpdatedSuccessfully">
+        <value xml:lang="en">App Bar Updated Successfully</value>
+        <value xml:lang="zh-TW">App Bar Updated Successfully</value>
+    </property>
+    <property key="AppBarElementCreatedSuccessfully">
+        <value xml:lang="en">App Bar Element Created Successfully</value>
+        <value xml:lang="zh-TW">App Bar Element Created Successfully</value>
+    </property>
+    <property key="AppBarElementUpdatedSuccessfully">
+        <value xml:lang="en">App Bar Element Updated Successfully</value>
+        <value xml:lang="zh-TW">App Bar Element Updated Successfully</value>
+    </property>
+    <property key="LastUpdatedTxStamp">
+        <value xml:lang="en">Last Updated On</value>
+        <value xml:lang="zh-TW">Last Updated On</value>
+    </property>
+    
+    <property key="ListOfUiLabel">
+        <value xml:lang="en">List of UiLabel</value>
+        <value xml:lang="zh-TW">List of UiLabel</value>
+    </property>
+    <property key="ElementCountExceeding">
+        <value xml:lang="en">App Bar element Max count exceeding</value>
+        <value xml:lang="zh-TW">App Bar element max count exceeding</value>
+    </property>
+    
+    
+</resource>

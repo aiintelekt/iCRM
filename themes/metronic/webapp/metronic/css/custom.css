@@ -1,0 +1,598 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+.dropdown-left {
+    left: inherit;
+    right: 0;
+}
+.progress-bar {
+	background-color: #2dc3e8;
+}
+
+.page-header.navbar .menu-toggler.dropdown-toggle {
+	float: right;
+	margin: 30px 0 0 0;
+}
+
+.thumbnail .caption {
+	font-size: 10px;	
+}
+
+.generated-dashboard .tab-content {
+	min-height: 200px;
+}
+
+.generated-dashboard .tab-content .tab-pane {
+	padding: 10px;
+}
+
+/* widget configuration */
+/*
+.config-widget-portlet .mix-inner {
+	min-height: 112px;
+}
+.config-widget-portlet .mix-inner img {
+	width: 100%; 
+	max-height: 100px;
+	min-height: 112px;
+}
+.config-widget-portlet .caption {
+	max-width: 82%;
+}
+.config-widget-portlet .caption .caption-subject {
+	font-size: 12px !important;
+}
+*/
+
+.config-widget-portlet .thumbnail {
+	min-height: 112px;
+}
+.config-widget-portlet .thumbnail img {
+	width: 100%; 
+	max-height: 60px;
+}
+.config-widget-portlet .caption {
+	max-width: 80%;
+}
+.config-widget-portlet > .portlet-title > .caption {
+	padding-bottom: 5px !important;
+}
+.config-widget-portlet .caption .caption-subject {
+	font-size: 12px !important;
+}
+
+/* @media (min-width: 1200px) {
+  
+	.config-widget-portlet .thumbnail img {
+		width: 100%; 
+		max-height: 600px;
+	}
+  
+} */
+
+.portlet > .portlet-title > .tools > a {
+	color: #ccc;
+}
+
+.portlet.portlet-sortable.light.bg-inverse.config-widget-portlet.mix {
+    width: 100% !important;
+}
+
+.page-header.navbar .search-form {
+    background: none !important;
+}
+
+.page-header.navbar .search-form .input-group {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ced6de;
+}
+
+/* temparature dropdown [start] */
+
+.temperature #navbar ul li a {
+    border-bottom: 1px solid #e5e5e5;
+    color: #000;
+}
+.temperature #navbar ul li a:hover {
+    background-color: #609ed3;
+}
+.temperature {
+    margin: 77px 19px 0 150px;
+}
+.temperature .navbar-default {
+    background-color:transparent !important;
+	border-color:transparent !important;
+}
+.temperature .navbar-default #navbar {
+    background-color: #fff;
+    box-shadow: 3px 1px 5px 6px #ccc;
+}
+.temperature .navbar-default .navbar-toggle {
+    border-color:transparent !important;
+}
+.temperature .navbar-toggle {
+    margin-bottom: 0px;
+    margin-right: 2px;
+    margin-top: 0px;
+    padding: 0px;
+}
+.temperature .img-circle:hover{ height: 100%;
+    width: 47px;}
+.temperature .navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color:transparent !important;
+}
+
+.custom-menu.nav .pull-right {
+    margin: 1em;
+}
+
+.custom-menu.nav a {
+    padding: 0 !important;
+}
+
+ .temperature .img-circle{
+ 	border-radius:0% !important;
+ }
+ 
+#weather_forecast .table {
+	font-size: 10px;
+}
+
+#weather_forecast .table thead tr th {
+	font-size: 12px;
+}
+
+/* temparature dropdown [end] */
+
+.mix-grid .mix { 
+	overflow-x: visible !important;
+    overflow-y: visible !important;
+}	
+
+/* 2 box project statistic [start] */
+/*
+.project{
+    float: left;
+    padding: 4px 0 0 103px;
+	}
+	
+	
+ span.title{
+    color: #7fb0da;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.site {
+    background-image: url("/metronic/images/top_box_header_bg.png");
+    padding-bottom: 4px;
+    padding-left: 229px;
+    text-align: center;
+}
+
+span.sitetotal{
+    color: #7fb0da;
+    font-size: 10px;
+    font-weight: bolder;
+}
+
+span.sitetotalcount {
+    color: #7fb0da;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.smallstat box{ 
+    box-shadow: 0 1px rgb(255, 255, 255) inset, 4px 4px 5px rgb(200, 207, 230);
+    min-height: 140px;
+    padding-bottom: 0;
+    padding-left: 0;
+	}
+	
+	
+.boxchart-overlay{
+    padding: 0;
+    width: 220px !important;
+}
+
+#site-stat-1-two-box{ 
+    height: 130px;
+    position: relative;
+    right: -79px;
+    top: -5px;
+    width: 140px;
+}
+
+.innertop {
+    padding-top: 50px;
+}
+span.innercount {
+  
+    padding-left: 10px;
+    font-weight: bolder;
+    font-size: 202%;
+
+}
+.legendColorBox > div {
+    padding: 10px;
+}
+table {
+    color: rgb(84, 84, 84);
+    line-height: 26.5px;
+    position: absolute;
+    right: 130px;
+    top: 59px;
+}
+
+
+.boxinner{   
+    border: 5px solid rgb(247, 45, 55);
+    height: 0;
+    width: 14px;
+}
+
+.boxinner1{   
+    border: 5px solid rgb(175, 216, 248);
+    height: 0;
+    width: 14px;
+}
+
+.boxinner2{   
+    border: 5px solid rgb(237, 194, 64)
+    height: 0;
+    width: 14px;
+}
+*/
+/* 2 box project statistic [end] */
+
+/* donat chart fix */
+
+.smallboxdivresponsive .smallstat .boxchart-overlay tspan {
+	font-size:15px !important;font-size-adjust:0.37 !important;
+}
+.static_box_two .smallstat .boxchart-overlay .twoboxfront tspan {
+	font-size:15px !important;font-size-adjust:0.4 !important;
+}
+.smallboxdivresponsive .smallstat .boxchart-overlay text {
+	font-size:15px !important;font-size-adjust:0.37 !important;
+}
+.static_box_two .smallstat .boxchart-overlay .twoboxfront text {
+	font-size:15px !important;font-size-adjust:0.4 !important;
+}
+
+/* Page load */
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+/* .pace .pace-progress {
+    background: #3fa6dc;
+    position: fixed;
+    z-index: 2000;
+    top: 75px;
+    right: 100%;
+    width: 100%;
+    height: 3px;
+} */
+
+/*For iphone*/
+
+@media (min-width: 200px) and (max-width: 250px) {
+
+	.search-form {
+	    width: 107px !important;
+	}
+	
+	.page-header.navbar .search-form {
+	      margin-right: 7px !important;
+	}
+
+}
+
+@media ( min-width : 251px) and (max-width: 319px) {
+	.btn-group.bootstrap-select.bs-select.form-control {
+		float: right !important;
+		margin-top: -70% !important;
+		margin-right: -56% !important;
+	}
+	.red-haze.btn {
+		font-size: 9px !important;
+	}
+	.page-header.navbar .search-form {
+		margin-right: 122px !important;
+	}
+}
+
+@media ( min-width : 320px) and (max-width: 368px) {
+	.search-form {
+		width: 90px !important;
+	}
+	.red-haze.btn {
+		width: 100px !important;
+		font-size: 10px !important;
+	}
+	.page-header.navbar .search-form {
+		float: none;
+		margin-bottom: -55px;
+		margin-left: 12px;
+		margin-right: 0px !important;
+	}
+	.input-sm {
+		font-size: 9px !important;
+	}
+}
+
+@media ( min-width : 369px) and (max-width: 489px) {
+	.page-header.navbar .search-form {
+		float: none !important;
+		margin-bottom: -55px;
+		margin-right: 0px !important;
+		margin-left: 12px !important;
+	}
+	.page-header.navbar .page-actions {
+		float: right;
+		margin-left: 110px;
+		margin-top: -57px;
+	}
+}
+
+/*end iphone*/
+
+/*mobile devices */
+@media ( min-width : 490px) and (max-width: 541px) {
+	.page-header.navbar .search-form {
+		float: none !important;
+		margin-left: 19% !important;
+		margin-top: 4.5% !important;
+		margin-right: 0px !important;
+	}
+}
+
+@media ( min-width : 541px) and (max-width: 645px) {
+	.page-header.navbar .search-form {
+		float: none !important;
+		margin-left: 35% !important;
+		margin-right: 0px !important;
+		margin-top: 4% !important;
+	}
+}
+
+@media ( min-width : 664px) and (max-width: 675px) {
+	.page-header.navbar .top-menu .navbar-nav {
+		margin: -50px 10px 0 0;
+	}
+}
+
+@media ( min-width : 646px) and (max-width: 767px) {
+	.page-header.navbar .search-form {
+		float: none !important;
+		margin-left: 46% !important;
+		margin-right: 0px !important;
+		margin-top: 3% !important;
+	}
+}
+
+@media ( max-width : 767px) {
+	.page-header.navbar .page-actions {
+		margin-right: 0 !important;
+	}
+}
+
+/*end mobile devices*/
+
+/*ipad*/
+@media ( min-width : 768px) and (max-width: 816px) {
+	.clearfix {
+		background-color: #fff !important;
+	}
+	.page-header.navbar .top-menu .navbar-nav {
+		margin: -77px 0 0 541px !important;
+	}
+	.page-header.navbar .search-form {
+		float: right !important;
+		margin: -52px 272px 0 0 !important;
+	}
+	.page-header.navbar .page-top {
+		margin-top: 0 !important;
+	}
+    .temperature {
+        margin: 77px 20px 0 552px;
+    }
+}
+
+@media ( min-width : 817px) and (max-width: 859px) {
+	.page-header.navbar .top-menu .navbar-nav {
+		margin: -73px 0 0 443px !important;
+	}
+	.search-form {
+		width: 108px !important;
+	}
+	.page-header.navbar .page-top {
+		float: none !important;
+	}
+	.page-header.navbar .page-actions {
+		margin: 17px 0 0px -9px !important;
+	}
+	.page-header.navbar .search-form {
+		margin-left: -20px !important;
+	}
+	.temperature {
+    	margin: 0px 19px 0 621px;
+	}
+}
+
+@media ( min-width : 860px) and (max-width: 908px) {
+	.page-header.navbar .top-menu .navbar-nav {
+		margin: -77px 0 0px 482px !important;
+	}
+	.search-form {
+		width: 112px !important;
+	}
+	.page-header.navbar .page-top {
+		float: none !important;
+	}
+	.temperature {
+	    margin: 0px 19px 0 635px;
+	}
+}
+
+@media ( min-width : 992px) and (max-width: 1007px) {
+	.page-header.navbar .search-form {
+		margin: 23px -11px 0 0 !important;
+	}
+	.search-form {
+		width: 114px !important;
+	}
+}
+
+@media ( min-width : 1008px) and (max-width: 1026px) {
+	.search-form {
+		width: 124px !important;
+	}
+	.page-header.navbar .search-form {
+		margin: 23px -2px 0 0 !important;
+	}
+}
+
+@media ( min-width : 1027px) and (max-width: 1034px) {
+	.page-header.navbar .search-form {
+		margin: 23px 4px 0 0 !important;
+	}
+}
+
+/* end ipad*/
+
+@media (max-width: 480px){
+	.smallboxdivresponsive{
+		width:100% !important;
+	}
+}
+
+@media (min-width: 766px) and (max-width: 893px){
+	.static_box_two .legendboxtable{
+		right: 58px !important;
+	}
+}
+
+@media (max-width: 413px){  
+	.static_box_two .bannertext{padding: 0 4px 4px !important;}
+	.static_box_two .twoboxfront{right:24px !important;}
+	.static_box_two .smallstat box .boxchart-overlay{width:35% !important;}
+	.static_box_two .legendboxtable{right:10% !important;}
+	.static_box_two .backgroundbanner{padding-bottom:0px !important;padding-left:110px !important;}
+}
+
+@media (min-width: 482px) and (max-width: 489px){ 
+	.page-header.navbar .page-actions{margin-top:20px}
+}
+@media (min-width: 664px) and (max-width: 675px){ 
+	.page-header.navbar .top-menu .navbar-nav {
+	    margin: -5px 10px 0 0;
+	}
+}
+@media ( min-width : 490px) and (max-width: 759px) { 
+	.page-header.navbar .top-menu {
+	    margin: -54px 0 0;
+	}
+}
+
+@media ( max-width : 494px){
+	.multi-stat-box .header .left h2 {
+	   font-size: 8px !important;
+	   padding: 10px 0 10px 7px !important;
+	}
+	.multi-stat-box .content .left ul li {
+	    font-size: 11px !important;
+	    padding: 10px 12px 0 7px !important;
+	}
+	.multi-stat-box .header .left a{right:3px !important;}
+}
+@media ( min-width : 631px) and (max-width: 645px) { 
+	.page-header.navbar .top-menu {
+	    margin: 0px 0 0 !important;
+	}
+    .page-header.navbar .page-top{width:116% !important;}
+}
+@media ( min-width : 507px) and (max-width: 540px) { 
+	.page-header.navbar .top-menu {
+	    margin: 0px 0 0 !important;
+        }
+    .page-header.navbar .page-top{width:116% !important;}
+}
+@media ( min-width : 760px) and (max-width: 767px) {
+ .page-header.navbar .page-top{width:116% !important;}
+}
+
+@media ( min-width : 992px) and (max-width: 1054px) {
+.page-header.navbar .page-logo{max-width:216px !important;}
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+    
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown-user {
+        padding: 0 !important;
+    }
+    .page-header.navbar .search-form {
+        float: left !important;
+        margin: 22px 0 0 !important;
+        max-width: 100px;
+    }
+    .page-header.navbar .page-actions {
+        max-width: 200px;
+    }
+    .page-header.navbar .page-actions > .btn-group + .btn-group a {
+        float: left;
+        max-width: 30px;
+        overflow: hidden;
+    }
+    .page-header.navbar .page-actions > .btn-group + .btn-group a img {
+        left: -25px;
+        position: relative;
+    }
+    .page-header.navbar .page-top {
+    }
+    .page-header.navbar .top-menu {
+        float: left;
+    }
+    .page-header.navbar .top-menu .navbar-nav {
+        margin: 0 !important;
+    }
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle {
+        padding: 29px 6px 24px;
+    }
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+        padding: 25px 6px 18px;
+    }
+    .temperature {
+        margin-top: 75px;
+    }
+    
+}
+

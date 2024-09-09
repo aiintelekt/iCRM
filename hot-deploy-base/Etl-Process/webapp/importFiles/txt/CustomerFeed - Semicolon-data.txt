@@ -1,0 +1,1 @@
+ETL4202;GroupFIO;Sharif;Islam2;test;add1;add2;chennai;IN-TN;77328;5407;IND;1;281;6599095;2345;fio.sharif401@gmail.com;EXT_PARTY_ID;IND;IN-NL;IND

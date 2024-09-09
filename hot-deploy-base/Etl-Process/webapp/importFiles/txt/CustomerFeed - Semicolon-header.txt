@@ -1,0 +1,1 @@
+customerId;companyName;firstName;lastName;attnName;address1;address2;city;stateProvinceGeoId;postalCode;postalCodeExt;countryGeoId;primaryPhoneCountryCode;primaryPhoneAreaCode;primaryPhoneNumber;primaryPhoneExtension;emailAddress;source;shipToCountryGeoId;shipToStateProvinceGeoId;countryGeoId

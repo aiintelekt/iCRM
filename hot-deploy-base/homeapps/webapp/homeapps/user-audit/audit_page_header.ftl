@@ -1,0 +1,2 @@
+<#assign isValidAction = Static["org.fio.homeapps.util.UtilUserAudit"].isValidAction(delegator, userLogin, "", userAuditRequestId, activeApp, actionPermissionId)>
+<#assign isPerformUserAudit = Static["org.fio.homeapps.util.UtilUserAudit"].isPerformUserAudit(delegator, userLogin, auditPermissionId)>

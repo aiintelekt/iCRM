@@ -1,0 +1,1 @@
+All the component specified .js files needs to be there in this folder.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="sr-portal_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="sr-portal_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="sr-portal_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="sr-portal_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="sr-portal_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="sr-portal_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="sr-portal_ADMIN"/>
+    
+    <SecurityPermission  description="security permission for add Activity"  permissionId="ADD_ACTIVITY"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="ADD_ACTIVITY"/>
+	<SecurityGroup description="security permission for add Activity" groupId="ADD_ACTIVITY" />
+	<SecurityGroupPermission  groupId="ADD_ACTIVITY"  permissionId="ADD_ACTIVITY"/>
+    
+</entity-engine-xml>

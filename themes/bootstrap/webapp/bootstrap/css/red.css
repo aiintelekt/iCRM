@@ -1,0 +1,133 @@
+@font-face {
+    font-family:'Frutiger';src:url("/bootstrap/fonts/frutigernextlt-regular-webfont.eot");src:url("/bootstrap/fonts/frutigernextlt-regular-webfont.eot?#iefix") format("embedded-opentype"),url("/bootstrap/fonts/frutigernextlt-regular-webfont.woff") format("woff"),url("/bootstrap/fonts/frutigernextlt-regular-webfont.ttf") format("truetype"),url("/bootstrap/fonts/frutigernextlt-regular-webfont.svg#frutigernextltregular") format("svg");font-weight:400;font-style:normal;
+}
+
+@font-face {
+    font-family:'Frutiger';src:url("/bootstrap/fonts/frutigernextlt-light-webfont.eot");src:url("/bootstrap/fonts/frutigernextlt-light-webfont.eot?#iefix") format("embedded-opentype"),url("/bootstrap/fonts/frutigernextlt-light-webfont.woff") format("woff"),url("/bootstrap/fonts/frutigernextlt-light-webfont.ttf") format("truetype"),url("/bootstrap/fonts/frutigernextlt-light-webfont.svg#frutigernextlt_lightregular") format("svg");font-weight:300;font-style:normal;
+}
+
+@font-face {
+    font-family:'Frutiger';src:url("/bootstrap/fonts/frutigernextlt-medium-webfont.eot");src:url("/bootstrap/fonts/frutigernextlt-medium-webfont.eot?#iefix") format("embedded-opentype"),url("/bootstrap/fonts/frutigernextlt-medium-webfont.woff") format("woff"),url("/bootstrap/fonts/frutigernextlt-medium-webfont.ttf") format("truetype"),url("/bootstrap/fonts/frutigernextlt-medium-webfont.svg#frutigernextltmedium") format("svg");font-weight:700;font-style:normal;
+}
+
+/*Adding font face for IE*/
+@font-face {
+    font-family: 'frutigernextlt_lightregular';
+    src: url('/bootstrap/fonts/frutigernextlt-light-webfont.eot');
+    src: url('/bootstrap/fonts/frutigernextlt-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/bootstrap/fonts/frutigernextlt-light-webfont.woff') format('woff'),
+    url('/bootstrap/fonts/frutigernextlt-light-webfont.ttf') format('truetype'),
+    url('/bootstrap/fonts/frutigernextlt-light-webfont.svg#frutigernextlt_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'frutigernextltmedium';
+    src: url('/bootstrap/fonts/frutigernextlt-medium-webfont.eot');
+    src: url('/bootstrap/fonts/frutigernextlt-medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/bootstrap/fonts/frutigernextlt-medium-webfont.woff') format('woff'),
+    url('/bootstrap/fonts/frutigernextlt-medium-webfont.ttf') format('truetype'),
+    url('/bootstrap/fonts/frutigernextlt-medium-webfont.svg#frutigernextltmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'frutigernextltregular';
+    src: url('/bootstrap/fonts/frutigernextlt-regular-webfont.eot');
+    src: url('/bootstrap/fonts/frutigernextlt-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/bootstrap/fonts/frutigernextlt-regular-webfont.woff') format('woff'),
+    url('/bootstrap/fonts/frutigernextlt-regular-webfont.ttf') format('truetype'),
+    url('/bootstrap/fonts/frutigernextlt-regular-webfont.svg#frutigernextltregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* End of adding font face for IE*/
+
+.navbar-default { background-color: #256ab0!important; border-color: #000!important;}
+.navbar-default .navbar-toggle { border-color: #1c5186!important;}
+.navbar-default .navbar-toggle .icon-bar {  background-color: #fff!important;}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{  background-color: #FF3333 !important;}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover { background-color: #FF3333   !important;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {background-color: #FF3333   !important;}
+.navbar-dark .navbar-nav>.active>a, .navbar-dark .navbar-nav>.active>a:focus, .navbar-dark .navbar-nav>.active>a:hover {background-color: #FF3333   !important;}
+.navbar-nav > li a:hover{background-color: #FF3333   !important;color: #fff;	}
+.navbar .dropdown-item:hover{background-color: #fff  !important;color: #FF3333;	}
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {background-color: #FF3333   !important;color: #fff !important;}
+.dropdown-menu.drop-list > li > a:focus, .dropdown-menu > li > a:hover {background-color: #fff   !important;color: #FF3333 !important;}
+.dropdown-menu.drop-list > li > a{color: #212529}
+.navbox-trigger:hover { background-color: #000  !important;}
+.navigation-bar .bar {background-color: #000 ;	width: 100%; height: 100%; position: absolute; z-index: 2;}
+.navigation-bar.navbox-open .navbox-trigger  {background-color: #000 !important;}
+.navbar-dark { background-color: #000  !important; border-color: #2e3d54 !important; color: #fff !important;}
+.text-danger {color: #FF3333  !important;}
+.footer{background-color: #e4e4e4;}
+.jumbotron{background-color: #fff !important;}
+hr {border-top: 1px solid #ced1d4 !important;}
+.bg-primary {background-color: #FF3333  !important;    border-color: #f31c1c  !important;}
+.bg-p {background:#FF3333 !important; color: #fff!important;}
+.bg-s {background:#28a745!important; color: #fff!important;}
+.bg-i {background:#17a2b8!important; color: #fff!important;}
+.bg-w {background:#ffc107!important; color: #fff!important;}
+.bg-d {background:#dc3545!important; color: #fff!important;}
+.bg-a {background-color: #00c0ef !important; color: #fff!important;}
+.bg-g {background-color: #111112 !important; color: #fff!important;}
+.bg-o {background-color: #F44336  !important; color: #fff!important;}
+.bg-y {background-color: #f39c12 !important; color: #fff!important;}
+
+*::-webkit-input-placeholder {color: #c7c9cb!important; font-weight:normal!important;}
+*:-moz-placeholder {color: #c7c9cb!important;  font-weight:normal!important;}
+*::-moz-placeholder {color: #c7c9cb!important;  font-weight:normal!important;}
+*:-ms-input-placeholder {color: #c7c9cb!important;  font-weight:normal!important;}
+/* width */
+::-webkit-scrollbar {width: 10px;}
+
+/* Track */
+::-webkit-scrollbar-track { background: #f1f1f1;}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb { background: #c1c1c1;}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover { background: #c1c1c1; }
+
+.navbar-dark .navbar-nav .nav-link {color: rgba(255,255,255,1) !important;}
+.btn-primary {color: #fff;  background-color: #FF3333 !important; border-color: #EE1818 !important;}
+.btn-primary:hover { background-color: #EE1818 !important; border-color: #EE1818 !important; color: #fff !important;}
+.btn-primary.focus, .btn-primary:focus {  box-shadow: 0 0 0 0.1rem rgba(0,123,255,.2)!important;}
+.btn-secondary {color: #000!important; background: #f7f7f7!important;        border: 1px solid silver!important;}
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {    background: #ececec !important;    color: #000 !important;
+    border: 1px solid #909090!important;}
+.btn-secondary.focus, .btn-secondary:focus { box-shadow: 0 0 0 0.1rem rgba(108,117,125,.2)!important;}
+.page-item.active .page-link { z-index: 1;  color: #fff;   background-color: #FF3333  !important;    border-color: #f31c1c  !important;}
+a { color: #FF3333  ;    text-decoration: none;}
+.with-errors{color: #ff3333 !important;}
+.dropdown-item-inner {color: #212529 !important; }
+.dropdown-item.active, .dropdown-item:active {background-color: #ffeaea !important; }
+.selected{background-color: #ffeaea !important; }
+.dropdown-item:focus, .dropdown-item:hover {background-color: #eaf3ff !important; }
+.bootstrap-select.form-control {background-color: #fff !important;}
+.btn-light {background-color: transparent !important;}
+.btn-light1 {background-color: transparent !important;}
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .col-form-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {    color: #ff3333 !important;}
+.bg-light {    background-color: #f7f7f7!important;    color: #212529 !important;}
+.page-item.active .page-link { z-index: 1; color: #fff; background-color: #FF3333  !important; border-color: #f31c1c  !important;}
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {background-color: #FF3333  !important;
+    color: #fff;    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);}
+.bootstrap-datetimepicker-widget table td.active.today:before {    border-bottom-color: #fff;}  
+.bootstrap-datetimepicker-widget table td.today:before { border-bottom-color: #FF3333;}
+.bd-callout {    border-left: .15rem solid rgba(0,0,0,.125);}
+.top-band a:hover {    text-decoration: none;   color: #FF3333 !important;}
+.top-band .btn-primary:hover { background-color: #f70000  !important; border-color: #f31c1c  !important; color: #fff !important;}
+.sidebar .nav-link.active {   color: #FF3333; }
+.text-primary{ color: #000  !important }
+.nav>li>a { color: #000 !important;}
+.nav>li>a:hover { color: #FF3333 !important;}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active { color: #FF3333 !important;}
+
+@media only screen and (max-width: 767px){
+#slide-navbar-collapse1 { background-color: #000;}
+.navbar  li a:hover {  color: #fff;  border-left:0px #FF3333 solid; background-color: #FF3333;}
+.dropdown-menu{background-color: #000;border-radius: 0; border: 0px solid rgba(0,0,0,.15);}
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="CreateCustomFieldGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateCustomFieldGroup"/>
+                <set field="sectionName" value="customFieldGroup" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/group/CreateCustomFieldGroup.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/group/create_custom_field_group.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<!-- <decorator-section name="bottom-content">
+						<include-screen name="ListCustomFieldGroup"/>
+	              	</decorator-section> -->
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListCustomFieldGroup">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/group/ListCustomFieldGroup.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/group/list_custom_field_group.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="UpdateCustomFieldGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateCustomFieldGroup"/>
+                <set field="sectionName" value="customFieldGroup" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/group/UpdateCustomFieldGroup.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/group/update_custom_field_group.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListCustomFieldAtt" location="component://custom-field/webapp/widget/custom-field/screens/field/FieldScreens.xml"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="FindCustomFieldGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindCustomFieldGroup"/>
+                <set field="sectionName" value="findCustomFieldGroup" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/group/FindCustomFieldGroup.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/group/find_custom_field_group.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/group/list_custom_field_group.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

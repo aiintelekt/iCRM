@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	 <screen name="ActivityHome">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ActivityHome" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/srActivityHome.groovy" />
+                <!--<set field="layoutSettings.javaScripts[]" value="/admin-portal-resource/js/ag-grid/screenConfigs/screenConfigs.js" global="true"/>-->
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/ActivityHome.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="findSrActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="findSrActivity" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <!--<set field="layoutSettings.javaScripts[]" value="/admin-portal-resource/js/ag-grid/screenConfigs/screenConfigs.js" global="true"/>-->
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/FindSrActivity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="SrAddTask">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/SrAddTask.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="SrAddPhoneCall">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/SrAddPhoneCall.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="SrAddEmail">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/SrAddEmail.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="SrAddAppointment">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/SrAddAppointment.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="SrAddOthers">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/SrAddOthers.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="FindActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindActivity" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+                <property-map resource="activity-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://activity-portal/webapp/activity-portal/WEB-INF/actions/activity/FindActivity.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://activity-portal/webapp/activity-portal/activity/find/find_activity.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListActivity"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewActivity">
+        <section>
+            <actions>
+            <set field="titleProperty" value="View Activity" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+                 <set field="isView" value="Y" global="true"/>
+                 <set field="domainEntityTypeId" value="SERVICES"/>
+                 <set field="domainEntityId" from-field="SrNumber"/>
+                <property-map resource="SrPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <!-- <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/LeadOrAccountInfo.groovy" /> -->
+            	<script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/viewActivity.groovy" />
+            	<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/activity/ViewApprovalActivity.groovy" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/activity/view_activity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="updateActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Update Activity" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+                <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/viewActivity.groovy" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/activity/updateActivity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="CusNameCommon1"> 
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+            </actions>
+            <widgets>
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sr-portal/webapp/sr-portal/services/CusNameCommon1.ftl"/>
+                            </html>
+                        </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ActivityDetails">
+        <section>
+            <widgets>
+                <platform-specific>
+                            <html>
+                                <html-template
+                                    location="component://sr-portal/webapp/sr-portal/services/ActivityDetails.ftl" />
+                            </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="administration1">
+        <section>
+            <widgets>
+                <platform-specific>
+                            <html>
+                                <html-template
+                                    location="component://sr-portal/webapp/sr-portal/services/activityadministration.ftl" />
+                            </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ViewActivityDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Activity" global="true"/>
+                <set field="sectionName" value="sr-portal" global="true"/>
+                 <set field="isView" value="Y" global="true"/>
+                 <set field="domainEntityTypeId" value="SERVICES"/>
+                 <set field="domainEntityId" from-field="SrNumber"/>
+                <property-map resource="SrPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+            	<script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/viewActivity.groovy" />
+            	<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/activity/ViewApprovalActivity.groovy" />
+            </actions>
+             <widgets>
+                 <decorator-section name="top-content">
+                     <platform-specific>
+                       <html>
+                           <html-template location="component://common-portal/webapp/common-portal/activity/activity_details_tab-content.ftl" />
+                       </html>
+                     </platform-specific>
+                 </decorator-section>
+            </widgets>
+        </section>
+    </screen>
+</screens>

@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="batch-portalApplication">
+        <value xml:lang="en">batch-portal Application</value>
+        <value xml:lang="zh">batch-portal应用程序</value>
+        <value xml:lang="zh-TW">batch-portal應用程式</value>
+    </property>
+    <property key="batch-portalCompanyName">
+        <value xml:lang="en">OFBiz: batch-portal</value>
+        <value xml:lang="zh-TW">OFBiz: batch-portal</value>
+    </property>
+    <property key="batch-portalCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="batch-portalViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <!-- <property key="CompanyName">
+        <value xml:lang="en">Common Portal</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property> -->
+    <!-- <property key="AppName">
+        <value xml:lang="en">Common Portal</value>
+        <value xml:lang="zh">Common Portal</value>
+    </property> -->
+    
+    <property key="EconomicsMetrics">
+        <value xml:lang="en">Economic Metrics</value>
+        <value xml:lang="zh">經濟指標</value>
+    </property>
+    <property key="revenue">
+        <value xml:lang="en">Revenue</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="balances">
+        <value xml:lang="en">Balances</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="groupingCode">
+        <value xml:lang="en">Grouping Code</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="propertyName">
+        <value xml:lang="en">Property Name</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="propertyValue">
+        <value xml:lang="en">Property Value</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="sequence">
+        <value xml:lang="en">Sequence</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="postalAddress">
+        <value xml:lang="en">Postal Address</value>
+        <value xml:lang="zh">郵寄地址</value>
+    </property>
+    <property key="webAddress">
+        <value xml:lang="en">Web Address</value>
+        <value xml:lang="zh">網址</value>
+    </property>
+    <property key="create">
+        <value xml:lang="en">Create</value>
+        <value xml:lang="zh">創建</value>
+    </property>
+    <property key="writeEmail">
+        <value xml:lang="en">Write Email</value>
+        <value xml:lang="zh">寫電子郵件</value>
+    </property>
+    <property key="importantNote">
+        <value xml:lang="en">Important Note</value>
+        <value xml:lang="zh">重要的提示</value>
+    </property>
+    <property key="createNote">
+        <value xml:lang="en">Create Note</value>
+        <value xml:lang="zh">創建註釋</value>
+    </property>
+    <property key="logCall">
+        <value xml:lang="en">Call Log</value>
+        <value xml:lang="zh">通話記錄</value>
+    </property>
+    <property key="internalParty">
+        <value xml:lang="en">Internal Party</value>
+        <value xml:lang="zh">內部黨</value>
+    </property>
+    <property key="allowSolicitation">
+        <value xml:lang="en">Allow Solicitation</value>
+        <value xml:lang="zh">允許請求</value>
+    </property>
+    <property key="segmentCode">
+        <value xml:lang="en">Segment Code</value>
+        <value xml:lang="zh">細分代碼</value>
+    </property> 
+    <property key="update">
+        <value xml:lang="en">Update</value>
+        <value xml:lang="zh">更新</value>
+    </property>
+    <property key="noteDeleteSuccess">
+        <value xml:lang="en">Note Deleted Successfully</value>
+        <value xml:lang="zh">注意成功刪除</value>
+    </property>
+    <property key="noteDeleteFailed">
+        <value xml:lang="en">Note Deleted Failed</value>
+        <value xml:lang="zh">注意已刪除失敗</value>
+    </property>
+    <property key="delete">
+        <value xml:lang="en">Delete</value>
+        <value xml:lang="zh">刪除</value>
+    </property>
+    <property key="disabled">
+        <value xml:lang="en">Disabled</value>
+        <value xml:lang="zh">禁用</value>
+    </property>
+    <property key="cannotChangeDndSolicitationStatus">
+        <value xml:lang="en">The Solicitation Flag can not be changed due to the phone number being on DND list</value>
+        <value xml:lang="zh">序列 識別碼</value>
+    </property>
+    <property key="noteCreateSuccess">
+        <value xml:lang="en">Note Created Successfully</value>
+        <value xml:lang="zh">注意創建成功</value>
+    </property>
+    <property key="noteUpdatedSuccess">
+        <value xml:lang="en">Note Updated Successfully</value>
+        <value xml:lang="zh">注意已成功更新</value>
+    </property>
+    <property key="editNote">
+        <value xml:lang="en">Edit Note</value>
+        <value xml:lang="zh">編輯註意</value>
+    </property>
+    <property key="createNote">
+        <value xml:lang="en">Create Note</value>
+        <value xml:lang="zh">創建註釋</value>
+    </property>
+    <property key="isImportant">
+        <value xml:lang="en">Is Important</value>
+        <value xml:lang="zh">重要</value>
+    </property>
+    <property key="save">
+        <value xml:lang="en">Save</value>
+        <value xml:lang="zh">保存</value>
+    </property>
+    <property key="partySuccessFullyReassign">
+        <value xml:lang="en">RM Assigned Successfully.</value>
+        <value xml:lang="zh">黨成功地重新分配</value>
+    </property>
+    <property key="partyNotFound">
+        <value xml:lang="en">Reassign Party not found. Cannot reassign</value>
+        <value xml:lang="zh">重新分配派對未找到。無法重新分配</value>
+    </property>
+    <property key="reassignPartyNotFound">
+        <value xml:lang="en">Party not found.</value>
+        <value xml:lang="zh">未找到黨</value>
+    </property>
+    <property key="reassignProcessFailed">
+        <value xml:lang="en">Error in reassign Process</value>
+        <value xml:lang="zh">重新分配過程中的錯誤</value>
+    </property>
+    <property key="defaultContactSuccessfullyUpdate">
+        <value xml:lang="en">Default Contact Updated Successfully</value>
+        <value xml:lang="zh">默認聯繫人成功更新</value>
+    </property>
+    <property key="defaultContactUpdateFailed">
+        <value xml:lang="en">Default Contact Updated Failed</value>
+        <value xml:lang="zh">默認聯繫人更新失敗</value>
+    </property>
+    <property key="defaultContactSuccessfullyRemoved">
+        <value xml:lang="en">Default Contact Removed Successfully</value>
+        <value xml:lang="zh">默認聯繫人成功刪除</value>
+    </property>
+    <property key="createPostalAddress">
+        <value xml:lang="en">Create Postal Address</value>
+        <value xml:lang="zh">創建郵政地址</value>
+    </property>
+    <property key="createWebAddress">
+        <value xml:lang="en">Create Web Address</value>
+        <value xml:lang="zh">創建萬維網地址</value>
+    </property>
+    <property key="createPhoneNumber">
+        <value xml:lang="en">Create Phone Number</value>
+        <value xml:lang="zh">創建電話號碼</value>
+    </property>
+    <property key="createEmail">
+        <value xml:lang="en">Create E-Mail Address</value>
+        <value xml:lang="zh">創建電子郵件地址</value>
+    </property>
+    <property key="contactName">
+        <value xml:lang="en">Contact Name</value>
+        <value xml:lang="zh">聯繫人姓名</value>
+    </property>
+    <property key="startDate">
+        <value xml:lang="en">Start Date</value>
+        <value xml:lang="zh">广告系列开始日期</value>
+    </property>
+    <property key="endDate">
+        <value xml:lang="en">End Date</value>
+        <value xml:lang="zh">广告系列开始日期</value>
+    </property>
+    <property key="subject">
+        <value xml:lang="en">Subject</value>
+        <value xml:lang="zh">學科</value>
+    </property>
+    <property key="inboundOrOutbound">
+        <value xml:lang="en">Inbound/Outbound</value>
+        <value xml:lang="zh">入站出站</value>
+    </property>
+    <property key="externalParty">
+        <value xml:lang="en">External Party</value>
+        <value xml:lang="zh">外部派對</value>
+    </property>
+    <property key="opportunity">
+        <value xml:lang="en">Opportunity</value>
+        <value xml:lang="zh">機會</value>
+    </property>
+    <property key="duration">
+        <value xml:lang="en">Duration</value>
+        <value xml:lang="zh">持續時間</value>
+    </property>
+    <property key="message">
+        <value xml:lang="en">Message</value>
+        <value xml:lang="zh">信息</value>
+    </property>
+    <property key="assignContact">
+        <value xml:lang="en">Assign Contact</value>
+        <value xml:lang="zh">分配聯繫人</value>
+    </property>
+    <property key="findContacts">
+        <value xml:lang="en">Find Contacts</value>
+        <value xml:lang="zh">找聯繫人</value>
+    </property>
+    <property key="CrmErrorContactAlreadyAssociatedToAccount">
+        <value xml:lang="en">The Contact is already associated.</value>
+        <value xml:lang="zh">此聯繫人已與帳戶關聯</value>
+    </property>
+    
+    <property key="economicCode">
+        <value xml:lang="en">Economic Code</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="economicMetric">
+        <value xml:lang="en">Economic Metric</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="economicValue">
+        <value xml:lang="en">Economic Value</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="lastUpdated">
+        <value xml:lang="en">Last Updated</value>
+        <value xml:lang="zh">查找郵件</value>
+    </property>
+    <property key="leadName">
+        <value xml:lang="en">Lead Name</value>
+        <value xml:lang="zh">主要名稱</value>
+    </property>
+    <property key="deliverable">
+        <value xml:lang="en">Deliverable</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="contactPurpose">
+        <value xml:lang="en">Contact Purpose</value>
+        <value xml:lang="zh">聯繫目的</value>
+    </property>
+    <property key="addPurpose">
+        <value xml:lang="en">Add Purpose</value>
+        <value xml:lang="zh">添加目的</value>
+    </property>
+    <property key="socialMediaTypeId">
+        <value xml:lang="en">Social Media Type Id</value>
+        <value xml:lang="zh">社交媒體類型標識文檔</value>
+    </property>
+    <property key="socialMediaType">
+        <value xml:lang="en">Social Media Type</value>
+        <value xml:lang="zh">社交媒體類型</value>
+    </property>
+    <property key="createSocialMediaType">
+        <value xml:lang="en">Create Social Media Type</value>
+        <value xml:lang="zh">創建社交媒體類型</value>
+    </property>
+    <property key="CrmErrorAcountAlreadyAssociatedToContact">
+        <value xml:lang="en">The Account is already associated.</value>
+        <value xml:lang="zh">帳戶已關聯</value>
+    </property>
+    <property key="createPersonalisationFieldTagging">
+        <value xml:lang="en">Create Personalisation Field Tagging</value>
+        <value xml:lang="zh">創建個性化字段標記</value>
+    </property>
+    <property key="editPersonalisationFieldTagging">
+        <value xml:lang="en">Edit Personalisation Field Tagging</value>
+        <value xml:lang="zh">編輯個性化字段標記</value>
+    </property>
+    <property key="phoneGlobalParamSettings">
+        <value xml:lang="en">Phone Global Parameter Settings</value>
+        <value xml:lang="zh">電話全局參數設置</value>
+    </property>
+    <property key="globalParamSettings">
+        <value xml:lang="en">Global Parameter Settings</value>
+        <value xml:lang="zh">全局参数设置</value>
+    </property>
+    <property key="enableOutboundCall">
+        <value xml:lang="en">Enable Out Bound Call</value>
+        <value xml:lang="zh">啟用外撥呼叫</value>
+    </property>
+    <property key="phoneSettingsUpdatedSuccessfully">
+        <value xml:lang="en">Configuration Updated Successfully</value>
+        <value xml:lang="zh">配置已成功更新</value>
+    </property>
+    <property key="errorInPhoneSettings">
+        <value xml:lang="en">Error in Phone Settings</value>
+        <value xml:lang="zh">電話設置錯誤</value>
+    </property>
+    <property key="campaign">
+        <value xml:lang="en">Campaign</value>
+        <value xml:lang="zh">運動</value>
+    </property>
+    <property key="configuration">
+        <value xml:lang="en">Configuration</value>
+        <value xml:lang="zh">組態</value>
+    </property>
+    <property key="constitution">
+        <value xml:lang="en">Constitution</value>
+        <value xml:lang="zh">憲法</value>
+    </property>
+    <property key="designation">
+        <value xml:lang="en">Designation</value>
+        <value xml:lang="zh">指定</value>
+    </property>
+    <property key="location">
+        <value xml:lang="en">Location</value>
+        <value xml:lang="zh">位置</value>
+    </property>
+    <property key="toCallBackDate">
+        <value xml:lang="en">To Call Back Date</value>
+        <value xml:lang="zh">回電日期</value>
+    </property>
+    <property key="find">
+        <value xml:lang="en">Find</value>
+        <value xml:lang="zh">找</value>
+    </property>
+    <property key="companyId">
+        <value xml:lang="en">Company ID</value>
+        <value xml:lang="zh">公司身份證件</value>
+    </property>
+    <property key="sourcesList">
+        <value xml:lang="en">Sources List</value>
+        <value xml:lang="zh">來源清單</value>
+    </property>
+    <property key="fromDate">
+        <value xml:lang="en">From Date</value>
+        <value xml:lang="zh">從日期</value>
+    </property>
+    <property key="thruDate">
+        <value xml:lang="en">Thru Date</value>
+        <value xml:lang="zh">從日期</value>
+    </property>
+    <property key="removeLabel">
+        <value xml:lang="en">Remove</value>
+        <value xml:lang="zh">去掉</value>
+    </property>
+    <property key="addFromExisting">
+        <value xml:lang="en">Add From Existing</value>
+        <value xml:lang="zh">從現有添加</value>
+    </property>
+    <property key="gender">
+        <value xml:lang="en">Gender</value>
+        <value xml:lang="zh">性別</value>
+    </property>
+    <property key="mobileNumber">
+		<value xml:lang="en">Mobile Number</value>
+		<value xml:lang="zh">手機號碼</value>
+	</property>
+	<property key="pickRightFile">
+   	  <value xml:lang="en">Pick the right import file (csv, excel, text)</value>
+      <value xml:lang="zh">選擇正確的導入文件（csv，excel，text，xml，json）</value>
+   </property> 
+   <property key="uploadFile">
+   	  <value xml:lang="en">Upload File</value>
+      <value xml:lang="zh">上傳文件</value>
+   </property>
+   <property key="fileToImport">
+   	  <value xml:lang="en">File to Import</value>
+      <value xml:lang="zh">要導入的文件</value>
+   </property>
+   <property key="fileFormat">
+   	  <value xml:lang="en">File Format</value>
+      <value xml:lang="zh">文件格式</value>
+   </property>
+   <property key="removeButton">
+   	  <value xml:lang="en">Remove</value>
+      <value xml:lang="zh">去掉</value>
+   </property>
+   <property key="selectFile">
+   	  <value xml:lang="en">Select file</value>
+      <value xml:lang="zh">選擇文件</value>
+   </property>
+   <property key="change">
+   	  <value xml:lang="en">Change</value>
+      <value xml:lang="zh">更改</value>
+   </property>
+   <property key="EtlModelType">
+        <value xml:lang="en">Model Type</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="EtlModelName">
+        <value xml:lang="en">Model Name</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+    </property>
+    <property key="model">
+   	  <value xml:lang="en">Model</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="importStatusId">
+   	  <value xml:lang="en">Import Status</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="primaryPhoneNumber">
+   	  <value xml:lang="en">Primary Phone Number</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="errorCode">
+   	  	<value xml:lang="en">Error Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="errorLogs">
+   	  	<value xml:lang="en">Error Logs</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="batchId">
+   	  	<value xml:lang="en">Batch Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="uploadedBy">
+   	  	<value xml:lang="en">Uploaded By</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="attnName">
+   	  	<value xml:lang="en">Attn Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="emailAddress">
+   	  	<value xml:lang="en">Email Address</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="importFile">
+   	  	<value xml:lang="en">Import File Template</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="upload">
+   	  	<value xml:lang="en">Upload</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="download">
+   	  	<value xml:lang="en">Download</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="errorCodeId">
+   	  	<value xml:lang="en">Error Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="export">
+   	  	<value xml:lang="en">Export</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="import">
+   	  	<value xml:lang="en">Import</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="both">
+   	  	<value xml:lang="en">Both</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="none">
+   	  	<value xml:lang="en">None</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="single">
+   	  	<value xml:lang="en">Single</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="multiple">
+   	  	<value xml:lang="en">Multiple</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="asset">
+   	  	<value xml:lang="en">Asset</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="liab">
+   	  	<value xml:lang="en">Liab</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+    
+    <property key="accountName">
+        <value xml:lang="en">Account Name</value>
+        <value xml:lang="zh">用戶名</value>
+    </property>
+    <property key="parentAccount">
+        <value xml:lang="en">Parent Account</value>
+        <value xml:lang="zh">家長帳戶</value>
+    </property>
+    <property key="localName">
+        <value xml:lang="en">Local Name</value>
+        <value xml:lang="zh">本地名稱</value>
+    </property>
+    <property key="siteName">
+        <value xml:lang="en">Site Name</value>
+        <value xml:lang="zh">網站名稱</value>
+    </property>
+    <property key="annualRevenue">
+        <value xml:lang="en">Annual Revenue</value>
+        <value xml:lang="zh">年收入</value>
+    </property>
+    <property key="preferredCurrency">
+        <value xml:lang="en">Preferred Currency</value>
+        <value xml:lang="zh">首選貨幣</value>
+    </property>
+    <property key="industry">
+        <value xml:lang="en">Industry</value>
+        <value xml:lang="zh">行業</value>
+    </property>
+    <property key="numberOfEmployees">
+        <value xml:lang="en">Number Of Employees</value>
+        <value xml:lang="zh">在職員工人數</value>
+    </property>
+    <property key="ownership">
+        <value xml:lang="en">Ownership</value>
+        <value xml:lang="zh">所有權</value>
+    </property>
+    <property key="tickerSymbol">
+        <value xml:lang="en">Ticker Symbol</value>
+        <value xml:lang="zh">股票代碼</value>
+    </property>
+    <property key="sicCode">
+        <value xml:lang="en">SIC Code</value>
+        <value xml:lang="zh">標準解釋委員會代碼</value>
+    </property>
+    <property key="marketingCampaign">
+        <value xml:lang="en">Marketing Campaign</value>
+        <value xml:lang="zh">營銷活動</value>
+    </property>
+    <property key="classifications">
+        <value xml:lang="en">Classifications</value>
+        <value xml:lang="zh">分類</value>
+    </property>
+    <property key="note">
+        <value xml:lang="en">Note</value>
+        <value xml:lang="zh">注意</value>
+    </property>
+    <property key="source">
+        <value xml:lang="en">Source</value>
+        <value xml:lang="zh">資源</value>
+    </property>
+    <property key="initialTeam">
+        <value xml:lang="en">Initial Team</value>
+        <value xml:lang="zh">初始團隊</value>
+    </property>
+    <property key="isTaxExempt">
+        <value xml:lang="en">Is Tax Exempt</value>
+        <value xml:lang="zh">是免稅的</value>
+    </property>
+    <property key="description">
+        <value xml:lang="en">Description</value>
+        <value xml:lang="zh">描述</value>
+    </property>
+    <property key="taxExemptNumber">
+        <value xml:lang="en">Tax Exempt Number</value>
+        <value xml:lang="zh">免稅號碼</value>
+    </property>
+    <property key="phoneNumber">
+        <value xml:lang="en">Phone Number</value>
+        <value xml:lang="zh">電話號碼</value>
+    </property>
+    <property key="personToAskFor">
+        <value xml:lang="en">Person to Ask For</value>
+        <value xml:lang="zh">要求的人</value>
+    </property>
+    <property key="email">
+        <value xml:lang="en">E-Mail Address</value>
+        <value xml:lang="zh">電子郵件地址</value>
+    </property>
+    <property key="webURL">
+        <value xml:lang="en">Web URL</value>
+        <value xml:lang="zh">網址</value>
+    </property>
+    <property key="toName">
+        <value xml:lang="en">Name</value>
+        <value xml:lang="zh">命名</value>
+    </property>
+    <property key="attentionName">
+        <value xml:lang="en">Attention Name</value>
+        <value xml:lang="zh">注意名稱</value>
+    </property>
+    <property key="address1">
+        <value xml:lang="en">Address Line 1</value>
+        <value xml:lang="zh">地址欄1</value>
+    </property>
+    <property key="address2">
+        <value xml:lang="en">Address Line 2</value>
+        <value xml:lang="zh">地址線2</value>
+    </property>
+    <property key="city">
+        <value xml:lang="en">City</value>
+        <value xml:lang="zh">市</value>
+    </property>
+    <property key="county">
+        <value xml:lang="en">County</value>
+        <value xml:lang="zh">市</value>
+    </property>
+    <property key="country">
+        <value xml:lang="en">Country</value>
+        <value xml:lang="zh">國家</value>
+    </property>
+    <property key="postalCode">
+        <value xml:lang="en">Zip/Postal Code</value>
+        <value xml:lang="zh">郵編/郵政編碼</value>
+    </property>
+    <property key="postalCodeExt">
+        <value xml:lang="en">Zip/Postal Code Extension</value>
+        <value xml:lang="zh">郵政編碼擴展</value>
+    </property>
+     <property key="StateOrProvince">
+        <value xml:lang="en">State/Province</value>
+        <value xml:lang="zh">州/省</value>
+    </property>
+     <property key="CountryOrRegion">
+        <value xml:lang="en">Country/Region</value>
+        <value xml:lang="zh">國家/地區</value>
+    </property>
+    <property key="state">
+        <value xml:lang="en">State</value>
+        <value xml:lang="zh">省/州</value>
+    </property>
+    <property key="createAccount">
+        <value xml:lang="en">Create Account</value>
+        <value xml:lang="zh">創建帳號</value>
+    </property>
+    <property key="primaryAddress">
+        <value xml:lang="en">Primary Address</value>
+        <value xml:lang="zh">主要地址</value>
+    </property>
+    <property key="contactInformation">
+        <value xml:lang="en">Contact Information</value>
+        <value xml:lang="zh">聯繫信息</value>
+    </property>
+    <property key="findAccounts">
+        <value xml:lang="en">Find Accounts</value>
+        <value xml:lang="zh">查找帳戶</value>
+    </property>
+    <property key="accountsList">
+        <value xml:lang="en">Accounts List</value>
+        <value xml:lang="zh">帳戶列表</value>
+    </property>
+    <property key="accountID">
+        <value xml:lang="en">Account ID</value>
+        <value xml:lang="zh">帳戶身份</value>
+    </property>
+    <property key="status">
+        <value xml:lang="en">Status</value>
+        <value xml:lang="zh">狀態</value>
+    </property>
+    <property key="close">
+        <value xml:lang="en">Close</value>
+        <value xml:lang="zh">關</value>
+    </property>
+    <property key="accountsList">
+        <value xml:lang="en">Accounts List</value>
+        <value xml:lang="zh">帳戶列表</value>
+    </property>
+    <property key="createLead">
+        <value xml:lang="en">Create Lead</value>
+        <value xml:lang="zh">創建主導</value>
+    </property>
+    <property key="companyName">
+        <value xml:lang="en">Company Name</value>
+        <value xml:lang="zh">公司名</value>
+    </property>
+    <property key="marketingCampaignNames">
+        <value xml:lang="en">Marketing Campaign Names</value>
+        <value xml:lang="zh">公司名</value>
+    </property>
+    <property key="dataSourcesNames">
+        <value xml:lang="en">Data Sources Names</value>
+        <value xml:lang="zh">公司名</value>
+    </property>
+    <property key="classification">
+        <value xml:lang="en">Classification</value>
+        <value xml:lang="zh">分類</value>
+    </property>
+    <property key="contactType">
+        <value xml:lang="en">Contact Type</value>
+        <value xml:lang="zh">聯繫人類型</value>
+    </property>
+    <property key="CommonPurpose">
+        <value xml:lang="en">Purpose</value>
+        <value xml:lang="zh">目的</value>
+    </property>
+    
+    <property key="solicitation">
+        <value xml:lang="en">Solicitation</value>
+        <value xml:lang="zh">徵集</value>
+    </property>
+    <property key="deliverable">
+        <value xml:lang="en">Deliverable</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="OptIn">
+        <value xml:lang="en">Opt In</value>
+        <value xml:lang="zh">Opt In</value>
+    </property>
+    
+    <property key="assignTeam">
+        <value xml:lang="en">Assign Team</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="salesPerYear">
+        <value xml:lang="en">Sales Per Year</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="salesPerYearAmount">
+        <value xml:lang="en">Sales Per Year Amount</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="paymentReceived">
+        <value xml:lang="en">Payment Received</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="deliverable">
+        <value xml:lang="en">Deliverable</value>
+        <value xml:lang="zh">交付</value>
+    </property>
+    <property key="segment">
+   	  	<value xml:lang="en">segment</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="callOutCome">
+   	  	<value xml:lang="en">Call Out Come</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createdDate">
+   	  	<value xml:lang="en">Created Date</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="createdOn">
+   	  	<value xml:lang="en">Created On</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="modifiedOn">
+   	  	<value xml:lang="en">Modified On</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="closedOn">
+   	  	<value xml:lang="en">Closed On</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createdBy">
+   	  	<value xml:lang="en">Created By</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="modifiedBy">
+   	  	<value xml:lang="en">Modified By</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="closedBy">
+   	  	<value xml:lang="en">Closed By</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="findParty">
+   	  	<value xml:lang="en">Find Party</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="ListOfPartys">
+   	  	<value xml:lang="en">List Of Parties</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="relatedParties">
+   	  	<value xml:lang="en">Related Parties</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="firstName">
+   	  	<value xml:lang="en">First Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="lastName">
+   	  	<value xml:lang="en">Last Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="birthDate">
+   	  	<value xml:lang="en">Birth Date</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="department">
+   	  	<value xml:lang="en">Department</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="salutation">
+   	  	<value xml:lang="en">Salutation</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="firstName">
+   	  	<value xml:lang="en">First Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="accountPartyId">
+   	  	<value xml:lang="en">Account</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="updateEmail">
+   	  	<value xml:lang="en">Update Email</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createEmail">
+   	  	<value xml:lang="en">Create Email</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="updatePostalAddress">
+   	  	<value xml:lang="en">Update Postal Address</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createPostalAddress">
+   	  	<value xml:lang="en">Create Postal Address</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="updatePhoneNumber">
+   	  	<value xml:lang="en">Update Phone Number</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createPhoneNumber">
+   	  	<value xml:lang="en">Create Phone Number</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="updateWebAddress">
+   	  	<value xml:lang="en">Update Web Address</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createWebAddress">
+   	  	<value xml:lang="en">Create Web Address</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="updateSocialMediaType">
+   	  	<value xml:lang="en">Update Social Media Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createSocialMediaType">
+   	  	<value xml:lang="en">Create Social Media Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="addNew">
+        <value xml:lang="en">Add New</value>
+    </property>
+    <property key="createNew">
+        <value xml:lang="en">Create New</value>
+    </property>
+    <property key="createContact">
+        <value xml:lang="en">Create Contact</value>
+    </property>
+	<property key="html">
+        <value xml:lang="en">HTML</value>
+    </property> 
+    
+    <property key="product">
+        <value xml:lang="en">Product</value>
+    </property> 
+    <property key="productName">
+        <value xml:lang="en">Product Name</value>
+    </property> 
+    <property key="isVariant">
+        <value xml:lang="en">Is Variant</value>
+    </property> 
+    <property key="isVirtual">
+        <value xml:lang="en">Is Virtual</value>
+    </property> 
+    <property key="isActive">
+        <value xml:lang="en">Is Active</value>
+    </property> 
+    <property key="thruDate">
+        <value xml:lang="en">Thru Date</value>
+    </property> 
+    <property key="partyId">
+        <value xml:lang="en">Party Id</value>
+    </property> 
+    <property key="externalId">
+        <value xml:lang="en">External Id</value>
+    </property> 
+    <property key="partyName">
+        <value xml:lang="en">Party Name</value>
+    </property> 
+    <property key="subscriptionType">
+        <value xml:lang="en">Subscription Type</value>
+    </property>
+    <property key="findCampaign">
+   	  	<value xml:lang="en">Find Campaign</value>
+   	</property>
+   	<property key="findTemplates">
+   	  	<value xml:lang="en">Find Templates</value>
+   	</property>
+   	<property key="ListOfCampaigns">
+   	  	<value xml:lang="en">List Of Campaigns</value>
+   	</property>
+   	<property key="campaignStatus">
+   	  	<value xml:lang="en">Campaign Status</value>
+   	</property>
+   	<property key="campaignName">
+   	  	<value xml:lang="en">Campaign Name</value>
+   	</property>
+   	<property key="campaignId">
+   	  	<value xml:lang="en">Campaign Id</value>
+   	</property>
+   	<property key="deliveryChannel">
+   	  	<value xml:lang="en">Delivery Channel</value>
+   	</property> 
+   	<property key="MainFilter">
+   	  	<value xml:lang="en">Filter</value>
+   	</property> 
+   	
+   	<property key="yes">
+   	  	<value xml:lang="en">Yes</value>
+   	</property> 
+   	<property key="no">
+   	  	<value xml:lang="en">No</value>
+   	</property> 
+   	<property key="sequenceNumber">
+   	  	<value xml:lang="en">Sequence Number</value>
+   	</property> 
+   	<property key="isEnable">
+   	  	<value xml:lang="en">Is Enable</value>
+   	</property> 
+   	
+   	<property key="ListOfDealers">
+   	  	<value xml:lang="en">List of Dealers</value>
+   	</property> 
+   	<property key="findDealer">
+   	  	<value xml:lang="en">Find Dealer</value>
+   	</property> 
+   	
+   	<property key="RemoveConfirmation">
+        <value xml:lang="en">Are you sure to REMOVE ?</value>
+        <value xml:lang="zh">Are you sure to REMOVE ?</value>
+    </property>
+    
+    <property key="PriorityType">
+   	  	<value xml:lang="en">Priority Type</value>
+   	</property>
+   	<property key="TechType">
+   	  	<value xml:lang="en">Resource Type</value>
+   	</property>
+   	<property key="ReebAssignedTech">
+   	  	<value xml:lang="en">Assigned Resource</value>
+   	</property>
+   	<property key="ReebRecommendedTech">
+   	  	<value xml:lang="en">Recommended</value>
+   	</property>
+   	<property key="ReebOtherStateTech">
+   	  	<value xml:lang="en">Other Resources</value>
+   	</property>
+   	<property key="ReebContractorTech">
+   	  	<value xml:lang="en">Contractor</value>
+   	</property>
+   	<property key="ReebOtherTech">
+   	  	<value xml:lang="en">Other</value>
+   	</property>
+	
+	<property key="extension">
+        <value xml:lang="en">Extension</value>
+        <value xml:lang="zh">擴大</value>
+    </property>
+    <property key="partyLevel">
+        <value xml:lang="en">Party Level</value>
+        <value xml:lang="zh">擴大</value>
+    </property>
+    <property key="ListofAssociatedParties">
+        <value xml:lang="en">Associated Parties</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="ApprovalInitiateConfirmation">
+        <value xml:lang="en">Are you sure to initiate approval process?</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="InitiateApproval">
+        <value xml:lang="en">Initiate Approval</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="PayoutApprovalInitiateConfirmation">
+        <value xml:lang="en">Are you sure to initiate payout approval process?</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="InitiatePayoutApproval">
+        <value xml:lang="en">Initiate Payout Approval</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="ApprovalRecallConfirmation">
+        <value xml:lang="en">Are you sure to recall approval process?</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="RecallApproval">
+        <value xml:lang="en">Recall Approval</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="ApprovalComments">
+        <value xml:lang="en">Approval Comments</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="edit">
+        <value xml:lang="en">Edit</value>
+        <value xml:lang="zh">關聯方名單</value>
+    </property>
+    <property key="emailPlaceholder">
+        <value xml:lang="en">name@company.com</value>
+        <value xml:lang="zh">電子郵件地址</value>
+    </property>
+</resource>

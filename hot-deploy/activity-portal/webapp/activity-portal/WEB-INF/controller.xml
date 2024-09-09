@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+         
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://common/webcommon/WEB-INF/security-controller.xml"/>
+	<include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+
+    <description>activity-portal Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!-- <preprocessor>
+        Events to run on every request before security (chains exempt)
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="checkExternalLoginKey"/>
+    </preprocessor> -->
+
+    <!-- Request Mappings -->
+    <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
+    
+    <request-map uri="donePageRequestHelper">
+		<security https="true" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.util.UtilCommon"
+			invoke="donePageRequestHelper" />
+		<response name="viewActivity" type="request-redirect" value="viewActivity">
+			<redirect-parameter name="workEffortId" />
+	    </response>
+	</request-map>
+    
+    <!-- activity [start] -->
+    
+    <request-map uri="homeActivity">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="homeActivity"/>
+    </request-map>
+    <request-map uri="dashboardActivity">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="dashboardActivity"/>
+    </request-map>
+    
+    <request-map uri="findActivity">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findActivity"/>
+    </request-map>
+    <request-map uri="searchActivitys">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.activity.portal.event.AjaxEvents" invoke="searchActivitys"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="findActivityGen">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findActivityGen"/>
+    </request-map>
+    
+    <request-map uri="viewActivity">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewActivity"/>
+    </request-map>
+    
+    <!-- activity [end] -->
+    
+    <!-- activity task [start] -->
+    
+    <request-map uri="createTask">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createTask"/>
+    </request-map>
+    <request-map uri="createTaskAction">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="activity.createActivity"/>        
+        <response name="success" type="request-redirect" value="viewActivity">
+        	<redirect-parameter name="workEffortId"/>
+        </response>
+        <response name="error" type="request-redirect-noparam" value="createTask">
+        </response>
+    </request-map>
+    
+    <request-map uri="updateTask">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateTask"/>
+    </request-map>
+    <request-map uri="updateTaskAction">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="activity.updateActivity"/>        
+        <response name="success" type="request-redirect" value="viewActivity">
+        	<redirect-parameter name="workEffortId"/>
+        </response>
+        <response name="error" type="request-redirect" value="updateTask">
+        	<redirect-parameter name="workEffortId"/>
+        </response>
+    </request-map>
+    <request-map uri="closedServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="closedServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  	</request-map>
+    <!-- activity task [end] -->
+    
+    <!-- activity appointment [start] -->
+    
+    <request-map uri="createApnt">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createApnt"/>
+    </request-map>
+    <request-map uri="createApntAction">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="activity.createActivity"/>        
+        <response name="success" type="request-redirect" value="viewActivity">
+        	<redirect-parameter name="workEffortId"/>
+        </response>
+        <response name="error" type="request-redirect-noparam" value="createApnt">
+        </response>
+    </request-map>
+    
+    <request-map uri="updateApnt">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateApnt"/>
+    </request-map>
+    <request-map uri="updateApntAction">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="activity.updateActivity"/>        
+        <response name="success" type="request-redirect" value="viewActivity">
+        	<redirect-parameter name="workEffortId"/>
+        </response>
+        <response name="error" type="request-redirect" value="updateApnt">
+        	<redirect-parameter name="workEffortId"/>
+        </response>
+    </request-map>
+    
+    <!-- activity appointment [end] -->
+    
+    <!-- Chart implementation [start] -->
+
+	<request-map uri="getOutstandingTaskChartData">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://activity-portal/webapp/activity-portal/WEB-INF/actions/charts/dashboard/OutstandingTaskChartData.groovy" />
+	 	<response name="success" type="request" value="json"/>
+		<response name="error" type="none" />
+    </request-map>
+    <request-map uri="getTaskByDayChartData">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://activity-portal/webapp/activity-portal/WEB-INF/actions/charts/dashboard/TaskByDayChartData.groovy" />
+	 	<response name="success" type="request" value="json"/>
+		<response name="error" type="none" />
+    </request-map>
+    <request-map uri="getTaskByDayEowChartData">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://activity-portal/webapp/activity-portal/WEB-INF/actions/charts/dashboard/TaskByDayEowChartData.groovy" />
+	 	<response name="success" type="request" value="json"/>
+		<response name="error" type="none" />
+    </request-map>
+    <request-map uri="getTaskByWeekChartData">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://activity-portal/webapp/activity-portal/WEB-INF/actions/charts/dashboard/TaskByWeekChartData.groovy" />
+	 	<response name="success" type="request" value="json"/>
+		<response name="error" type="none" />
+    </request-map>
+    <request-map uri="getOutstandingActivityChartData">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://activity-portal/webapp/activity-portal/WEB-INF/actions/charts/dashboard/OutstandingActivityChartData.groovy" />
+	 	<response name="success" type="request" value="json"/>
+		<response name="error" type="none" />
+    </request-map>
+    <request-map uri="getDurationActivityChartData">
+		<security https="true" auth="true" />
+		<event type="groovy" path="component://activity-portal/webapp/activity-portal/WEB-INF/actions/charts/dashboard/DurationActivityChartData.groovy" />
+	 	<response name="success" type="request" value="json"/>
+		<response name="error" type="none" />
+    </request-map>
+    
+    <request-map uri="updateActivity">
+        <security https="true" auth="true" />
+        <response name="success" type="view"  value="updateActivity"/>
+        <response name="error" type="view"  value="updateActivity" />
+    </request-map>
+    <request-map uri="updateActivityEvent">
+        <event type="java" path="org.groupfio.activity.portal.event.AjaxEvents" invoke="updateActivityEvent"/>
+        <response name="success" type="request-redirect" value="viewActivity">
+         <redirect-parameter name="workEffortId" from="workEffortId"/>
+         <redirect-parameter name="partyId" from="partyId"/>
+         </response>
+        <response name="error" type="request-redirect" value="viewActivity" >
+        <redirect-parameter name="workEffortId" from="workEffortId"/>
+        <redirect-parameter name="partyId" from="partyId"/>
+        </response>
+    </request-map>	
+    
+    <!-- Chart implementation [end] -->
+    
+    <!-- Activity Dashboard [start] -->
+    
+    <request-map uri="getActivityDashboardData">
+	    <security https="true" auth="false" />
+	    <event type="java" path="org.groupfio.activity.portal.event.AjaxEvents" invoke="getActivityDashboardData" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="getActivityDashboardCountList">
+	    <security https="true" auth="false" />
+	    <event type="java" path="org.groupfio.activity.portal.event.AjaxEvents" invoke="getActivityDashboardCountList" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    
+    <!-- Activity Dashboard [end] -->
+    
+    <!-- CustomFiled seciton --> 
+   	<request-map uri="createUpdateCustom">
+   		<security https="true"  auth="true"/>	
+		<event type="service-multi" invoke="customfield.createUpdateCustomValueMulti"/>
+	    <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper" />
+	</request-map>
+   	<request-map uri="segmentForm">
+   	    <security https="true"  auth="true"/>	
+		<event type="service-multi" invoke="assignSegmentValuetoParty"/>	
+	    <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper" />
+	</request-map>
+   	<request-map uri="removeSegmentValue">
+   	    <security https="true"  auth="true"/>	
+		<event type="service" invoke="removeSegmentValuetoParty"/>	
+	    <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper" />
+	</request-map>		
+   <!-- CustomFiled seciton End -->
+    
+    <request-map uri="emailDashboard">
+		<response name="success" type="view" value="emailDashboard" />
+      	<response name="error" type="view" value="emailDashboard" />
+	</request-map>
+	
+	<!-- attachment [start] -->
+	
+	<request-map uri="createattachmentData">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createAttachmentData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="removeattachmentData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="removeAttachmentData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<!-- attachment [start] -->
+	
+	<!-- Program activity [start] -->
+	
+	<request-map uri="generateProgAct">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.activity.portal.event.ProgramEvents" invoke="generateProgAct" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<!-- Program activity [end] -->
+	
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#HomeActivity"/>
+    
+    <!-- Activity [start] -->
+    
+    <view-map name="homeActivity" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#HomeActivity"/>
+    <view-map name="dashboardActivity" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#DashboardActivity"/>
+    
+    <view-map name="findActivity" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#FindActivity"/>
+    <view-map name="viewActivity" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#ViewActivity"/>
+    
+    <view-map name="findActivityGen" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#FindActivityGen"/>
+	    
+    <view-map name="createTask" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#CreateTask"/>
+    <view-map name="updateTask" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#UpdateTask"/>
+	
+	<view-map name="createApnt" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#CreateApnt"/>
+    <view-map name="updateApnt" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#UpdateApnt"/>
+	
+	<view-map name="updateActivity" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#UpdateActivity"/>
+		     
+	<view-map name="emailDashboard" type="screen" page="component://activity-portal/widget/activity/ActivityScreens.xml#EmailDashboard"/>
+	
+    <!-- Activity [end] -->
+        
+</site-conf>

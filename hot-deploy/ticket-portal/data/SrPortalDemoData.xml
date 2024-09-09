@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+<Enumeration createdStamp="2020-01-23 12:08:52.0" createdTxStamp="2020-01-23 12:08:52.0" description="Call-Outbound" enumId="CO" enumTypeId="CALL_OUT_COME" lastUpdatedStamp="2020-01-23 12:08:52.0" lastUpdatedTxStamp="2020-01-23 12:08:52.0"/>
+<Enumeration createdStamp="2020-01-23 12:08:52.0" createdTxStamp="2020-01-23 12:08:52.0" description="Auto LV Generation" enumId="CO" enumTypeId="CALL_OUT_COME" lastUpdatedStamp="2020-01-23 12:08:52.0" lastUpdatedTxStamp="2020-01-23 12:08:52.0"/>
+
+    <OfbizPageSecurity componentId="SR-PORTAL" favIcon="fa fa-plus-circle fa-1" isExternal="N" pageId="ADD_SR_ACTY" pageType="TAB" permissionId="SR" seqId="1001" tabId="ADD_SR_ACTY" uiLabels="Add SR Activity"/>
+
+    <OfbizTabSecurityShortcut componentId="SR-PORTAL" favIcon="fa fa-clipboard" isExternal="N" pageId="addSrTask" pageType="SHORTCUT" permissionId="SR" requestUri="/sr-portal/control/srAddTask" seqId="1000" shortcutId="SR_ADD_TSK" tabId="ADD_SR_ACTY" uiLabels="Task"/>
+    <OfbizTabSecurityShortcut componentId="SR-PORTAL" favIcon="fa fa-phone" isExternal="N" pageId="addSrPhoneCall" pageType="SHORTCUT" permissionId="SR" requestUri="/sr-portal/control/srAddPhonceCall" seqId="1001" shortcutId="SR_ADD_PC" tabId="ADD_SR_ACTY" uiLabels="Phone Call"/>
+    <OfbizTabSecurityShortcut componentId="SR-PORTAL" favIcon="fa fa-envelope" isExternal="N" pageId="addSrEmail" pageType="SHORTCUT" permissionId="SR" requestUri="/sr-portal/control/srAddEmail" seqId="1002" shortcutId="SR_EMAIL" tabId="ADD_SR_ACTY" uiLabels="Email"/>
+    <OfbizTabSecurityShortcut componentId="SR-PORTAL" favIcon="fa fa-calendar" isExternal="N" pageId="addSrAppointment" pageType="SHORTCUT" permissionId="SR" requestUri="/sr-portal/control/srAddAppointment" seqId="1003" shortcutId="SR_APTMT" tabId="ADD_SR_ACTY" uiLabels="Appointment"/>
+    <OfbizTabSecurityShortcut componentId="SR-PORTAL" favIcon="fa fa-plus-square" isExternal="N" pageId="addSrOthers" pageType="SHORTCUT" permissionId="SR" requestUri="/sr-portal/control/srAddOthers" seqId="1004" shortcutId="SR_OTHERS" tabId="ADD_SR_ACTY" uiLabels="Others"/>
+
+	<!-- SR Details Tab Configurations start -->
+	<CustRequestAssoc active="Y" code="High" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_PRIORITY" value="High"/>
+	<CustRequestAssoc active="Y" code="Medium" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_PRIORITY" value="Medium"/>
+    <CustRequestAssoc active="Y" code="Low" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_PRIORITY" value="Low"/>
+
+	<CustRequestAssoc active="Y" code="SBA" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_ACCNT_TYPE" value="Saving Bank Account"/>
+	<CustRequestAssoc active="Y" code="ODA" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_ACCNT_TYPE" value="Overdraft Account"/>
+	<CustRequestAssoc active="Y" code="LAA" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_ACCNT_TYPE" value="Retail Loan Account"/>
+	<CustRequestAssoc active="Y" code="TDA" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_ACCNT_TYPE" value="Term Deposit Account"/>
+	<CustRequestAssoc active="Y" code="SN " grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_ACCNT_TYPE" value="Structured Investment product"/>
+
+	<CustRequestAssoc active="Y" code="SR_PH" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Phone call"/>
+	<CustRequestAssoc active="Y" code="SR_EMAIL" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="E-mail"/>
+	<CustRequestAssoc active="Y" code="SR_WEB_PORTAL" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Web Portal"/>
+	<CustRequestAssoc active="Y" code="SR_BRANCH" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Branch Walk In"/>
+	<CustRequestAssoc active="Y" code="SR_FAX" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Fax "/>
+	<CustRequestAssoc active="Y" code="SR_MAIL" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Mail"/>
+	<CustRequestAssoc active="Y" code="SR_MEDIA" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Media"/>
+	<CustRequestAssoc active="Y" code="SR_REG_AUTH" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Regulatory Authorities"/>
+	<CustRequestAssoc active="Y" code="SR_IW_PWEB" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="iWealth PWEB"/>
+	<CustRequestAssoc active="Y" code="SR_LIVE_CHAT" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Live Chat"/>
+	<CustRequestAssoc active="Y" code="SR_PH_INB" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Phone (Inbound)"/>
+	<CustRequestAssoc active="Y" code="SR_PH_OUTB" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Phone (Outbound)"/>
+	<CustRequestAssoc active="Y" code="SR_PORTAL" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="Portal "/>
+	<CustRequestAssoc active="Y" code="SR_CHAT_MB" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="MB Chat"/>
+	<CustRequestAssoc active="Y" code="SR_CHAT_IB" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="IB Retail Chat"/>
+	<CustRequestAssoc active="Y" code="SR_CHAT_PWEB" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="PWEB Chat"/>
+	<CustRequestAssoc active="Y" code="SR_CHAT_LINE" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="LINE Chat"/>
+	<CustRequestAssoc active="Y" code="SR_CHAT_IW" grandparentCode="" grandparentValue="" parentCode="" parentValue="" type="SR_SOURCE" value="iWealth Chat"/>
+	
+	<!-- SR Details Tab Configurations end -->
+
+</entity-engine-xml>

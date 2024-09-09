@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="OutstandingTask">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://activity-portal/webapp/activity-portal/charts/dashboard/outstanding_task.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="TaskByDay">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://activity-portal/webapp/activity-portal/charts/dashboard/task_by_day.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="TaskByDayEow">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://activity-portal/webapp/activity-portal/charts/dashboard/task_by_day_eow.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="TaskByWeek">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://activity-portal/webapp/activity-portal/charts/dashboard/task_by_week.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="OutstandingActivity">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://activity-portal/webapp/activity-portal/charts/dashboard/outstanding_activity.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="DurationActivity">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://activity-portal/webapp/activity-portal/charts/dashboard/duration_activity.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+		
+</screens>

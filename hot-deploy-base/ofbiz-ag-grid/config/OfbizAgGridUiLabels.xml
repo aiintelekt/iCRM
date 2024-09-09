@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="ofbiz-ag-gridApplication">
+        <value xml:lang="en">ofbiz-ag-grid Application</value>
+        <value xml:lang="zh">ofbiz-ag-grid应用程序</value>
+        <value xml:lang="zh-TW">ofbiz-ag-grid應用程式</value>
+    </property>
+    <property key="ofbiz-ag-gridCompanyName">
+        <value xml:lang="en">OFBiz: ofbiz-ag-grid</value>
+        <value xml:lang="zh-TW">OFBiz: ofbiz-ag-grid</value>
+    </property>
+    <property key="ofbiz-ag-gridCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="ofbiz-ag-gridViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="AppName">
+        <value xml:lang="en">Ofbiz Ag-Grid</value>
+        <value xml:lang="zh">Ofbiz Ag-Grid</value>
+    </property>
+    
+    <property key="refreshPreference">
+        <value xml:lang="en">Refresh Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="savePreference">
+        <value xml:lang="en">Save Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="clearFilter">
+        <value xml:lang="en">Clear Filter</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="export">
+        <value xml:lang="en">Export</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="RefreshGridPreference">
+        <value xml:lang="en">Refresh Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="SaveGridPreference">
+        <value xml:lang="en">Save Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="ClearGridFilter">
+        <value xml:lang="en">Clear Filter</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="ExportGridData">
+        <value xml:lang="en">Export Data</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    
+    <property key="ViewAgGrid">
+        <value xml:lang="en">View Ag-Grid Configuration</value>
+        <value xml:lang="zh">View Ag-Grid Configuration</value>
+    </property>
+    <property key="FindAgGridInstance">
+        <value xml:lang="en">Find FiO Grid Instance</value>
+        <value xml:lang="zh">Find FiO Grid Instance</value>
+    </property>
+    <property key="ListOfAgGrid">
+        <value xml:lang="en">List of FiO Grid Instance</value>
+        <value xml:lang="zh">List of FiO Grid Instance</value>
+    </property>
+    <property key="UpdateAgGrid">
+        <value xml:lang="en">Update Ag-Grid Configuration</value>
+        <value xml:lang="zh">Update Ag-Grid Configuration</value>
+    </property>
+    <property key="ViewAgGridInstance">
+        <value xml:lang="en">View Ag-Grid Instance</value>
+        <value xml:lang="zh">View Ag-Grid Instance</value>
+    </property>
+    <property key="EditAgGridInstance">
+        <value xml:lang="en">Edit Ag-Grid Instance</value>
+        <value xml:lang="zh">Edit Ag-Grid Instance</value>
+    </property>
+    <property key="CloneAgGridInstance">
+        <value xml:lang="en">Clone Ag-Grid Instance</value>
+        <value xml:lang="zh">Clone Ag-Grid Instance</value>
+    </property>
+    <property key="CreateAgGridInstance">
+        <value xml:lang="en">Configure Ag-Grid Instance</value>
+        <value xml:lang="zh">Configure Ag-Grid Instance</value>
+    </property>
+    
+    
+    
+    <property key="ConfigureAgGridAccess">
+        <value xml:lang="en">Ag-Grid Access Configure</value>
+        <value xml:lang="zh">Ag-Grid Access Configure</value>
+    </property>
+    <property key="InstanceId">
+        <value xml:lang="en">Instance Id</value>
+        <value xml:lang="zh">Instance Id</value>
+    </property>
+    <property key="SecurityGroup">
+        <value xml:lang="en">Security Group</value>
+        <value xml:lang="zh">Security Group</value>
+    </property>
+    <property key="ViewAgGridAccessConfig">
+        <value xml:lang="en">View Ag-Grid Access Configuration</value>
+        <value xml:lang="zh">View Ag-Grid Access Configuration</value>
+    </property>
+    <property key="UpdateAgGridAccessConfig">
+        <value xml:lang="en">Update Ag-Grid Access Configuration</value>
+        <value xml:lang="zh">Update Ag-Grid Access Configuration</value>
+    </property>
+    <property key="AgGridAccessConfig">
+        <value xml:lang="en">Ag-Grid Access Configuration</value>
+        <value xml:lang="zh">Ag-Grid Access Configuration</value>
+    </property>
+    <property key="FindAgGridAccessConfig">
+        <value xml:lang="en">Find Ag-Grid Access Configuration</value>
+        <value xml:lang="zh">Find Ag-Grid Access Configuration</value>
+    </property>
+    <property key="ListOfAgGridAccessConfiguration">
+        <value xml:lang="en">List of Ag-Grid Access Configuration</value>
+        <value xml:lang="zh">List of Ag-Grid Access Configuration</value>
+    </property>
+    <property key="RecordAlreadyExists">
+        <value xml:lang="en">Record Already Exists.</value>
+        <value xml:lang="zh">Record Already Exists.</value>
+    </property>
+    <property key="RequiredParametersMissed">
+        <value xml:lang="en">Required Parameters Missing.</value>
+        <value xml:lang="zh">Required Parameters Missing.</value>
+    </property>
+    <property key="GridAccessSuccessfullyConfigured">
+        <value xml:lang="en">Ag-Grid Access Successfully Configured.</value>
+        <value xml:lang="zh">Ag-Grid Access Successfully Configured.</value>
+    </property>
+    <property key="GridAccessSuccessfullyUpdated">
+        <value xml:lang="en">Ag-Grid Access Configuration Successfully Updated.</value>
+        <value xml:lang="zh">Ag-Grid Access Configuration Successfully Updated.</value>
+    </property>
+    <property key="RecordNotFound">
+        <value xml:lang="en">Record Not Found.</value>
+        <value xml:lang="zh">Record Not Found.</value>
+    </property>
+    
+    <property key="UserColumnManagement">
+        <value xml:lang="en">User Column Management</value>
+        <value xml:lang="zh">User Column Management</value>
+    </property>
+    
+    <property key="AdminGridInstanceSuccessfullyUpdated">
+        <value xml:lang="en">Admin Grid Instance Successfully Updated</value>
+        <value xml:lang="zh">Admin Grid Instance Successfully Updated</value>
+    </property>
+    <property key="AdminGridColumnManagement">
+        <value xml:lang="en">Admin Instance Column Management</value>
+        <value xml:lang="zh">Admin Instance Column Management</value>
+    </property>
+    <property key="ListofFields">
+        <value xml:lang="en">List of Columns</value>
+        <value xml:lang="zh">List of Columns</value>
+    </property>
+    <property key="AdminInstance">
+        <value xml:lang="en">Admin Instance</value>
+        <value xml:lang="zh">Admin Instance</value>
+    </property>
+    <property key="Components">
+        <value xml:lang="en">Components</value>
+        <value xml:lang="zh">Components</value>
+    </property>
+    <property key="Custom">
+        <value xml:lang="en">Custom</value>
+        <value xml:lang="zh">Custom</value>
+    </property>
+    <property key="CSVExport">
+        <value xml:lang="en">CSV Export</value>
+        <value xml:lang="zh">CSV Export</value>
+    </property>
+    <property key="ColumnProperty">
+        <value xml:lang="en">Column Property</value>
+        <value xml:lang="zh">Column Property</value>
+    </property>
+    <property key="Pagination">
+        <value xml:lang="en">Pagination</value>
+        <value xml:lang="zh">Pagination</value>
+    </property>
+    <property key="PaginationPageSize">
+        <value xml:lang="en">Pagination Page Size</value>
+        <value xml:lang="zh">Pagination Page Size</value>
+    </property>
+    <property key="Filter">
+        <value xml:lang="en">Filter</value>
+        <value xml:lang="zh">Filter</value>
+    </property>
+    <property key="FloatingFilter">
+        <value xml:lang="en">Floating Filter</value>
+        <value xml:lang="zh">Floating Filter</value>
+    </property>
+    <property key="DomLayout">
+        <value xml:lang="en">DOM Layout</value>
+        <value xml:lang="zh">DOM Layout</value>
+    </property>
+    <property key="UniqueField">
+        <value xml:lang="en">Unique Field</value>
+        <value xml:lang="zh">Unique Field</value>
+    </property>
+    <property key="RowSelection">
+        <value xml:lang="en">Row Selection</value>
+        <value xml:lang="zh">Row Selection</value>
+    </property>
+    <property key="FileName">
+        <value xml:lang="en">File Name</value>
+        <value xml:lang="zh">File Name</value>
+    </property>
+    <property key="SkipHeader">
+        <value xml:lang="en">Skip Header</value>
+        <value xml:lang="zh">Skip Header</value>
+    </property>
+    <property key="HeaderName">
+        <value xml:lang="en">Header Name</value>
+        <value xml:lang="zh">Header Name</value>
+    </property>
+    <property key="Field">
+        <value xml:lang="en">Field</value>
+        <value xml:lang="zh">Field</value>
+    </property>
+    <property key="Hide">
+        <value xml:lang="en">Hide</value>
+        <value xml:lang="zh">Hide</value>
+    </property>
+    <property key="LockPosition">
+        <value xml:lang="en">Lock Position</value>
+        <value xml:lang="zh">Lock Position</value>
+    </property>
+    <property key="Sortable">
+        <value xml:lang="en">Sortable</value>
+        <value xml:lang="zh">Sortable</value>
+    </property>
+    <property key="CellRenderer">
+        <value xml:lang="en">Cell Renderer</value>
+        <value xml:lang="zh">Cell Renderer</value>
+    </property>
+    <property key="UserGridConfigurationSuccessfullyUpdated">
+        <value xml:lang="en">User Grid Configuration Successfully Updated</value>
+        <value xml:lang="zh">User Grid Configuration Successfully Updated</value>
+    </property>
+    
+    
+    
+</resource>

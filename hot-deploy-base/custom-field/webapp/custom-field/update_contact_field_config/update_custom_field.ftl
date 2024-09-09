@@ -1,0 +1,576 @@
+<#include "component://homeapps/webapp/homeapps/lib/ofbizFormMacros.ftl"/>
+<script type="text/javascript" language="javascript" src="/bootstrap/js/jquery.dataTables.min.js"></script>
+<style>
+.multiValueListSize {
+   width: 20%;
+}
+</style>
+<div class="page-header border-b">
+	<h1 class="float-left">${uiLabelMap.Update} ${uiLabelMap.CustomField} <#if customFieldGroup.groupName?has_content>for [ ${customFieldGroup.groupName} <i class="fa fa-arrow-right" aria-hidden="true"></i> ${customField.customFieldName} ]</#if> </h1>
+	<div class="float-right">
+		<a href="findCustomField" class="btn btn-xs btn-primary m5 tooltips" title="Cancel" >Cancel</a>
+		<a href="editCustomFieldGroup?groupId=${customFieldGroup.groupId}" class="btn btn-xs btn-primary m5 tooltips" title="Back to ${customFieldGroup.groupName!}" >Back</a>
+	</div>
+</div>
+
+<div class="row padding-r">
+	
+	<div class="col-md-6 col-sm-6">
+		
+		<div class="portlet-body form">
+			<form role="form" class="form-horizontal" action="<@ofbizUrl>updateCustomField</@ofbizUrl>" encType="multipart/form-data" method="post" data-toggle="validator">
+					
+			<input type="hidden" id="customFieldId" name="customFieldId" value="${customFieldId!}" />																					
+																																																					
+			<div class="form-body">
+			
+			<#if groupId?has_content>
+			<input type="hidden" id="groupId" name="groupId" value="${customField.groupId!}" />						
+			<#-- <@readonlyInput 
+				id="groupId"
+				label=uiLabelMap.customGroup
+				value=customField.groupId
+				isHiddenInput=true
+				/> -->
+			<#else>	
+			<@dropdownInput 
+				id="groupId"
+				label=uiLabelMap.customGroup
+				options=groupList
+				required=false
+				value=customField.groupId
+				allowEmpty=true
+				tooltip = uiLabelMap.customGroup
+				dataLiveSearch=true
+				/>
+			</#if>
+			
+			<#-- 
+			<@dropdownInput 
+				id="roleTypeId"
+				label=uiLabelMap.roleTypeId
+				options=roleTypeList
+				required=true
+				value=customField.roleTypeId
+				allowEmpty=true
+				tooltip = uiLabelMap.roleTypeId
+				dataLiveSearch=true
+				/>
+			 -->	
+			<@generalInput 
+				id="customFieldName"
+				label=uiLabelMap.customFieldName
+				placeholder=uiLabelMap.customFieldName
+				value=customField.customFieldName
+				tooltip = uiLabelMap.customFieldName
+				required=true
+				maxlength=255
+				/>
+			
+			<@dropdownInput 
+				id="customFieldType"
+				label=uiLabelMap.customFieldType
+				options=fieldTypeList
+				required=true
+				value=customField.customFieldType
+				allowEmpty=true
+				tooltip = uiLabelMap.customFieldType
+				disabled=false
+				/>	
+				
+			<@dropdownInput 
+				id="customFieldFormat"
+				label=uiLabelMap.customFieldFormat
+				options=fieldFormatList
+				required=true
+				value=customField.customFieldFormat
+				allowEmpty=true
+				tooltip = uiLabelMap.customFieldFormat
+				/>	
+				
+			<@dropdownInput 
+				id="customFieldLength"
+				label=uiLabelMap.fieldLength
+				options=fieldLengthList
+				required=false
+				value="${customField.customFieldLength!}"
+				allowEmpty=true
+				tooltip = uiLabelMap.fieldLength
+				/>		
+				
+			<@dropdownInput 
+				id="roleTypeId"
+				label=uiLabelMap.roleTypeId
+				options=roleTypeList
+				required=true
+				value=roleConfig?if_exists
+				allowEmpty=true
+				dataLiveSearch=true
+				/>	
+				
+			<@generalInput 
+				id="sequenceNumber"
+				label=uiLabelMap.sequence
+				placeholder=uiLabelMap.sequence
+				value=customField.sequenceNumber
+				tooltip = uiLabelMap.sequence
+				inputType="number"
+				required=false
+				min=1
+				/>	
+				
+			<@dropdownInput 
+				id="hide"
+				label=uiLabelMap.hide
+				options=yesNoOptions
+				required=false
+				value=customField.hide
+				allowEmpty=true
+				tooltip = uiLabelMap.hide
+				/>					
+																																																																																																																																																																																																																																																					
+			</div>
+			
+			<@fromCommonAction showCancelBtn=true cancelUrl="customFieldForGroup?groupId=${groupId!}"/>
+			
+		</form>			
+							
+		</div>
+			
+	</div>
+	
+</div>
+
+<div class="clearfix"> </div>
+<div class="row padding-r" style="padding-top: 20px">
+
+	<#if customField.customFieldType?has_content && customField.customFieldType == "MULTIPLE">
+	<div class="col-md-6 col-sm-6">
+				
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="multiValue-heading">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionMenu"
+						href="#accordion-multiValue" aria-expanded="false"
+						aria-controls="collapseOne"> ${uiLabelMap.MultiValue} </a>
+				</h4>
+			</div>
+			<div id="accordion-multiValue" class="panel-collapse collapse"
+				role="tabpanel" aria-labelledby="multiValue-heading">
+				<div class="panel-body">
+				
+					<div class="page-header">
+						<h2 class="float-left">${uiLabelMap.Create} ${uiLabelMap.MultiValue}</h2>
+					</div>
+					
+					<div class="portlet-body form">
+					
+						<div class="card-header mt-2">
+						   	<form id="createCustomFieldMultiValueForm" method="post" action="<@ofbizUrl>createCustomFieldMultiValue</@ofbizUrl>"
+								class="form-horizontal" name="searchContant" novalidate="novalidate" data-toggle="validator">
+								
+								<input type="hidden" id="mvCustomFieldId" name="mvCustomFieldId" value="${customFieldId!}" />
+								
+								<div class="row">
+									<div class="col-md-2 col-sm-2">
+										<div class="form-group row mr">
+											<input type="text" class="form-control input-sm"
+												name="fieldValue" id="fieldValue"
+												placeholder="Field Value" required>
+										</div>
+									</div>
+									<div class="col-md-2 col-sm-2">
+										<div class="form-group row mr">
+											<input type="text" class="form-control input-sm"
+												name="description" id="description" placeholder="Description" maxlength="255" required >
+										</div>
+									</div>
+									<div class="col-md-2 col-sm-2">
+										<div class="form-group row mr">
+											<select class="ui dropdown form-control input-sm tooltips" data-original-title="Hide" id="multi-value-hide" name="hide" >
+												<option value="" data-content="<span class='nonselect'>Select ${uiLabelMap.hide!}</span>" selected>Select ${uiLabelMap.hide!}</option>
+												<option value="Y">${uiLabelMap.yes!}</option>
+												<option value="N">${uiLabelMap.no!}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-2 col-sm-2">
+										<div class="form-group row mr">
+											<input type="number" class="form-control input-md tooltips " value="" id="mvSequenceNumber" name="mvSequenceNumber" placeholder="${uiLabelMap.sequence!}" min="1" >
+										</div>
+									</div>
+									<div class="col-md-1 col-sm-1">
+										<input type="button" class="btn btn-sm btn-primary"
+											id="add-multivalue-button" value="Add" />
+									</div>
+								</div>
+							</form>
+							<div class="clearfix"></div>
+						</div>
+													
+					</div>
+					
+					<div class="clearfix"></div>
+					<div class="page-header">
+						<h2 class="float-left">${uiLabelMap.List} ${uiLabelMap.MultiValue}</h2>
+						<div class="float-right">
+						    <button value="submit" class="btn btn-primary btn-xs mt-2 mr-1" onclick="multiValueUpdateAll();">Update all</button>
+					  		<input class="btn btn-xs btn-danger mt-2 mr-1" id="remove-selected-value-button" value="Remove Selected Values" type="button">
+						</div>
+					</div>
+					<div class="table-responsive">
+					   <form name="multiValueUpdate" id="multiValueUpdate" action="multiValueUpdate">
+					    <input type="hidden" id="mvUpdateCustomFieldId" name="mvUpdateCustomFieldId" value="${customFieldId!}" />
+					    <input type="hidden" id="currentFieldId" name="currentFieldId" value="" />
+						<table id="multi-value-list" class="table table-striped">
+							<thead>
+								<tr>
+									<th>${uiLabelMap.fieldValue!}</th>
+									<th>${uiLabelMap.description!}</th>
+									<th>${uiLabelMap.hide!}</th>
+									<th>${uiLabelMap.sequence!}</th>
+									<th class="text-center">Action</th>
+									<th><div class="ml-1"><input id="remove-multivalue-select-all" type="checkbox"></div></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					   </form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	</#if>
+</div>	
+<script>
+
+jQuery(document).ready(function() {  
+
+$('#remove-selected-value-button').on('click', function(){
+		
+	var rowsSelected = [];
+			
+	$('input[name="selected-multivalues"]:checked').each(function() {
+		//alert(this.value);
+   		console.log(this.value);
+   		
+   		rowsSelected.push(this.value);
+   		
+	});
+		
+	var customFieldId = $('#customFieldId').val();
+	var groupId = $('#groupId').val();
+		
+	$.ajax({
+		      
+		type: "POST",
+     	url: "removeSelectedMultiValues",
+        data:  {"groupId": groupId, "customFieldId": customFieldId, "rowsSelected": rowsSelected},
+        success: function (data) {   
+        
+			if (data.code == 200) {
+				showAlert ("success", "remove count: "+data.successCount);
+            	findMultiValues();
+			} else {
+				showAlert ("error", data.message);
+			}           
+						    	
+        }
+        
+	});
+	
+});
+
+$('#add-multivalue-button').on('click', function(){
+	
+	if ($('#fieldValue').val() && $('#description').val()) {
+		$.post('createCustomFieldMultiValue', $('#createCustomFieldMultiValueForm').serialize(), function(returnedData) {
+	
+			if (returnedData.code == 200) {
+				
+				showAlert ("success", returnedData.message)
+				
+				$('#createCustomFieldMultiValueForm')[0].reset();
+				findMultiValues();
+				
+			} else {
+				showAlert ("error", returnedData.message)
+			}
+			
+		});
+	} else {
+		showAlert ("error", "fill up all the values");
+	}
+	
+});
+
+$("#remove-multivalue-select-all").change(function(){  
+    var status = this.checked; 
+    $('input[name="selected-multivalues"]').each(function(){ 
+        this.checked = status; 
+    });
+});
+
+//////////////// Assign role [start] //////////////////////////
+
+$('#roleConfigBtn').click(function () {
+
+	if ($('#roleTypeId').val()) {
+		$.post('createRoleConfig', $('#createRoleConfigForm').serialize(), function(returnedData) {
+	
+			if (returnedData.code == 200) {
+				
+				showAlert ("success", returnedData.message)
+				
+				$('#createRoleConfigForm')[0].reset();
+				findRoleConfigs();
+				
+			} else {
+				showAlert ("error", returnedData.message)
+			}
+			
+		});
+	} else {
+		showAlert ("error", "fill up all the values");
+	}
+	
+});
+
+//////////////// Assign role [end] //////////////////////////
+
+$('#multiValue-heading').click(function () {
+
+	findMultiValues();
+
+}); 
+
+$('#multiValue-roleAssign').click(function () {
+
+	findRoleConfigs();
+
+}); 
+
+
+});
+
+function removeMultiValue (multiValueId) {
+	
+	var customFieldId = $('#customFieldId').val();
+
+	$.ajax({
+			      
+		type: "POST",
+     	url: "removeCustomFieldMultiValue",
+        data:  {"customFieldId": customFieldId, "multiValueId": multiValueId},
+        success: function (data) {   
+            
+            findMultiValues();
+			    	
+        }
+        
+	});    
+	
+}
+
+function removeRoleConfig (roleConfigId) {
+	
+	//alert(roleConfigId);
+
+	$.ajax({
+			      
+		type: "POST",
+     	url: "removeRoleConfig",
+        data:  {"roleConfigId": roleConfigId},
+        success: function (data) {   
+            
+            findRoleConfigs();
+			    	
+        }
+        
+	});    
+	
+}
+
+//findMultiValues();
+function findMultiValues() {
+	
+	var customFieldId = $('#customFieldId').val();
+	
+   	var url = "getCustomFieldMultiValues?customFieldId="+customFieldId;
+   
+	$('#multi-value-list').DataTable( {
+		    "processing": true,
+		    "destroy": true,
+		    "ajax": {
+	            "url": url,
+	            "type": "POST"
+	        },
+	        "pageLength": 10,
+	        //"order": [[ 4, "asc" ]],
+	        
+	        "columnDefs": [ 
+	        	{
+					"targets": [4,5],
+					"orderable": false
+				},
+				{ 
+                    className: 'multiValueListSize', 
+                    'targets': [ 1, 2, 3 ] 
+                 }
+			],
+					      
+	        "columns": [
+	        	
+	            { "data": "fieldValue" },
+	             { "data": "description",
+		          "render": function(data, type, row, meta){
+		            data = '<input type="hidden" class="multiValueId" id="multiValueId" name="multiValueId_'+row.multiValueId+'" value="'+row.multiValueId+'"/>';
+		            data = data + '<input type="text" class="form-control input-sm description" name="description_'+row.multiValueId+'" id="description_'+row.multiValueId+'" placeholder="Description" maxlength="255" value="'+row.description+'" autocomplete="off">';
+		            return data;
+		          }
+		        },
+		        { "data": "hide",
+		          "render": function(data, type, row, meta){
+		           data = '<select class="ui dropdown form-control input-sm" data-original-title="Hide" id="hide_'+row.multiValueId+'" name="hide_'+row.multiValueId+'">';
+		           var hideValue = row.hide;
+                   data = data + '<option value="">Select Hide</option>';
+                   if(hideValue != null && hideValue != "" && hideValue == "Y") {
+                      data = data + '<option value="Y" selected>Yes</option>';
+                   } else {
+                      data = data + '<option value="Y">Yes</option>';
+                   }
+                   if(hideValue != null && hideValue != "" && hideValue == "N") {
+                      data = data + '<option value="N" selected>No</option>';
+                   } else {
+                      data = data + '<option value="N">No</option>';
+                   }
+                   data = data + '</select>';
+		           return data;
+		          }
+		        },
+		        { "data": "sequenceNumber",
+		          "render": function(data, type, row, meta){
+		            data = '<input type="number" class="form-control input-sm" name="mvSequenceNumber_'+row.multiValueId+'" id="mvSequenceNumber_'+row.multiValueId+'" placeholder="Sequence No" min="1" value="'+row.sequenceNumber+'" autocomplete="off">';
+		            return data;
+		          }
+		        },
+	            { "data": "multiValueId",
+		          "render": function(data, type, row, meta){
+		            if(type === 'display'){
+		                data = '<div class="text-center ml-1" ><a class="btn btn-xs btn-primary tooltips" data-original-title="Update" href="javascript:updateMultiValue('+row.multiValueId+')"><i class="fa fa-check-square-o"></i></a> <a class="btn btn-xs btn-danger tooltips remove-role-config" href="javascript:removeMultiValue('+row.multiValueId+')" data-original-title="Remove" data-config-id="'+row.multiValueId+'"><i class="fa fa-times red"></i></a></div>';
+		            }
+		            return data;
+		          }
+		         },
+		         
+		         { "data": "multiValueId",
+		          "render": function(data, type, row, meta){
+		            if(type === 'display'){
+		                data = '<div class="ml-1"><input type="checkbox" name="selected-multivalues" value="' + row.multiValueId + '"></div>';
+		            }
+		            return data;
+		         }
+		      	},
+	            
+	        ],
+	        "fnDrawCallback": function( oSettings ) {
+	      		resetDefaultEvents();
+	    	}
+		});
+		
+	$("#remove-multivalue-select-all").prop('checked', false);
+			
+}
+
+findRoleConfigs();
+function findRoleConfigs(){
+
+	var url = "getRoleConfigs?customFieldId=${customField.customFieldId!}";
+	$('#role-config-list').DataTable( {
+		    "processing": true,
+		    "destroy": true,
+		    "ajax": {
+	            "url": url,
+	            "type": "POST"
+	        },
+	        "pageLength": 10,
+	        "order": [[ 1, "asc" ]],
+	        "columns": [
+	            { "data": "roleType" },
+	            { "data": "sequenceNumber" },
+	            { "data": "roleTypeId",
+		          "render": function(data, type, row, meta){
+		            if(type === 'display'){
+		                data = '<div class="text-center"><a class="btn btn-xs btn-danger tooltips remove-role-config" href="javascript: removeRoleConfig('+row.roleConfigId+')" data-original-title="Remove" data-config-id="'+row.roleConfigId+'"><i class="fa fa-times red"></i></a></div>';
+		            }
+		            return data;
+		         }
+		      	},
+	        ],
+	        "fnDrawCallback": function( oSettings ) {
+	      		resetDefaultEvents();
+	    	}
+		});
+	
+	
+}
+
+function multiValueUpdate() {
+   //jQuerry Ajax Request
+   jQuery.ajax({
+      url: "multiValueUpdate",
+      type: 'POST',
+      data: $('#multiValueUpdate').serialize(),
+      error: function(msg) {
+          showAlert ("error", msg);
+      },
+      success: function(msg) {
+        showAlert ("success", "Updated successfully");
+        //findMultiValues();
+      }
+   });
+}
+
+function multiValueUpdateAll(){
+   document.multiValueUpdate.currentFieldId.value = "";
+   var validateDesc = "Y";
+   var multiValueList = [];
+   $("#multi-value-list tr .description").each(function() {
+      var value = $(this).val();
+      if( value == null || value == "" ) {
+         validateDesc = "N";
+      }
+   });
+   $("#multi-value-list tr .multiValueId").each(function() {
+      multiValueList.push(this.value);
+   });
+   if(multiValueList != null && multiValueList != "" ) {
+      if(validateDesc != null && validateDesc != "" && validateDesc == "Y" ) {
+         $("#currentFieldId").val(multiValueList.toString());
+         multiValueUpdate();
+      } else {
+         showAlert ("error", "Description should not be empty");
+      }
+   } else {
+      showAlert ("error", "No data available to update Multi Value");
+   }
+}
+
+function updateMultiValue(multiValueId) {
+   if(multiValueId != null && multiValueId != "" ) {
+      var multiValueList = [];
+      var desc = $("#description_"+multiValueId).val();
+      if(desc != null && desc != "" ) {
+         multiValueList.push(multiValueId);
+         $("#currentFieldId").val(multiValueList.toString());
+         multiValueUpdate();
+      } else {
+         showAlert ("error", "Description should not be empty");
+      }
+   }
+}
+</script>

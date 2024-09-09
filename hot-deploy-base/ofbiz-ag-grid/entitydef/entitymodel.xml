@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of ofbiz-ag-grid Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+
+	<entity entity-name="GridUserPreferences" package-name="org.ofbiz"
+         title="AG Grid UserPreferences">
+        <field name="instanceId" type="id-ne"/> 
+        <field name="userId" type="id-ne"/>
+        <field name="role" type="id-ne"/>
+        <field name="description" type="comment"/>
+        <field name="mode" type="comment"/>
+        <field name="name" type="comment"/>
+        <field name="appliedRequestUrl" type="comment"/>
+        <field name="appliedRequestVerb" type="comment"/>
+        <field name="appliedRequestBodyJSON" type="comment"/>
+        <field name="datacreate" type="comment"/>
+        <field name="dataupdate" type="comment"/>
+        <field name="dataremove" type="comment"/>
+        <field name="gridOptionsJsString" type="very-long"/>
+        <prim-key field="instanceId"/>
+        <prim-key field="userId"/>
+        <prim-key field="role"/>
+    </entity>
+    
+    <entity entity-name="AgGridAccess" package-name="org.ofbiz.ag.grid">
+    	<description>Ag Grid Access</description>
+    	<field name="instanceId" type="id-ne" />
+    	<field name="groupId" type="id-ne" />
+    	<field name="optionsJson" type="id-very-long" />
+    	<prim-key field="instanceId" />
+    	<prim-key field="groupId" />
+    </entity>
+    <entity entity-name="GridInstanceAttribute" package-name="org.ofbiz.ag.grid">
+    	<field name="instanceId" type="id-ne" />
+    	<field name="attrName" type="id-long" />
+    	<field name="attrValue" type="id-long" />
+    	<prim-key field="instanceId" />
+    	<prim-key field="attrName" />
+    	
+    </entity>
+   
+</entitymodel>

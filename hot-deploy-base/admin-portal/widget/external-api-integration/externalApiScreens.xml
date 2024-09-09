@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <!--
+    <screen name="main-decorator">
+        <section>
+            <actions>
+            	<property-map resource="reportsUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="layoutSettings.companyName" from-field="uiLabelMap.ApplicationTitle" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.ApplicationTitle" global="true"/>
+                <set field="applicationTitle" from-field="uiLabelMap.CompanyName" global="true"/>
+                <set field="activeApp" value="reports" global="true"/>
+            </actions>
+            <widgets>
+                <include-screen name="CommonDecorator" location="${parameters.mainDecoratorLocation}"/>
+            </widgets>
+        </section>
+    </screen> -->
+    <screen name="apiLogs">
+        <section>
+            <actions>
+                <set field="titleProperty" value="API Logs" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/includes/external-api-integration/ApiLogs.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/external-api-integration/ApiLogs/apiLogs.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="accessSetup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Access Setup" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/includes/external-api-integration/AccessSetup.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/external-api-integration/AccessSetup/accessSetup.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="CreateAccessSetup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateAccessSetup" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/external-api-integration/AccessSetup/create_access_setup.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewAccessSetup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewAccessSetup" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/includes/external-api-integration/ViewAccessSetup.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/external-api-integration/AccessSetup/view_access_setup.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="EditAccessSetup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="EditAccessSetup" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/includes/external-api-integration/EditAccessSetup.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/external-api-integration/AccessSetup/edit_access_setup.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

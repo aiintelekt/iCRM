@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+  <screen name="activityHome">
+        <section>
+        	 <actions>
+                <set field="titleProperty" value="ActivityHome" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/srActivityHome.groovy" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/activitiesHome.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="viewActivity">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/viewActivity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="activityTask">
+        <section>
+           <actions>
+             <set field="titleProperty" value="Activity Task" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/task.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+       <screen name="activityPhoneCall">
+        <section>
+         <actions>
+             <set field="titleProperty" value="Activity Phone Call" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/phoneCall.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+      <screen name="activityEmail">
+        <section>
+         <actions>
+             <set field="titleProperty" value="Activity Email" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/email.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+      <screen name="activityAppoinment">
+        <section>
+         <actions>
+             <set field="titleProperty" value="Activity Appoinment" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/appoinment.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+      <screen name="others">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/others.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="newProspect">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/newProspect.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addPhoneCall">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/phoneCall.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="addTask">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/task.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+      <screen name="addEmail">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/email.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+       <screen name="addAppointment">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/appoinment.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="addOthers">
+        <section>
+         <actions>
+             <set field="titleProperty" value="others" global="true"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/others.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+     <screen name="ActivityDetails">
+        <section>
+            <widgets>
+                <platform-specific>
+                            <html>
+                                <html-template
+                                    location="component://sales-portal/webapp/sales-portal/activities-home/ActivityDetails.ftl" />
+                            </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="administration1">
+        <section>
+            <widgets>
+                <platform-specific>
+                            <html>
+                               <html-template
+                               location="component://sales-portal/webapp/sales-portal/activities-home/activityadministration.ftl" />
+                           </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewCalendar">
+		<section>
+			<actions>
+                <set field="titleProperty" value="My Calendar" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://sales-portal/webapp/sales-portal/activities-home/viewCalendarDetails.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+        </screen>
+    
+  </screens>
+    
+
