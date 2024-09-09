@@ -1,45 +1,66 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+**Steps to Deploy the Docker container of ICRM on Ubuntu System**
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+**Note:**
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+Demo data must load first. For that, the MySQL5.7 version must be installed, and later, the database with the below Character set and collation must be imported. The SQL file freemiumdemodata.sql, which is available in the source code, must be imported.
+**Create the database in name:** crm_demo_data
+**Character set:** utf8
+**Collation:** utf8_general_ci
 
----
+Change the database connection in file entityengine.xml in localmysql connector.
 
-## Edit a file
+![image](https://github.com/user-attachments/assets/6fb246f4-f9cb-443c-830c-0b92f4bab17b)
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+**Step 1: Download ICRM software from github**
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+We recommend using git download latest iCRM software. first, make sure you have git client installed on system after that check out the latest build from the GitHub repository.
+# apt install git
+# git@github.com:aiintelekt/iCRM.git
 
----
+**Step 2: Install Docker on Ubuntu Linux**
 
-## Create a file
+Follow the below commands one by one and install the docker.
 
-Next, you’ll add a new file to this repository.
+# sudo apt-get update
+# sudo apt-get install \ ca-certificates \ curl \ gnupg \ lsb-release
+# sudo mkdir -p /etc/apt/keyrings
+# sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+# echo \ "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# sudo apt-get update
+# sudo apt-get install docker-ce docker-ce-cli containerd.io
+# sudo docker –version
+# systemctl start docker
+# systemctl enable docker
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+**Step 3: Create Docker images**
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+After completing the docker installation, use following command to create a docker image.
+**Note:**  Already repository is cloned as mentioned in step 1, have to switch to that path and execute the below commands.
+# cd /path/iCRM/
+# docker build -t iCRM .
 
----
 
-## Clone a repository
+**Step 4: Create the docker container.**
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+Once image is created as mentioned in step 3, now using that image have to create the container. Follow the below commands
+# docker run -d -p 80:8080 -p 443:8443 iCRM
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+**Step 5: Check the running container.**
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+Once the container is deployed, check whether container is running. Follow below commands.
+
+# docker ps
+CONTAINER ID   IMAGE                    COMMAND       CREATED      STATUS PORTS                                                                                      NAMES
+d5d2ff3a49ec   iCRM   "/bin/bash"   4 days ago   Up 1 minute   0.0.0.0:80->8080/tcp, [::]:80->8080/tcp, 0.0.0.0:443->8443/tcp, [::]:443->8443/tcp   iCRM
+
+**Step 6: Access the iCRM application in Browser**
+
+Once verified the container running, later Access iCRM site in browser below given url and login credentials which is mentioned in Readme file.
+
+URL:  http://serverIP/admin-portal/control/main
+
+![image](https://github.com/user-attachments/assets/dca74c65-93c0-4762-bae9-7f9c22e44d49)
+
+
+**Congratulation’s!** You have successfully deployed the iCRM software your Linux system.
+
