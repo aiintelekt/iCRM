@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+ 
+ 	<screen name="FindSqlGroup">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="FindSqlGroup" global="true"/>
+			  <set field="sectionName" value="admin-portal" global="true"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://admin-portal/webapp/admin-portal/sql-group/find/find_sql_group.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListSqlGroup"/>
+	              	</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ListSqlGroup">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://admin-portal/webapp/admin-portal/sql-group/find/list_sql_group.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="CreateSqlGroup">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="CreateSqlGroup" global="true"/>
+			  <set field="sectionName" value="admin-portal" global="true"/>
+			  <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/sql-group/CreateSqlGroup.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://admin-portal/webapp/admin-portal/sql-group/create/create_sql_group.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="UpdateSqlGroup">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="UpdateSqlGroup" global="true"/>
+			  <set field="sectionName" value="admin-portal" global="true"/>
+			  <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/sql-group/ViewSqlGroup.groovy"/>
+			</actions>
+			<widgets>
+			<section>
+			<condition>
+				<if-compare field="haveDataPermission" operator="equals" value="Y" type="String"/>
+			</condition>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://admin-portal/webapp/admin-portal/sql-group/update/update_sql_group.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+					<!-- <decorator-section name="bottom-content">
+						<include-screen name="UpdateRebateAdditional"/>
+	              	</decorator-section> -->
+				</decorator-screen>
+				</widgets>
+	        	<fail-widgets>
+					<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+						<decorator-section name="top-content">
+							<label style="h3">${uiLabelMap.permissionDenied}</label>
+						</decorator-section>
+					</decorator-screen>
+				</fail-widgets>
+	        </section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ViewSqlGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewSqlGroup" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/sql-group/ViewSqlGroup.groovy"/>
+                
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/sql-group/view/view_sql_group.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ViewSqlGroupDetail">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://admin-portal/webapp/admin-portal/sql-group/view/sql_group_detail.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+    
+	<screen name="ListItem">
+		<section>
+			<actions>
+				<script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/sql-group/item/FindItem.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://admin-portal/webapp/admin-portal/sql-group/item/find_item.ftl"/>
+						<html-template location="component://admin-portal/webapp/admin-portal/sql-group/item/list_item.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

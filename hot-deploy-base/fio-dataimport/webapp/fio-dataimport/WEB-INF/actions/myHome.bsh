@@ -1,0 +1,8 @@
+import org.ofbiz.base.util.*;
+import java.util.iterator;
+delegator = request.getAttribute("delegator");
+
+entList = delegator.findAll("DataImportLogError",false);
+
+context.put("entList",entList);
+/* end of Arshiya*/

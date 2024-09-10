@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of admin-portal Component</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+	
+	<entity entity-name="UserLoginAttribute" package-name="org.groupfio.ofbiz.app" title="User Login Attribute Entity">
+		<field name="userLoginId" type="id-ne"/>
+		<field name="attrName" type="id-ne"/>
+		<field name="attrValue" type="very-long"/>
+		<prim-key field="userLoginId"/>
+		<prim-key field="attrName"/>
+		<relation type="one" fk-name="OFBIZ_USR_ATTR_REF" title="UserLoginId" rel-entity-name="UserLogin">
+			<key-map field-name="userLoginId" rel-field-name="userLoginId"/>
+		</relation>
+	</entity>
+	<entity entity-name="SecurityGroupRoleTypeAssoc" package-name="org.groupfio.ofbiz.app" title="User Login Attribute Entity">
+		<field name="groupId" type="id-ne"/>
+		<field name="roleTypeId" type="id-ne"/>
+		<field name="isDisabled" type="indicator"/>
+		<field name="lastModifiedUserLoginId" type="id-ne"/>
+		<prim-key field="groupId"/>
+		<prim-key field="roleTypeId"/>
+		<relation type="one" fk-name="OFBIZ_SGP_RP_ASSOC" title="LastModifiedUserLogin" rel-entity-name="UserLogin">
+			<key-map field-name="lastModifiedUserLoginId" rel-field-name="userLoginId"/>
+		</relation>
+		<relation type="one" fk-name="OFBIZ_SGP_ID" title="SecurityGroup" rel-entity-name="SecurityGroup">
+			<key-map field-name="groupId" rel-field-name="groupId"/>
+		</relation>
+		<relation type="one" fk-name="OFBIZ_RP_ID" title="RoleTypeId" rel-entity-name="RoleType">
+			<key-map field-name="roleTypeId" rel-field-name="roleTypeId"/>
+		</relation>
+	</entity>
+
+	<extend-entity entity-name="BillingAccount">
+		<field name="billingAccountTypeId" type="id" />
+		<field name="billingAccountStatusId" type="id" />
+        <field name="lastModifiedByUserLoginId" type="id" />
+		<field name="accountCreditLimit" type="currency-amount" />
+		<field name="accountBalanceAmount" type="currency-amount" />
+		<field name="earmarkAmount" type="currency-amount" />
+		<field name="name" type="description" />
+		<field name="freezeTypeId" type="id-long" />
+		<field name="operationTypeId" type="id-long" />
+        <relation type="one" fk-name="BA_SI" rel-entity-name="StatusItem">
+            <key-map field-name="billingAccountStatusId" rel-field-name="statusId"/>
+        </relation>
+        <relation type="one" fk-name="BA_UL" rel-entity-name="UserLogin">
+            <key-map field-name="lastModifiedByUserLoginId" rel-field-name="userLoginId"/>
+        </relation>
+	</extend-entity>
+	
+	<extend-entity entity-name="BillingAccountRole">
+		<field name="parentBillingAccountId" type="id" />
+		<field name="parentPartyId" type="id" />
+	</extend-entity>
+
+	<extend-entity entity-name="Party">
+		<field name="roleTypeId" type="id" />
+		<field name="ownerId" type="id" />
+		<field name="ownerBu" type="name" />
+		<field name="emplTeamId" type="id" />
+		<relation type="one" fk-name="emplteam21" rel-entity-name="EmplTeam">
+			<key-map field-name="emplTeamId" />
+		</relation>
+		<relation type="one" fk-name="ownerbu6" rel-entity-name="ProductStoreGroup">
+			<key-map field-name="ownerBu" rel-field-name="productStoreGroupId" />
+		</relation>
+		<relation type="one" fk-name="ownerid12" rel-entity-name="UserLogin">
+			<key-map field-name="ownerId" rel-field-name="userLoginId" />
+		</relation>
+		<index name="PTY_ROLE_INX">
+			<index-field name="roleTypeId" />
+			<index-field name="statusId" />
+		</index>
+	</extend-entity>
+	
+	<extend-entity entity-name="Payment">
+		<field name="transactionTypeId" type="id" />
+		<field name="operationTypeId" type="id" />
+		<field name="externalTxnId" type="id-long" />
+		
+		<field name="walletAcctIdFrom" type="description" />
+		<field name="walletAcctIdTo" type="description" />
+		<field name="availableBalance" type="currency-amount" />
+	</extend-entity>
+	
+	<entity entity-name="PartyRate" package-name="org.ofbiz.accounting.rate"
+	    title="Party Rate Entity" table-name="PARTY_RATE">
+	    <field name="partyId" type="id-ne"/>
+	    <field name="rateTypeId" type="id-ne"/>
+	    <field name="currencyUomId" type="id"/>	
+	    <field name="defaultRate" type="indicator"/>
+	    <field name="percentageUsed" type="floating-point"><description>The percentage of the actual hours registered in timeEntries, used for the task and invoice actuals, if the field is null 100% will be used</description></field>
+	    <field name="fromDate" type="date-time"/>
+	    <field name="thruDate" type="date-time"/>
+	    <field name="rate" type="currency-amount"/>
+	    <prim-key field="partyId"/>
+	    <prim-key field="rateTypeId"/>
+	    <prim-key field="currencyUomId"/>
+	    <prim-key field="fromDate"/>
+	    <relation type="one" fk-name="PRTY_RATE_PRTY" rel-entity-name="Party">
+	      <key-map field-name="partyId"/>
+	    </relation>
+	    <relation type="one" fk-name="PRTY_RATE_RTTP" rel-entity-name="RateType">
+	      <key-map field-name="rateTypeId"/>
+	    </relation>
+	    <relation type="one" fk-name="OPARTY_RATE_CUOM" rel-entity-name="Uom">
+          <key-map field-name="currencyUomId" rel-field-name="uomId"/>
+        </relation>
+	</entity>
+	
+	<entity entity-name="PretailLoyaltyGlobalParameters"
+		package-name="" title="Pretail Loyalty Global Parameters">
+		<field name="parameterId" type="id-vlong-ne" />
+		<field name="description" type="short-varchar" />
+		<field name="value" type="long-text" />
+		<field name="storeId" type="id-ne" />
+		<field name="createdBy" type="id" />
+		<field name="comments" type="very-long" />
+		<prim-key field="parameterId" />
+	</entity>
+	<extend-entity entity-name="PretailLoyaltyGlobalParameters">
+        <field name="isActive" type="indicator" />
+    </extend-entity>
+    <extend-entity entity-name="PretailLoyaltyGlobalParameters">
+		<field name="paramTypeId" type="id" />
+	</extend-entity>
+   
+</entitymodel>

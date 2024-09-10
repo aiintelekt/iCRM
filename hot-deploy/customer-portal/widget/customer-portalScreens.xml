@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="createCustomer">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="CreateCustomer" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			  <property-map resource="customer-portalUiLabels" map-name="uiLabelMap" global="true" />
+			  <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/createCustomer.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://customer-portal/webapp/customer-portal/customer/create_customer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewCustomer">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="ViewCustomer" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			  <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/viewCustomer.groovy"/>
+			  <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/common/CommonBadgeData.groovy"/>
+			  <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/InitParam.groovy" />
+			  <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/campaign/BirthdayRemainder.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://customer-portal/webapp/customer-portal/customer/view_customer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewCustomerProfile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://customer-portal/webapp/customer-portal/customer/customer_profile.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="updateCustomer">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="UpdateCustomer" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			  <property-map resource="customer-portalUiLabels" map-name="uiLabelMap" global="true" />
+			  <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/viewCustomer.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://customer-portal/webapp/customer-portal/customer/update_customer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="updateCustomerSingle">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="UpdateCustomer" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			  <property-map resource="customer-portalUiLabels" map-name="uiLabelMap" global="true" />
+			  <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/viewCustomer.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://customer-portal/webapp/customer-portal/customer/update_customer_single.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="singlePageEdit">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="UpdateCustomer" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			  <!-- <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/viewCustomer.groovy"/> -->
+			</actions>
+			<widgets>
+				<platform-specific>
+						<html>
+							<html-template location="component://customer-portal/webapp/customer-portal/customer/edit_customer.ftl"/>
+						</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="noteDataDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Notes" global="true"/>
+                <set field="sectionName" value="customer-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/note/note_Data_Details.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="customerPersona">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://customer-portal/webapp/customer-portal/customer/persona_tab.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewCallListCustomer">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="ViewCustomer" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			  <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/callListCustomer/viewCustomer.groovy"/>
+			  <!---<script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/viewCustomer.groovy"/>-->
+			  <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/campaign/BirthdayRemainder.groovy"/>
+			  <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/common/CommonBadgeData.groovy"/>
+			  <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/InitParam.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://customer-portal/webapp/customer-portal/call-list-customer/view_customer.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewCallListCustomerProfile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://customer-portal/webapp/customer-portal/call-list-customer/view_call_list_customer_profile.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewCallListPhoneLogs">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://customer-portal/webapp/customer-portal/call-list-customer/list_phone_logs.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	 <screen name="callHistory">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="CallStatusHistory" global="true"/>
+			  <set field="sectionName" value="customer-portal" global="true"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+						<html>
+							<html-template location="component://customer-portal/webapp/customer-portal/call-list-customer/call_history.ftl"/>
+						</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="personResposibleForReport">
+	<section>
+		<actions>
+			<set field="titleProperty" value="Person Responsible" global="true" />
+			<set field="sectionName" value="customer-portal" global="true" />
+		</actions>
+		<widgets>
+			<decorator-screen name="main-decorator"
+				location="${parameters.mainDecoratorLocation}">
+				<decorator-section name="top-content">
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://customer-portal/webapp/customer-portal/customer/person_responsible_for_report.ftl" />
+						</html>
+					</platform-specific>
+				</decorator-section>
+			</decorator-screen>
+		</widgets>
+	</section>
+	</screen>
+	<screen name="accountManagerReport">
+		<section>
+			<actions>
+				<set field="titleProperty" value="Account Manager Counts Report"
+					global="true" />
+				<set field="sectionName" value="customer-portal" global="true" />
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://customer-portal/webapp/customer-portal/customer/account_manager_report.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="dailySummary">
+		<section>
+			<actions>
+				<set field="titleProperty" value="Phone Call Report - Daily Summary" global="true" />
+				<set field="sectionName" value="customer-portal" global="true" />
+				<script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/DailySummary.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://customer-portal/webapp/customer-portal/customer/daily_summary.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="findContactRatesReport">
+		<section>
+			<actions>
+				<set field="titleProperty" value="Phone Call Report - Find Contact Rates" global="true"/>
+				<set field="sectionName" value="customer-portal" global="true"/>
+				<property-map resource="customer-portalUiLabels" map-name="uiLabelMap" global="true"/>
+				<script location="component://campaign/webapp/campaign/WEB-INF/actions/phone/outBoundCallList.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://customer-portal/webapp/customer-portal/customer/find_contact_rates_report.ftl"/></html></platform-specific> 
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="listContactRatesReport"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="listContactRatesReport">
+		<section>
+			<widgets>
+				<platform-specific><html><html-template location="component://customer-portal/webapp/customer-portal/customer/list_contact_rates_report.ftl"/></html></platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="DetailsByDay">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Phone Call Report - Details By Day" global="true"/>
+                <set field="sectionName" value="customer-portal" global="true"/>
+                <property-map resource="customer-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://customer-portal/webapp/customer-portal/WEB-INF/actions/customer/DetailsByDay.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://customer-portal/webapp/customer-portal/customer/find_details_by_day.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="DetailsByDayList"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="DetailsByDayList">
+        <section>
+        	<actions>
+				
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://customer-portal/webapp/customer-portal/customer/details_by_day_list.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

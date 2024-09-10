@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+    <screen name="BatchDataStatus">
+        <section>
+            <actions>
+                <set field="titleProperty" value="batchDataStatus"/>
+                <set field="sectionName" value="ofbizDataStatus" global="true"/>
+                <set field="applicationMenuName" value="ReportBar" global="true"/>
+                <property-map resource="homeappsUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/report/FindBatchDataStatus.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://common-portal/webapp/common-portal/report/find_batch_data_status.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListOfbizDataStatus"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListOfbizDataStatus">
+        <section>
+        	<actions>
+				<!-- <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/report/ListFileImportStatus.groovy"/> -->
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://common-portal/webapp/common-portal/report/list_batch_data_status.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+	
+</screens>

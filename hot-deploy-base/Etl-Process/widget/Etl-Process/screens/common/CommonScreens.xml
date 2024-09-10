@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <!-- <screen name="main-application-decorator">
+        <section>
+            <actions>
+                <property-map resource="CMIntegrationUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OpentapsUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map global="true" resource="Etl-Process" map-name="configProperties"/>
+                <set field="opentapsApplicationName" value="Etl-Process" global="true"/>
+                <script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/main-decorator.bsh"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="component://opentaps-common/widget/screens/common/CommonScreens.xml">
+                    <decorator-section name="application-layout">
+                        <decorator-section-include name="section-layout"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen> -->
+    
+    <screen name="main-section-decorator">
+		<section>
+			<widgets>
+				<decorator-screen name="PortalCommonDecorator" location="component://Etl-Process/widget/Etl-Process/screens/common/CommonScreens.xml">
+					<decorator-section name="top-content">
+						<decorator-section-include name="section-body"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="LoadLayoutFile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LoadLayoutFile1">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LoadLayoutFile2">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LoadLayoutFile3">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LoadLayoutFile4">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="LoadLoginLayoutFile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalLoginLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="ProtalMainLayout">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile">
+					
+					
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/headerMain.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+										
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ProtalMainLayout1">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile1">
+					
+					
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/applyEtlMain.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+										
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ProtalMainLayout2">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile2">
+					
+					
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/executeEtlMain.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+										
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ProtalMainLayout3">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile3">
+					
+					
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/etlProcessConfig.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+										
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ProtalMainLayout4">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile4">
+					
+					
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/etlExecuteModel.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+										
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalBaseSetup">
+		<section>
+			<actions>
+				
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+                <set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalMainLayout">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalBaseSetup1">
+		<section>
+			<actions>
+				
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+                <set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalMainLayout1">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalBaseSetup2">
+		<section>
+			<actions>
+				
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+                <set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalMainLayout2">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalBaseSetup3">
+		<section>
+			<actions>
+				
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+                <set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalMainLayout3">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalBaseSetup4">
+		<section>
+			<actions>
+				
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+                <set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalMainLayout4">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalCommonDecorator">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="PortalBaseSetup">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalCommonDecorator1">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="PortalBaseSetup1">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalCommonDecorator2">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="PortalBaseSetup2">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalCommonDecorator3">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="PortalBaseSetup3">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="PortalCommonDecorator4">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="PortalBaseSetup4">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="ProtalLoginLayout">
+		<section>
+			<actions>
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+                <set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl"/>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLoginLayoutFile">
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/headerLoginMain.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-header-content">
+						<platform-specific>
+							<html>
+								<html-template location="${headerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					
+					<decorator-section name="footer-center-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://Etl-Process/webapp/Etl-Process/shared/footerLoginCenter.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-footer-content">
+						<platform-specific>
+							<html>
+								<html-template location="${footerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="PortalLoginDecorator">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalLoginLayout">
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="messages">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://Etl-Process/webapp/Etl-Process/common/messages.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="login">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleLogin" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="component://fio-dataimport/widget/CommonScreens.xml">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/login.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   <!--  <screen name="login">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleLogin"/>
+                <set field="headerItem" value="login"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="PortalLoginDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/login.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                    <decorator-section name="bottom-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/forgot-password.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen> -->
+    
+    <screen name="lock">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Locked"/>
+                <set field="headerItem" value="lock"/>
+                <script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/common/Lock.groovy" />
+            </actions>
+            <widgets>
+                <decorator-screen name="PortalLoginDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/lock.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <!-- added by m.vijayakumar for act as common decoration -->
+     <screen name="main-decorator">
+        <section>
+            <actions>
+				
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+             <entity-one value-field="layoutConfig" entity-name="ThemeConfiguration">
+                    <field-map field-name="applicationId" value="OMS"/>
+                </entity-one>
+                <set field="visualThemeId" from-field="layoutConfig.visualThemeId" default-value="OMSMAIN"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_ETL_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+            <widgets>
+                            <platform-specific>
+                   <html>
+                     <html-template location="${headerTemplateLocation}"/>
+                   </html>
+                </platform-specific>
+            	<!-- Header Section -->
+                <platform-specific>
+                   <html>
+             	   <!-- <html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl"/> -->
+                 <!--	<html-template location="component://Etl-Process/webapp/Etl-Process/includes/commonHeader.ftl"/>  -->
+                   </html>
+                </platform-specific>
+               	<decorator-section-include name="body"/>
+               	<!-- Footer Section -->
+              <!--   <platform-specific>
+                   <html>
+                     <html-template location="${footerTemplateLocation}"/>
+                   </html>
+                </platform-specific> -->
+            </widgets>
+        </section>
+    </screen>
+    <!-- end @vijayakumar -->
+    <screen name="Common-left-Decorator">
+        <section>
+            <actions>
+				
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+				 <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OpentapsUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                
+				<property-map resource="FioDashboardUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="DMIntegrationUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="opentaps" map-name="configProperties" global="true" />
+                
+                <!-- The default (global) shortcut icon -->
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<!-- <set field="layoutSettings.javaScripts[+0]" value="/images/prototypejs/prototype.js" global="true"/> -->
+				
+				<!-- <set field="layoutSettings.javaScripts[]" value="/images/googleanalytics.js" global="true"/> -->
+
+                <!-- Get the store VisualTheme -->
+                <!-- <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/> -->
+             <entity-one value-field="layoutConfig" entity-name="ThemeConfiguration">
+                    <field-map field-name="applicationId" value="OMS"/>
+                </entity-one>
+                <set field="visualThemeId" from-field="layoutConfig.visualThemeId" default-value="OMSMAIN"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_ETL_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+            <widgets>
+                <platform-specific>
+                   <html>
+                     <html-template location="${headerTemplateLocation}"/>
+                   </html>
+                </platform-specific>
+            	<platform-specific>
+            	<html>
+            		<!-- <html-template location="component://Etl-Process/webapp/Etl-Process/global/ProtalMainLayout.ftl"/> -->
+            		<html-template location="component://Etl-Process/webapp/Etl-Process/includes/CommoDecoration.ftl"/>
+            	</html>
+            	</platform-specific>
+                	
+            </widgets>
+        </section>
+    </screen>  
+    
+</screens>

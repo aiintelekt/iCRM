@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>common-portal Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="common.createPartyPostalAddress" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="createPartyPostalAddress" auth="true">
+        <description>Helper service to create the general correspondence postal address for a party.
+        The userLogin must have CRMSFA_ACCOUNT_CREATE permission on this party.</description>
+        <!-- address fields -->
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="PostalAddress" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="paymentMethodId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="OUT" optional="true"/>
+        <attribute name="solicitChangeDt_date" type="String" mode="IN" optional="true"/>
+        <attribute name="solicitChangeDt_time" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="common.createPartyTNExtForDndValidation" engine="java" invoke="createPartyTNExtForDndValidation" location="org.groupfio.common.portal.service.PartyContactServices" auth="true">
+        <description>Create a Telecommunications Number</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="CREATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="OUT" optional="false"/>
+    </service>
+    
+    <service name="common.updatePartyTNExtForDndValidation" engine="java" invoke="updatePartyTNExtForDndValidation" location="org.groupfio.common.portal.service.PartyContactServices" auth="true">
+        <description>Update a Telecommunications Number</description>
+        <permission-service service-name="partyContactMechPermissionCheck" main-action="UPDATE"/>
+        <auto-attributes entity-name="PartyContactMech" include="all" mode="IN" optional="true"/>
+        <auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="INOUT" optional="false"/>
+     </service>
+     
+     <service name="common.updatePostalAddressData" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updatePostalAddressData">
+        <attribute name="contactMechId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="county" type="String" mode="IN" optional="true"/>
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCodeExt" type="String" mode="IN" optional="true"/>
+        <attribute name="allowSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="addressValidInd" type="String" mode="IN" optional="true"/>
+        <attribute name="isBusiness" type="String" mode="IN" optional="true"/>
+        <attribute name="isVacant" type="String" mode="IN" optional="true"/>
+        <attribute name="isUspsAddrVerified" type="String" mode="IN" optional="true"/>
+        <!-- added for editing toname and attnname party details with purposes -->
+		<attribute name="toName" mode="IN" type="String" optional="true" />
+		<attribute name="attnName" mode="IN" type="String" optional="true" />
+		
+		<attribute name="ip" mode="IN" type="String" optional="true" />
+		<attribute name="device" mode="IN" type="String" optional="true" />
+		<attribute name="solicitChangeDt" type="Timestamp" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="common.getContactAndPartyAssoc" engine="java" location="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="getContactAndPartyAssoc" transaction-timeout="120">
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="partyRoleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="partyContactAssoc" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="common.getContactAndPartyAssocUL" engine="java" location="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="getContactAndPartyAssocUL" transaction-timeout="120">
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="partyRoleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="partyContactAssoc" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="common.getContactAndAccountAssoc" engine="java" location="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="getContactAndAccountAssoc" transaction-timeout="120">
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="accountContactAssoc" type="List" mode="OUT" optional="true"/>
+    </service> 
+    <service name="common.getContactAndLeadAssoc" engine="java" location="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="getContactAndLeadAssoc" transaction-timeout="120">
+        <attribute name="partyIdFrom" type="String" mode="IN" optional="true"/>
+        <attribute name="partyIdTo" type="String" mode="IN" optional="true"/>
+        <attribute name="leadContactAssoc" type="List" mode="OUT" optional="true"/>
+    </service>
+    <service name="common.performContactAndPartyAssoc" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+    	location="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="performContactAndPartyAssoc">
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="assocPartyId" type="String" mode="IN" optional="false"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="common.assignContactToOpportunity" engine="java" location="org.groupfio.common.portal.service.OpportunityContactServices" invoke="assignContactToOpportunity">
+        <description>Assigns a Contact (partyId) to an Opportunity</description>
+        
+        <attribute name="contactPartyId" type="String" mode="IN" optional="false"/>
+        
+        <attribute name="salesOpportunityId" type="String" mode="INOUT" optional="false"/>
+    </service>
+    <service name="common.getOppoOwnerList" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.common.portal.service.OpportunityFieldServices" invoke="getOppoOwnerList">
+       	<description> Oppo Owner Dynamic data Service </description>
+       	
+       	<attribute name="filterData" type="Map" mode="IN" optional="true"/>
+       	
+       	<attribute name="filterResult" type="Map" mode="OUT" optional="false"/>
+				       	
+    </service>
+    
+    <service name="common.syncRelatedPartyAssoc" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.common.portal.service.PartyContactServices" invoke="syncRelatedPartyAssoc">
+       	<description> Sync Related Party Assoc Service </description>
+       	<attribute name="partyId" type="String" mode="INOUT" optional="false"/>
+       	<attribute name="partyRoleTypeId" type="String" mode="IN" optional="true"/>
+       	<attribute name="partyIdFrom" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="common.syncDefaultParty" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.common.portal.service.PartyContactServices" invoke="syncDefaultParty">
+       	<description> Sync Default Party Service </description>
+       	<attribute name="partyId" type="String" mode="INOUT" optional="false"/>
+       	<attribute name="partyRoleTypeId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="common.mergeParty" engine="java" location="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="mergePartyAndAssoc">
+        <attribute name="fromPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="toPartyId" type="String" mode="INOUT" optional="true"/>
+        <attribute name="partyRoleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="partyId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="common.getTemplatesData" engine="java" location="org.groupfio.common.portal.service.TemplateServices" invoke="getTemplatesData" auth="true">
+		<description>Get Templates Data</description>
+		<attribute name="templateType" mode="IN" type="String" optional="true" />
+		<attribute name="tempalateName" mode="IN" type="String" optional="true" />
+		<attribute name="searchKeyword" mode="IN" type="String" optional="true" />
+		<attribute name="templateCategories" mode="IN" type="String" optional="true" />
+		<attribute name="emailEngine" mode="IN" type="String" optional="true" />
+		<attribute name="marketingCampaignId" mode="IN" type="String" optional="true" />
+		
+		<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="resultMap" type="Map" mode="OUT" optional="false"/>
+	</service>
+	<service name="common.getFileContentData" engine="java" location="org.groupfio.common.portal.service.FileServices" invoke="getFileContentData" auth="true">
+		<description>Get File Content Data</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="resultMap" type="Map" mode="OUT" optional="false"/>
+	</service>
+	<service name="common.uploadFile" engine="java" location="org.groupfio.common.portal.service.FileServices" invoke="uploadFile" auth="true">
+		<description>Upload multiple files</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="resultMap" type="Map" mode="OUT" optional="false"/>
+	</service>
+	<!-- added for updating party details with purposes -->
+    <service name="common.updatePostalAddressWithPurpose" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updatePostalAddressWithPurpose">
+       <implements service="common.updatePostalAddressData"/>
+       <attribute name="contactMechPurposeTypeId_APA" mode="IN" type="String" optional="true" />
+		<attribute name="deleteCMPurposeTypeIds_DPA" mode="IN" type="String" optional="true" />
+		<attribute name="solicitChangeDt_date" type="String" mode="IN" optional="true"/>
+        <attribute name="solicitChangeDt_time" type="String" mode="IN" optional="true"/>
+        
+    </service>
+    <service name="common.updateTelecomNumberWithPurpose" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updateTelecomNumberWithPurpose">
+       <implements service="common.updatePartyTNExtForDndValidation"/>
+       <attribute name="contactMechPurposeTypeId_APA" mode="IN" type="String" optional="true" />
+		<attribute name="deleteCMPurposeTypeIds_DPA" mode="IN" type="String" optional="true" />
+    </service>
+    <service name="common.updateEmailWithPurpose" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updateEmailWithPurpose">
+       <implements service="updatePartyEmailAddress"/>
+       <attribute name="contactMechPurposeTypeId_APA" mode="IN" type="String" optional="true" />
+		<attribute name="deleteCMPurposeTypeIds_DPA" mode="IN" type="String" optional="true" />
+    </service>
+     <service name="common.updateContactMechWithPurpose" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updateWebContactMechWithPurpose">
+       <implements service="updatePartyContactMech"/>
+       <attribute name="contactMechPurposeTypeId_APA" mode="IN" type="String" optional="true" />
+		<attribute name="deleteCMPurposeTypeIds_DPA" mode="IN" type="String" optional="true" />
+    </service>
+     <service name="common.updateSocialMediaTypeWebmWithPurpose" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updateSocialMediaTypeWebmWithPurpose">
+       <implements service="updatePartySocialMediaType"/>
+       <attribute name="contactMechPurposeTypeId_APA" mode="IN" type="String" optional="true" />
+		<attribute name="deleteCMPurposeTypeIds_DPA" mode="IN" type="String" optional="true" />
+    </service>
+    <service name="common.updateContactMechIdWithPurpose" engine="java" location="org.groupfio.common.portal.service.PartyContactServices" invoke="updateContactMechIdWithPurpose">
+       <attribute name="contactMechId" mode="INOUT" type="String" optional="true" />
+	   <attribute name="deleteCMPurposeTypeIds" mode="IN" type="String" optional="true" />
+	   <attribute name="contactMechPurposeTypeId" mode="IN" type="String" optional="true" />
+	   <attribute name="partyId" mode="IN" type="String" optional="true" />
+	   <attribute name="fromDate" type="Timestamp" mode="IN" optional="false"/>
+    </service>
+     <!-- ended -->
+	<service name="common.findServiceRequest" engine="java" location="org.groupfio.common.portal.service.ServiceRequestServices" invoke="findServiceRequest">
+		<attribute name="requestContext" mode="IN" type="Map" optional="true"/>
+		<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+		<attribute name="srList" type="List" mode="OUT" optional="true"/>
+		<attribute name="viewIndex" type="Integer" mode="OUT" optional="true"/>
+		<attribute name="highIndex" type="Integer" mode="OUT" optional="true"/>
+		<attribute name="lowIndex" type="Integer" mode="OUT" optional="true"/>
+		<attribute name="viewSize" type="Integer" mode="OUT" optional="true"/>
+		<attribute name="resultListSize" type="Integer" mode="OUT" optional="true"/>
+		<attribute name="typeAndCategory" type="String" mode="OUT" optional="true"/>
+	</service>
+
+    <service name="common.triggerSrStatusEmail" engine="java" location="org.groupfio.common.portal.service.ServiceRequestServices" invoke="triggerSrStatusEmail">
+       	<attribute name="requestContext" mode="IN" type="Map" optional="true" />
+       	<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="common.imageFileValidation" engine="java" location="org.groupfio.common.portal.service.FileServices" invoke="imageFileValidation">
+    	<attribute name="filePath" mode="IN" type="String" optional="false"/>
+    </service>
+    
+    <service name="common.imageResize" engine="java" location="org.groupfio.common.portal.service.FileServices" invoke="imageResize" max-retry="1">
+    	<attribute name="filePath" mode="IN" type="String" optional="false"/>
+    </service>
+	    
+	<service name="common.addChildAccount" engine="java" use-transaction="true" auth="true" transaction-timeout="36000"
+             location="org.groupfio.common.portal.service.AccountServices" invoke="addChildAccount">
+       	<description> Add child account</description>
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+       	     	
+    </service>
+    
+    <service name="common.triggerSrSMSReceivedEmail" engine="java" location="org.groupfio.common.portal.service.ServiceRequestServices" invoke="triggerSrSMSReceivedEmail">
+       	<attribute name="custRequestId" mode="IN" type="String" optional="false" />
+       	<attribute name="fromEmailId" mode="IN" type="String" optional="true" />
+       	<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+    </service>
+</services>

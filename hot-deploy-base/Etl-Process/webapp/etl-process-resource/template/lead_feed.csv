@@ -1,0 +1,2 @@
+leadId,companyName,source,industry,ownershipEnumId,noOfEmployees,annualRevenue,currencyUomId,personResponsible,description,emailAddress,primaryPhoneNumber,groupNameLocal,webAddress,address1,address2,postalCode,postalCodeExt,timeZoneId,city,stateProvinceGeoId,countryGeoId,facebookContact,googleContact,instagramContact,linkedInContact,twitterContact,youtubeContact
+50020,Test 005,Web Site,IND_GEN_SERVICES,OWN_CCORP_N,5000,55000,USD,20002984,Test,test005@gmail.com,1817632263,test 005,google.com,Len#12,House#9,1216,,1033,New York,NY,USA,,,,,,

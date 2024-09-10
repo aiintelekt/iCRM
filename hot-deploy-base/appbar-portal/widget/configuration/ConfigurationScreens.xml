@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    
+    <screen name="FindAppBar">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindAppBar" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar/FindAppBar.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar/listAppBar.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="CreateAppBar">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateAppBar" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar/CreateAppBar.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar/createAppBar.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewAppBar">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewAppBar" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar/ViewAppBar.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar/viewAppBar.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateAppBar">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateAppBar" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar/ViewAppBar.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar/updateAppBar.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="CreateUserPreference">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateUserPreference" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/configuration/CreateUserPreference.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/configuration/createUserPreference.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="CreateAppBarElement">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateAppBarElement" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar-element/CreateAppBarElement.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar-element/createAppBarElement.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewAppBarElement">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewAppBarElement" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar-element/ViewAppBarElement.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar-element/viewAppBarElement.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateAppBarElement">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateAppBarElement" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar-element/ViewAppBarElement.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar-element/updateAppBarElement.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="PreviewAppBar">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PreviewAppBar" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <script location="component://appbar-portal/webapp/appbar-portal/WEB-INF/actions/appbar/PreviewAppBar.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                        <html>
+							<html-template location="component://appbar-portal/webapp/appbar-portal/appbar/previewAppBar.ftl"/>
+                        </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    
+    <screen name="SampleAppBar">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Configuration" global="true"/>
+                <set field="sectionName" value="appbar-portal" global="true"/>
+                <property-map resource="AppbarPortalUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                           	<html>
+                            	<html-template location="component://appbar-portal/webapp/appbar-portal/dash-board/dashBoardBar.ftl"/>
+                        	</html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+</screens>

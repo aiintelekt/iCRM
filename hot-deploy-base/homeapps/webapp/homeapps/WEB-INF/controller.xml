@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+
+    <description>homeapps Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <preprocessor>
+		<!-- Events to run on every request before security (chains exempt) -->
+		<!-- <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="checkExternalLoginKey"/> -->
+	</preprocessor>
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+
+    <postprocessor>
+        <!-- Events to run on every request after all other processing (chains exempt) -->
+    </postprocessor>
+
+    <!-- Request Mappings -->
+    <request-map uri="main">
+    	<security https="false" auth="false"/>
+        <response name="success" type="request" value="checkLogin"/>
+    </request-map>
+    
+   <request-map uri="forgotPasswordEmail">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.ofbiz.securityext.login.LoginEvents" invoke="forgotPassword"/>
+        <response name="success" type="view" value="login"/>
+        <response name="error" type="view" value="forgotPassword_step1"/>
+    </request-map>
+    
+    <!-- end of request mappings -->
+
+    <!-- View Mappings -->
+    <view-map name="requirePasswordChange" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#requirePasswordChange"/>
+    <view-map name="error" page="/error/error.jsp"/>
+    <view-map name="main" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#main"/>
+	<view-map name="login" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#login"/>
+	<view-map name="forgotPassword" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#forgotPassword"/>
+	<view-map name="forgotPassword_step1" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#forgotPassword_step1"/>
+    <view-map name="forgotPassword_step2" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#forgotPassword_step2"/>
+    
+</site-conf>

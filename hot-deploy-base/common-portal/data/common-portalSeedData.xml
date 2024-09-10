@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<Enumeration enumId="ARTWORK" enumTypeId="CONTENT_CLASS" enumCode="2" sequenceId="02" description="Artwork" />
+ 	<Enumeration enumId="SCHEMATICS" enumTypeId="CONTENT_CLASS" enumCode="1" sequenceId="01" description="Schematics" />
+ 	<Enumeration enumId="CONTRACT" enumTypeId="CONTENT_CLASS" enumCode="3" sequenceId="03" description="Contract" />
+	
+	<Enumeration enumId="GB_PRM" enumTypeId="GLOBAL_PARAMS" enumCode="GB_PRM" sequenceId="" description="Global" />
+	<Enumeration enumId="EMAIL_TMPL" enumTypeId="GLOBAL_PARAMS" enumCode="EMAIL_TMPL" sequenceId="" description="Email Template" />
+		
+	<PretailLoyaltyGlobalParameters description="Each File Attachment Size" parameterId="ATTACHMENT_SIZE" storeId="GB_PRM" value="10"/>
+	<PretailLoyaltyGlobalParameters description="Email Attachment Max" parameterId="EMAIL_ATTACHMENT_MAX_SIZE" storeId="GB_PRM" value="20"/>
+	
+	<PretailLoyaltyGlobalParameters description="Upload file location" parameterId="UPLOAD_LOC" storeId="GB_PRM" value="H:\\upload"/>
+	<PretailLoyaltyGlobalParameters description="Default Number Format" parameterId="NUM_FORMAT" storeId="GB_PRM" value="###,###.##"/>
+	
+	<PretailLoyaltyGlobalParameters description="Dashboard Activity Status" parameterId="DASHBOARD_ACTIVITY_STATUS" storeId="10010" value="IA_MSCHEDULED,IA_MIN_PROGRESS,IA_OPEN"/>
+	<PretailLoyaltyGlobalParameters description="Resource Availability roles" parameterId="RES_AVAIL_ROLES" storeId="GB_PRM" value="ACT_OWNER"/>
+	<PretailLoyaltyGlobalParameters description="Resource Availability roles" parameterId="PHONE_NUMBER_FORMAT" storeId="GB_PRM" value="(\d{3})(\d{3})(\d+)|($1)-$2-$3"/>
+	<PretailLoyaltyGlobalParameters description="Max threshold activity end (days)" parameterId="MAX_THRS_ACT_END" storeId="GB_PRM" value="2"/>
+	
+	<PretailLoyaltyGlobalParameters description="Activity early complete email template ID" parameterId="ACT_ERL_CMPL_TPL" storeId="EMAIL_TMPL" value="ACT_EMAIL_1000"/>
+	<PretailLoyaltyGlobalParameters description="Activity lately complete email template ID" parameterId="ACT_LTE_CMPL_TPL" storeId="EMAIL_TMPL" value="ACT_EMAIL_1001"/>
+	<PretailLoyaltyGlobalParameters description="Activity complete email template ID" parameterId="ACT_CMPL_TPL" storeId="EMAIL_TMPL" value="ACT_EMAIL_1002"/>
+	
+</entity-engine-xml>

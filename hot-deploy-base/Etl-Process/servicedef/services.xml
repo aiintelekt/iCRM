@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Etl-Process Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <!-- by Sharif [start] -->
+    
+    <service name="etl.createStaging" engine="interface">
+		<description>Create Staging Interface</description>
+		
+		<attribute name="fileName" type="String" mode="IN" optional="true"/>
+		
+		<attribute name="code" type="Integer" mode="OUT" optional="true"/>
+		<attribute name="message" type="String" mode="OUT" optional="true"/>
+	</service>
+    
+    <service name="createEtlStagingCustomer" engine="java" default-entity-name="DataImportCustomer"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingCustomer" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+        <override name="discount" mode="IN" type="String" optional="true"/>
+        <override name="outstandingBalance" mode="IN" type="String" optional="true"/>
+        <override name="creditLimit" mode="IN" type="String" optional="true"/>
+        <override name="netPaymentDays" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="createEtlStagingProductSupplementary" engine="java" default-entity-name="DataImportProductSupplementary"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingProductSupplementary" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+	</service>
+	
+	<service name="createEtlStagingItm" engine="java" default-entity-name="DataImportItm"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingItm" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+	</service>
+	
+	<service name="createEtlStagingActivity" engine="java" default-entity-name="DataImportActivity"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingActivity" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+	</service>
+	
+	<service name="createEtlStagingContact" engine="java" default-entity-name="DataImportContact"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingContact" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+        <override name="discount" mode="IN" type="String" optional="true"/>
+        <override name="outstandingBalance" mode="IN" type="String" optional="true"/>
+        <override name="creditLimit" mode="IN" type="String" optional="true"/>
+        <override name="netPaymentDays" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="createEtlStagingSupplier" engine="java" default-entity-name="DataImportSupplier"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingSupplier" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+       <override name="netPaymentDays" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="createEtlStagingInvoiceHeader" engine="java" default-entity-name="DataImportInvoiceHeader"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingInvoiceHeader" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <override name="dueDate" mode="IN" type="String" optional="true"/>
+        <override name="adjustedAmount" mode="IN" type="String" optional="true"/>
+        <override name="appliedAmount" mode="IN" type="String" optional="true"/>
+        <override name="invoiceTotal" mode="IN" type="String" optional="true"/>
+        <override name="openAmount" mode="IN" type="String" optional="true"/>
+        <override name="paidDate" mode="IN" type="String" optional="true"/>
+        <override name="invoiceDate" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="createEtlStagingInvoiceItem" engine="java" default-entity-name="DataImportInvoiceItem"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingInvoiceItem" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="quantity" mode="IN" type="String" optional="true"/>
+        <override name="amount" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="createEtlStagingProduct" engine="java" default-entity-name="DataImportProduct"
+	  use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+	  invoke="createEtlStagingProduct" transaction-timeout="20000">
+	  	<implements service="etl.createStaging"/>
+		<auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="batchId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <override name="purchasePrice" mode="IN" type="String" optional="true"/>
+        <override name="price" mode="IN" type="String" optional="true"/>
+        <override name="productLength" mode="IN" type="String" optional="true"/>
+        <override name="height" mode="IN" type="String" optional="true"/>
+        <override name="weight" mode="IN" type="String" optional="true"/>
+        <override name="width" mode="IN" type="String" optional="true"/>
+        <override name="createdDate" mode="IN" type="String" optional="true"/>
+	 </service>
+	
+	<service name="createEtlStagingAccount" engine="java" default-entity-name="DataImportAccount"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingAccount" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<service name="createEtlStagingCategory" engine="java" default-entity-name="DataImportCategory"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingCategory" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<service name="createEtlStagingOrder" engine="java" default-entity-name="EtlImportOrderFields"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingOrder" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="orderDate" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="createEtlStagingLead" engine="java" default-entity-name="DataImportLead"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingLead" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<service name="createEtlStagingEmplPosition" engine="java" default-entity-name="DataImportLead"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingEmplPosition" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+		<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<service name="createEtlPreProcessor" engine="java" use-transaction="true" location="org.groupfio.etl.process.service.impl.GeneralServiceImpl"
+		invoke="createEtlPreProcessor" transaction-timeout="20000">
+		<attribute name="batchId" mode="IN" type="String" optional="false"></attribute>
+        <attribute name="modelId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="accessType" mode="IN" type="String" optional="true"></attribute>
+        
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="etlTableName" mode="IN" type="String" optional="true"></attribute>
+    	<attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"></attribute>
+    	
+	</service>
+	
+	<service name="createEtlStagingLockboxBatch" engine="java" default-entity-name="FioLockboxBatchStaging"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingLockboxBatch" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+        <attribute name="groupId" mode="IN" type="String" optional="true"/>
+        
+	</service>
+	
+	<service name="createEtlStagingLockboxBatchItem" engine="java" default-entity-name="FioLockboxBatchItemStaging"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingLockboxBatchItem" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+	</service>
+	
+	<service name="createEtlStagingWallet" engine="java" default-entity-name="DataImportWallet"
+		use-transaction="true" location="org.groupfio.etl.process.service.impl.DataLoadServiceImpl"
+		invoke="createEtlStagingWallet" transaction-timeout="20000">
+		<implements service="etl.createStaging"/>
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="incrementValue" mode="IN" type="Integer" optional="true"/>
+        
+        <attribute name="isExecuteModelProcess" mode="IN" type="Boolean" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        
+	</service>
+	
+    <!-- by Sharif [end] -->
+    
+    
+    
+    
+    
+    
+    <service name="EtlSelfServiceProcessor" engine="java" use-transaction="true" location="org.etlprocess.service.EtlCommonServices"
+		invoke="createEtlPreProcessor" transaction-timeout="20000">
+		<attribute name="batchId" mode="IN" type="String" optional="false"></attribute>
+        <attribute name="modelId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="accessType" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="etlTableName" mode="IN" type="String" optional="true"></attribute>
+	</service>
+    
+    
+    <service name="CreateEtlCustomerLoad" engine="java" default-entity-name="DataImportCustomer"
+		use-transaction="true" location="org.etlprocess.upload.ETLFileUpload"
+		invoke="CreateEtlCustomerLoadService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="discount" mode="IN" type="String" optional="true"/>
+        <override name="outstandingBalance" mode="IN" type="String" optional="true"/>
+        <override name="creditLimit" mode="IN" type="String" optional="true"/>
+        <override name="netPaymentDays" mode="IN" type="String" optional="true"/>
+	</service>
+	<service name="CreateEtlSupplierLoad" engine="java" default-entity-name="DataImportSupplier"
+		use-transaction="true" location="org.etlprocess.service.EtlImportServices"
+		invoke="CreateEtlSupplierLoadService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+       	<override name="netPaymentDays" mode="IN" type="String" optional="true"/>
+	</service>
+	<service name="CreateEtlInvoiceLoad" engine="java" default-entity-name="DataImportInvoiceHeader"
+		use-transaction="true" location="org.etlprocess.service.EtlImportServices"
+		invoke="CreateEtlInvoiceLoadService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="dueDate" mode="IN" type="String" optional="true"/>
+        <override name="adjustedAmount" mode="IN" type="String" optional="true"/>
+        <override name="appliedAmount" mode="IN" type="String" optional="true"/>
+        <override name="invoiceTotal" mode="IN" type="String" optional="true"/>
+        <override name="openAmount" mode="IN" type="String" optional="true"/>
+        <override name="paidDate" mode="IN" type="String" optional="true"/>
+        <override name="invoiceDate" mode="IN" type="String" optional="true"/>
+          
+	</service>
+	<service name="CreateEtlInvoiceItemLoad" engine="java" default-entity-name="DataImportInvoiceItem"
+		use-transaction="true" location="org.etlprocess.service.EtlImportServices"
+		invoke="CreateEtlInvoiceItemService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="quantity" mode="IN" type="String" optional="true"/>
+        <override name="amount" mode="IN" type="String" optional="true"/>
+          
+	</service>
+	<service name="addETLGroup" engine="java" location="org.etlGroup.EtlGroup" invoke="addETLGroup" auth="true" use-transaction="false">
+        <attribute name="groupId" type="String" mode="IN" optional="false"/>
+        <attribute name="groupName" type="String" mode="IN" optional="false"/>
+		<attribute name="sequence" type="String" mode="IN" optional="false"/>
+		<attribute name="channelAccessType" type="String" mode="IN" optional="true"/>
+    </service>
+    
+    <service name="updateETLGroup" engine="java" location="org.etlGroup.EtlGroup" invoke="updateETLGroup" auth="true" use-transaction="false">
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="groupName" type="String" mode="IN" optional="true"/>
+		<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>		
+    </service>  
+     <service name="updateEtlHeaderConfig" engine="java" location="org.etlGroup.EtlGroup" invoke="updateEtlHeaderConfig" auth="true" use-transaction="false">
+		<attribute name="propertyName" type="String" mode="IN" optional="false"/>
+       	<attribute name="propertyValue" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="removeETLGroup" engine="java" location="org.etlGroup.EtlGroup" invoke="removeETLGroup" auth="true" use-transaction="false">
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="groupName" type="String" mode="IN" optional="true"/>
+		<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+    </service>   
+     
+  	<service name="EtlGroupingPagination" engine="java" location="org.etlGroup.EtlGroup" invoke="etlGroupingPagination" auth="false">
+		<description>Providing the Pagination for the grouping</description>
+		<attribute name="defaultViewSize" type="Integer" mode="IN" optional="false"/>
+		<attribute name="limitView" type="Boolean" mode="IN" optional="false"/>
+		<attribute name="viewIndexString" type="String" mode="IN" optional="true"/>
+		<attribute name="viewSizeString" type="String" mode="IN" optional="true"/>
+		<attribute name="FinalRecordValues" type="List" mode="IN" optional="true"/>
+		<attribute name="subCat" type="java.util.Collection" mode="OUT" optional="true"/>
+		<!-- this list will only contain the limited members if limitView=true -->
+		<attribute name="viewIndex" type="Integer" mode="OUT" optional="false"/>
+		<!-- this is a 1 based index, ie the first results are in index 1 -->
+		<attribute name="viewSize" type="Integer" mode="OUT" optional="false"/>
+		<attribute name="lowIndex" type="Integer" mode="OUT" optional="false"/>
+		<attribute name="highIndex" type="Integer" mode="OUT" optional="false"/>
+		<attribute name="listSize" type="Integer" mode="OUT" optional="false"/>
+	</service>  
+	
+     <service name="addEtlModelGrouping" engine="java" location="org.etlModelGrouping.EtlModelGrouping" invoke="addEtlModelGrouping" auth="true" use-transaction="false">
+        <attribute name="groupId" type="String" mode="IN" optional="false"/>
+        <attribute name="modelId" type="String" mode="IN" optional="false"/>
+		<attribute name="sequence" type="String" mode="IN" optional="false"/>
+    </service>      
+    
+    <service name="updateEtlModelGrouping" engine="java" location="org.etlModelGrouping.EtlModelGrouping" invoke="updateEtlModelGrouping" auth="true" use-transaction="false">
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="modelId" type="String" mode="IN" optional="false"/>
+		<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>		
+    </service>
+    
+    <service name="removeEtlModelGrouping" engine="java" location="org.etlModelGrouping.EtlModelGrouping" invoke="removeEtlModelGrouping" auth="true" use-transaction="false">
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="modelId" type="String" mode="IN" optional="false"/>
+		<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+    </service>
+ 
+     <service name="addEtlProcessGrouping" engine="java" location="org.etlProcessGrouping.EtlProcessGrouping" invoke="addEtlProcessGrouping" auth="true" use-transaction="false">
+        <attribute name="groupId" type="String" mode="IN" optional="false"/>
+        <attribute name="processId" type="String" mode="IN" optional="false"/>
+		<attribute name="sequence" type="String" mode="IN" optional="false"/>
+    </service>      
+    
+    <service name="updateEtlProcessGrouping" engine="java" location="org.etlProcessGrouping.EtlProcessGrouping" invoke="updateEtlProcessGrouping" auth="true" use-transaction="false">
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="processId" type="String" mode="IN" optional="false"/>
+		<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>		
+    </service>
+    
+    <service name="removeEtlProcessGrouping" engine="java" location="org.etlProcessGrouping.EtlProcessGrouping" invoke="removeEtlProcessGrouping" auth="true" use-transaction="false">
+		<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="processId" type="String" mode="IN" optional="false"/>
+		<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+    </service>    
+	<service name="CreateEtlOrdersLoad" engine="java" default-entity-name="EtlImportOrderFields"
+		use-transaction="true" location="org.etlprocess.service.EtlOrderImportServices"
+		invoke="CreateEtlOrdersLoadService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="orderDate" mode="IN" type="String" optional="true"/>
+	</service>
+	<service name="importOrdersToStaing" engine="java" use-transaction="true" location="org.etlprocess.service.EtlOrderImportServices"
+		invoke="stagingImportOrderService" transaction-timeout="20000">
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="batchId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="importProductsToStaing" engine="java" use-transaction="true" location="org.etlprocess.service.EtlImportServices"
+		invoke="stagingImportProductService" transaction-timeout="20000">
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	
+	<service name="CreateEtlOrderImport" engine="java" default-entity-name="EtlImportOrderFields"
+		use-transaction="true" location="org.etlprocess.service.EtlOrderImportServices"
+		invoke="CreateEtlOrderImportService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <override name="orderDate" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="EtlSelfServiceImpl" engine="java" use-transaction="true" location="org.etlprocess.service.EtlCommonServices"
+		invoke="EtlSelfServiceImpl" transaction-timeout="20000">
+	</service>
+	<service name="importProductsToStaing" engine="java" use-transaction="true" location="org.etlprocess.service.EtlImportServices"
+  		default-entity-name="DataImportProduct" invoke="stagingImportProductService" transaction-timeout="20000">
+  		<auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="batchId" mode="IN" type="String" optional="true"></attribute>
+        <override name="purchasePrice" mode="IN" type="String" optional="true"/>
+        <override name="price" mode="IN" type="String" optional="true"/>
+        <override name="productLength" mode="IN" type="String" optional="true"/>
+        <override name="height" mode="IN" type="String" optional="true"/>
+        <override name="weight" mode="IN" type="String" optional="true"/>
+        <override name="width" mode="IN" type="String" optional="true"/>
+        <override name="createdDate" mode="IN" type="String" optional="true"/>
+ 	</service>
+ 	<service name="CreateEtlAccountLoad" engine="java" default-entity-name="DataImportAccount"
+		use-transaction="true" location="org.etlprocess.service.EtlAccountImportServices"
+		invoke="CreateEtlAccountLoadService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+ 	<service name="CreateEtlCategoryLoad" engine="java" default-entity-name="DataImportCategory"
+		use-transaction="true" location="org.etlprocess.service.EtlCategoryImportServices"
+		invoke="CreateEtlCategoryLoadService" transaction-timeout="20000">
+        <auto-attributes include="pk" mode="IN" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <attribute name="listId" mode="IN" type="String" optional="true"></attribute>
+	</service>
+	<service name="findModelByType" engine="java" export="true" auth="false" location="org.etlprocess.service.EtlApiServices" invoke="findModelByType" transaction-timeout="20000">
+		<description>Getting etl model</description>
+		<attribute name="XmlInput" type="String" allow-html="any" mode="IN" optional="true"/>
+		<attribute name="XmlOutput" type="String" allow-html="any" mode="OUT" optional="true"/>
+	</service>
+	<service name="findModelByIdOrName" engine="java" export="true" auth="false" location="org.etlprocess.service.EtlApiServices" invoke="findModelByIdOrName" transaction-timeout="20000">
+		<description>Getting etl model</description>
+		<attribute name="XmlInput" type="String" allow-html="any" mode="IN" optional="true"/>
+		<attribute name="XmlOutput" type="String" allow-html="any" mode="OUT" optional="true"/>
+	</service>
+		
+	<service name="executeEtlModelService" engine="java" export="true" auth="false" location="org.etlprocess.service.EtlApiServices" invoke="executeEtlModelService" transaction-timeout="20000">
+		<description>Getting etl model</description>
+		<attribute name="XmlInput" type="String" allow-html="any" mode="IN" optional="true"/>
+		<attribute name="XmlOutput" type="String" allow-html="any" mode="OUT" optional="true"/>
+	</service>
+	
+	<service name="writeEtlErrorLog" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.service.impl.GeneralServiceImpl" invoke="writeEtlErrorLog" transaction-timeout="20000">
+        <description>
+            write ETL error logs
+        </description>
+        
+        <attribute name="logMessage" mode="IN" type="String" optional="false"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+       	<attribute name="etlTableName" mode="IN" type="String" optional="true"/>
+       	<attribute name="modelName" mode="IN" type="String" optional="true"/>
+        
+    </service>
+	
+	<!-- Scheduler services [start] -->
+	
+	<service name="downloadFileByGroup" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.FileDownloadScheduler" invoke="downloadFileByGroup" transaction-timeout="20000">
+        <description>
+            Download files from model SFTP location execute by model group process sequentially.
+        </description>
+    </service>
+	<service name="importFileByGroup" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.FileImportScheduler" invoke="importFileByGroup" transaction-timeout="20000">
+        <description>
+            Import files from model location execute by model group process sequentially.
+        </description>
+    </service>
+    <service name="importFileByBatch" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.FileImportScheduler" invoke="importFileByBatch" transaction-timeout="20000">
+        <description>
+            Import files from model location execute by specific batch. And this service assume 
+            corrected files has been place into the import location
+        </description>
+        <attribute name="batchId" mode="IN" type="String" optional="true"></attribute>
+        <attribute name="groupId" mode="IN" type="String" optional="false"></attribute>
+        <attribute name="processId" mode="IN" type="String" optional="false"></attribute>
+    </service>
+    
+    <service name="processCustomerData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processCustomerData" transaction-timeout="20000">
+        <description>
+            Import customer data following by batch process.
+        </description>
+    </service>
+    <service name="processSupplierData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processSupplierData" transaction-timeout="20000">
+        <description>
+            Import supplier data following by batch process.
+        </description>
+    </service>
+    <service name="processInvoiceHeaderData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processInvoiceHeaderData" transaction-timeout="20000">
+        <description>
+            Import invoice header data following by batch process.
+        </description>
+    </service>
+    <service name="processInvoiceItemData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processInvoiceItemData" transaction-timeout="20000">
+        <description>
+            Import invoice item data following by batch process.
+        </description>
+    </service>
+    <service name="processProductData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processProductData" transaction-timeout="20000">
+        <description>
+            Import product data following by batch process.
+        </description>
+    </service>
+    <service name="processAccountData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processAccountData" transaction-timeout="20000">
+        <description>
+            Import account data following by batch process.
+        </description>
+    </service>
+    <service name="processCategoryData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processCategoryData" transaction-timeout="20000">
+        <description>
+            Import category data following by batch process.
+        </description>
+    </service>
+    <service name="processOrderData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processOrderData" transaction-timeout="20000">
+        <description>
+            Import order data following by batch process.
+        </description>
+    </service>
+    <service name="processLockboxBatchData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processLockboxBatchData" transaction-timeout="20000">
+        <description>
+            Import order data following by batch process.
+        </description>
+    </service>
+    <service name="processWalletData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processWalletData" transaction-timeout="20000">
+        <description>
+            Import order data following by batch process.
+        </description>
+    </service>
+    <service name="processLeadData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processLeadData" transaction-timeout="20000">
+        <description>
+            Import lead data following by batch process.
+        </description>
+    </service>
+    
+    <service name="processEmplPositionData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.scheduler.BatchProcessScheduler" invoke="processEmplPositionData" transaction-timeout="20000">
+        <description>
+            Import lead data following by batch process.
+        </description>
+    </service>
+		
+	<!-- Scheduler services [end] -->
+	
+	<!-- custom services [start] -->
+	
+	<service name="testFilterService" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.service.impl.CustomServiceImpl" invoke="testFilterService" transaction-timeout="20000">
+        <description>
+            Test filter service, if all the filter condition matched for particular model element then this service will execute.
+        </description>
+        
+        <attribute name="rowValue" mode="IN" type="Map" optional="false"/>
+        <attribute name="modelName" mode="IN" type="String" optional="false"/>
+        <attribute name="elementName" mode="IN" type="String" optional="false"/>
+        
+        <attribute name="elementValue" type="String" allow-html="any" mode="OUT" optional="false"/>
+        
+    </service>
+	
+	<!-- custom services [end] -->
+	
+	<!-- validate services [start] -->
+	
+	<service name="validator.validateLeadData" engine="java" use-transaction="false"
+        location="org.groupfio.etl.process.service.impl.ValidateServiceImpl" invoke="validateLeadData" transaction-timeout="20000">
+        <description>
+            Lead data validate service
+        </description>
+        
+        <attribute name="batchId" mode="IN" type="String" optional="true"/>
+        <attribute name="taskName" mode="IN" type="String" optional="true"/>
+        <attribute name="tableName" mode="IN" type="String" optional="true"/>
+        
+        <attribute name="data" mode="IN" type="Map" optional="false"/>
+        <attribute name="leadShortForm" type="String" mode="IN" optional="true"/> 
+        
+        <attribute name="isNotDuplicate" mode="IN" type="String" optional="true"/>
+        
+        <attribute name="leadId" type="String" mode="OUT" optional="true"/>
+        <attribute name="errorCodes" type="String" mode="OUT" optional="true"/>
+        <attribute name="validatorResponse" type="Map" mode="OUT" optional="false"/>
+        
+    </service>
+	
+	<!-- validate services [end] -->
+	
+</services>

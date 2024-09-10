@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="PartyAccounts">
+		<section>
+			<actions>
+				<property-map resource="common-portalUiLabels" map-name="uiLabelMap" global="true"/>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/account/PartyAccounts.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/account/party_accounts.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

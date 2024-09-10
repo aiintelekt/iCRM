@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<AppBarType appBarTypeId="ACTION" appBarTypeName="Action App Bar" appBarTypeUilabel="Action App Bar" lastUpdatedStamp="2020-07-06 15:39:43.0" lastUpdatedTxStamp="2020-07-06 15:39:43.0" createdStamp="2020-07-06 15:39:43.0" createdTxStamp="2020-07-06 15:39:43.0"/>
+	<AppBarType appBarTypeId="DASHBOARD" appBarTypeName="Dashboard App Bar" appBarTypeUilabel="Dash Board" lastUpdatedStamp="2020-03-04 19:14:13.0" lastUpdatedTxStamp="2020-03-04 19:14:13.0" createdStamp="2020-03-04 19:14:13.0" createdTxStamp="2020-03-04 19:14:13.0"/>
+	<AppBarType appBarTypeId="KPI" appBarTypeName="KPI App Bar" appBarTypeUilabel="KPI App Bar" lastUpdatedStamp="2020-07-06 15:40:01.0" lastUpdatedTxStamp="2020-07-06 15:40:00.0" createdStamp="2020-07-06 15:40:01.0" createdTxStamp="2020-07-06 15:40:01.0"/>
+
+	<AppBar appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarName="Customer Action Bar" appBarDescription="Customer Action Bar" appBarStatus="ENABLED" appBarSecurityGroup="CUSTOMER_ACTION_BAR_ACTION_GRP" appBarDirection="HORIZONTAL" appBarMaxElements="15" appBarAccessLevel="SYSTEM_LEVEL" createdBy="PrabhakaraRao" createdOn="2020-11-05 08:00:59" modifiedOn="2020-11-04 13:56:29" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-11-05 08:00:59" createdTxStamp="2020-11-04 13:56:29" lastUpdatedTxStamp="2020-11-05 08:00:59" />      
+	<AppBar appBarId="CUST_INACT_BAR" appBarTypeId="ACTION" appBarName="Customer Inactive Action Bar" appBarStatus="ENABLED" appBarSecurityGroup="CUST_INACT_BAR_ACTION_GRP" appBarDirection="HORIZONTAL" appBarMaxElements="15" appBarAccessLevel="SYSTEM_LEVEL" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-11-08 04:20:47" modifiedOn="2020-11-08 04:20:47" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-11-08 04:20:47" createdTxStamp="2020-11-08 04:20:47" lastUpdatedTxStamp="2020-11-08 04:20:47" createdStamp="2020-11-08 04:20:47" />      
+	<AppBar appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarName="Cust Kpi Bar" appBarSecurityGroup="CUST_KPI_BAR_KPI_GRP" appBarDirection="HORIZONTAL" appBarMaxElements="15" appBarAccessLevel="SYSTEM_LEVEL" createdBy="anand" modifiedBy="PrabhakaraRao" createdOn="2020-11-04 17:27:19" modifiedOn="2020-11-05 11:06:45" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-11-05 11:06:45" createdTxStamp="2020-11-04 17:27:19" lastUpdatedTxStamp="2020-11-05 11:06:45" createdStamp="2020-11-04 17:27:19" />
+	<AppBar appBarId="MY_CUST_DASH" appBarTypeId="DASHBOARD" appBarName="Customer Home Screen KPI Dashboard" appBarDescription="Customer Home Screen KPI Dashboard" appBarStatus="ENABLED" appBarSecurityGroup="MY_CUST_DASH_DASHBOARD_GRP" appBarDirection="HORIZONTAL" createdBy="PrabhakaraRao" modifiedBy="admin" createdOn="2020-10-30 09:45:55" modifiedOn="2022-08-24 07:17:20" defaultMessage="Customer Dashboard - Not Enabled - Contact Administrator" lastUpdatedStamp="2022-08-24 07:17:20" createdTxStamp="2020-10-30 09:45:55" lastUpdatedTxStamp="2022-08-24 07:17:20" createdStamp="2020-10-30 09:45:55" />
+
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10250" appBarElementSeqNum="13" appBarElementName="Important Notes" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-sticky-note-o" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CUSTOMER_ACTION_BAR_10250_PERM" isDisplayElementData="Y" elementKey="ab-im-notes" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 13:34:32.0" modifiedOn="2022-09-19 13:34:32.0" lastUpdatedStamp="2022-09-19 13:34:32.0" lastUpdatedTxStamp="2022-09-19 13:34:32.0" createdStamp="2022-09-19 13:34:32.0" createdTxStamp="2022-09-19 13:34:32.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10251" appBarElementSeqNum="14" appBarElementName="Open Service Request" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-ticket marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CUSTOMER_ACTION_BAR_10251_PERM" isDisplayElementData="Y" elementKey="ab-sr" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 13:35:19.0" modifiedOn="2022-09-19 13:35:19.0" lastUpdatedStamp="2022-09-19 13:35:19.0" lastUpdatedTxStamp="2022-09-19 13:35:19.0" createdStamp="2022-09-19 13:35:19.0" createdTxStamp="2022-09-19 13:35:19.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10252" appBarElementSeqNum="15" appBarElementName="Open Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-tasks marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CUSTOMER_ACTION_BAR_10252_PERM" isDisplayElementData="Y" elementKey="ab-activity" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 13:40:59.0" modifiedOn="2022-09-19 13:40:59.0" lastUpdatedStamp="2022-09-19 13:40:59.0" lastUpdatedTxStamp="2022-09-19 13:40:59.0" createdStamp="2022-09-19 13:40:59.0" createdTxStamp="2022-09-19 13:40:59.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10253" appBarElementSeqNum="16" appBarElementName="Open Opportunity" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-usd cust-icon marginStyle" appBarElementPosition="R" appBarElementType="BADGE" appBarElementCustomClass="" securityPermissionId="CUSTOMER_ACTION_BAR_10253_PERM" isDisplayElementData="Y" elementKey="ab-oppo" createdBy="admin" modifiedBy="admin" createdOn="2022-09-19 13:41:45.0" modifiedOn="2022-09-23 08:53:41.0" lastUpdatedStamp="2022-09-23 08:53:41.0" lastUpdatedTxStamp="2022-09-23 08:53:41.0" createdStamp="2022-09-19 13:41:45.0" createdTxStamp="2022-09-19 13:41:45.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10270" appBarElementSeqNum="9" appBarElementName="isMarketable" appBarElementActive="Y" appBarElementPosition="R" appBarElementType="LABEL" appBarElementCustomClass="bglight text-dark left-icones" securityPermissionId="CUSTOMER_ACTION_BAR_10270_PERM" isDisplayElementData="Y" elementKey="isMarketable" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-11-07 09:50:49.0" modifiedOn="2020-11-07 09:50:49.0" lastUpdatedStamp="2020-11-07 09:50:49.0" lastUpdatedTxStamp="2020-11-07 09:50:49.0" createdStamp="2020-11-07 09:50:49.0" createdTxStamp="2020-11-07 09:50:49.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="E10000" appBarElementSeqNum="1" appBarElementName="Customer Name" appBarElementUilabel="Customer Name" appBarElementActive="Y" appBarElementPosition="L" appBarElementCustomClass="h2 text-info disabled" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="name" modifiedBy="PrabhakaraRao" approvedDate="2020-06-24 19:11:44.0" modifiedOn="2020-11-05 08:01:22.0" lastUpdatedStamp="2020-11-05 08:01:22.0" lastUpdatedTxStamp="2020-11-05 08:01:22.0" createdStamp="2020-11-04 13:56:29.0" createdTxStamp="2020-11-04 13:56:29.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="E10005" appBarElementSeqNum="6" appBarElementName="Add Service Request" appBarElementUilabel="Add Service Request" appBarElementActive="Y" appBarElementFavIcon="fa fa-ticket cust-icon" appBarElementPosition="L" appBarElementType="LINK" appBarElementTargetUrl="/sr-portal/control/addservicerequest?partyId=${partyId}&amp;externalLoginKey=${externalLoginKey}" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="addServiceRequest" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" modifiedOn="2022-09-23 08:52:54.0" lastUpdatedStamp="2022-09-23 08:52:54.0" lastUpdatedTxStamp="2022-09-23 08:52:54.0" createdStamp="2020-11-05 10:23:49.0" createdTxStamp="2020-11-05 10:23:49.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="E10007" appBarElementSeqNum="8" appBarElementName="Add Activity" appBarElementUilabel="Add Activity" appBarElementActive="Y" appBarElementIconUrl="/bootstrap/images/add-activity.png" appBarElementFavIcon="fa fa-calendar cust-icon" appBarElementPosition="L" appBarElementType="DROPDOWN" appBarElementCustomClass="text-dark left-icones" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="N" elementKey="addActivity" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2022-09-23 08:53:04.0" lastUpdatedStamp="2022-09-23 08:53:04.0" lastUpdatedTxStamp="2022-09-23 08:53:04.0" createdStamp="2020-11-05 10:47:02.0" createdTxStamp="2020-11-05 10:47:02.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="E10010" appBarElementSeqNum="11" appBarElementName="Email Address" appBarElementUilabel="Email Address" appBarElementActive="Y" appBarElementFavIcon="fa fa-envelope fa-1 " appBarElementPosition="R" appBarElementType="LINK" appBarElementTargetUrl="/customer-portal/control/addEmail?partyId=${partyId}" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="primaryEmail" createdBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" lastUpdatedStamp="2020-11-05 09:48:46.0" lastUpdatedTxStamp="2020-11-05 09:48:46.0" createdStamp="2020-11-05 09:48:46.0" createdTxStamp="2020-11-05 09:48:46.0"/>
+	<AppBarElements appBarId="CUSTOMER_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="E10011" appBarElementSeqNum="12" appBarElementName="Contact Number" appBarElementUilabel="Contact Number" appBarElementActive="Y" appBarElementFavIcon="fa fa-phone fa-1" appBarElementPosition="R" appBarElementType="LINK" appBarElementTargetUrl="/customer-portal/control/createPhoneCallActivity?partyId=${partyId}" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="ACTION_PERMISSION" isDisplayElementData="Y" elementKey="primaryPhone" isApprovedBy="admin" lastUpdatedStamp="2020-11-05 09:48:46.0" lastUpdatedTxStamp="2020-11-05 09:48:46.0" createdStamp="2020-11-05 09:48:46.0" createdTxStamp="2020-11-05 09:48:46.0"/>
+	<AppBarElements appBarId="CUST_INACT_BAR" appBarTypeId="ACTION" appBarElementId="10280" appBarElementName="name" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="h2 text-info disabled" securityPermissionId="CUST_INACT_BAR_10280_PERM" isDisplayElementData="Y" elementKey="name" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-11-08 10:25:53.0" modifiedOn="2020-11-08 10:25:53.0" lastUpdatedStamp="2020-11-08 10:25:53.0" lastUpdatedTxStamp="2020-11-08 10:25:53.0" createdStamp="2020-11-08 10:25:53.0" createdTxStamp="2020-11-08 10:25:53.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10250" appBarElementSeqNum="1" appBarElementName="Customer Since" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="CUST_KPI_BAR_10250_PERM" isDisplayElementData="Y" elementKey="customer-since" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:28:52.0" modifiedOn="2020-11-04 17:28:52.0" lastUpdatedStamp="2020-11-04 17:28:52.0" lastUpdatedTxStamp="2020-11-04 17:28:52.0" createdStamp="2020-11-04 17:28:52.0" createdTxStamp="2020-11-04 17:28:52.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10251" appBarElementSeqNum="2" appBarElementName="CLV" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones " securityPermissionId="CUST_KPI_BAR_10251_PERM" isDisplayElementData="Y" elementKey="clv" createdBy="anand" modifiedBy="admin" createdOn="2020-11-04 17:37:41.0" modifiedOn="2023-03-20 02:15:48.0" lastUpdatedStamp="2023-03-20 02:15:48.0" lastUpdatedTxStamp="2023-03-20 02:15:48.0" createdStamp="2020-11-04 17:37:41.0" createdTxStamp="2020-11-04 17:37:41.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10252" appBarElementSeqNum="4" appBarElementName="Call Back Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10252_PERM" isDisplayElementData="Y" elementKey="callBackDate" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:38:22.0" modifiedOn="2020-11-04 17:42:44.0" lastUpdatedStamp="2020-11-04 17:42:44.0" lastUpdatedTxStamp="2020-11-04 17:42:44.0" createdStamp="2020-11-04 17:38:22.0" createdTxStamp="2020-11-04 17:38:22.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10253" appBarElementSeqNum="4" appBarElementName="YTD" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10253_PERM" isDisplayElementData="Y" elementKey="ytd" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:39:31.0" modifiedOn="2020-11-04 17:39:31.0" lastUpdatedStamp="2020-11-04 17:39:31.0" lastUpdatedTxStamp="2020-11-04 17:39:31.0" createdStamp="2020-11-04 17:39:31.0" createdTxStamp="2020-11-04 17:39:31.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10254" appBarElementSeqNum="5" appBarElementName="LYTD" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10254_PERM" isDisplayElementData="Y" elementKey="lytd" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:40:13.0" modifiedOn="2020-11-04 17:40:13.0" lastUpdatedStamp="2020-11-04 17:40:13.0" lastUpdatedTxStamp="2020-11-04 17:40:13.0" createdStamp="2020-11-04 17:40:13.0" createdTxStamp="2020-11-04 17:40:13.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10255" appBarElementSeqNum="5" appBarElementName="Most Recent Campaign" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10255_PERM" isDisplayElementData="Y" elementKey="recent-campaign" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:41:07.0" modifiedOn="2020-11-04 17:41:07.0" lastUpdatedStamp="2020-11-04 17:41:07.0" lastUpdatedTxStamp="2020-11-04 17:41:07.0" createdStamp="2020-11-04 17:41:07.0" createdTxStamp="2020-11-04 17:41:07.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10256" appBarElementSeqNum="6" appBarElementName="Last Clicked Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10256_PERM" isDisplayElementData="Y" elementKey="last-clicked-date" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:41:50.0" modifiedOn="2020-11-04 17:42:04.0" lastUpdatedStamp="2020-11-04 17:42:04.0" lastUpdatedTxStamp="2020-11-04 17:42:04.0" createdStamp="2020-11-04 17:41:50.0" createdTxStamp="2020-11-04 17:41:50.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10257" appBarElementSeqNum="7" appBarElementName="Count of Open Opportunities" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10257_PERM" isDisplayElementData="Y" elementKey="open-opportunity-count" createdBy="anand" modifiedBy="saibaba" createdOn="2020-11-04 17:43:18.0" modifiedOn="2020-11-11 10:02:56.0" lastUpdatedStamp="2020-11-11 10:02:56.0" lastUpdatedTxStamp="2020-11-11 10:02:56.0" createdStamp="2020-11-04 17:43:18.0" createdTxStamp="2020-11-04 17:43:18.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10258" appBarElementSeqNum="7" appBarElementName="Last Open Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10258_PERM" isDisplayElementData="Y" elementKey="last-open-date" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:44:06.0" modifiedOn="2020-11-04 17:44:06.0" lastUpdatedStamp="2020-11-04 17:44:06.0" lastUpdatedTxStamp="2020-11-04 17:44:06.0" createdStamp="2020-11-04 17:44:06.0" createdTxStamp="2020-11-04 17:44:06.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10259" appBarElementSeqNum="8" appBarElementName="Count of open SRs within SLA" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CUST_KPI_BAR_10259_PERM" isDisplayElementData="Y" elementKey="openSlaSr" createdBy="anand" modifiedBy="anand" createdOn="2020-11-04 17:44:55.0" modifiedOn="2020-11-04 17:44:55.0" lastUpdatedStamp="2020-11-04 17:44:55.0" lastUpdatedTxStamp="2020-11-04 17:44:55.0" createdStamp="2020-11-04 17:44:55.0" createdTxStamp="2020-11-04 17:44:55.0"/>
+	<AppBarElements appBarId="CUST_KPI_BAR" appBarTypeId="KPI" appBarElementId="10260" appBarElementSeqNum="9" appBarElementName="Earned Value" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" isDisplayElementData="Y" elementKey="earned-value" createdOn="2023-02-16 11:20:57.0" lastUpdatedStamp="2023-02-16 11:21:04.0" lastUpdatedTxStamp="2023-02-16 11:21:04.0" createdStamp="2023-02-16 11:21:04.0" createdTxStamp="2023-02-16 11:21:04.0"/>
+	<AppBarElements appBarId="MY_CUST_DASH" appBarTypeId="DASHBOARD" appBarElementId="10240" appBarElementSeqNum="1" appBarElementName="Active Customers" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-ticket text-light" appBarElementColor="bg-s" appBarElementPosition="L" securityPermissionId="MY_CUST_DASH_10240_PERM" isDisplayElementData="Y" elementKey="customer-active" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-10-30 09:47:35.0" modifiedOn="2020-10-30 09:47:35.0" lastUpdatedStamp="2020-10-30 09:47:35.0" lastUpdatedTxStamp="2020-10-30 09:47:35.0" createdStamp="2020-10-30 09:47:35.0" createdTxStamp="2020-10-30 09:47:35.0"/>
+	<AppBarElements appBarId="MY_CUST_DASH" appBarTypeId="DASHBOARD" appBarElementId="10241" appBarElementSeqNum="2" appBarElementName="Open Service Requests" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa-bell text-light" appBarElementColor="bg-i" appBarElementPosition="L" securityPermissionId="MY_CUST_DASH_10241_PERM" isDisplayElementData="Y" elementKey="customer-open-sr" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-10-30 09:48:55.0" modifiedOn="2020-10-30 09:48:55.0" lastUpdatedStamp="2020-10-30 09:48:55.0" lastUpdatedTxStamp="2020-10-30 09:48:55.0" createdStamp="2020-10-30 09:48:55.0" createdTxStamp="2020-10-30 09:48:55.0"/>
+	<AppBarElements appBarId="MY_CUST_DASH" appBarTypeId="DASHBOARD" appBarElementId="10242" appBarElementSeqNum="3" appBarElementName="Open Opportunities" appBarElementActive="N" appBarElementNolabel="N" appBarElementFavIcon="fa fa-users text-light" appBarElementColor="bg-w" appBarElementPosition="L" securityPermissionId="MY_CUST_DASH_10242_PERM" isDisplayElementData="Y" elementKey="customer-open-oppo" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-10-30 09:50:15.0" modifiedOn="2020-11-02 08:47:37.0" lastUpdatedStamp="2020-11-02 08:47:37.0" lastUpdatedTxStamp="2020-11-02 08:47:37.0" createdStamp="2020-10-30 09:50:15.0" createdTxStamp="2020-10-30 09:50:15.0"/>
+	<AppBarElements appBarId="MY_CUST_DASH" appBarTypeId="DASHBOARD" appBarElementId="10243" appBarElementSeqNum="4" appBarElementName="Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-exclamation-triangle text-light" appBarElementColor="bg-o" appBarElementPosition="L" securityPermissionId="MY_CUST_DASH_10243_PERM" isDisplayElementData="Y" elementKey="customer-open-act" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-10-30 10:04:17.0" modifiedOn="2020-10-30 10:04:17.0" lastUpdatedStamp="2020-10-30 10:04:17.0" lastUpdatedTxStamp="2020-10-30 10:04:17.0" createdStamp="2020-10-30 10:04:17.0" createdTxStamp="2020-10-30 10:04:17.0"/>
+	<AppBarElements appBarId="MY_CUST_DASH" appBarTypeId="DASHBOARD" appBarElementId="10244" appBarElementSeqNum="5" appBarElementName="Orders" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa-bell text-light" appBarElementColor="bg-w" appBarElementPosition="L" securityPermissionId="MY_CUST_DASH_10244_PERM" isDisplayElementData="Y" elementKey="customer-open-order" createdBy="PrabhakaraRao" modifiedBy="PrabhakaraRao" createdOn="2020-10-30 10:05:12.0" modifiedOn="2020-10-30 10:05:12.0" lastUpdatedStamp="2020-10-30 10:05:12.0" lastUpdatedTxStamp="2020-10-30 10:05:12.0" createdStamp="2020-10-30 10:05:12.0" createdTxStamp="2020-10-30 10:05:12.0"/>
+
+    <AdditionalType addlDataTypeId="AVG_NO_ITEMS" description="Avg. # of Items" lastUpdatedStamp="2016-11-03 00:23:36.0" lastUpdatedTxStamp="2016-11-03 00:23:36.0" createdStamp="2016-11-03 00:23:36.0" createdTxStamp="2016-11-03 00:23:36.0"/>
+    <AdditionalType addlDataTypeId="AVG_RETAIL_ITEMS" description="Avg. Retail per item " lastUpdatedStamp="2016-11-03 00:24:14.0" lastUpdatedTxStamp="2016-11-03 00:24:14.0" createdStamp="2016-11-03 00:24:14.0" createdTxStamp="2016-11-03 00:24:14.0"/>
+    <AdditionalType addlDataTypeId="CUSTOM_BASKET" description="Basket Size" lastUpdatedStamp="2016-11-03 00:24:32.0" lastUpdatedTxStamp="2016-11-03 00:24:32.0" createdStamp="2016-11-03 00:24:32.0" createdTxStamp="2016-11-03 00:24:32.0"/>
+    <AdditionalType addlDataTypeId="DATE_LAST_SHOPPED" description="Last shopped date" lastUpdatedStamp="2016-11-03 00:24:49.0" lastUpdatedTxStamp="2016-11-03 00:24:49.0" createdStamp="2016-11-03 00:24:49.0" createdTxStamp="2016-11-03 00:24:49.0"/>
+    <AdditionalType addlDataTypeId="FIRST_SHOPPED_DATE" description="Date First Shopped" lastUpdatedStamp="2016-11-03 00:25:05.0" lastUpdatedTxStamp="2016-11-03 00:25:05.0" createdStamp="2016-11-03 00:25:05.0" createdTxStamp="2016-11-03 00:25:05.0"/>
+    <AdditionalType addlDataTypeId="NO_LINE_ITEMS_TOTAL" description="No of items purchased" lastUpdatedStamp="2016-11-03 00:25:21.0" lastUpdatedTxStamp="2016-11-03 00:25:21.0" createdStamp="2016-11-03 00:25:21.0" createdTxStamp="2016-11-03 00:25:21.0"/>
+    <AdditionalType addlDataTypeId="TOTAL_PURCHASED" description="Total Purchases ($)" lastUpdatedStamp="2016-11-03 00:25:43.0" lastUpdatedTxStamp="2016-11-03 00:25:43.0" createdStamp="2016-11-03 00:25:43.0" createdTxStamp="2016-11-03 00:25:43.0"/>
+    <AdditionalType addlDataTypeId="TOTAL_VISITS" description="Total Visits" lastUpdatedStamp="2020-05-19 10:21:01.0" lastUpdatedTxStamp="2020-05-19 10:21:01.0" createdStamp="2020-05-19 10:21:01.0" createdTxStamp="2020-05-19 10:21:01.0"/>
+    <AdditionalType addlDataTypeId="VISIT_INTERVAL" description="Avg. Visit Interval (Days)" lastUpdatedStamp="2016-11-03 00:26:03.0" lastUpdatedTxStamp="2016-11-03 00:26:03.0" createdStamp="2016-11-03 00:26:03.0" createdTxStamp="2016-11-03 00:26:03.0"/>
+
+ <GridUserPreferences instanceId="CONTRACTOR_PICKER_LIST" userId="admin" role="ADMIN" description="Contractor Picker List" name="Contractor Picker List" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 13:09:33.0" lastUpdatedTxStamp="2024-03-06 13:09:33.0" createdStamp="2021-02-03 03:46:15.0" createdTxStamp="2021-02-03 03:46:15.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Contractor Name",
+		"field": "name","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"filter": "agTextColumnFilter",
+		"lockPosition": true,
+		"minWidth": 200,
+		"cellRenderer": params => `<a href="#" onclick="setPickerWindowValue('${params.value}', '${params.data.partyId}');">${params.data.name}</a>`
+	}, {
+		"headerName": "Status",
+		"field": "statusDescription",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Current Time Of Cust",
+		"field": "currentTimeForTimezone",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Time Zone",
+		"field": "timeZoneDescription",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Phone Number",
+		"field": "contactNumber","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "E-Mail Address",
+		"field": "infoString","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "City",
+		"field": "city","filter": true,"floatingFilter": true,
+		"sortable": false,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "State",
+		"field": "state","filter": true,"floatingFilter": true,
+		"sortable": false,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Country",
+		"field": "country","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Postal Code",
+		"field": "postalCode","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Currency Uom",
+		"field": "preferredCurrencyUomId","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "RM",
+		"field": "relationshipManager","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Source",
+		"field": "dataSourceDesc","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Profile Title",
+		"field": "generalProfTitle","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Contractor ID",
+		"field": "partyId","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}],
+ 	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_Contractor.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+ <GridUserPreferences instanceId="CUSTOMERS" userId="admin" role="ADMIN" description="Customer Home &amp; Find Grid Fields" name="Customer Home &amp; Find Grid Fields" appliedRequestVerb="post" lastUpdatedStamp="2024-03-08 22:39:35.0" lastUpdatedTxStamp="2024-03-08 22:39:35.0" createdStamp="2020-10-29 09:32:44.0" createdTxStamp="2020-10-29 09:32:44.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Customer Name",
+		"field": "name",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter","minWidth": 200,
+		"lockPosition": true,"headerCheckboxSelection": true, "checkboxSelection": true,"headerCheckboxSelectionFilteredOnly": true,
+		"cellRenderer":"name"
+	}, {
+		"headerName": "Status",
+		"field": "statusDescription","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "RM",
+		"field": "relationshipManager","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Source",
+		"field": "dataSourceDesc","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Email",
+		"field": "infoString","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"infoString"
+	}, {
+		"headerName": "Phone",
+		"field": "contactNumber","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"contactNumber"
+	}, {
+		"headerName": "City","minWidth": 200,
+		"field": "city","filter": true,"floatingFilter": true,
+		"sortable": false,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "State","minWidth": 200,
+		"field": "state","filter": true,"floatingFilter": true,
+		"sortable": false,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Zip","minWidth": 200,
+		"field": "postalCode",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Country","minWidth": 200,
+		"field": "country",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	},  {
+		"headerName": "Profile Title","minWidth": 200,
+		"field": "generalProfTitle",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	},{
+		"headerName": "Currency","minWidth": 200,
+		"field": "preferredCurrencyUomId",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	},{ 	
+	         "headerName": "Loyalty Id", 	
+	         "field": "loyaltyId", 	"minWidth": 200,
+	         "sortable": true, "filter": true,"floatingFilter": true,	
+	         "filter": "agTextColumnFilter" 	
+        }, {
+		"headerName": "Time Zone",
+		"field": "timeZoneDesc","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	},{
+		"headerName": "Current Time Of Cust",
+		"field": "currentTimeForTimezone","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	},   {
+		"headerName": "Customer ID",
+		"field": "partyId","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Is Contractor",
+		"field": "isContractor","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "External ID",
+		"field": "externalId","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}],
+	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 15,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight", "rowSelection": "multiple","components": { 		"name": name,"infoString":infoString ,"contactNumber":contactNumber	},
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"csvExportOptions": {
+			"fileName": "List_of_Customers.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+     <GridUserPreferences appliedRequestVerb="post" createdStamp="2024-04-08 15:44:25.0" createdTxStamp="2024-04-08 15:44:24.0" description="Customer Bought Product list" gridOptionsJsString=" {     &quot;columnDefs&quot;: [{         &quot;headerName&quot;: &quot;Order No&quot;,         &quot;sortable&quot;: true,         &quot;minWidth&quot;: 110,        &quot;filter&quot;: true,&quot;floatingFilter&quot;: true, &quot;field&quot;:&quot;orderId&quot;,         &quot;filter&quot;: &quot;agTextColumnFilter&quot;,editable: true }, {         &quot;headerName&quot;: &quot;Shipped Date&quot;,         &quot;field&quot;: &quot;orderDate&quot;,         &quot;minWidth&quot;: 100,    &quot;filter&quot;: true,&quot;floatingFilter&quot;: true,     &quot;cellEditor&quot;: &quot;agTextCellEditor&quot;,     }, {         &quot;headerName&quot;: &quot;Product Name&quot;,         &quot;sortable&quot;: true,    &quot;field&quot;:&quot;productName&quot;, &quot;tooltipField&quot;:&quot;productName&quot;, &quot;minWidth&quot;: 220,&quot;maxWidth&quot;: 220,editable: true,     &quot;filter&quot;: true,&quot;floatingFilter&quot;: true,    &quot;filter&quot;: &quot;agTextColumnFilter&quot;,        &quot;cellRenderer&quot; :&quot;productImageParams&quot; }, {         &quot;headerName&quot;: &quot;Qty&quot;,         &quot;field&quot;: &quot;quantity&quot;, &quot;minWidth&quot;: 60, &quot;filter&quot;: true,&quot;floatingFilter&quot;: true, &quot;maxWidth&quot;: 60,         &quot;cellEditor&quot;: &quot;agTextCellEditor&quot;, &quot;cellStyle&quot;: {'text-align': 'right'}    }, {         &quot;headerName&quot;: &quot;Price&quot;,         &quot;field&quot;: &quot;price&quot;,    &quot;filter&quot;: true,&quot;floatingFilter&quot;: true,     &quot;minWidth&quot;: 50,         &quot;cellEditor&quot;: &quot;agTextCellEditor&quot;, &quot;cellStyle&quot;: {'text-align': 'right'} , &quot;cellRenderer&quot; :&quot;priceParams&quot; }],     &quot;defaultColDef&quot;: {         &quot;flex&quot;: 1,         &quot;wrapText&quot;: true,         &quot;autoHeight&quot;: true,         &quot;sortable&quot;: true     },     &quot;scrollbarWidth&quot;: 10,     &quot;enableBrowserTooltips&quot;: true,     &quot;pagination&quot;: true,     &quot;paginationPageSize&quot;: 5,     &quot;filter&quot;: true,     &quot;floatingFilter&quot;: true,    enableCellTextSelection: true, &quot;domLayout&quot;: &quot;autoHeight&quot;, suppressRowClickSelection: true, &quot;components&quot;: { &quot;productImageParams&quot;: productImageParams,&quot;priceParams&quot;:priceParams}, &quot;custom&quot;: {         &quot;dataUniqueIdField&quot;: &quot;orderId&quot;,         &quot;rowSelection&quot;: &quot;multiple&quot;,         &quot;csvExportOptions&quot;: {             &quot;fileName&quot;: &quot;List_Of_Orders.csv&quot;,             &quot;skipHeader&quot;: false         }     } } " instanceId="CUSTOMER_BOUGHT_PRODUCT" lastUpdatedStamp="2024-04-08 16:20:02.0" lastUpdatedTxStamp="2024-04-08 16:20:02.0" name="Customer Bought Product list" role="ADMIN" userId="admin"/>
+
+	<GridUserPreferences appliedRequestVerb="post" createdStamp="2023-03-12 15:44:05.0" createdTxStamp="2023-03-12 15:44:05.0" description="Customer Bought Product Invoice list" instanceId="CUSTOMER_BOUGHT_PRODUCT_INVOICE" lastUpdatedStamp="2024-05-14 18:18:52.0" lastUpdatedTxStamp="2024-05-14 18:18:52.0" name="Customer Bought Product Invoice list" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{         "headerName": "Invoice No",         "sortable": true,"filter": true,"floatingFilter": true,         "minWidth": 150,          "field":"invoiceId",         "filter": "agTextColumnFilter",      "cellRenderer" :"invoiceNoParams"     }, {         "headerName": "Product Name",         "sortable": true,"filter": true,"floatingFilter": true,      "minWidth": 250,          "field":"productName",         "filter": "agTextColumnFilter",     }, {         "headerName": "Ship Date",         "field": "shippedDate","filter": true,"floatingFilter": true,         "minWidth": 120,         "cellEditor": "agTextCellEditor",     }, {         "headerName": "Qty",         "field": "quantity","filter": true,"floatingFilter": true,         "minWidth": 100,         "cellEditor": "agTextCellEditor",     }, {         "headerName": "Price",         "field": "price","filter": true,"floatingFilter": true,         "minWidth": 150,         "cellEditor": "agTextCellEditor",     }],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "scrollbarWidth": 30,     "enableBrowserTooltips": true,     "pagination": true,     "paginationPageSize": 5,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight", "components": { "invoiceNoParams": invoiceNoParams},     "custom": {         "dataUniqueIdField": "orderId",         "rowSelection": "single",         "csvExportOptions": {             "fileName": "Customer_bought.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+
+	<GridUserPreferences instanceId="CUSTOMER_ORDERED_PRODUCT" userId="admin" role="ADMIN" description="Customer Ordered Product list" name="Customer Ordered Product list" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 11:39:22.0" lastUpdatedTxStamp="2024-03-06 11:39:22.0" createdStamp="2023-01-13 17:21:52.0" createdTxStamp="2023-01-13 17:21:52.0">
+        <gridOptionsJsString><![CDATA[{
+    "columnDefs": [{
+        "headerName": "Order No",
+        "sortable": true,
+        "minWidth": 150,"filter": true,"floatingFilter": true,
+         "field":"orderId",
+        "filter": "agTextColumnFilter",
+        cellRenderer: params => `<a target="_blank" href="/common-portal/control/redirectOrders?orderId=${params.data.orderId}?yId=${params.data.partyId}&externalLoginKey=${params.data.externalLoginKey}" >${params.data.orderId}</a>`
+    }, {
+        "headerName": "Product Name",
+        "sortable": true,
+      	"minWidth": 250,"filter": true,"floatingFilter": true,
+        "field":"productName",
+        "filter": "agTextColumnFilter",
+        cellRenderer: function(params) {
+            if (params.data.productImage != null && params.data.productName != null) {
+                return `<img src="${params.data.productImage}" alt="" width="20" height="20" > ${params.data.productName}`;
+            } else if (params.data.productImage == null && params.data.productName != null) {
+                return `<div style="width:23px; float:left;">       </div>${params.data.productName}`;
+            } else if (params.data.productImage != null && params.data.productName == null) {
+                return `<img src="${params.data.productImage}" alt="" width="20" height="20" >`;
+            } else {
+                return null;
+            }
+        }
+    }, {
+        "headerName": "Ordered Date",
+        "minWidth": 120,"filter": true,"floatingFilter": true,
+        "field": "orderDate",
+        "cellEditor": "agTextCellEditor",
+    }, {
+        "headerName": "Qty",
+        "field": "quantity",
+        "minWidth": 100,"filter": true,"floatingFilter": true,
+        "cellEditor": "agTextCellEditor",
+    }, {
+        "headerName": "Price",
+        "field": "price","filter": true,"floatingFilter": true,
+        "minWidth": 150,
+        "cellEditor": "agTextCellEditor",
+    }],
+    "defaultColDef": {
+        "flex": 1,
+        "wrapText": true,
+        "autoHeight": true,
+        "sortable": true
+    },
+    "scrollbarWidth": 30,
+    "enableBrowserTooltips": true,
+    "pagination": true,
+    "paginationPageSize": 5,
+    "filter": true,
+    "floatingFilter": true,
+    "domLayout": "autoHeight",
+    "custom": {
+        "dataUniqueIdField": "orderId",
+        "rowSelection": "single",
+        "csvExportOptions": {
+            "fileName": "List_Of_Orders.csv",
+            "skipHeader": false
+        }
+    }
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+	  <GridUserPreferences instanceId="CUSTOMER_ORDERED_PRODUCT_INVOICE" userId="admin" role="ADMIN" description="Customer Ordered Product Inovice list" name="Customer Ordered Product Invoice list" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 11:38:12.0" lastUpdatedTxStamp="2024-03-06 11:38:11.0" createdStamp="2023-03-12 15:44:46.0" createdTxStamp="2023-03-12 15:44:46.0">
+        <gridOptionsJsString><![CDATA[{
+    "columnDefs": [{
+        "headerName": "Invoice No",
+        "sortable": true,"filter": true,"floatingFilter": true,
+        "minWidth": 150,
+         "field":"invoiceId",
+        "filter": "agTextColumnFilter",
+        cellRenderer: params => `<a target="_blank" href="/customer-portal/control/viewTransactionInvoice?invoiceId=${params.data.invoiceId}&externalLoginKey=${params.data.externalLoginKey}" >${params.data.invoiceId}</a>`
+    }, {
+        "headerName": "Product Name",
+        "sortable": true,"filter": true,"floatingFilter": true,
+      	"minWidth": 250,
+        "field":"productName",
+        "filter": "agTextColumnFilter",
+    }, {
+        "headerName": "Invoice Date",
+        "minWidth": 120,"filter": true,"floatingFilter": true,
+        "field": "invoiceDate",
+        "cellEditor": "agTextCellEditor",
+    }, {
+        "headerName": "Qty",
+        "field": "quantity","filter": true,"floatingFilter": true,
+        "minWidth": 100,
+        "cellEditor": "agTextCellEditor",
+    }, {
+        "headerName": "Price",
+        "field": "price","filter": true,"floatingFilter": true,
+        "minWidth": 150,
+        "cellEditor": "agTextCellEditor",
+    }],
+    "defaultColDef": {
+        "flex": 1,
+        "wrapText": true,
+        "autoHeight": true,
+        "sortable": true
+    },
+    "scrollbarWidth": 30,
+    "enableBrowserTooltips": true,
+    "pagination": true,
+    "paginationPageSize": 5,
+    "filter": true,
+    "floatingFilter": true,
+    "domLayout": "autoHeight",
+     "minHeight" : "400",
+    "custom": {
+        "dataUniqueIdField": "orderId",
+        "rowSelection": "single",
+        "csvExportOptions": {
+            "fileName": "List_Of_Orders.csv",
+            "skipHeader": false
+        }
+    }
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+	 <GridUserPreferences instanceId="CUSTOMER_PICKER_LIST" userId="admin" role="ADMIN" name="Customer Picker  List" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 13:08:54.0" lastUpdatedTxStamp="2024-03-06 13:08:54.0" createdStamp="2020-11-04 06:02:27.0" createdTxStamp="2020-11-04 06:02:27.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+	        "headerName": "Customer Name",
+			"field": "name",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"lockPosition": true,
+                        "minWidth":200,
+			"cellRenderer": params => `<a href="#" onclick="setPickerWindowValue('${params.value}', '${params.data.partyId}');">${params.data.name}</a>`
+		}, {
+			"headerName": "Status",
+			"field": "statusDescription",
+			"sortable": true,"filter": true,"floatingFilter": true,
+                       "minWidth":200,
+			"filter": "agTextColumnFilter"
+		}, {
+	    "headerName": "Current Time Of Cust",
+	    "field": "currentTimeForTimezone",
+	    "sortable": true,"filter": true,"floatingFilter": true,
+               "minWidth":200,
+	    "filter":"agTextColumnFilter"
+	  }, {
+	    "headerName": "Time Zone",
+	    "field": "timeZoneDescription",
+	    "sortable": true,"filter": true,"floatingFilter": true,
+             "minWidth":200,
+	    "filter":"agTextColumnFilter"
+	  }, {
+			"headerName": "Phone Number",
+			"field": "contactNumber",
+			"sortable": true,"filter": true,"floatingFilter": true,
+                      "minWidth":200,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "E-Mail Address",
+			"field": "infoString","filter": true,"floatingFilter": true,
+			"sortable": true,
+                        "minWidth":200,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "City",
+			"field": "city","filter": true,"floatingFilter": true,
+			"sortable": false,
+                          "minWidth":200,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "State",
+			"field": "state","filter": true,"floatingFilter": true,
+			"sortable": false,
+                          "minWidth":200,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Country",
+			"field": "country","filter": true,"floatingFilter": true,
+			"sortable": true,
+                        "minWidth":200,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Postal Code",
+			"field": "postalCode","filter": true,"floatingFilter": true,
+			"sortable": true,
+                         "minWidth":200,
+			"filter": "agTextColumnFilter"
+		},{
+			"headerName": "Currency Uom",
+			"field": "preferredCurrencyUomId","minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		} , {
+			"headerName": "RM",
+			"field": "relationshipManager","minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		} , {
+			"headerName": "Source",
+			"field": "dataSourceDesc","minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		} , {
+			"headerName": "Profile Title",
+			"field": "generalProfTitle","minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		} , {
+			"headerName": "Customer ID","minWidth":200,
+			"field": "partyId","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}
+	],
+ 	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_Customer.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+	<GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:45:47.0" createdTxStamp="2023-01-13 16:45:47.0" description="Customer Email Campaign Grid" instanceId="CUST_EMAIL_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:36:48.0" lastUpdatedTxStamp="2024-05-17 04:36:48.0" name="Customer Email Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [         {             "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'             }},         {             "headerName": "Reminder",             "field": "reminder","filter": true,"floatingFilter": true,             "sortable": true,            "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","filter": true,"floatingFilter": true,             "sortable": true, "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","filter": true,"floatingFilter": true,             "sortable": true, "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Opened",             "field": "opened","filter": true,"floatingFilter": true,             "sortable": true,             "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Clicked",             "field": "clicked","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "Bounced",             "field": "bounced","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "UnSubscribed",             "field": "unSubscribed","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+ 
+     <GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:46:26.0" createdTxStamp="2023-01-13 16:46:26.0" description="Customer Phone Campaign Grid" instanceId="CUST_PHONE_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:32:28.0" lastUpdatedTxStamp="2024-05-17 04:32:28.0" name="Customer Phone Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{          "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'          }        },         {             "headerName": "Reminder",             "field": "reminder","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Call Outcome",             "field": "callOutcome",             "sortable": true,"filter": true,"floatingFilter": true,             "minWidth": 150,             "filter": "agTextColumnFilter"         },         {             "headerName": "Response Code",             "field": "responseCode",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },         {             "headerName": "Reason Code",             "field": "reasonCode",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences> 
+     <GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:51:07.0" createdTxStamp="2023-01-13 16:51:07.0" description="Customer Postal Campaign Grid" instanceId="CUST_POSTAL_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:33:23.0" lastUpdatedTxStamp="2024-05-17 04:33:23.0" name="Customer Postal Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{          "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'             }        },         {             "headerName": "Reminder",             "field": "reminder","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Delivered Date",             "field": "deliveredDate","filter": true,"floatingFilter": true,             "sortable": true,             "minWidth": 150,             "filter": "agTextColumnFilter"         },         {             "headerName": "Bad Address",             "field": "badAddress","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+    <GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:52:04.0" createdTxStamp="2023-01-13 16:52:04.0" description="Customer Sms Campaign Grid" instanceId="CUST_SMS_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:34:03.0" lastUpdatedTxStamp="2024-05-17 04:34:03.0" name="Customer Sms Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{             "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'             }        },         {             "headerName": "Reminder",             "field": "reminder","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Delivered Date",             "field": "deliveredDate","filter": true,"floatingFilter": true,             "sortable": true,             "minWidth": 150,             "filter": "agTextColumnFilter"         },         {             "headerName": "Opened",             "field": "opened","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+    
+        <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="act-attachments" tabName="Bookmarks and Files" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ActivityAttachments" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="act-note" tabName="Notes" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListNote" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="activityDetails" tabName="Activity Details" isEnabled="Y" tabContent="component://customer-portal/widget/CustomerScreens.xml#ViewActivityDetails" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="customFields" tabName="Attributes" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewCustomField" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_ACTIVITY" tabId="rebate" tabName="Rebate" isEnabled="N" tabContent="component://common-portal/widget/rebate/RebateScreens.xml#ListRebate	" sequenceNo="5" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-activities" tabName="Activities" isEnabled="Y" tabContent="component://common-portal/widget/activity/ActivityScreens.xml#ListActivity" sequenceNo="10" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-attachments" tabName="Bookmarks and Files" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#Attachments" sequenceNo="12" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-campaigns" tabName="Campaigns" isEnabled="Y" tabContent="component://common-portal/widget/campaign/CampaignScreens.xml#campaignList" sequenceNo="13" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-communicationHistory" tabName="Communication History" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#CommunicationHistory" sequenceNo="7" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-contracts" tabName="Contracts" isEnabled="N" tabContent="component://customer-portal/widget/customer-portalScreens.xml#Contracts" sequenceNo="21" lastUpdatedStamp="2024-07-24 10:26:12.0" lastUpdatedTxStamp="2024-07-24 10:26:12.0" createdStamp="2024-07-24 10:26:12.0" createdTxStamp="2024-07-24 10:26:12.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-details" tabName="Customer Profile" isEnabled="Y" tabContent="component://customer-portal/widget/customer-portalScreens.xml#viewCustomerProfile" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-invoice" tabName="Invoice" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListInvoices" sequenceNo="9" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-mergedParties" tabName="Merged Parties" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#MergedParties" sequenceNo="14" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-notes" tabName="Notes" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListNote" sequenceNo="11" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-opportunities" tabName="Opportunities" isEnabled="Y" tabContent="component://common-portal/widget/opportunity/OpportunityScreens.xml#ListOpportunity" sequenceNo="6" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-orders" tabName="Orders" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListOrder" sequenceNo="8" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-rebate" tabName="Rebate" isEnabled="N" tabContent="component://common-portal/widget/rebate/RebateScreens.xml#ListRebate" sequenceNo="15" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="c-receipt" tabName="Receipts" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListPartyReceipts" sequenceNo="17" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="contactInfo" tabName="Contact Info" isEnabled="Y" tabContent="component://common-portal/widget/contact/ContactScreens.xml#ContactInfo" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="coupons" tabName="Coupons" isEnabled="Y" tabContent="component://loyalty-portal/widget/LoyaltyScreens.xml#findCoupon" sequenceNo="16" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="customer-persona" tabName="Persona" isEnabled="Y" tabContent="component://customer-portal/widget/customer-portalScreens.xml#customerPersona" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="e-value" tabName="Earned Values" isEnabled="Y" tabContent="component://customer-portal/widget/CustomerScreens.xml#earnedValue" sequenceNo="18" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="quotes" tabName="Quotes" isEnabled="N" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListQuote" sequenceNo="19" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="serviceRequests" tabName="Service Requests" isEnabled="Y" tabContent="component://common-portal/widget/service-request/ServiceRequestScreens.xml#ListServiceRequest" sequenceNo="5" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER" tabId="singlePageEdit" tabName="Single Page Edit" isEnabled="N" tabContent="component://customer-portal/widget/customer-portalScreens.xml#singlePageEdit" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER_PERSONA" tabId="customFields" tabName="Attributes" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewCustomField" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER_PERSONA" tabId="economicMetric" tabName="Economic Metrics" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewEconomicMetric" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER_PERSONA" tabId="rfmMetric" tabName="RFM Metric" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#RrmMetric" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PORTAL" tabConfigId="VIEW_CUSTOMER_PERSONA" tabId="segmentation" tabName="Segmentation" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewSegmentation" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PROFILE" tabConfigId="VIEW_ACTIVITY" tabId="act-attachments" tabName="Bookmarks and Files" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ActivityAttachments" sequenceNo="3" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PROFILE" tabConfigId="VIEW_ACTIVITY" tabId="act-note" tabName="Notes" isEnabled="Y" tabContent="component://common-portal/widget/general/GeneralScreens.xml#ListNote" sequenceNo="4" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PROFILE" tabConfigId="VIEW_ACTIVITY" tabId="activityDetails" tabName="Activity Details" isEnabled="Y" tabContent="component://customer-portal/widget/CustomerScreens.xml#ViewActivityDetails" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PROFILE" tabConfigId="VIEW_ACTIVITY" tabId="customFields" tabName="Attributes" isEnabled="Y" tabContent="component://common-portal/widget/custom-field/CustomFieldScreens.xml#ViewCustomField" sequenceNo="2" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PROFILE" tabConfigId="VIEW_ACTIVITY" tabId="rebate" tabName="Rebate" isEnabled="N" tabContent="component://common-portal/widget/rebate/RebateScreens.xml#ListRebate" sequenceNo="5" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    <NavTabsConfig componentId="CUSTOMER_PROFILE" tabConfigId="VIEW_TASK_ACTIVITY" tabId="activityDetails" tabName="Activity Details" isEnabled="Y" tabContent="component://customer-portal/widget/CustomerScreens.xml#ViewActivityDetails" sequenceNo="1" lastUpdatedStamp="2024-07-24 10:26:17.0" lastUpdatedTxStamp="2024-07-24 10:26:17.0" createdStamp="2024-07-24 10:26:17.0" createdTxStamp="2024-07-24 10:26:17.0"/>
+    
+</entity-engine-xml>

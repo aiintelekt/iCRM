@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>FIO Custom Field Services</description>
+    <vendor>Open Source Strategies, Inc.</vendor>
+    <version>1.0</version>
+	
+	<!-- Segment Code [start] -->
+	
+	<service name="segment.createSegmentCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentCodeServices" invoke="createSegmentCode">
+       	<description> Create Segment Code </description>
+       
+       	<attribute name="groupId" type="String" mode="IN" optional="false"/>
+       	<attribute name="groupName" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequence" type="String" mode="IN" optional="true"/>
+       	
+       	<!-- <attribute name="roleConfigId" type="String" mode="IN" optional="true"/>
+       	<attribute name="roleTypeId" type="String" mode="IN" optional="true"/> -->
+       	
+       	<attribute name="groupingCode" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="serviceTypeId" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceConfigId" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="historicalCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="isCampaignUse" type="String" mode="IN" optional="true"/>
+       	<attribute name="classType" type="String" mode="IN" optional="true"/>
+       	<attribute name="type" type="String" mode="IN" optional="true"/>
+       	<attribute name="isActive" type="String" mode="IN" optional="true"/>
+       	<attribute name="isUseDynamicEntity" type="String" mode="IN" optional="true"/>
+       	<attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueOverrideType" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="groupId" type="String" mode="OUT" optional="false"/>
+		       	
+    </service>
+    
+    <service name="segment.updateSegmentCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentCodeServices" invoke="updateSegmentCode">
+       	<description> Update Custom Field Group </description>
+       
+       	<attribute name="groupName" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequence" type="String" mode="IN" optional="true"/>
+       	
+       	<!-- <attribute name="roleConfigId" type="String" mode="IN" optional="true"/>
+       	<attribute name="roleTypeId" type="String" mode="IN" optional="true"/> -->
+       	
+       	<attribute name="groupingCode" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceName" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="serviceTypeId" type="String" mode="IN" optional="true"/>
+       	<attribute name="serviceConfigId" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="historicalCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="isCampaignUse" type="String" mode="IN" optional="true"/>
+       	<attribute name="classType" type="String" mode="IN" optional="true"/>
+       	<attribute name="type" type="String" mode="IN" optional="true"/>
+       	<attribute name="isActive" type="String" mode="IN" optional="true"/>
+       	<attribute name="isUseDynamicEntity" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueOverrideType" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="groupId" type="String" mode="INOUT" optional="true"/>
+		       	
+    </service>
+    
+    <service name="segment.deleteSegmentCode" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentCodeServices" invoke="deleteSegmentCode">
+       	<description> Delete Custom Field Group </description>
+       
+       	<attribute name="groupId" type="String" mode="IN" optional="false"/>
+		       	
+    </service>
+    
+    <!-- Segment Code [end] -->
+    
+    <!-- Segment Value [start] -->
+	
+	<service name="segment.createSegmentValue" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentValueServices" invoke="createSegmentValue">
+       	<description> Create Segment Value </description>
+       
+       	<attribute name="customFieldName" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueSeqNum" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueMin" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueMax" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueData" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+       	<attribute name="productPromoCodeGroupId" type="String" mode="IN" optional="true"/>
+       	<attribute name="isDefault" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="groupId" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="customFieldId" type="String" mode="INOUT" optional="false"/>
+				       	
+    </service>
+    
+    <service name="segment.updateSegmentValue" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentValueServices" invoke="updateSegmentValue">
+       	<description> Update Segment Value </description>
+       
+       	<attribute name="customFieldName" type="String" mode="IN" optional="false"/>
+       	<attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueSeqNum" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueMin" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueMax" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueData" type="String" mode="IN" optional="true"/>
+       	<attribute name="isEnabled" type="String" mode="IN" optional="true"/>
+       	<attribute name="productPromoCodeGroupId" type="String" mode="IN" optional="true"/>
+       	<attribute name="isDefault" type="String" mode="IN" optional="true"/>
+       	
+       	<attribute name="groupId" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="customFieldId" type="String" mode="INOUT" optional="false"/>
+				       	
+    </service>
+    
+    <service name="segment.deleteSegmentValue" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentValueServices" invoke="deleteSegmentValue">
+       	<description> Delete Segment Value </description>
+       
+       	<attribute name="groupId" type="String" mode="OUT" optional="true"/>
+       	<attribute name="customFieldId" type="String" mode="IN" optional="false"/>
+       	
+       	<attribute name="valueCapture" type="String" mode="IN" optional="true"/>
+       	<attribute name="valueSeqNum" type="String" mode="IN" optional="true"/>
+		       	
+    </service>
+    
+    <!-- Segment Value [end] -->
+    
+    <service name="segment.autoCampaignSegmentation" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentServices" invoke="autoCampaignSegmentation">
+       	<description> Auto Campaign Segmentation </description>
+       
+       	<attribute name="marketingCampaignId" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="offerCodeCount" type="String" mode="INOUT" optional="true"/>
+       	
+       	<attribute name="isCampaignTypeChanged" type="Boolean" mode="IN" optional="true"/>
+       	<attribute name="oldCampaignType" type="String" mode="IN" optional="true"/>
+		       	
+    </service>
+    
+    <!--Offer Auto  Segment Value [start] -->
+    <service name="segment.offerCreateSegmentValue" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentServices" invoke="offerCreateSegmentValue">
+       	<description> Auto Campaign Offer Segmentation </description>
+       
+       	<attribute name="groupId" type="String" mode="IN" optional="true"/>
+       	<attribute name="offerCodeCount" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="marketingCampaignId" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="sequenceNumber" type="Long" mode="INOUT" optional="true"/>
+		       	
+    </service>
+    
+    <!--Offer Auto  Segment Value [end] -->
+    
+    <!--Offer Auto  Segment Value [start] -->
+    <service name="segment.autoCampaignOfferUpdateSegmentation" engine="java" use-transaction="true" auth="true"
+             location="org.groupfio.customfield.service.services.SegmentServices" invoke="autoCampaignSegmentationForOfferUpdate">
+       	<description> Auto Campaign Offer Segmentation </description>
+       	
+       	<attribute name="offerCodeCount" type="String" mode="INOUT" optional="true"/>
+       	<attribute name="marketingCampaignId" type="String" mode="INOUT" optional="true"/>
+		       	
+    </service>
+    
+    <!--Offer Auto  Segment Value [end] -->
+    <service name="segment.createSegmentMap" engine="java" location="org.groupfio.customfield.service.services.SegmentServices" invoke="createSegmentMap">
+        <attribute name="masterTable" type="String" mode="IN" optional="false"/>
+        <attribute name="masterField" type="String" mode="IN" optional="false"/>
+        <attribute name="segment" type="String" mode="IN" optional="true"/>
+        <attribute name="fieldType" type="String" mode="IN" optional="false"/>
+    </service>
+</services>

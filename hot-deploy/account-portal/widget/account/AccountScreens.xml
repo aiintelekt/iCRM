@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="HomeAccount">
+        <section>
+            <actions>
+                <set field="titleProperty" value="HomeAccount" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/HomeAccount.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://account-portal/webapp/account-portal/account/account_home.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+    <screen name="FindAccount">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindAccount" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/FindAccount.groovy"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/InitParam.groovy" />
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://account-portal/webapp/account-portal/account/find/find_account.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListAccount"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListAccount">
+        <section>
+        	<actions>
+				
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://account-portal/webapp/account-portal/account/find/list_account.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ViewAccount">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewAccount" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/common/CommonBadgeData.groovy"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/InitParam.groovy" />
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                                <html>
+                                    <html-template location="component://account-portal/webapp/account-portal/account/view/view_account.ftl"/>
+                                </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+	<screen name="CreateAccount">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="CreateAccount" global="true"/>
+			  <set field="sectionName" value="account-portal" global="true"/>
+			  <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/CreateAccount.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://account-portal/webapp/account-portal/account/create/create_account.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="UpdateAccount">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="UpdateAccount" global="true"/>
+			  <set field="sectionName" value="account-portal" global="true"/>
+			  <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+			</actions>
+			<widgets>
+			<section>
+			<condition>
+				<if-compare field="haveDataPermission" operator="equals" value="Y" type="String"/>
+			</condition>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://account-portal/webapp/account-portal/account/update/update_account.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+					<!-- <decorator-section name="bottom-content">
+						<include-screen name="UpdateAccountAdditional"/>
+	              	</decorator-section> -->
+				</decorator-screen>
+				</widgets>
+	        	<fail-widgets>
+					<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+						<decorator-section name="top-content">
+							<label style="h3">${uiLabelMap.permissionDenied}</label>
+						</decorator-section>
+					</decorator-screen>
+				</fail-widgets>
+	        </section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="mergeAccountForm">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="MergeAccount" global="true"/>
+			  <set field="sectionName" value="account-portal" global="true"/>
+			  <set field="screenName" value="ACCOUNT" global="true"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://common-portal/webapp/common-portal/common/mergeParty.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="UpdateAccountAdditional">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://account-portal/webapp/account-portal/account/update/additional_content.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+    <screen name="ViewAccountProfile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://account-portal/webapp/account-portal/account/view/account_profile.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="KpiMetric">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://account-portal/webapp/account-portal/account/kpi_metric.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="AdministrationInfo">
+		<section>
+			<actions>
+                
+            </actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://account-portal/webapp/account-portal/account/administration_info.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="addEmail">
+        <section>
+         <actions>
+             <set field="titleProperty" value="Create Email" global="true"/>
+            <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+             </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://account-portal/webapp/account-portal/account/email.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="CreatePhoneCallActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Create Phone Call" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                         <platform-specific>
+                            <html>
+                                <html-template location="component://account-portal/webapp/account-portal/account/create_phone_call_activity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="CreateAppointmentActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Create Appointment" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                         <platform-specific>
+                            <html>
+                                <html-template location="component://account-portal/webapp/account-portal/account/create_appointment_activity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="CreateTaskActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Create Task" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                         <platform-specific>
+                            <html>
+                                <html-template location="component://account-portal/webapp/account-portal/account/create_task_activity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="CreateServiceRequest"> 
+        <section>
+            <actions>
+                <set field="titleProperty" value="Services" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://account-portal/webapp/account-portal/account/create_service_request.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ViewActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Activity" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+                <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/viewActivity.groovy"/>
+            </actions>
+             <widgets>
+              <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+	                         <html>
+	                             <html-template location="component://common-portal/webapp/common-portal/activity/view_activity.ftl" />
+	                         </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="updateActivity">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Update Activity" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/viewActivity.groovy" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/activity/updateActivity.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="NoteDataDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Notes" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://common-portal/webapp/common-portal/note/note_Data_Details.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewOrder">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Order" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/common/ViewOrderDetails.groovy"/>
+                
+            </actions>
+             <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                                <html>
+                                    <html-template location="component://account-portal/webapp/account-portal/common/viewOrder.ftl"/>
+                                </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="AccountDashboard">
+        <section>
+            <actions>
+            	<set field="titleProperty" value="Account Dashboard" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                 <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>               
+                <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/charts/AccountDashboardChart.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">					
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://account-portal/webapp/account-portal/account/charts/account_dash_pie_chart.ftl"/></html></platform-specific>
+	              	</decorator-section>					
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ResetPassword">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="Reset Password" global="true"/>
+			  <set field="sectionName" value="account-portal" global="true"/>
+			</actions>
+			<widgets>
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html><html-template location="component://account-portal/webapp/account-portal/common/resetPassword.ftl"/></html>
+						</platform-specific>
+					</decorator-section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ChangePassword">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="Change Password" global="true"/>
+			  <set field="sectionName" value="account-portal" global="true"/>
+			</actions>
+			<widgets>
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html><html-template location="component://account-portal/webapp/account-portal/common/changePassword.ftl"/></html>
+						</platform-specific>
+					</decorator-section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="EmailDashboard">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Email Dashboard" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/email-dashboard/EmailDashboard.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://common-portal/webapp/common-portal/email-dashboard/emailDashboard.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="AccountPersona">
+		<section>
+			<actions>
+				<set field="titleProperty" value="Persona Content" global="true" />
+				<set field="sectionName" value="account-portal" global="true" />
+				<set field="isView" value="Y" global="true" />
+				<property-map resource="account-portalUiLabels"
+					map-name="uiLabelMap" global="true" />
+				<property-map resource="AdminPortalUiLabels" map-name="uiLabelMap"
+					global="true" />
+			</actions>
+			<widgets>
+				<decorator-section name="top-content">
+					<platform-specific>
+						<html>
+							<html-template
+								location="component://account-portal/webapp/account-portal/account/account_persona.ftl" />
+						</html>
+					</platform-specific>
+				</decorator-section>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ViewActivityDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="View Activity" global="true"/>
+                <set field="sectionName" value="account-portal" global="true"/>
+                <set field="isView" value="Y" global="true"/>
+                <property-map resource="account-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+               <!--  <script location="component://account-portal/webapp/account-portal/WEB-INF/actions/account/ViewAccount.groovy"/>
+                <script location="component://sr-portal/webapp/sr-portal/WEB-INF/actions/viewActivity.groovy"/>-->
+            </actions>
+             <widgets>
+                 <decorator-section name="top-content">
+                     <platform-specific>
+                       <html>
+                           <html-template location="component://common-portal/webapp/common-portal/activity/activity_details_tab-content.ftl" />
+                       </html>
+                     </platform-specific>
+                 </decorator-section>
+            </widgets>
+        </section>
+    </screen>
+</screens>

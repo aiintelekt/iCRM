@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="lead-portal_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="lead-portal_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="lead-portal_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="lead-portal_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="lead-portal_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="lead-portal_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="lead-portal_ADMIN"/>
+</entity-engine-xml>

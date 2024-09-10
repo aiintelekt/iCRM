@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the account-service Component." permissionId="account-service_VIEW"/>
+    <SecurityPermission description="Create operations in the account-service Component." permissionId="account-service_CREATE"/>
+    <SecurityPermission description="Update operations in the account-service Component." permissionId="account-service_UPDATE"/>
+    <SecurityPermission description="Delete operations in the account-service Component." permissionId="account-service_DELETE"/>
+    <SecurityPermission description="ALL operations in the account-service Component." permissionId="account-service_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="account-service_ADMIN"/>
+
+</entity-engine-xml>

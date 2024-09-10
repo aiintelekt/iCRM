@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="listScreenLayout">
+        <section>
+            <actions>
+                <set field="titleProperty" value="List Screen Layout"/>
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/layout/ScreenLayout.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="PortalCommonDecorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="left-sidebar-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/common-left-sidebar.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://Etl-Process/webapp/Etl-Process/layout/screen_layout.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="quick-sidebar-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/sample-page-quick-sidebar.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="newScreenLayout">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Create Screen Layout"/>
+                <script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/layout/EditScreenLayout.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="PortalCommonDecorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="left-sidebar-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/common-left-sidebar.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://Etl-Process/webapp/Etl-Process/layout/edit_screen_layout.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="quick-sidebar-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/sample-page-quick-sidebar.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="editScreenLayout">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Edit Screen Layout"/>
+                <entity-one entity-name="ScreenLayoutType" value-field="screenLayoutTypes"/>
+                <!--<set field="screenLayoutId" from-field="parameters.screenLayoutId"/>
+				<entity-one entity-name="ScreenLayout" value-field="screenLayout" />-->
+				<script location="component://Etl-Process/webapp/Etl-Process/WEB-INF/actions/layout/EditScreenLayout.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="PortalCommonDecorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="left-sidebar-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/common-left-sidebar.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://Etl-Process/webapp/Etl-Process/layout/edit_screen_layout.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="quick-sidebar-content">
+                        <platform-specific>
+                            <html><html-template location="component://Etl-Process/webapp/Etl-Process/common/sample-page-quick-sidebar.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

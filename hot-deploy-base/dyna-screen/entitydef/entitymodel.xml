@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of dyna-screen Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+	    
+    <entity entity-name="DynaScreenConfig"
+            package-name="org.groupfio.crm.portal"
+            title="DynaScreenConfig Entity">
+            
+		<field name="dynaConfigId" type="id-ne"></field>
+		
+		<field name="componentMountPoint" type="id-vlong"></field>
+		<field name="layoutType" type="id-mlong"></field>
+		<field name="isDisabled" type="indicator"></field>
+		<field name="securityGroupId" type="id-vlong"></field>
+		<field name="fromDate" type="date-time"></field>
+		<field name="thruDate" type="date-time"></field>
+		<field name="createdBy" type="id-vlong"></field>
+		<field name="defaultMessage" type="very-long"></field>
+		<field name="lastModifiedBy" type="id-vlong"></field>
+		<field name="isPrimary" type="indicator"></field>
+		<field name="isFullscreen" type="indicator"></field>
+		<field name="labelColSize" type="id"></field>
+		<field name="inputColSize" type="id"></field>
+		
+		<field name="screenWidgetName" type="id-vlong"></field>
+		<field name="screenDisplayName" type="id-vlong"></field>
+		<field name="requestUri" type="very-long"></field>
+		<field name="screenService" type="id-mlong"></field>
+		<field name="isDirectRead" type="indicator"></field>
+		<field name="jsonOutput" type="very-long"></field>
+				
+      	<prim-key field="dynaConfigId"/>
+		<index name="dyna_screen_config_index_01">
+    		<index-field name="dynaConfigId"/>
+    		<index-field name="isDisabled"/>
+    	</index>				      	
+    </entity>
+    
+    <entity entity-name="DynaScreenConfigField"
+            package-name="org.groupfio.crm.portal"
+            title="DynaScreenConfigField Entity">
+            
+		<field name="dynaConfigId" type="id-ne"></field>
+		<field name="dynaFieldId" type="id-ne"></field>
+		
+		<field name="dynaFieldFormId" type="id"></field>
+		<field name="sequenceNum" type="id-int"></field>
+		<field name="isDisabled" type="indicator"></field>
+		<field name="fieldName" type="id-vlong"></field>
+		<field name="fieldType" type="id"></field>
+		<field name="maxLength" type="id-int"></field>
+		<field name="lookupTypeId" type="id"></field>
+		<field name="lookupFieldService" type="id-vlong"></field>
+		<field name="lookupFieldFilter" type="very-long"></field>
+		<field name="lookupFieldServiceUrl" type="very-long"></field>
+		<field name="fieldDataPattern" type="very-long"></field>
+		<field name="isRequired" type="indicator"></field>
+		<field name="isCreate" type="indicator"></field>
+		<field name="isView" type="indicator"></field>
+		<field name="isEdit" type="indicator"></field>
+		<field name="fieldService" type="id-mlong"></field>
+		<field name="defaultValue" type="very-long"></field>
+		<field name="roleTypeId" type="id-vlong"></field>
+		<field name="pickerWindowId" type="id-vlong"></field>
+		
+      	<prim-key field="dynaConfigId"/>
+      	<prim-key field="dynaFieldId"/>
+						      	
+    </entity>
+    
+    <entity entity-name="DynaScreenConfigFieldData"
+            package-name="org.groupfio.crm.portal"
+            title="DynaScreenConfigFieldData Entity">
+            
+		<field name="dynaConfigId" type="id-ne"></field>
+		<field name="dynaFieldId" type="id-ne"></field>
+		<field name="dynaFieldDataId" type="id-ne"></field>
+		
+		<field name="roleTypeId" type="id"></field>
+		<field name="sequenceNum" type="id-int"></field>
+		<field name="dataName" type="id-vlong"></field>
+		<field name="dataValue" type="id-vlong"></field>
+		
+      	<prim-key field="dynaConfigId"/>
+      	<prim-key field="dynaFieldId"/>
+      	<prim-key field="dynaFieldDataId"/>
+						      	
+    </entity>
+    
+    <entity entity-name="DynaScreenConfigFieldAttribute"
+            package-name="org.groupfio.crm.portal"
+            title="DynaScreenConfigFieldAttribute Entity">
+            
+		<field name="dynaConfigId" type="id"></field>
+		<field name="dynaFieldId" type="id-vlong"></field>
+		<field name="attrName" type="id-vlong"></field>
+		
+		<field name="attrValue" type="id-vlong"></field>
+				
+      	<prim-key field="dynaConfigId"/>
+      	<prim-key field="dynaFieldId"/>
+      	<prim-key field="attrName"/>
+						      	
+    </entity>
+    
+    <entity entity-name="SubscriptionInfo"
+            package-name="org.groupfio.subscription.portal"
+            title="SubscriptionInfo Entity">
+            
+		<field name="productId" type="id"></field>
+		
+		<field name="licenseKey" type="very-long"></field>
+		<field name="version" type="id"></field>
+						
+      	<prim-key field="productId"/>
+						      	
+    </entity>    
+    
+</entitymodel>

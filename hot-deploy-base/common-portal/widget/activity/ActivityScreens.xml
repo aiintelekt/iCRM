@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="ListActivity">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/activity/FindActivity.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/activity/find_activity.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/activity/list_activity.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ActivityModals">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/activity/modal_window.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="CallDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CrmLogCall" />
+                <set field="pageTitleLabel" value="CrmLogCall"/>
+                <set field="sectionHeaderUiLabel" value="CrmLogCall"/>
+                <script location="component://common-portal/webapp/common-portal/WEB-INF/actions/activity/ActivityHistory.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://common-portal/webapp/common-portal/activity/activity_history.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListActSchedule">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/activity/FindActSchedule.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/activity/find_act_schedule.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/activity/list_act_schedule.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	
+	<screen name="ListActTimeEntry">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/common/TimeEntryList.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/common/timeEntryLogs.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen> 
+	
+</screens>

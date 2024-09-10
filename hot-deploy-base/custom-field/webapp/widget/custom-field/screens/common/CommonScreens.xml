@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+
+	<screen name="main-decorator">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            	<property-map resource="common-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CustomFieldUiLabels" map-name="uiLabelMap" global="true"/>
+                
+				<set field="layoutSettings.appName" from-field="uiLabelMap.AppName" global="true"/>
+                <set field="layoutSettings.companyName" from-field="uiLabelMap.CompanyName" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.CompanySubtitle" global="true"/>
+
+                <set field="activeApp" value="custom-field" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.Application}" global="true"/>
+            </actions>
+            <widgets>
+                <include-screen name="CommonDecorator" location="component://admin-portal/widget/common/CommonScreens.xml"/>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="main-section-decorator">
+		<section>
+			<widgets>
+				<decorator-screen name="PortalCommonDecorator" location="component://custom-field/widget/custom-field/screens/common/CommonScreens.xml">
+					<decorator-section name="top-content">
+						<decorator-section-include name="section-body"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+		
+	<!-- <screen name="main-decorator">
+        <section>
+            <actions>
+				
+                <property-map resource="CustomFieldUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+             	<entity-one value-field="layoutConfig" entity-name="ThemeConfiguration">
+                    <field-map field-name="applicationId" value="OMS"/>
+                </entity-one>
+                <set field="visualThemeId" from-field="layoutConfig.visualThemeId" default-value="BOOTSTRAP"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_ETL_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				                
+			</actions>
+            <widgets>
+            	<platform-specific>
+                   <html>
+                     <html-template location="${headerTemplateLocation}"/>
+                   </html>
+                </platform-specific>
+                <decorator-section-include name="body"/>
+            </widgets>
+        </section>
+    </screen> -->
+    
+    <!-- Decorator for eWallet component [start] -->
+    
+    <screen name="LoadLayoutFile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://custom-field/webapp/custom-field/global/ProtalMainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ProtalMainLayout">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://homeapps/webapp/homeapps/WEB-INF/actions/homeApplications.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile">
+					
+					<decorator-section name="header-common-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://custom-field/webapp/custom-field/includes/commonHeader.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<!-- <html-template location="component://custom-field/webapp/custom-field/shared/etlHeader.ftl" /> -->
+								<html-template location="component://bootstrap/includes/appbar.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-header-content">
+						<platform-specific>
+							<html>
+								<html-template location="${headerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+					
+					<decorator-section name="footer-center-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://custom-field/webapp/custom-field/shared/footerCenter.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-footer-content">
+						<platform-specific>
+							<html>
+								<html-template location="${footerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="PortalBaseSetup">
+		<section>
+			<actions>
+				
+				<property-map resource="CustomFieldUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<set field="visualThemeId" type="String" value="${groovy:org.fio.homeapps.util.DataUtil.getGlobalValue(delegator, 'DEFAULT_THEME_ID', 'BOOTSTRAP')}" default-value="BOOTSTRAP"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/includes/MainDecorator.groovy" />
+				
+				<set field="layoutSettings.companyName" from-field="uiLabelMap.ApplicationTitle" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.ApplicationTitle" global="true"/>
+
+                <set field="activeApp" value="custom-field" global="true"/>
+                <set field="applicationMenuLocation" value="component://custom-field/webapp/widget/custom-field/CusomtFieldMenus.xml" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.ApplicationTitle}" global="true"/>
+				
+			</actions>
+			<!-- <actions>
+			
+				BOOTSTRAP
+				
+				<property-map resource="CustomFieldUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions> -->
+			<widgets>
+				<decorator-screen name="ProtalMainLayout">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="PortalCommonDecorator">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="PortalBaseSetup">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    
+    <!-- Decorator for ewallet component [end] -->
+	
+	<!-- Decorator for Login Screen [start] -->
+	
+	<screen name="LoadLoginLayoutFile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://custom-field/webapp/custom-field/global/ProtalLoginLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="ProtalLoginLayout">
+		<section>
+			<actions>
+				<property-map resource="CustomFieldUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                
+                <set field="layoutSettings.shortcutIcon" value="/opentaps_images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<set field="visualThemeId" value="METRONIC"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/header.ftl"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://ecommerce/webapp/ecommerce/includes/footer.ftl"/>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/includes/MainDecorator.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLoginLayoutFile">
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://custom-field/webapp/custom-field/shared/headerLoginMain.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-header-content">
+						<platform-specific>
+							<html>
+								<html-template location="${headerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					
+					<decorator-section name="footer-center-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://custom-field/webapp/custom-field/shared/footerLoginCenter.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-footer-content">
+						<platform-specific>
+							<html>
+								<html-template location="${footerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="PortalLoginDecorator">
+		<section>
+			<actions>
+				<set field="titleProperty" value="ApplicationTitle"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="ProtalLoginLayout">
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<!-- Decorator for Login Screen [end] -->
+	
+	<screen name="messages">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/common/messages.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="login">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleLogin"/>
+                <set field="headerItem" value="login"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="PortalLoginDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html><html-template location="component://custom-field/webapp/custom-field/common/login.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                    <decorator-section name="bottom-content">
+                        <platform-specific>
+                            <html><html-template location="component://custom-field/webapp/custom-field/common/forgot-password.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="lock">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Locked"/>
+                <set field="headerItem" value="lock"/>
+                <script location="component://custom-field/webapp/custom-field/WEB-INF/actions/common/Lock.groovy" />
+            </actions>
+            <widgets>
+                <decorator-screen name="PortalLoginDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html><html-template location="component://custom-field/webapp/custom-field/common/lock.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

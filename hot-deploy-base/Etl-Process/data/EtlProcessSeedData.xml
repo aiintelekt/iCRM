@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * 
+ *
+ * @author Group Fio
+ *
+ -->
+
+<entity-engine-xml>
+	
+	<!-- <ChannelAccess channelAccessId="3000" channelAccessType="WALLET" clientName=""
+          accessToken="!wrZAnKWJ#5$vStF#mKKDgTm!9@XDD745S4fZS_RM#9Y@0WWHXuJowNzizkQ_vOa9E_epzZ2t8Qi$GRG2cfLAbb_HZaEZuEZOwwc5cpIsz$Xw!ObokFOYdD2F2imt2YL&rj8&Cm_yryDI29c@XeEcjwY0uJywmu$7l2NjnsF--XbC7t41#a_O6Fd#cwaqWOY&Q_A#335ZcnIjy1eeF1q5xzGUXbl$&qsof3yfzMxdSGmGM-fgcit8_f!@yd##G6" 
+          channelAccessUrl="http://localhost:8080/ewallet/wallet/v1" applicationName="Ofbiz and EWallet Integration" applicationVersion="1.0.0"
+          /> -->
+          
+	          
+	              
+</entity-engine-xml>

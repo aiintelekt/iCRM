@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">	
+	
+	<screen name="teams">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="Teams" global="true"/>
+			  <set field="sectionName" value="admin-portal" global="true"/>
+			  <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+			  <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/teams/findTeams.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/teams/teams.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="viewTeam">
+        <section>
+            <actions>
+              <set field="titleProperty" value="View Team" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/teams/viewTeam.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/teams/viewMember.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+        <screen name="updateTeam">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Update Team" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/teams/updateTeam.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/teams/updateTeam.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="businessUnits">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/businessunit/findBusinessUnit.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/businessUnits.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="createBusinessUnits">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Create Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/businessunit/createBusinessUnit.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/createNewBusinessUnits.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewBusinessUnits">
+        <section>
+            <actions>
+              <set field="titleProperty" value="View Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/businessunit/viewBusinessUnit.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/viewBusinessUnit.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	<screen name="updateBusinessUnits">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Update Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/businessunit/updateBusinessUnit.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/updateBusinessUnit.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="viewUserMember">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Update Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/businessunit/viewUserMember.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/viewUserMember.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="addMemberToTeam">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Update Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+               <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/teams/addMemberToTeam.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/teams/addMemberToTeam.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+      <screen name="addLeaderToTeam">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Update Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+               <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/teams/addMemberToTeam.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/teams/addLeaderToTeam.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+	
+	<screen name="CreateTechnicianLocation">
+        <section>
+            <actions>
+              <set field="titleProperty" value="Business Unit" global="true"/>
+              <set field="sectionName" value="admin-portal" global="true"/>
+              <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+              <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/org-Hierarchy/businessunit/findBusinessUnit.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/createTechnicianLocation.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListTechnicianLocation"/>
+		          	</decorator-section>
+				</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListTechnicianLocation">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific>
+                	<html>
+                		<html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/listTechnicianLocation.ftl"/>
+                	</html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="BusinessUnitDetails">
+        <section>
+        	<widgets>
+                <platform-specific>
+                	<html>
+                		<html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/businessUnitDetails.ftl"/>
+                	</html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="BusinessUnitContact">
+        <section>
+        	<widgets>
+                <platform-specific>
+                	<html>
+                		<html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/businessUnitContact.ftl"/>
+                	</html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="BusinessUnitTeams">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/businessUnitTeams.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateBuDetails">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/updateBuDetails.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateBuContact">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://admin-portal/webapp/admin-portal/organization-hierarchy/business-unit/updateBuContact.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

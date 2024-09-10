@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+    <screen name="ViewPendingRequests">
+        <section>
+            <actions>
+                <set field="titleProperty" value="viewPendingRequests"/>
+                <set field="sectionName" value="generalEnquiry" global="true"/>
+				<property-map resource="homeappsUiLabels" map-name="uiLabelMap" global="true"/>                
+				<script location="component://homeapps/webapp/homeapps/WEB-INF/actions/user-audit/FindPendingRequest.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="component://admin-portal/widget/common/CommonScreens.xml">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://homeapps/webapp/homeapps/user-audit/find_pending_requests.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListPendingRequest"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListPendingRequest">
+        <section>
+        	<actions>
+				
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://homeapps/webapp/homeapps/user-audit/list_pending_requests.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="UserAuditConfiguration">
+        <section>
+            <actions>
+                <set field="titleProperty" value="userAuditConfiguration"/>
+                <set field="sectionName" value="generalEnquiry" global="true"/>
+				<property-map resource="homeappsUiLabels" map-name="uiLabelMap" global="true"/>                
+				<script location="component://homeapps/webapp/homeapps/WEB-INF/actions/user-audit/UserAuditConfiguration.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="component://admin-portal/widget/common/CommonScreens.xml">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://homeapps/webapp/homeapps/user-audit/user_audit_configuration.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="FindUserAuditOperator">
+        <section>
+            <actions>
+                <set field="titleProperty" value="findUserAuditOperator"/>
+                <set field="sectionName" value="generalEnquiry" global="true"/>
+				<property-map resource="homeappsUiLabels" map-name="uiLabelMap" global="true"/>                
+				<script location="component://homeapps/webapp/homeapps/WEB-INF/actions/user-audit/operator/FindAuditOperator.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="component://admin-portal/widget/common/CommonScreens.xml">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://homeapps/webapp/homeapps/user-audit/operator/find_audit_operator.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListUserAuditOperator"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="ListUserAuditOperator">
+        <section>
+        	<actions>
+				
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://homeapps/webapp/homeapps/user-audit/operator/list_audit_operator.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="admin-serviceApplication">
+        <value xml:lang="en">admin-service Application</value>
+        <value xml:lang="zh">admin-service应用程序</value>
+        <value xml:lang="zh-TW">admin-service應用程式</value>
+    </property>
+    <property key="admin-serviceCompanyName">
+        <value xml:lang="en">OFBiz: admin-service</value>
+        <value xml:lang="zh-TW">OFBiz: admin-service</value>
+    </property>
+    <property key="admin-serviceCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="admin-serviceViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="CompanyName">
+        <value xml:lang="en">Dyna Screen</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="AppName">
+        <value xml:lang="en">Dyna Screen</value>
+        <value xml:lang="zh">Dyna Screen</value>
+    </property>
+    
+    <!-- dyna screen [start] -->
+    
+    <property key="createDynaScreen">
+        <value xml:lang="en">Create Dyna Screen</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="updateDynaScreen">
+        <value xml:lang="en">Update Dyna Screen</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="module">
+        <value xml:lang="en">Module</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="displayName">
+        <value xml:lang="en">Display Name</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="layoutType">
+        <value xml:lang="en">Layout Type</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="fromDate">
+        <value xml:lang="en">From Date</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="thruDate">
+        <value xml:lang="en">Thru Date</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="isPrimary">
+        <value xml:lang="en">Is Primary</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="listOfFields">
+        <value xml:lang="en">List Of Fields</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="instanceId">
+        <value xml:lang="en">Instance Id</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="listOfDynaScreens">
+        <value xml:lang="en">List Of Screens</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="isDisabled">
+        <value xml:lang="en">Is Disabled</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="securityGroup">
+        <value xml:lang="en">Security Group</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="defaultMessage">
+        <value xml:lang="en">Default Message</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="listOfFieldData">
+        <value xml:lang="en">List of field data</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="previewDynaScreen">
+        <value xml:lang="en">Preview Dyna Screen</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="templateSelect">
+        <value xml:lang="en">Template Select</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="fieldConfiguration">
+        <value xml:lang="en">Field Configuration</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="oneColumn">
+        <value xml:lang="en">One Column</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="twoColumn">
+        <value xml:lang="en">Two Column</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="threeColumn">
+        <value xml:lang="en">Three Column</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="preview">
+        <value xml:lang="en">Preview</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="yes">
+        <value xml:lang="en">Yes</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="no">
+        <value xml:lang="en">No</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <!-- dyna screen [end] -->
+    
+</resource>

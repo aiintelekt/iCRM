@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * 
+ *
+ * @author Sharif Ul Islam
+ *
+ -->
+
+<entity-engine-xml>
+	
+	<OfbizApiErrorCode errorCodeId="E10000" code="S200" codeDescription="Success" solutionDescription="Processed Request Successfully" inUse="Y"/>
+	
+	<OfbizApiErrorCode errorCodeId="E10001" code="E100" codeDescription="Error - JSON Structure" solutionDescription="Authentication Code Expired" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10002" code="E101" codeDescription="Error - JSON Structure" solutionDescription="Authentication Denied" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10003" code="E102" codeDescription="Error - JSON Structure" solutionDescription="Unknown Element" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10004" code="E103" codeDescription="Error - JSON Structure" solutionDescription="Invalid Enumeration" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10005" code="E104" codeDescription="Error - JSON Structure" solutionDescription="Invalid JSON Structure" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10006" code="E105" codeDescription="Error - JSON Structure" solutionDescription="Invalid Data for Element" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10007" code="E106" codeDescription="Error - JSON Structure" solutionDescription="Data too Long for Element" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10008" code="E107" codeDescription="Error - JSON Structure" solutionDescription="Mandatory values Missing" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10009" code="E108" codeDescription="Error - JSON Structure" solutionDescription="Authentication Code Missing" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10010" code="E109" codeDescription="Error - JSON Structure" solutionDescription="msgId is Missing" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10011" code="E110" codeDescription="Error - JSON Structure" solutionDescription="msgId is aleady used" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10012" code="E111" codeDescription="Error - JSON Structure" solutionDescription="orgId is missing" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10013" code="E112" codeDescription="Error - JSON Structure" solutionDescription="orgId is invalid" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10014" code="E113" codeDescription="Error - JSON Structure" solutionDescription="timeStamp is missing" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10015" code="E114" codeDescription="Error - JSON Structure" solutionDescription="timeStamp is invalid" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10016" code="E115" codeDescription="Error - JSON Structure" solutionDescription="Country is missing" inUse="Y"/>
+    <OfbizApiErrorCode errorCodeId="E10017" code="E116" codeDescription="Error - JSON Structure" solutionDescription="Country is invalid" inUse="Y"/>
+	<OfbizApiErrorCode errorCodeId="E10018" code="E900" codeDescription="Error - JSON Structure" solutionDescription="Runtime error / Contact Admin" inUse="Y"/>
+    <OfbizApiErrorCode errorCodeId="E10019" code="E117" codeDescription="Error - JSON Structure" solutionDescription="msgId contains special characters." inUse="Y"/>
+    <OfbizApiErrorCode errorCodeId="E10020" code="E118" codeDescription="Error - JSON Structure" solutionDescription="msgId contains more than 35 characters." inUse="Y"/>
+    <OfbizApiErrorCode errorCodeId="E10021" code="E119" codeDescription="Error - JSON Structure" solutionDescription="timeStamp contains special characters." inUse="Y"/>
+    <OfbizApiErrorCode errorCodeId="E10022" code="E120" codeDescription="Error - JSON Structure" solutionDescription="orgId contains special characters." inUse="Y"/>
+    <OfbizApiErrorCode errorCodeId="E10023" code="E121" codeDescription="Error - JSON Structure" solutionDescription="orgId contains more than 12 characters." inUse="Y"/>
+	
+</entity-engine-xml>

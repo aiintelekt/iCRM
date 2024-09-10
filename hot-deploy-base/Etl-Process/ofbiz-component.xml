@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="Etl-Process"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+    <!-- define resource loaders; most common is to use the component resource loader -->
+    <resource-loader name="main" type="component"/>
+
+    <!-- place the config directory on the classpath to access configuration files -->
+    <classpath type="dir" location="config"/>
+    <classpath type="dir" location="dtd"/>
+
+    <!-- load single or multiple external libraries -->
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="jar" location="lib/*"/>
+
+    <!-- entity resources: model(s), eca(s), group, and data definitions -->
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel_lockbox.xml"/>
+    <!-- <entity-resource type="eca" reader-name="main" loader="main" location="entitydef/eecas.xml"/> -->
+    
+    
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/Etl-ProcessTypeData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/Etl-ProcessSecurityPermissionSeedData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/Etl-ProcessSecurityGroupDemoData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/Etl-ProcessDemoData.xml"/>
+    <entity-resource type="data" reader-name="system_seed" loader="main" location="data/EtlProcessSystemSeedData.xml"/>
+
+    <!-- service resources: model(s), eca(s) and group definitions -->
+    <service-resource type="model" loader="main" location="servicedef/services.xml"/>
+    <!--
+    <service-resource type="eca" loader="main" location="servicedef/secas.xml"/>
+    <service-resource type="group" loader="main" location="servicedef/groups.xml"/>
+    -->
+
+    <test-suite loader="main" location="testdef/Etl-ProcessTests.xml"/>
+
+    <!-- web applications; will be mounted when using the embedded container -->
+    <webapp name="Etl-Process"
+        title="Etl-Process"
+        server="default-server"
+        location="webapp/Etl-Process"
+        mount-point="/Etl-Process"/>
+     
+    <webapp name="etl-process-resource"
+        title="etl-process Resources including css, images, js"
+        server="default-server"
+        location="webapp/etl-process-resource"
+        mount-point="/etl-process-resource"
+        app-bar-display="false"/>  
+          
+</ofbiz-component>

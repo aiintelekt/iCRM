@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the crm Component." permissionId="crm_VIEW"/>
+    <SecurityPermission description="Create operations in the crm Component." permissionId="crm_CREATE"/>
+    <SecurityPermission description="Update operations in the crm Component." permissionId="crm_UPDATE"/>
+    <SecurityPermission description="Delete operations in the crm Component." permissionId="crm_DELETE"/>
+    <SecurityPermission description="ALL operations in the crm Component." permissionId="crm_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="crm_ADMIN"/>
+    
+    <!-- Enum Security Seed -->
+	<SecurityGroup createdStamp="2018-10-08 09:22:43.0" createdTxStamp="2018-10-08 09:22:43.0" description="Enumeration Config Permission" groupId="CRMSFA_ENUM" lastUpdatedStamp="2018-10-08 09:22:43.0" lastUpdatedTxStamp="2018-10-08 09:22:43.0"/> 
+	<SecurityPermission description="Access to Configuration enumeration create." permissionId="CRMSFA_ENUM_CREATE"/>
+	<SecurityPermission description="Access to Configuration enumeration update." permissionId="CRMSFA_ENUM_UPDATE"/>
+	<SecurityGroupPermission groupId="CRMSFA_ENUM" permissionId="CRMSFA_ENUM_CREATE"/>
+	<SecurityGroupPermission groupId="CRMSFA_ENUM" permissionId="CRMSFA_ENUM_UPDATE"/>
+	<UserLoginSecurityGroup createdStamp="2018-10-08 09:22:43.0" createdTxStamp="2018-10-08 09:22:43.0" fromDate="2018-10-08 09:22:43.0" groupId="CRMSFA_ENUM" lastUpdatedStamp="2018-10-08 09:22:43.0" lastUpdatedTxStamp="2018-10-08 09:22:43.0" userLoginId="admin"/>
+
+</entity-engine-xml>

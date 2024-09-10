@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the SrPortal Component." permissionId="sr-portal_VIEW"/>
+    <SecurityPermission description="Create operations in the SrPortal Component." permissionId="sr-portal_CREATE"/>
+    <SecurityPermission description="Update operations in the SrPortal Component." permissionId="sr-portal_UPDATE"/>
+    <SecurityPermission description="Delete operations in the SrPortal Component." permissionId="sr-portal_DELETE"/>
+    <SecurityPermission description="ALL operations in the SrPortal Component." permissionId="sr-portal_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="sr-portal_ADMIN"/>
+
+</entity-engine-xml>

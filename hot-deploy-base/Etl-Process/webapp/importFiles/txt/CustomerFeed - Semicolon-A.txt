@@ -1,0 +1,2 @@
+customerId;companyName;firstName;lastName;attnName
+ETL4444;GroupFIO;Sharif;Islam;test

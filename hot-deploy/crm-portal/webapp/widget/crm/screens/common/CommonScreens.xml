@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:noNamespaceSchemaLocation= "http://www.ofbiz.org/dtds/widget-screen.xsd">
+
+    <screen name="main-decorator">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="layoutSettings.appName" from-field="uiLabelMap.AppName" global="true"/>
+                <set field="layoutSettings.companyName" from-field="uiLabelMap.ApplicationTitle" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.ApplicationTitle" global="true"/>
+                
+                <set field="activeApp" value="crm" global="true"/>
+                <set field="applicationMenuLocation" value="component://crm/webapp/widget/crm/CrmMenus.xml" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.crmApplication}" global="true"/>
+                
+            </actions>
+            <widgets>
+                <!-- <include-screen name="CommonDecorator"/> -->
+                <include-screen name="CommonDecorator" location="component://admin-portal/widget/common/CommonScreens.xml"/>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="LoadLayoutFile">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://crm/webapp/crm/global/MainLayout.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="MainLayout">
+		<section>
+			<actions>
+				<set field="pageDescriptionLabel" from-field="pageDescriptionLabel" default-value=""/>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="LoadLayoutFile">
+					
+					<decorator-section name="header-common-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://crm/webapp/crm/includes/commonHeader.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-header-content">
+						<platform-specific>
+							<html>
+								<html-template location="${headerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					<decorator-section name="message-content">
+						<platform-specific>
+							<html>
+								<html-template location="${messagesTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="header-main-content">
+						<platform-specific>
+							<html>
+								<html-template location="${appbarTemplateLocation}"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+					
+					<decorator-section name="footer-center-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://crm/webapp/crm/includes/footerCenter.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+					<decorator-section name="theme-footer-content">
+						<platform-specific>
+							<html>
+								<html-template location="${footerTemplateLocation}" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+					
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="BaseSetup">
+		<section>
+			<actions>
+				<property-map resource="crmUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true"/>
+                
+                <set field="layoutSettings.shortcutIcon" value="/bootstrap/images/favicon.ico" global="true"/>
+                
+                <set field="initialLocale" type="String" value="${groovy:parameters?.userLogin?.lastLocale?.substring(0,2)}" default-value="${groovy:locale?.toString()?.substring(0,2)?:'en'}"/>
+				<set field="visualThemeId" value="BOOTSTRAP"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true"/>
+                <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" default-value="component://themes/tomahawk/includes/header.ftl" global="true"/>
+                <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" default-value="component://themes/tomahawk/includes/footer.ftl" global="true"/>
+                <set field="appbarTemplateLocation" from-field="layoutSettings.VT_NAV_TMPLT_LOC[0]" global="true"/>
+				<set field="messagesTemplateLocation" from-field="layoutSettings.VT_MSG_TMPLT_LOC[0]" global="true"/>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/includes/main-decorator.groovy" />
+
+                <!-- <set field="activeApp" value="crm" global="true"/>
+                <set field="applicationMenuLocation" value="component://crm/widget/crmMenus.xml" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.ApplicationTitle}" global="true"/> -->
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="MainLayout">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="CommonDecorator">
+		<section>
+			<actions>
+				
+			</actions>
+			<widgets>
+				<decorator-screen name="BaseSetup">
+					<decorator-section name="left-sidebar-content">
+						<decorator-section-include name="left-sidebar-content"/>
+					</decorator-section>
+					<decorator-section name="top-content">
+						<decorator-section-include name="top-content"/>
+					</decorator-section>
+					<decorator-section name="bottom-content">
+						<decorator-section-include name="bottom-content"/>
+					</decorator-section>
+					<decorator-section name="extra-bottom-content">
+						<decorator-section-include name="extra-bottom-content"/>
+					</decorator-section>
+					<decorator-section name="body-end">
+						<decorator-section-include name="body-end"/>
+					</decorator-section>
+					<decorator-section name="quick-sidebar-content">
+						<decorator-section-include name="quick-sidebar-content"/>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+    
+    <!-- <screen name="CommonDecorator">
+        <section>
+        	<actions>
+        	<set field="layoutSettings.shortcutIcon" value="/bootstrap/images/favicon.ico" global="true"/>
+        		<set field="visualThemeId" value="BOOTSTRAP"/>
+                <service service-name="getVisualThemeResources">
+                    <field-map field-name="visualThemeId"/>
+                    <field-map field-name="themeResources" from-field="layoutSettings"/>
+                </service>
+                <set field="layoutSettings" from-field="themeResources" default-value="${layoutSettings}" global="true" />
+        	</actions>
+            <widgets>
+                <section>
+                    <actions>
+                        <set field="layoutSettings.commonHeaderImageLinkUrl" from-field="layoutSettings.commonHeaderImageLinkUrl" default-value="main" global="true" />
+                        <set field="iconsLocation" from-field="layoutSettings.VT_ICONS_LOC[0]" default-value="/images/icons/famfamfam" global="true" />
+                        <set field="headerTemplateLocation" from-field="layoutSettings.VT_HDR_TMPLT_LOC[0]" global="true"/>
+                        <set field="footerTemplateLocation" from-field="layoutSettings.VT_FTR_TMPLT_LOC[0]" global="true"/>
+                        <set field="appbarTemplateLocation" from-field="layoutSettings.VT_NAV_TMPLT_LOC[0]" global="true"/>
+                        <set field="messagesTemplateLocation" from-field="layoutSettings.VT_MSG_TMPLT_LOC[0]" global="true"/>
+                        <set field="layoutSettings.suppressTab" value="ofbizsetup"/>diseable ofbiz setup by default
+                    </actions>
+                    <widgets />
+                </section>
+                <section>
+                    <condition>
+                        <if-empty field="parameters.ajaxUpdateEvent" />
+                    </condition>
+                    <widgets>
+                        render header
+                        <platform-specific>
+                            <html>
+                                <html-template location="${headerTemplateLocation}" />
+                            </html>
+                        </platform-specific>
+                        render appbar or its opening part
+                        <section name="Render-Main-Nav">
+                            <condition>
+                                <not>
+                                    <if-empty field="appbarOpenTemplateLocation" />
+                                </not>
+                            </condition>
+                            <widgets>
+                                <platform-specific>
+                                    <html>
+                                        <html-template location="${appbarOpenTemplateLocation}" />
+                                    </html>
+                                </platform-specific>
+                            </widgets>
+                            <fail-widgets>
+                                <platform-specific>
+                                    <html>
+                                        <html-template location="${appbarTemplateLocation}" />
+                                    </html>
+                                </platform-specific>
+                            </fail-widgets>
+                        </section>
+                    </widgets>
+                </section>
+                render messages
+                <platform-specific>
+                    <html>
+                        <html-template location="${messagesTemplateLocation}" />
+                    </html>
+                </platform-specific>
+                render content area
+                <container style="contentarea">
+                    <decorator-section-include name="pre-body" />
+                    <container id="column-container">
+                        <section>
+                            <condition>
+                                <if-empty-section section-name="left-column" />
+                            </condition>
+                            <widgets>
+                                <container id="content-main-section">
+                                    <decorator-section-include name="body" />
+                                </container>
+                            </widgets>
+                            <fail-widgets>
+                                <container style="left">
+                                    <decorator-section-include name="left-column" />
+                                </container>
+                                <container id="content-main-section" style="leftonly">
+                                    <container style="no-clear" id="centerdiv">
+                                        <decorator-section-include name="body" />
+                                    </container>
+                                </container>
+                            </fail-widgets>
+                        </section>
+                        <container style="clear"></container>
+                    </container>
+                </container>
+                <section>
+                    <condition>
+                        <if-empty field="parameters.ajaxUpdateEvent" />
+                    </condition>
+                    <widgets>
+                        render footer
+                        <section name="Render-Footer">
+                            <condition>
+                                <if-empty field="applicationFooterTemplate" />
+                            </condition>
+                            <widgets>
+                                <platform-specific>
+                                    <html>
+                                        <html-template location="${footerTemplateLocation}" />
+                                    </html>
+                                </platform-specific>
+                            </widgets>
+                            <fail-widgets>
+                                <platform-specific>
+                                    <html>
+                                        <html-template location="${applicationFooterTemplate}" />
+                                    </html>
+                                </platform-specific>
+                            </fail-widgets>
+                        </section>
+                    </widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen> -->
+    
+    
+    <screen name="login">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleLogin" />
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/login.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="ajaxNotLoggedIn">
+        <section>
+            <widgets>
+                <decorator-screen name="AjaxGlobalDecorator">
+                    <decorator-section name="body">
+                        <label style="message" text="${uiLabelMap.CommonSessionTimeoutPleaseLogIn}"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="requirePasswordChange">
+        <section>
+            <actions>
+                <set field="userLoginId" from-field="parameters.USERNAME"/>
+                <entity-and entity-name="UserLoginSecurityQuestion" list="securityQuestions">
+                    <field-map field-name="userLoginId" />
+                </entity-and>
+                <set field="questionEnumId" from-field="securityQuestions[0].questionEnumId" />
+                <entity-one entity-name="Enumeration" value-field="securityQuestion">
+                    <field-map field-name="enumId" from-field="questionEnumId" />
+                </entity-one>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/changePassword.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="forgotPassword_step1">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/forgotPassword.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="forgotPassword_step2">
+        <section>
+            <actions>
+                <set field="userLoginId" from-field="parameters.USERNAME"/>
+                <entity-and entity-name="UserLoginSecurityQuestion" list="securityQuestions">
+                    <field-map field-name="userLoginId" />
+                </entity-and>
+                <set field="questionEnumId" from-field="securityQuestions[0].questionEnumId" />
+                <entity-one entity-name="Enumeration" value-field="securityQuestion">
+                    <field-map field-name="enumId" from-field="questionEnumId"/>
+                </entity-one> 
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                           <html><html-template location="component://common/webcommon/getSecurityQuestion.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="forgotPassword">
+        <section>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://common/webcommon/forgotPassword.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EventMessages">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://common/webcommon/includes/messages.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- this is the toplevel writeEmail screen to be called from the uri -->
+    <screen name="writeEmail">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CrmWriteEmail" />
+                <set field="pageTitleLabel" value="CrmWriteEmail"/>
+                <set field="sectionHeaderUiLabel" value="CrmWriteEmail"/>
+                <script location="component://crm/webapp/crm/WEB-INF/actions/common/writeEmail.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html><html-template location="component://crm/webapp/crm/common/writeEmail.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+      
+    <screen name="createBookMarkUrl">
+		<section>
+		<actions>
+			<set field="titleProperty" value="Create Attachments" global="true"/>
+			<set field="currentRole" value="CONTACT"/>
+		</actions>
+			<widgets>
+				<decorator-screen name="main-decorator">
+					<decorator-section name="body">
+						<platform-specific>
+							<html>
+								<html-template location="component://crm/webapp/crm/common/addBookUrl.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+    <!-- this is the toplevel logCall screen to be called from the uri -->
+    <screen name="logCall">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CrmLogCall" />
+                <set field="pageTitleLabel" value="CrmLogCall"/>
+                <set field="sectionHeaderUiLabel" value="CrmLogCall"/>
+                <script location="component://crm/webapp/crm/WEB-INF/actions/common/createLogCall.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html><html-template location="component://crm/webapp/crm/common/createLogCall.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="callDetails">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CrmLogCall" />
+                <set field="pageTitleLabel" value="CrmLogCall"/>
+                <set field="sectionHeaderUiLabel" value="CrmLogCall"/>
+                <script location="component://crm/webapp/crm/WEB-INF/actions/common/activityHistory.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://crm/webapp/crm/common/activityHistory.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="callHistory">
+        <section>
+            <actions>
+                <script location="component://campaign/webapp/campaign/WEB-INF/actions/list/outboundCallList/callHistory.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://campaign/webapp/campaign/list/outboundCallList/callHistory.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="contactAndAccountAssoc">
+        <section>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://crm/webapp/crm/common/contactAndAccountAssoc.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-menu.xsd">
+    
+    <menu id="3" name="AccountBar" title="${uiLabelMap.CommonAccount}">
+        <!-- <menu-item name="createAccount" title="${uiLabelMap.createAccount}"><link target="createAccount"/></menu-item> -->
+        <menu-item name="findAccounts" title="${uiLabelMap.findAccounts}"><link target="findAccounts"/></menu-item>
+        <!-- <menu-item name="mergeAccounts" title="${uiLabelMap.MergeAccounts}"><link target="findAccounts"/></menu-item> -->
+    </menu>
+    
+     <menu id="1" name="LeadBar" title="${uiLabelMap.CommonLead}">
+        <menu-item name="createLead" title="${uiLabelMap.createLead}"><link target="createLeadForm"/></menu-item>
+        <menu-item name="findLeads" title="${uiLabelMap.findLeads}"><link target="findLeads"/></menu-item>
+        <menu-item name="createLeadBatch" title="Import Leads"><link target="createLeadBatch"/></menu-item>
+        <menu-item name="findLeadBatch" title="Find Imported Records"><link target="findLeadBatch"/></menu-item>
+        <menu-item name="leadBatchErrorLog" title="Imported File Error Logs"><link target="leadBatchErrorLog"/></menu-item>
+        <menu-item name="loadDnd" title="Import DND"><link target="loadDnd"/></menu-item>
+    </menu>
+    
+    <menu id="2" name="ContactBar" title="${uiLabelMap.crmContact}">
+       <menu-item name="createContact" title="${uiLabelMap.CreateContact}"><link target="createContact"/></menu-item>
+       <menu-item name="findContact" title="${uiLabelMap.CommonFindContact}"><link target="findContact"/></menu-item>
+    </menu>
+     <menu id="4" name="ListBar" title="${uiLabelMap.campaign}">
+        <menu-item name="findCampaigns" title="${uiLabelMap.findCampaigns}">
+            <link target="findMarketingCampaigns"/>
+        </menu-item>
+        <!-- <menu-item name="outboundCallList" title="${uiLabelMap.outboundCallList}">
+            <link target="outboundCallList"/>
+        </menu-item> -->
+    </menu>
+    
+    <!-- <menu id="5" name="ReportsBar" title="Reports">
+       <menu-item name="main" title="Report"><link target="#"/></menu-item>
+    </menu> -->
+    
+    
+    <menu id="6" name="ConfigurationBar" title="${uiLabelMap.configuration}">
+      <menu-item name="phoneConfiguration" title="${uiLabelMap.configuration}">
+            <link target="phoneConfigurationForm"/>
+        </menu-item>
+        <!--  <menu-item name="main" title="Configuration"><link target="#"/></menu-item>
+     <menu-item name="configEconomicsMetrics" title="Economics Metrics"><link target="configEconomicsMetrics"/></menu-item> -->
+    </menu> 
+    
+</menus>

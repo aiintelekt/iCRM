@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (c) Open Source Strategies, Inc.
+ *
+ * Opentaps is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Opentaps is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Opentaps.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+  <!-- ========================================================= -->
+  <!-- ======================== Defaults ======================= -->
+  <!-- ========================================================= -->
+    <title>Customer Data Import Entities</title>
+    <description>Defines intermediate entities for importing supplier data</description>
+    <copyright>Copyright (c) Open Source Strategies, Inc.</copyright>
+    <author>Si Chen (sichen@opensourcestrategies.com)</author>
+    <version>1.0</version>
+
+    <!-- ================================= -->
+    <!-- org.opentaps.dataimport.customers -->  
+    <!-- ================================= -->
+
+    <!-- for precise definitions of the field types see the file framework/entity/fieldtype/fieldtypeXXX.xml for your database XXX -->
+
+    <entity entity-name="DataImportAccount"
+        package-name="org.opentaps.dataimport.account"
+        title="Intermediate import entity for account data.">
+        <field name="batchId" type="id-ne"/>
+        <field name="accountId" type="id"/>
+        <field name="accountName" type="name"/>
+        <field name="attnName" type="name"/>
+        <field name="address1" type="long-varchar"/>
+        <field name="address2" type="long-varchar"/>
+        <field name="city" type="name"></field>
+        <field name="stateProvinceGeoId" type="id">
+            <description>Must match OFBiz Geo.geoId</description>
+        </field>
+        <field name="postalCode" type="short-varchar"/>
+        <field name="postalCodeExt" type="short-varchar"/>
+        <field name="stateProvinceGeoName" type="name"/>
+        <field name="countryGeoId" type="id">
+            <description>Must match OFBiz Geo.geoId</description>
+        </field>
+        <field name="primaryPhoneCountryCode" type="very-short"/>
+        <field name="primaryPhoneAreaCode" type="very-short"/>
+        <field name="primaryPhoneNumber" type="short-varchar"/>
+        <field name="primaryPhoneExtension" type="long-varchar"/>
+        <field name="secondaryPhoneCountryCode" type="very-short"/>
+        <field name="secondaryPhoneAreaCode" type="very-short"/>
+        <field name="secondaryPhoneNumber" type="short-varchar"/>
+        <field name="secondaryPhoneExtension" type="long-varchar"/>
+        <field name="faxCountryCode" type="very-short"/>
+        <field name="faxAreaCode" type="very-short"/>
+        <field name="faxNumber" type="short-varchar"/>
+        <field name="didCountryCode" type="very-short"/>
+        <field name="didAreaCode" type="very-short"/>
+        <field name="didNumber" type="short-varchar"/>
+        <field name="didExtension" type="long-varchar"/>
+        <field name="emailAddress" type="long-varchar"/>
+        <field name="webAddress" type="long-varchar"/>
+        <field name="note" type="very-long"/>
+        <field name="importStatusId" type="id-ne"><description>Status of record import.  Null is the same as DATAIMP_NOT_PROC.</description></field>
+        <field name="importError" type="very-long"><description>Error report for failed imports.</description></field>
+        <field name="processedTimestamp" type="date-time">
+            <description>Special field for system to record when entry was successfully imported.  
+                Do not use for any other purpose.</description>
+        </field>
+        <field name="primaryPartyId" type="id">
+            <description>Special field for system to record the primary party created against this customer record. 
+                Do not use for any other purpose.</description>
+        </field>
+        
+        <field name="source" type="long-varchar"></field>
+        <field name="errorCodes" type="very-long"/>
+        <field name="approvedByUserLoginId" type="id-vlong"></field>
+        <field name="rejectedByUserLoginId" type="id-vlong"></field>
+        <field name="uploadedByUserLoginId" type="id-vlong"></field>
+        <field name="noOfEmployees" type="numeric"></field>
+        <field name="salesTurnover" type="currency-precise"/>
+        <field name="dateOfIncorporation" type="id"></field>
+        <field name="constitution" type="id-long"></field>
+        <field name="industryCat" type="id-long"></field>
+        <field name="industry" type="id-long"></field>
+        <field name="keyContactPerson1" type="id"></field>
+        <field name="keyContactPerson2" type="id"></field>
+        <field name="customerTradingType" type="id"></field> 
+        <field name="virtualTeamId" type="id-long"/>	
+        
+        <field name="ownershipEnumId" type="id-vlong"></field>
+        <field name="currencyUomId" type="id"></field>
+        <field name="annualRevenue" type="currency-precise"></field>
+        <field name="personResponsible" type="id-vlong"></field>
+        <field name="description" type="very-long"></field>
+        <field name="groupNameLocal" type="id-vlong"></field>
+        <field name="timeZoneId" type="id"></field>
+        
+        <prim-key field="batchId"/>
+        <prim-key field="accountId"/>
+        <index name="DIA_ACT_ISI">
+            <index-field name="accountId"/>
+            <index-field name="importStatusId"/>
+        </index>
+    </entity>
+    
+</entitymodel>

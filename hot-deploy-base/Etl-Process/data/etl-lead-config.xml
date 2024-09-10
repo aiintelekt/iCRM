@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	
+	<ErrorCode errorCodeType="LEAD_IMPORT" codeDescription="Invalid State" errorCodeId="E1002"/>
+	
+    <EtlDestination etlFieldName="leadId" isPrime="Y" seqId="15001"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="address1" seqId="15002"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="address2" seqId="15003"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="city" seqId="15004"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="stateProvinceGeoId" seqId="15005"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="postalCode" seqId="15006"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="postalCodeExt" seqId="15007"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="countryGeoId" seqId="15008"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneCountryCode"
+		seqId="15009" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneAreaCode"
+		seqId="15010" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneNumber" seqId="15011"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneExtension"
+		seqId="15012" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneCountryCode"
+		seqId="15013" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneAreaCode"
+		seqId="15014" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneNumber"
+		seqId="15015" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneExtension"
+		seqId="15016" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="faxCountryCode" seqId="15017"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="faxAreaCode" seqId="15018"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="faxNumber" seqId="15019"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="emailAddress" seqId="15020"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="webAddress" seqId="15021"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="note" seqId="15022"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="source" seqId="15023"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="companyName" seqId="15024"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="salesTurnover" seqId="15025"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="dateOfIncorporation" seqId="15026"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="constitution" seqId="15027"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="industryCat" seqId="15028"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="industry" seqId="15029"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="noOfEmployees" seqId="15030"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="ownershipEnumId" seqId="15031"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="currencyUomId" seqId="15032"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="annualRevenue" seqId="15033"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="personResponsible" seqId="15034"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="description" seqId="15035"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="groupNameLocal" seqId="15036"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="timeZoneId" seqId="15037"
+	tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="facebookContact" seqId="15038"
+	tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="googleContact" seqId="15039"
+	tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="instagramContact" seqId="15040"
+	tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="linkedInContact" seqId="15041"
+	tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="twitterContact" seqId="15042"
+	tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="youtubeContact" seqId="15043"
+	tableName="DataImportLead" tableTitle="Lead" />
+	
+		<EtlSourceTable Id="10170" etlFieldName="Lead ID"
+		listName="Lead ModelA" tableColumnName="leadId" tableName="DataImportLead" />
+	<EtlSourceTable Id="10171" etlFieldName="Lead Name"
+		listName="Lead ModelA" tableColumnName="companyName" tableName="DataImportLead" />
+	<EtlSourceTable Id="10172" etlFieldName="Source"
+		listName="Lead ModelA" tableColumnName="source" tableName="DataImportLead" />
+	<EtlSourceTable Id="10173" etlFieldName="Industry"
+		listName="Lead ModelA" tableColumnName="industry" tableName="DataImportLead" />
+	<EtlSourceTable Id="10174" etlFieldName="Ownership"
+		listName="Lead ModelA" tableColumnName="ownershipEnumId" tableName="DataImportLead" />
+	<EtlSourceTable Id="10175" etlFieldName="Number Of Employees"
+		listName="Lead ModelA" tableColumnName="noOfEmployees" tableName="DataImportLead" />
+	<EtlSourceTable Id="10176" etlFieldName="Annual Revenue"
+		listName="Lead ModelA" tableColumnName="annualRevenue" tableName="DataImportLead" />
+	<EtlSourceTable Id="10177" etlFieldName="Preferred Currency"
+		listName="Lead ModelA" tableColumnName="currencyUomId" tableName="DataImportLead" />
+	<EtlSourceTable Id="10178" etlFieldName="Relationship Manager"
+		listName="Lead ModelA" tableColumnName="personResponsible" tableName="DataImportLead" />
+	<EtlSourceTable Id="10179" etlFieldName="Description"
+		listName="Lead ModelA" tableColumnName="description" tableName="DataImportLead" />
+	<EtlSourceTable Id="10180" etlFieldName="E-Mail Address"
+		listName="Lead ModelA" tableColumnName="emailAddress" tableName="DataImportLead" />
+	<EtlSourceTable Id="10181" etlFieldName="Phone Number"
+		listName="Lead ModelA" tableColumnName="primaryPhoneNumber" tableName="DataImportLead" />
+	<EtlSourceTable Id="10182" etlFieldName="Local Name"
+		listName="Lead ModelA" tableColumnName="groupNameLocal" tableName="DataImportLead" />
+	<EtlSourceTable Id="10183" etlFieldName="Web URL"
+		listName="Lead ModelA" tableColumnName="webAddress" tableName="DataImportLead" />
+	<EtlSourceTable Id="10184" etlFieldName="Address Line 1"
+		listName="Lead ModelA" tableColumnName="address1" tableName="DataImportLead" />
+	<EtlSourceTable Id="10185" etlFieldName="Address Line 2"
+		listName="Lead ModelA" tableColumnName="address2" tableName="DataImportLead" />
+	<EtlSourceTable Id="10186" etlFieldName="Postal Code"
+		listName="Lead ModelA" tableColumnName="postalCode" tableName="DataImportLead" />
+	<EtlSourceTable Id="10187" etlFieldName="Postal Code Extension"
+		listName="Lead ModelA" tableColumnName="postalCodeExt" tableName="DataImportLead" />
+	<EtlSourceTable Id="10188" etlFieldName="Time Zone"
+		listName="Lead ModelA" tableColumnName="timeZoneId" tableName="DataImportLead" />
+	<EtlSourceTable Id="10189" etlFieldName="City" listName="Lead ModelA"
+		tableColumnName="city" tableName="DataImportLead" />
+	<EtlSourceTable Id="10190" etlFieldName="State" listName="Lead ModelA"
+		tableColumnName="stateProvinceGeoId" tableName="DataImportLead" />
+	<EtlSourceTable Id="10191" etlFieldName="Country"
+		listName="Lead ModelA" tableColumnName="countryGeoId" tableName="DataImportLead" />
+	<EtlSourceTable Id="10191" createdStamp="2020-11-16 21:28:49.0"
+		createdTxStamp="2020-11-16 21:28:49.0" etlFieldName="Facebook Contact"
+		lastUpdatedStamp="2020-11-16 21:28:49.0" lastUpdatedTxStamp="2020-11-16 21:28:49.0"
+		listName="Lead ModelA" tableColumnName="facebookContact" tableName="DataImportLead" />
+	<EtlSourceTable Id="10192" createdStamp="2020-11-16 21:28:49.0"
+		createdTxStamp="2020-11-16 21:28:49.0" etlFieldName="Google Contact"
+		lastUpdatedStamp="2020-11-16 21:28:49.0" lastUpdatedTxStamp="2020-11-16 21:28:49.0"
+		listName="Lead ModelA" tableColumnName="googleContact" tableName="DataImportLead" />
+	<EtlSourceTable Id="10193" createdStamp="2020-11-16 21:28:49.0"
+		createdTxStamp="2020-11-16 21:28:49.0" etlFieldName="Instagram Contact"
+		lastUpdatedStamp="2020-11-16 21:28:49.0" lastUpdatedTxStamp="2020-11-16 21:28:49.0"
+		listName="Lead ModelA" tableColumnName="instagramContact" tableName="DataImportLead" />
+	<EtlSourceTable Id="10194" createdStamp="2020-11-16 21:28:49.0"
+		createdTxStamp="2020-11-16 21:28:49.0" etlFieldName="LinkedIn Contact"
+		lastUpdatedStamp="2020-11-16 21:28:49.0" lastUpdatedTxStamp="2020-11-16 21:28:49.0"
+		listName="Lead ModelA" tableColumnName="linkedInContact" tableName="DataImportLead" />
+	<EtlSourceTable Id="10195" createdStamp="2020-11-16 21:28:49.0"
+		createdTxStamp="2020-11-16 21:28:49.0" etlFieldName="Twitter Contact"
+		lastUpdatedStamp="2020-11-16 21:28:49.0" lastUpdatedTxStamp="2020-11-16 21:28:49.0"
+		listName="Lead ModelA" tableColumnName="twitterContact" tableName="DataImportLead" />
+	<EtlSourceTable Id="10196" createdStamp="2020-11-16 21:28:49.0"
+		createdTxStamp="2020-11-16 21:28:49.0" etlFieldName="Youtube Contact"
+		lastUpdatedStamp="2020-11-16 21:28:49.0" lastUpdatedTxStamp="2020-11-16 21:28:49.0"
+		listName="Lead ModelA" tableColumnName="youtubeContact" tableName="DataImportLead" />
+	
+	<EtlProcessGrouping groupId="DEFAULT" groupName="Default" processId="Lead ModelA_Process" processName="Lead ModelA Process" tableName="DataImportLead"/> 
+	
+	<EtlProcess processId="Lead ModelA_Process" processName="Lead ModelA Process" modalName="Lead ModelA" description="Lead ModelA Process"  tableName="DataImportLead"/>
+	
+	<EtlModelGrouping groupId="DEFAULT" modelId="10000" modelName="Lead ModelA" groupName="Default" tableName="DataImportLead" />
+	
+	<EtlModel modelId="10000" modelName="Lead ModelA" groupId="DEFAULT"/>
+		
+		<EtlMappingElements Id="10350" etlCustomFieldName="Lead ID"
+		etlFieldName="Lead ID" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="leadId" tableName="DataImportLead" />
+	<EtlMappingElements Id="10351" etlCustomFieldName="Lead Name"
+		etlFieldName="Lead Name" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="companyName" tableName="DataImportLead" />
+	<EtlMappingElements Id="10352" etlCustomFieldName="source"
+		etlFieldName="Source" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="source" tableName="DataImportLead" />
+	<EtlMappingElements Id="10353" etlCustomFieldName="industry"
+		etlFieldName="Industry" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="industry" tableName="DataImportLead" />
+	<EtlMappingElements Id="10354" etlCustomFieldName="Ownership"
+		etlFieldName="Ownership" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 11:57:14.0" lastUpdatedTxStamp="2020-11-16 11:57:14.0"
+		listName="Lead ModelA" tableColumnName="ownershipEnumId" tableName="DataImportLead" />
+	<EtlMappingElements Id="10355" etlCustomFieldName="Number Of Employees"
+		etlFieldName="Number Of Employees" fileName="lead_feed.csv"
+		filePath="D:\file_import\importFiles\" listName="Lead ModelA"
+		tableColumnName="noOfEmployees" tableName="DataImportLead" />
+	<EtlMappingElements Id="10356" etlCustomFieldName="Annual Revenue"
+		etlFieldName="Annual Revenue" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="annualRevenue" tableName="DataImportLead" />
+	<EtlMappingElements Id="10357" etlCustomFieldName="Preferred Currency"
+		etlFieldName="Preferred Currency" fileName="lead_feed.csv"
+		filePath="D:\file_import\importFiles\" listName="Lead ModelA"
+		tableColumnName="currencyUomId" tableName="DataImportLead" />
+	<EtlMappingElements Id="10358" etlCustomFieldName="Relationship Manager"
+		etlFieldName="Relationship Manager" fileName="lead_feed.csv"
+		filePath="D:\file_import\importFiles\" listName="Lead ModelA"
+		tableColumnName="personResponsible" tableName="DataImportLead" />
+	<EtlMappingElements Id="10359" etlCustomFieldName="description"
+		etlFieldName="Description" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="description" tableName="DataImportLead" />
+	<EtlMappingElements Id="10360" etlCustomFieldName="E-Mail Address"
+		etlFieldName="E-Mail Address" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="emailAddress" tableName="DataImportLead" />
+	<EtlMappingElements Id="10361" etlCustomFieldName="Phone Number"
+		etlFieldName="Phone Number" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 11:58:09.0" lastUpdatedTxStamp="2020-11-16 11:58:09.0"
+		listName="Lead ModelA" tableColumnName="primaryPhoneNumber" tableName="DataImportLead" />
+	<EtlMappingElements Id="10362" etlCustomFieldName="Local Name"
+		etlFieldName="Local Name" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 11:58:13.0" lastUpdatedTxStamp="2020-11-16 11:58:13.0"
+		listName="Lead ModelA" tableColumnName="groupNameLocal" tableName="DataImportLead" />
+	<EtlMappingElements Id="10363" etlCustomFieldName="Web URL"
+		etlFieldName="Web URL" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 11:58:22.0" lastUpdatedTxStamp="2020-11-16 11:58:22.0"
+		listName="Lead ModelA" tableColumnName="webAddress" tableName="DataImportLead" />
+	<EtlMappingElements Id="10364" etlCustomFieldName="Address Line 1"
+		etlFieldName="Address Line 1" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 11:58:26.0" lastUpdatedTxStamp="2020-11-16 11:58:26.0"
+		listName="Lead ModelA" tableColumnName="address1" tableName="DataImportLead" />
+	<EtlMappingElements Id="10365" etlCustomFieldName="Address Line 2"
+		etlFieldName="Address Line 2" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 11:58:29.0" lastUpdatedTxStamp="2020-11-16 11:58:29.0"
+		listName="Lead ModelA" tableColumnName="address2" tableName="DataImportLead" />
+	<EtlMappingElements Id="10366" etlCustomFieldName="Postal Code"
+		etlFieldName="Postal Code" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="postalCode" tableName="DataImportLead" />
+	<EtlMappingElements Id="10367" etlCustomFieldName="Postal Code Extension"
+		etlFieldName="Postal Code Extension" fileName="lead_feed.csv"
+		filePath="D:\file_import\importFiles\" lastUpdatedStamp="2020-11-16 11:58:36.0"
+		lastUpdatedTxStamp="2020-11-16 11:58:36.0" listName="Lead ModelA"
+		tableColumnName="postalCodeExt" tableName="DataImportLead" />
+	<EtlMappingElements Id="10368" etlCustomFieldName="Time Zone"
+		etlFieldName="Time Zone" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="timeZoneId" tableName="DataImportLead" />
+	<EtlMappingElements Id="10369" etlCustomFieldName="city"
+		etlFieldName="City" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="city" tableName="DataImportLead" />
+	<EtlMappingElements Id="10370" etlCustomFieldName="State"
+		etlFieldName="State" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="stateProvinceGeoId" tableName="DataImportLead" />
+	<EtlMappingElements Id="10371" etlCustomFieldName="Country"
+		etlFieldName="Country" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		listName="Lead ModelA" tableColumnName="countryGeoId" tableName="DataImportLead" />
+	<EtlMappingElements Id="10372" createdStamp="2020-11-16 21:25:45.0"
+		createdTxStamp="2020-11-16 21:25:45.0" etlCustomFieldName="Facebook Contact"
+		etlFieldName="Facebook Contact" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 21:28:40.0" lastUpdatedTxStamp="2020-11-16 21:28:40.0"
+		listName="Lead ModelA" tableColumnName="facebookContact" tableName="DataImportLead" />
+	<EtlMappingElements Id="10373" createdStamp="2020-11-16 21:25:45.0"
+		createdTxStamp="2020-11-16 21:25:45.0" etlCustomFieldName="Google Contact"
+		etlFieldName="Google Contact" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 21:28:40.0" lastUpdatedTxStamp="2020-11-16 21:28:40.0"
+		listName="Lead ModelA" tableColumnName="googleContact" tableName="DataImportLead" />
+	<EtlMappingElements Id="10374" createdStamp="2020-11-16 21:25:45.0"
+		createdTxStamp="2020-11-16 21:25:45.0" etlCustomFieldName="Instagram Contact"
+		etlFieldName="Instagram Contact" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 21:28:40.0" lastUpdatedTxStamp="2020-11-16 21:28:40.0"
+		listName="Lead ModelA" tableColumnName="instagramContact" tableName="DataImportLead" />
+	<EtlMappingElements Id="10375" createdStamp="2020-11-16 21:25:45.0"
+		createdTxStamp="2020-11-16 21:25:45.0" etlCustomFieldName="LinkedIn Contact"
+		etlFieldName="LinkedIn Contact" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 21:28:40.0" lastUpdatedTxStamp="2020-11-16 21:28:40.0"
+		listName="Lead ModelA" tableColumnName="linkedInContact" tableName="DataImportLead" />
+	<EtlMappingElements Id="10376" createdStamp="2020-11-16 21:25:45.0"
+		createdTxStamp="2020-11-16 21:25:45.0" etlCustomFieldName="Twitter Contact"
+		etlFieldName="Twitter Contact" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 21:28:40.0" lastUpdatedTxStamp="2020-11-16 21:28:40.0"
+		listName="Lead ModelA" tableColumnName="twitterContact" tableName="DataImportLead" />
+	<EtlMappingElements Id="10377" createdStamp="2020-11-16 21:25:45.0"
+		createdTxStamp="2020-11-16 21:25:45.0" etlCustomFieldName="Youtube Contact"
+		etlFieldName="Youtube Contact" fileName="lead_feed.csv" filePath="D:\file_import\importFiles\"
+		lastUpdatedStamp="2020-11-16 21:28:40.0" lastUpdatedTxStamp="2020-11-16 21:28:40.0"
+		listName="Lead ModelA" tableColumnName="youtubeContact" tableName="DataImportLead" />		
+		
+</entity-engine-xml>

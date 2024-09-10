@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+         
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+    <include location="component://common/webcommon/WEB-INF/security-controller.xml"/>
+	<include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+
+    <description>common-portal Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!-- <preprocessor>
+        Events to run on every request before security (chains exempt)
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="checkExternalLoginKey"/>
+    </preprocessor> -->
+    
+    <request-map uri="getDataTableContacts">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://common-portal/webapp/common-portal/WEB-INF/actions/contact/SearchContacts.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchAccounts">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://common-portal/webapp/common-portal/WEB-INF/actions/account/SearchAccounts.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="searchChildAccounts">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchChildAccounts" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="addChildAccount">
+    	<security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="addChildAccount"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <!-- Service Request [start] -->
+    <request-map uri="searchServiceRequests">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchServiceRequests" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <!-- Service Request [start] -->
+    
+    <!-- Find Activity IA [start] -->
+    <request-map uri="searchActivities">
+       <security https="true" auth="true" />
+       <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchActivities" />
+       <response name="success" type="none" />
+       <response name="error" type="none" />
+    </request-map>
+    <!-- Find Activity IA [end] -->
+    
+    <!-- custom field [start] -->
+    
+    <request-map uri="searchSegmentations">
+       <security https="true" auth="true" />
+       <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchSegmentations" />
+       <response name="success" type="none" />
+       <response name="error" type="none" />
+    </request-map>
+    <request-map uri="searchEconomicMetrics">
+       <security https="true" auth="true" />
+       <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchEconomicMetrics" />
+       <response name="success" type="none" />
+       <response name="error" type="none" />
+    </request-map>
+    
+    <request-map uri="getCustomFieldGroups">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFieldGroups"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getCustomFields">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFields"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="addSegmentation">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="addSegmentation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="addEconomicMetric">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="addEconomicMetric"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="removeSegmentation">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="removeSegmentation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>     
+    <request-map uri="removeEconomicMetric">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="removeEconomicMetric"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="assignAttrGroupCode">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="assignAttrGroupCode"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <!-- custom field [end] -->
+    
+    <request-map uri="getTeamMembers">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getTeamMembers"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getTeamMembersList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getTeamMembersList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchNotes">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchNotes" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="searchattachments">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchAttachments" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="searchOrders">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchOrders" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="searchMainOrders">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchMainOrders" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+	<request-map uri="searchQuotes">
+		<security https="true" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchQuotes" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+     <request-map uri="findInvoiceListById">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchInvoices" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+     <request-map uri="findInvoiceItemList">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="findInvoiceItemList" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="invoice.pdf">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="InvoicePDF"/>
+    </request-map>
+    <request-map uri="sendInvoicePdf">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.accounting.service.services.AccountingServices"
+			invoke="sendInvoicePdf" />
+       <response name="success" type="request-redirect" value="viewInvoice">
+			<redirect-parameter name="invoiceId" from="invoiceId"/>
+	    </response>
+        <response name="error" type="view" value="viewInvoice" />
+    </request-map>
+     <request-map uri="listInvoicesAppliedPayments">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.accounting.portal.event.AjaxEvents" invoke="listInvoicesAppliedPayments" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+    <!--  Contact And Party Assoc Start -->
+    
+    <request-map uri="getContactAndPartyAssocDetails">
+        <event type="java" path="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="getContactAndPartyAssocDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getContactsDetails">
+        <event type="java" path="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="getContactsDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="addContactsToAssoc">
+        <event type="java" path="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="addContactsToAssoc"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updatePartyContactAssoc">
+        <event type="java" path="org.groupfio.common.portal.service.ContactAndPartyAssoc" invoke="updatePartyContactAssoc"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getPartyPostal">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyPostal" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    
+    <!--  Contact And Party Assoc End -->
+    
+    <!-- common request start -->
+    <request-map uri="getProductCatalogList">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getProductCatalogList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+    <request-map uri="getProductCategoryList">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getProductCategoryList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getProductSubCategoryList">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getProductSubCategoryList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getProductList">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getProductList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="searchPartys">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchPartys" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="searchContacts">
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchContacts" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+     <request-map uri="searchCustomers">
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchCustomers" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+    <request-map uri="getSubProductList">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSubProductList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="getUsersList">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getUsersList"/>
+        <!-- <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getUsersListByRole"/> -->
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getStateDataJSON">
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getStateDataJSON"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+		
+	<request-map uri="getRelatedParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.lead.portal.event.AjaxEvents" invoke="getRelatedParties"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+   
+    <request-map uri="createPartyContactMechPurpose">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createPartyContactMechPurpose"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="deletePartyContactMechPurpose">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="deletePartyContactMechPurpose"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="deleteContactMechAjax">
+        <security https="true" auth="true"/>
+         <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="deleteContactMechAjax"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+     <request-map uri="findInvoiceList">
+    	<security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.accounting.portal.event.AjaxEvents" invoke="findInvoices"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchRmsInvoices">
+    	<security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchInvoiceTransactionMaster"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	    
+	<request-map uri="findInvoicesItemList">
+    	<security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.accounting.portal.event.AjaxEvents" invoke="findInvoicesItemList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="searchRmsInvoices">
+    	<security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchInvoiceTransactionMaster"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<!-- common request end -->
+	
+	<!-- note request start -->
+	
+	<request-map uri="createNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="updateNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="updateNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="removeNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="removeNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="removeattachmentData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="removeAttachmentData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="downloadPartyContent">
+		<security https="true" auth="false" />
+		<event type="java"
+			path="org.fio.crm.content.ContentEvents" invoke="downloadPartyContent" />
+		<response name="success" type="none" />
+		<response name="error" type="view" value="error" />
+	</request-map>
+	<request-map uri="getNoteData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="getNotesList">
+		<security https="false" auth="true" />
+		<!-- <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getNotesList" /> -->
+		<response name="success" type="request-redirect" value="viewAllNotes"/>
+        <response name="error" type="request-redirect" value="viewAllNotes"/>
+	</request-map>
+	<request-map uri="viewAllNotes"> 
+        <security https="true" auth="true" />
+        <response name="success" type="view" value="viewAllNotes" />
+        <response name="error" type="view" value="viewAllNotes" />
+    </request-map>
+	
+	<!-- note request end -->
+	
+	<!-- opportunity start -->
+	
+	<request-map uri="searchOpportunitys">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchOpportunitys"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+     <request-map uri="getOpportunityStatistics">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getOpportunityStatistics"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="relateOpportunity">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="relateOpportunity"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	
+	  <request-map uri="createattachmentData">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createAttachmentData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="createContentAssociation">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createContentAssociation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getPrimaryContacts">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPrimaryContacts" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getCcContactEmailIds">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getCcContactEmailIds" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	 <request-map uri="redirectOrders">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="redirectOrders"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="getPartyTelecomNumbers">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyTelecomNumbers" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getPartyDataSource">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyDataSource" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getPartyOppoOwner">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyOppoOwner" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+    
+	<request-map uri="getPartyCurrencyUom">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyCurrencyUom" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getPartyRM">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyRM" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+  <!--  <request-map uri="createattachmentData">
+        <security https="flase" auth="false"/>
+        <event type="service" invoke="common.createAttachmentsData"/>
+        <response name="success" type="request" value="donePageRequestHelper"/>
+        <response name="error" type="request" value="donePageRequestHelper"/>
+    </request-map>-->
+	<!-- opportunity end -->
+	
+	<request-map uri="getRMUsersList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getRMUsersList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getDuplicatePartyList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getDuplicatePartyList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getDuplicateEmailList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getDuplicateEmailList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+     <request-map uri="getDuplicateAddress">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getDuplicateAddress"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getDuplicatePhoneNumber">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getDuplicatePhoneNumber"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getPartyAddress">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getCustomerContactInfo"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+     	<request-map uri="getProductData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getProductData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getAttendeeList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAttendeeList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getPrimaryContactInfoByUserLoginId">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPrimaryContactInfoByUserLoginId"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="findTemplatesAjax">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getTemplatesData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="findCampaignsDetails">
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getCampaignDetails"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	
+	<request-map uri="searchCampaigns">
+		<event type="java" path="org.groupfio.common.portal.event.CampaignEvents" invoke="searchCampaigns"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<!-- <request-map uri="searchCampaigns">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchCampaigns" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map> -->
+	<request-map uri="searchOutBoundCalls">
+		<event type="java" path="org.groupfio.common.portal.event.CampaignEvents" invoke="searchOutBoundCalls"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="sendEmailPreview">
+		<event type="java" path="org.groupfio.common.portal.event.CampaignEvents" invoke="sendEmailPreview"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	
+	 <request-map uri="searchInviteUsers">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchInviteUsers" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="getPartyDataForContact">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getEditContactData" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <request-map uri="updateContactDetails">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="updateContactDetails" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getTimeEntries">
+       <security https="false" auth="false" />
+       <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getTimeEntries" />
+       <response name="success" type="none" />
+       <response name="error" type="none" />
+    </request-map>
+    <request-map uri="getIssueMaterials">
+       <security https="false" auth="false" />
+       <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getIssueMaterials" />
+       <response name="success" type="none" />
+       <response name="error" type="none" />
+    </request-map>
+    <request-map uri="getPartyTimeZonesList">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyTimeZonesList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getTechnicianList">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getTechnicianList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getCustomFieldMultiValueList">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getCustomFieldMultiValueList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getSegmentCodeList">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSegmentCodeList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getSegmentValueList">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSegmentValueList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getActivityTimeEntryCount">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getActivityTimeEntryCount"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="checkTechActivityStatus">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="checkTechActivityStatus"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getSrAssocParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSrAssocParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getPartyEmailList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPartyEmailList" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getSrOrderCount">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSrOrderCount"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getAssocParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAssocParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="addAssocParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="addAssocParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeAssocParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="removeAssocParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getAllParties">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAllParties" />
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    
+    <request-map uri="validateRateConfig">
+		<security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="validateRateConfig"/>
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="viewOrder">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewOrder"/>
+    </request-map>
+    <request-map uri="getPhoneNumberExtension">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPhoneNumberExtension" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="getDedupPartyDetails">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getDedupPartyDetails"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createNewCustomer">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createNewCustomer"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <!-- Template Content [start] -->
+    
+    <request-map uri="createTemplateContent">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.TemplateContentEvents" invoke="createTemplateContent"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateTemplateContent">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.TemplateContentEvents" invoke="updateTemplateContent"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getTemplateContentData">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.TemplateContentEvents" invoke="getTemplateContentData"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeTemplateContent">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.TemplateContentEvents" invoke="removeTemplateContent"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchTemplateContents">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.TemplateContentEvents" invoke="searchTemplateContents"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getEmailActivities">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getEmailActivities" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getEmailCommunicationHistory">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getEmailCommunicationHistory" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="workEffortPartAssignment">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="workEffortPartAssignment" />
+		<response name="success" type="view" value="emailDashboard" />
+      	<response name="error" type="view" value="emailDashboard" />
+	</request-map>
+	
+	<request-map uri="loadAssocParties">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="loadAssocParties" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="getExtTemplateList">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.TemplateContentEvents" invoke="getExtTemplateList"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	
+    <!-- Template Content [end] -->
+    
+    <!-- Program Template [start] -->
+    <request-map uri="getProgramTemplateList">
+	    <security https="true" auth="true" />
+	    <event type="java" path="org.groupfio.common.portal.event.ProgramTemplateEvents" invoke="getProgramTemplateList" />
+	    <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    <!-- Program Template [end] -->
+    
+    <request-map uri="createInviteUser">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createInviteUser" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+    
+    <request-map uri="resetPassword">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="resetPassword" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="resetUserLoginStatus">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="resetUserLoginStatus" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="getCoordinatorList">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getCoordinatorList" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	<request-map uri="getPrimaryTechnicianList">
+    	<security https="true" auth="true"/>
+    	<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getPrimaryTechnicianList" />
+		<response name="success" type="none" />
+      	<response name="error" type="none" />
+	</request-map>
+	
+	
+	<!-- Common ajax request [start] -->    
+    <request-map uri="createContactActionAjax">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createContactAction"/>      
+        <response name="success" type="none"></response>
+        <response name="error" type="none"></response>
+    </request-map>
+    <request-map uri="createCustomerActionAjax">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="createCustomerAction"/>      
+        <response name="success" type="none"></response>
+        <response name="error" type="none"></response>
+    </request-map>
+    <request-map uri="sync3rdPartyInvoice">
+        <security https="false" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="sync3rdPartyInvoice"/>      
+        <response name="success" type="none"></response>
+        <response name="error" type="none"></response>
+    </request-map>
+    <!-- Common ajax request [end] -->    
+    
+    <!-- Product request [start] -->    
+    <request-map uri="searchProductStores">
+		<event type="java" path="org.groupfio.common.portal.event.ProductEvents" invoke="searchProductStores"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="addStoreReceipt">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.ProductEvents" invoke="addStoreReceipt"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeStoreReceipt">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.common.portal.event.ProductEvents" invoke="removeStoreReceipt"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<!-- Product request [end] -->    
+    
+    <!-- Request Mappings -->
+    <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
+    
+	<request-map uri="getDataTableAccounts">
+			<security https="true" auth="true"/>
+			<event type="groovy" path="component://common-portal/webapp/common-portal/WEB-INF/actions/account/SearchAccounts.groovy"/>
+			<response name="success" type="none"/>
+			<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="searchPromotions">
+		<security https="false" auth="true" />
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchPromotions" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getSkuDescriptionList">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSkuDescriptionList"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getReceiptHtmlData">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getReceiptHtmlData"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="partyReceiptData">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="partyReceiptData"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="updateLeadInfo">
+		<security https="true" auth="false"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="updateLeadInfo"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="reSendOtp">
+		<security https="true" auth="false"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="reSendOtp"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="authenticateLeadInfo">
+		<security https="true" auth="false"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="authenticateLeadInfo"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	
+	<!-- Loyalty [start] -->
+	<request-map uri="getPromoCampaigns">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.fio.loyalty.portal.event.AjaxEvents" invoke="getPromoCampaign"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="sendEreceipt">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.LoyaltyEvents" invoke="sendEreceipt"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<!-- Loyalty [end] -->
+    <request-map uri="getEnumerationsByType">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getEnumerationsByType"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="updateImportantNoteCount">
+        <security https="true" auth="false"/>
+        <event type="groovy" path="component://common-portal/webapp/common-portal/WEB-INF/actions/common/CommonActionBarData.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getAllAWSInstances">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAllAWSInstances"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateAWSInstancesState">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="updateAWSInstancesState"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="viewAwSInstances">
+        <security https="true" auth="false"/>
+        <response name="success" type="view" value="viewAwSInstances" />
+      	<response name="error" type="view" value="viewAwSInstances" />
+    </request-map>
+	<request-map uri="viewAllCommunicationEvents"> 
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewAllCommunicationEvents" />
+		<response name="error" type="view" value="viewAllCommunicationEvents" />
+	</request-map>
+	<request-map uri="getAllCommunicationHistory">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getAllCommunicationHistory"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getSmsDashboardCountList">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getSmsDashboardCountList"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="getUnassignSmsList">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="getUnassignSmsList"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="searchSrDetails">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="searchSrDetails"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="srDomainAssign">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.AjaxEvents" invoke="domainAssignmentExt"/>
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	
+	<!-- Export [start] -->
+	
+	<request-map uri="searchExportFiles">
+        <event type="java" path="org.groupfio.common.portal.event.ExportEvents" invoke="searchExportFiles" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+    </request-map>
+    <request-map uri="downloadExportReport">
+		<security https="true" auth="true"/>
+		<event type="java" path="org.groupfio.common.portal.event.ExportEvents" invoke="downloadExportReport"/>
+		<response name="success" type="none" />
+        <response name="error" type="none" />
+	</request-map>
+	<request-map uri="exportData">
+    	<security https="true" auth="true"/>
+        <event type="java" path="org.fio.homeapps.export.ExportEvents" invoke="exportData"/>
+        <response name="success" type="none" />
+	    <response name="error" type="none" />
+    </request-map>
+    
+    <!-- Export [end] -->
+	<request-map uri="getPicsList">
+		<security https="false" auth="true" />
+		<response name="success" type="request-redirect" value="viewAllPics"/>
+		<response name="error" type="request-redirect" value="viewAllPics"/>
+	</request-map>
+	<request-map uri="viewAllPics">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewAllPics" />
+		<response name="error" type="view" value="viewAllPics" />
+	</request-map>
+	
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://common-portal/widget/report/ReportScreens.xml#BatchDataStatus"/>
+    
+    <view-map name="viewOrder" type="screen" page="component://common-portal/widget/general/GeneralScreens.xml#ViewOrder"/>
+    
+    <view-map name="viewAllNotes" type="screen" page="component://common-portal/widget/general/GeneralScreens.xml#ViewAllNotes"/>
+    <view-map name="InvoicePDF" type="screenfop" page="component://accounting/widget/AccountingPrintScreens.xml#InvoicePDF" content-type="application/pdf" encoding="none"/>
+    <view-map name="viewAwSInstances" type="screen" page="component://common-portal/widget/general/GeneralScreens.xml#viewAwSInstances"/>
+    <view-map name="viewAllCommunicationEvents" type="screen" page="component://common-portal/widget/general/GeneralScreens.xml#ViewAllCommunicationEvents"/>
+    <view-map name="viewAllPics" type="screen" page="component://common-portal/widget/general/GeneralScreens.xml#viewAllPics"/>
+	    
+</site-conf>

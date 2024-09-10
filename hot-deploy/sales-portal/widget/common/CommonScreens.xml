@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main-decorator">
+        <section>
+            <actions>
+                <property-map resource="SalesPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+
+				<set field="layoutSettings.appName" from-field="uiLabelMap.AppName" global="true"/>
+                <set field="layoutSettings.companyName" from-field="uiLabelMap.SalesPortalCompanyName" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.SalesPortalCompanySubtitle" global="true"/>
+
+                <set field="activeApp" value="sales-portal" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+                <set field="applicationMenuLocation" value="component://sales-portal/widget/SalesPortalMenus.xml" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.SalesPortalApplication}" global="true"/>
+            </actions>
+            <widgets>
+                <include-screen name="CommonDecorator" location="component://admin-portal/widget/common/CommonScreens.xml"/>
+            </widgets>
+        </section>
+    </screen>
+	<!-- 
+    <screen name="SalesPortalCommonDecorator">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <if-has-permission permission="sales-portal" action="_VIEW"/>
+                            </condition>
+                            <widgets>
+                                <decorator-section-include name="body"/>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.SalesPortalViewPermissionError}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen> -->
+</screens>

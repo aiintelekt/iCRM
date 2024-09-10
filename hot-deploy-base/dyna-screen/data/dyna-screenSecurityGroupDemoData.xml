@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="dyna-screen_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="dyna-screen_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="dyna-screen_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="dyna-screen_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="dyna-screen_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="dyna-screen_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="dyna-screen_ADMIN"/>
+</entity-engine-xml>

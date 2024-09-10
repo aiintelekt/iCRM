@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="batch-portalApplication">
+        <value xml:lang="en">batch-portal Application</value>
+        <value xml:lang="zh">batch-portal应用程序</value>
+        <value xml:lang="zh-TW">batch-portal應用程式</value>
+    </property>
+    <property key="batch-portalCompanyName">
+        <value xml:lang="en">OFBiz: batch-portal</value>
+        <value xml:lang="zh-TW">OFBiz: batch-portal</value>
+    </property>
+    <property key="batch-portalCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="batch-portalViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="CompanyName">
+        <value xml:lang="en">Account Portal</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="AppName">
+        <value xml:lang="en">Account Portal</value>
+        <value xml:lang="zh">Account Portal</value>
+    </property>
+    
+    <!-- Section header [start] -->
+    
+    <property key="ListOfAccounts">
+        <value xml:lang="en">List Of Accounts</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="CreateAccount">
+        <value xml:lang="en">Create Account</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="UpdateAccount">
+        <value xml:lang="en">Update Account</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="ViewAccount">
+        <value xml:lang="en">View Account</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="HomeAccount">
+        <value xml:lang="en">Account Home</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    <property key="FindAccount">
+        <value xml:lang="en">Find Account</value>
+        <value xml:lang="zh">報告門戶</value>
+    </property>
+    
+    <!-- Section header [end] -->
+    
+    <property key="accountType">
+        <value xml:lang="en">Account Type</value>
+        <value xml:lang="zh">聯繫人類型</value>
+    </property>
+    <property key="accountManager">
+        <value xml:lang="en">Account Manager</value>
+        <value xml:lang="zh">聯繫人類型</value>
+    </property>
+    <property key="accountNumber">
+        <value xml:lang="en">Account Number</value>
+        <value xml:lang="zh">聯繫人類型</value>
+    </property>
+    <property key="createTaskActivity">
+        <value xml:lang="en">Create Task</value>
+    </property>
+    <property key="createPhoneCallActivity">
+        <value xml:lang="en">Create Phone Call</value>
+    </property>
+    <property key="createMailActivity">
+        <value xml:lang="en">Create Email</value>
+    </property>
+    <property key="createAppointmentActivity">
+        <value xml:lang="en">Activity Details</value>
+    </property>
+    <property key="MergeAccount">
+        <value xml:lang="en">Merge Account</value>
+        <value xml:lang="zh">合併賬戶</value>
+    </property>
+</resource>

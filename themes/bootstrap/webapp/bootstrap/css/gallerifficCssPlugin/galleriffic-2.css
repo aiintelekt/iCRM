@@ -1,0 +1,481 @@
+div.content {
+	/* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled. */
+	/*display: none;
+	float: right;*/
+	width: 550px; 
+}
+div.content a, div.navigation a {
+	text-decoration: none;
+	color: rgb(2, 130, 157);
+}
+div.content a:focus, div.content a:hover, div.content a:active {
+	text-decoration: underline;
+}
+div.controls {
+	margin-top: 41px;
+	height: 23px;
+}
+div.controls a {
+	padding: 10px;
+}
+div.ss-controls {
+	float: left;
+}
+div.nav-controls {
+	/*float: right; */
+}
+div.slideshow-container {
+	position: relative;
+	clear: both;
+	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+div.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('loader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 550px;
+	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+div.slideshow {
+
+}
+div.slideshow span.image-wrapper {
+	display: block;
+	position: absolute;
+	top: 23px;
+	left: 0;
+}
+div.slideshow a.advance-link {
+	display: block;
+	width: 550px;
+	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	/*line-height: 45px; /* This should be set to be at least the height of the largest image in the slideshow */
+	line-height: 0px; /* This should be set to be at least the height of the largest image in the slideshow */
+	text-align: center;
+}
+div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.slideshow a.advance-link:visited {
+	text-decoration: none;
+}
+div.slideshow img {
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+div.download {
+	/*float: right;*/
+	margin-left: -50px;
+	margin-top: -20px;
+}
+div.caption-container {
+	position: relative;
+	clear: left;
+	height: 239px;
+}
+span.image-caption {
+	display: block;
+	position: absolute;
+	width: 550px;
+	top: 0;
+	left: 0;
+}
+div.caption {
+	padding: 20px;
+	margin-top: -143px;
+}
+div.image-title {
+	font-weight: bold;
+	font-size: 1.4em;
+}
+div.image-desc {
+	line-height: 1.3em;
+	padding-top: 12px;
+}
+div.navigation {
+	/* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled. */
+}
+ul.thumbs {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+ul.thumbs li {
+	float: left;
+	padding: 0;
+	margin: 5px 10px 5px 0;
+	list-style: none;
+}
+a.thumb {
+	padding: 2px;
+	display: block;
+	border: 1px solid #ccc;
+}
+ul.thumbs li.selected a.thumb {
+	background: rgb(2, 130, 157);
+}
+a.thumb:focus {
+	outline: none;
+}
+ul.thumbs img {
+	border: none;
+	display: block;
+}
+div.pagination {
+	clear: both;
+}
+div.navigation div.top {
+	margin-bottom: 12px;
+	height: 11px;
+}
+div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
+	display: block;
+	float: left;
+	margin-right: 2px;
+	padding: 4px 7px 2px 7px;
+	border: 1px solid #ccc;
+}
+div.pagination a:hover {
+	background-color: #eee;
+	text-decoration: none;
+}
+div.pagination span.current {
+	font-weight: bold;
+	background-color: rgb(2, 130, 157);
+	border-color: rgb(2, 130, 157);
+	color: #fff;
+}
+div.pagination span.ellipsis {
+	border: none;
+	padding: 5px 0 3px 2px;
+}
+.selected:after {
+	content: "" !important;
+}
+.selected {
+	background-color: rgb(2, 130, 157) !important;
+}
+.previousPhoto {
+	background-color: rgb(2, 130, 157);
+	color: white;
+	padding: 4px;
+}
+.nextPhoto {
+	background-color: rgb(2, 130, 157);
+	color: white;
+	padding: 4px;
+}
+.btn:not(:disabled):not(.disabled) {
+	padding: 2px 5px 2px 5px !important;
+}
+.caption{
+	position: relative;
+	left: 340px;
+	top: -339px;	
+}
+@media only screen and (max-width: 770px) {
+	#gallery-container{
+		margin-bottom: 0px;
+	}
+	#thumbs {
+		width: 280px !important;
+	}
+	.advance-link {
+		width: 280px !important;
+		margin-left: 111px;
+	}
+	#gallery img {
+		margin-top: -30px;
+	}
+	.controls {
+		margin-left: 80px !important;
+		width: 358px;
+	}
+	span.image-caption {
+		top: -140px;
+	}
+	#body-content {
+		margin-top: -49px  !important;
+	}
+	div.download {
+		margin-left: -49px;
+	}
+	.caption {
+		margin-top: 5px !important;	
+	}
+	div.caption {
+		padding: 20px !important;
+		margin-top: -143px !important;
+	}
+	.caption {
+		position: relative !important;
+		left: 0px !important;
+		top: 10px !important;
+	}
+	div.caption-container {
+		height: 75px;
+	}
+	#file-name-container {
+		padding-top: 0px !important; 
+	}
+}
+@media only screen and (max-width: 830px) {
+	#gallery-container{
+		margin-bottom: 0px;
+	}
+	#file-name-container {
+		padding-top: 0px !important; 
+	}
+	#gallery img {
+		margin-top: -30px; 
+	}
+	div.caption {
+		margin-top: 400px !important;
+		margin-left: 40px;
+	}
+}
+@media only screen and (max-width: 810px) {
+	#gallery-container{
+		margin-bottom: 0px;
+	}
+	#thumbs {
+		width: 280px !important;
+	}
+	.advance-link {
+		width: 280px !important;
+		margin-left: 111px;
+	}
+	#gallery img {
+		margin-top: -30px;
+	}
+	.controls {
+		margin-left: 80px !important;
+		width: 358px;
+	}
+	span.image-caption {
+		top: -140px;
+	}
+	#body-content {
+		margin-top: -49px  !important;
+	}
+	div.download {
+		margin-left: -49px;
+	}
+	.caption {
+		margin-top: 5px !important;	
+	}
+	div.caption {
+		padding: 20px !important;
+		margin-top: -36px !important;
+		margin-left: 40px;
+	}
+	.caption {
+		position: relative !important;
+		left: 18px !important;
+		top: 10px !important;
+	}
+	div.caption-container {
+		height: 75px;
+	}
+	#file-name-container {
+		padding-top: 0px !important;
+	}
+}	
+@media only screen and (max-width: 1050px) {
+	#gallery-container{
+		margin-bottom: 0px;
+	}
+	#thumbs {
+		width: 272px !important;
+	}
+	.advance-link {
+		width: 280px !important;
+		margin-left: 95px;
+	}
+	.controls {
+		margin-left: 48px;
+		width: 358px;
+		margin-left: 55px !important;
+	}
+	span.image-caption {
+		top: -140px !important;
+		left: -70px !important;
+		width: 604px !important;
+	}
+	#body-content {
+		margin-top: -49px  !important;
+	}
+	div.download {
+		margin-left: 101px;
+		margin-bottom: 5px;
+	}
+	div.caption-container {
+		height: 75px;
+	}
+	#file-name-container {
+		padding-top: 0px !important; 
+	}
+	#gallery img {
+		margin-top: -10px;
+		margin-right: 74px;
+	}
+	div.caption {
+		margin-top: 400px;
+	}
+	#gallery img {
+		max-width: 81% !important;
+	}
+}
+@media only screen and (max-width: 990px) {
+	div.caption {
+		padding: 20px;
+		margin-top: 374px;
+	}
+	.caption {
+		left: 30px;
+	}
+	div.caption-container {
+		height: 75px;
+	}
+	#gallery-container{
+		margin-bottom: 0px;
+	}
+}
+@media only screen and (max-width: 290px) {
+	#gallery-container{
+		margin-bottom: 0px;
+	}
+	div.ss-controls {
+		float: none !important;
+	}
+	.caption {
+		left: 30px;
+	}
+	#gallery img {
+		max-width: 225px !important;
+		height: 286px !important;
+		margin-top: -7px;
+		margin-left: -87px;
+	}
+	.advance-link {
+		margin-top: 32px;
+		margin-left: 53px;
+	}
+	div.download {
+		margin-left: -25px;
+	}
+	span.image-caption {
+		width: 467px;
+	}
+	.description-col{
+		margin-left: -17px !important;
+		top: 509px;
+		margin-top: 4px !important;
+	}
+	div.caption {
+		padding: 24px !important;
+		margin-top: -10px !important;
+		margin-left: -80px !important;
+	}
+	.contentbodyfont {
+		line-height: 17px !important;
+		font-size: 13px !important;
+	}
+	div.ss-controls {
+		float: none !important;
+	}
+	.image-container {
+		margin-left: -10px;
+	}
+	.nav-controls{
+		margin-left: -91px;
+	}
+	.ss-controls{
+		margin-left: -129px;
+	}
+	#thumbs-container{
+		margin-left: -9px !important;
+	}
+	.attachment-header{
+		margin-left: -37px;
+	}
+	#gallery-container{
+		margin-left: -61px !important;
+	}
+	.controls {
+		margin-left: 55px !important;
+	}
+	div.controls {
+		margin-top: -240px;
+	}
+	div.caption-container {
+		height: 75px;
+	}
+	.caption {
+		left: -23px !important;
+	}
+	.main-content{
+		height: 1220px !important;
+	}
+	#file-name-container {
+		padding-top: 0px !important;
+	}
+	.container {
+		width: 63%;
+	}
+}
+@media only screen and (max-width: 1025px) {
+	div.caption {
+		padding: 20px;
+		margin-top: 315px;
+		margin-left: 40px;
+	}
+	#gallery-container{
+		margin-bottom: 0px !important;
+		margin-left: -126px;
+	}
+	.caption {
+		position: relative;
+		left: 28px !important;
+		top: -313px;
+	}
+}
+@media only screen and (max-width: 376px) {
+	.nav-controls {
+		padding-right: 31px;
+	}
+	div.controls a {
+		padding: 2px;
+	}
+}
+@media only screen and (max-width: 1285px) {
+	.caption {
+		position: relative;
+		left: 346px;
+		top: -339px;
+	}
+}
+@media only screen and (max-width: 1300px) {
+	.caption {
+		position: relative;
+		left: 346px;
+		top: -339px;
+	}
+	.advance-link{
+		width: 330px !important;
+		margin-left: 50px;
+	}
+	span.image-caption {
+		width: 476px;
+		top: -28px;
+	}
+	.contentbodyfont {
+		font-size: 13px !important;
+		line-height: 24px !important;
+	}
+}
+@media only screen and (max-width: 830px){
+	.caption {
+		top: -438px;
+	}
+}

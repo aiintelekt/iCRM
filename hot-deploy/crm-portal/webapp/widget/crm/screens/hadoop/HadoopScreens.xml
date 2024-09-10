@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="HadoopData">
+		<section>
+			<actions>
+				<script location="component://crm/webapp/crm/WEB-INF/actions/hadoop/HadoopData.groovy"/>
+            </actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component:///crm/webapp/crm/hadoop/hadoop_data.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="CaAccountData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/ca_account_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    <screen name="CustomerData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/customer_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    <screen name="FacilitiesData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/facilities_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    <screen name="FdAccountData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/fd_account_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    <screen name="GcinGpinLinkageData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/gcin_gpin_linkage_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    <screen name="LoanAccountData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/loan_account_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    <screen name="TradeAccountData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/trade_account_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>	
+    
+    <screen name="ContactData">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://crm/webapp/crm/hadoop/contact_data.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>

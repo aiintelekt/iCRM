@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of an Open For Business Project Component</title>
+    <description>None</description>
+    <copyright>Copyright 2001-2008 The Apache Software Foundation</copyright>
+    <author>None</author>
+    <version>1.0</version>
+    
+    <view-entity entity-name="PartyAndPartyIdentification" package-name="org.groupfio.common.portal" title="Full Party and PartyIdentification association">
+    
+		<member-entity entity-alias="P" entity-name="Party"/>
+		<member-entity entity-alias="PI" entity-name="PartyIdentification"/>
+		
+		<alias entity-alias="P" name="partyId" field="partyId" group-by="true"/>
+		<alias entity-alias="P" name="createdStamp" field="createdStamp" />
+		<alias entity-alias="P" name="lastUpdatedStamp" field="lastUpdatedStamp" />
+				
+		<alias entity-alias="PI" name="idValue" field="idValue" />
+		
+		<view-link entity-alias="P" rel-entity-alias="PI" rel-optional="true">
+			<key-map field-name="partyId" rel-field-name="partyId"/>
+		</view-link>
+		
+	</view-entity>
+	
+	<view-entity entity-name="OrderSummary" package-name="org.groupfio.common.portal" title="Order summary">
+    
+		<member-entity entity-alias="OH" entity-name="OrderHeader"/>
+		<member-entity entity-alias="OR" entity-name="OrderRole"/>
+		
+		<alias entity-alias="OH" name="orderId" field="orderId" group-by="true"/>
+		<alias entity-alias="OH" name="createdStamp" field="createdStamp" />
+		<alias entity-alias="OH" name="lastUpdatedStamp" field="lastUpdatedStamp" />
+				
+		<alias entity-alias="OR" name="partyId" field="partyId" />
+		<alias entity-alias="OR" name="roleTypeId" field="roleTypeId" />
+		
+		<view-link entity-alias="OH" rel-entity-alias="OR" rel-optional="true">
+			<key-map field-name="orderId" rel-field-name="orderId"/>
+		</view-link>
+		
+	</view-entity>
+	
+	<view-entity entity-name="PartyClassificationAndGroup" package-name="org.groupfio.common.portal" title="Order summary">
+    
+		<member-entity entity-alias="PC" entity-name="PartyClassification"/>
+		<member-entity entity-alias="PCG" entity-name="PartyClassificationGroup"/>
+		
+		<alias entity-alias="PC" name="partyId" field="partyId"/>
+		<alias entity-alias="PC" name="partyClassificationGroupId" field="partyClassificationGroupId" />
+						
+		<alias entity-alias="PCG" name="description" field="description" />
+				
+		<view-link entity-alias="PC" rel-entity-alias="PCG" rel-optional="true">
+			<key-map field-name="partyClassificationGroupId" rel-field-name="partyClassificationGroupId"/>
+		</view-link>
+		
+	</view-entity>
+	
+	<view-entity entity-name="CommonNoteView"
+            package-name="org.groupfio.common.portal"
+            title="Common Note View Entity">
+      	<member-entity entity-alias="CN" entity-name="CommonNote"/>
+      	<member-entity entity-alias="ND" entity-name="NoteData"/>
+      
+      	<alias entity-alias="CN" name="domainEntityId" field="domainEntityId"/>
+      	<alias entity-alias="CN" name="domainEntityType" field="domainEntityType"/>
+      	<alias entity-alias="CN" name="isImportant" field="isImportant"/>
+      
+      	<alias entity-alias="ND" name="noteId"/>
+      	<alias entity-alias="ND" name="noteName"/>
+      	<alias entity-alias="ND" name="noteInfo"/>
+      	<alias entity-alias="ND" name="noteDateTime"/>
+      	<alias entity-alias="ND" name="noteParty"/>
+      	<alias entity-alias="ND" name="noteType"/>
+      	<alias entity-alias="ND" name="createdStamp"/>
+      	<alias entity-alias="ND" name="createdByUserLogin"/>
+      	<alias entity-alias="ND" name="createdByUserLoginRoleTypeId"/>
+        <alias entity-alias="ND" name="expiredDate"/>
+      	<view-link entity-alias="CN" rel-entity-alias="ND">
+        	<key-map field-name="noteId"/>
+      	</view-link>
+    </view-entity>
+    
+    <view-entity entity-name="PartyNoteView"
+            package-name="org.ofbiz.party.party"
+            title="Party Note View Entity">
+      <member-entity entity-alias="PN" entity-name="PartyNote"/>
+      <member-entity entity-alias="ND" entity-name="NoteData"/>
+      <alias entity-alias="PN" name="targetPartyId" field="partyId"/>
+      <alias entity-alias="PN" name="isImportant"/>
+      <alias entity-alias="PN" name="domainEntityId"/>
+      <alias entity-alias="PN" name="domainEntityType"/>
+      <alias entity-alias="ND" name="noteId"/>
+      <alias entity-alias="ND" name="noteName"/>
+      <alias entity-alias="ND" name="noteInfo"/>
+      <alias entity-alias="ND" name="noteDateTime"/>
+      <alias entity-alias="ND" name="noteParty"/>
+      <alias entity-alias="ND" name="noteType"/>
+      <alias entity-alias="ND" name="createdStamp"/>
+      <alias entity-alias="ND" name="createdByUserLogin"/>
+      <alias entity-alias="ND" name="createdByUserLoginRoleTypeId"/>
+      <alias entity-alias="ND" name="expiredDate"/>
+      <view-link entity-alias="PN" rel-entity-alias="ND">
+        <key-map field-name="noteId"/>
+      </view-link>
+    </view-entity>
+    
+    <view-entity entity-name="PartyContactMechSummary" package-name="org.groupfio.common.portal" title="PartyContactMech summary">
+    	<member-entity entity-alias="PCM" entity-name="PartyContactMech"/>
+		<member-entity entity-alias="PCMP" entity-name="PartyContactMechPurpose"/>
+		<member-entity entity-alias="CM" entity-name="ContactMech"/>
+		
+		<alias entity-alias="PCM" name="partyId" field="partyId" />
+		<alias entity-alias="PCM" name="contactMechId" field="contactMechId" />
+		<alias entity-alias="PCM" name="fromDate" field="fromDate" />
+		<alias entity-alias="PCM" name="thruDate" field="thruDate" />
+		<alias entity-alias="PCM" name="createdStamp" field="createdStamp" />
+		<alias entity-alias="PCM" name="lastUpdatedStamp" field="lastUpdatedStamp" />
+		
+		<alias entity-alias="PCMP" name="contactMechPurposeTypeId" field="contactMechPurposeTypeId" />
+		<alias entity-alias="PCMP" name="partyRelAssocId" field="partyRelAssocId" />
+						
+		<alias entity-alias="CM" name="contactMechTypeId" field="contactMechTypeId" />
+		<alias entity-alias="CM" name="infoString" field="infoString" />
+		
+		<view-link entity-alias="PCM" rel-entity-alias="PCMP" rel-optional="true">
+			<key-map field-name="partyId" rel-field-name="partyId"/>
+			<key-map field-name="contactMechId" rel-field-name="contactMechId"/>
+		</view-link>
+		<view-link entity-alias="PCMP" rel-entity-alias="CM" rel-optional="true">
+			<key-map field-name="contactMechId" rel-field-name="contactMechId"/>
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="PartyAndRoleAndUserLogin" package-name="org.ofbiz.party.party"
+		title="Party, Role, UserLogin View Entity">
+		
+		<member-entity entity-alias="PTY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<member-entity entity-alias="ULN" entity-name="UserLogin" />
+		
+		<alias entity-alias="PTY" name="partyId" group-by="true"/>
+		<alias entity-alias="PTY" name="partyTypeId" />
+		
+		<alias entity-alias="PR" name="roleTypeId" />
+		
+		<alias entity-alias="ULN" name="userLoginId" />
+		<alias entity-alias="ULN" name="currentPassword" />
+		<alias entity-alias="ULN" name="passwordHint" />
+		<alias entity-alias="ULN" name="enabled" />
+		<alias entity-alias="ULN" name="disabledDateTime" />
+		<alias entity-alias="ULN" name="successiveFailedLogins" />
+		
+		<view-link entity-alias="PTY" rel-entity-alias="PR" rel-optional="true">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="PTY" rel-entity-alias="ULN">
+			<key-map field-name="partyId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="PartyAndRoleAndGroup" package-name="org.ofbiz.party.party"
+		title="Party, Role, UserLogin View Entity">
+		
+		<member-entity entity-alias="PTY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<member-entity entity-alias="PTYGRP" entity-name="PartyGroup" />
+		
+		<alias entity-alias="PTY" name="partyId" group-by="true"/>
+		<alias entity-alias="PTY" name="partyTypeId" />
+		<alias entity-alias="PTY" name="statusId" />
+		
+		<alias entity-alias="PR" name="roleTypeId" />
+		
+		<alias entity-alias="PTYGRP" name="groupName" />
+				
+		<view-link entity-alias="PTY" rel-entity-alias="PR" rel-optional="true">
+			<key-map field-name="partyId" />
+		</view-link>
+		<view-link entity-alias="PTY" rel-entity-alias="PTYGRP">
+			<key-map field-name="partyId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="WorkEffortNoteAndData"
+		package-name="org.groupfio.common.portal" title="Work Effort Note And Note Data Entity">
+		<member-entity entity-alias="WEN" entity-name="WorkEffortNote" />
+		<member-entity entity-alias="ND" entity-name="NoteData" />
+		
+		<alias entity-alias="WEN" name="workEffortId" />
+		<alias entity-alias="WEN" name="internalNote" />
+		<alias entity-alias="WEN" name="noteId" />
+		
+		<alias entity-alias="ND" name="noteName" />
+		<alias entity-alias="ND" name="noteInfo" />
+		<alias entity-alias="ND" name="noteParty" />
+		<alias entity-alias="ND" name="noteDateTime" />
+		<alias entity-alias="ND" name="noteType" />
+		<alias entity-alias="ND" name="createdByUserLogin" />
+		
+		<view-link entity-alias="WEN" rel-entity-alias="ND">
+			<key-map field-name="noteId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="WorkEffortAndContent" package-name="org.groupfio.common.portal" title="Full WorkEffortContnet association">
+    
+		<member-entity entity-alias="WFC" entity-name="WorkEffortContent"/>
+		<member-entity entity-alias="CON" entity-name="Content"/>
+		
+		<alias entity-alias="WFC" name="workEffortId" field="workEffortId"/>
+      	<alias entity-alias="WFC" name="contentId" field="contentId"/>
+      	<alias entity-alias="WFC" name="workEffortContentTypeId" field="workEffortContentTypeId"/>
+      	<alias entity-alias="WFC" name="fromDate" field="fromDate"/>
+      	<alias entity-alias="WFC" name="thruDate" field="thruDate"/>
+      	
+      	<alias entity-alias="CON" name="contentId" field="contentId"/>
+		<alias entity-alias="CON" name="contentTypeId" field="contentTypeId"/>
+		<alias entity-alias="CON" name="annotationId" field="annotationId"/>
+		<alias entity-alias="CON" name="documentRefNum" field="documentRefNum"/>
+		<alias entity-alias="CON" name="createdByUserLogin" field="createdByUserLogin"/>
+		<alias entity-alias="CON" name="createdDate" field="createdDate"/>
+		<alias entity-alias="CON" name="description" field="description"/>
+		<alias entity-alias="CON" name="contentName" field="contentName"/>
+		<alias entity-alias="CON" name="domainEntityType" field="domainEntityType"/>
+		<alias entity-alias="CON" name="domainEntityId" field="domainEntityId"/>
+		<alias entity-alias="CON" name="linkedFrom" field="linkedFrom"/>
+		
+		<view-link entity-alias="WFC" rel-entity-alias="CON" rel-optional="true">
+			<key-map field-name="contentId" rel-field-name="contentId"/>
+		</view-link>
+		
+	</view-entity>
+	
+	<view-entity entity-name="PartyAndRole"
+		package-name="org.groupfio.common.portal" title="Party and Role View Entity">
+		
+		<member-entity entity-alias="PTY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRole" />
+		<alias-all entity-alias="PTY">
+			<exclude field="roleTypeId" />
+		</alias-all>
+		<alias-all entity-alias="PR" />
+		<view-link entity-alias="PTY" rel-entity-alias="PR">
+			<key-map field-name="partyId" />
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="PartyAndRel"
+		package-name="org.groupfio.common.portal" title="Party and PartyRelationship View Entity">
+		<member-entity entity-alias="PTY" entity-name="Party" />
+		<member-entity entity-alias="PR" entity-name="PartyRelationship" />
+		
+		<alias-all entity-alias="PTY" />
+		<alias-all entity-alias="PR">
+            <exclude field="comments" />
+            <exclude field="statusId" />
+        </alias-all>
+        
+        <alias entity-alias="PR" name="relationshipStatusId" field="statusId" />
+        <alias entity-alias="PR" name="relationshipIsMarketable" field="isMarketable" />
+        
+		<view-link entity-alias="PTY" rel-entity-alias="PR" rel-optional="true">
+			<key-map field-name="partyId" rel-field-name="partyIdFrom" />
+		</view-link>
+	</view-entity>
+	
+	<!-- Template [start] -->
+	<view-entity entity-name="TemplateTagSummary" package-name="org.fio.entities.marketing">
+    	<member-entity entity-alias="TT" entity-name="TemplateTag"/>
+    	<member-entity entity-alias="DTC" entity-name="DataTagConfiguration"/>
+    	<member-entity entity-alias="TTT" entity-name="TemplateTagType"/>
+    	
+    	<alias-all entity-alias="DTC" />
+    	
+    	<alias entity-alias="TT" name="templateId" field="templateId"/>
+    	<alias entity-alias="TT" name="tagSequence" field="tagSequence"/>
+    	
+    	<alias entity-alias="TTT" name="tagTypeDescription" field="description"/>
+    	
+    	<view-link entity-alias="TT" rel-entity-alias="DTC" rel-optional="true">
+            <key-map field-name="tagId" rel-field-name="tagId"/>
+        </view-link>
+        <view-link entity-alias="DTC" rel-entity-alias="TTT" rel-optional="true">
+            <key-map field-name="templateTagTypeId" rel-field-name="templateTagTypeId"/>
+        </view-link>
+    </view-entity>
+    
+    <view-entity entity-name="TemplateAndCategory" package-name="org.fio.entities.marketing">
+    	<member-entity entity-alias="TM" entity-name="TemplateMaster" />
+    	<member-entity entity-alias="TMTC" entity-name="TemplateToCategory" />
+    	<alias-all entity-alias="TM"/>
+    	<alias entity-alias="TM" name="createdStamp" field="createdStamp" />
+    	<alias entity-alias="TM" name="lastUpdatedStamp" field="lastUpdatedStamp" />
+    	<alias entity-alias="TMTC" name="templateCategoryId" field="templateCategoryId" />
+    	<view-link rel-entity-alias="TMTC" entity-alias="TM" rel-optional="true">
+    		<key-map field-name="templateId"/>
+    	</view-link>
+    </view-entity>
+    
+    <view-entity entity-name="TemplateAndCategoryAndAttribute" package-name="org.fio.entities.marketing">
+    	<member-entity entity-alias="TM" entity-name="TemplateMaster" />
+    	<member-entity entity-alias="TMTC" entity-name="TemplateToCategory" />
+    	<member-entity entity-alias="TA" entity-name="TemplateAttribute" />
+    	<alias-all entity-alias="TM"/>
+    	<alias entity-alias="TM" name="templateId" field="templateId" group-by="true"/>
+    	<alias entity-alias="TM" name="createdStamp" field="createdStamp" />
+    	<alias entity-alias="TM" name="lastUpdatedStamp" field="lastUpdatedStamp" />
+    	<alias entity-alias="TMTC" name="templateCategoryId" field="templateCategoryId" />
+    	
+    	<alias entity-alias="TA" name="attrName" field="attrName" />
+    	<alias entity-alias="TA" name="attrValue" field="attrValue" />
+    	
+    	<view-link rel-entity-alias="TMTC" entity-alias="TM" rel-optional="true">
+    		<key-map field-name="templateId"/>
+    	</view-link>
+    	<view-link rel-entity-alias="TA" entity-alias="TM" rel-optional="true">
+    		<key-map field-name="templateId"/>
+    	</view-link>
+    </view-entity>
+    
+    <view-entity entity-name="TemplateTagAndCustomGroupField" package-name="org.fio.entities.marketing">
+    	<member-entity entity-alias="DTC" entity-name="DataTagConfiguration" />
+    	<member-entity entity-alias="CFG" entity-name="CustomFieldGroup" />
+    	<member-entity entity-alias="CF" entity-name="CustomField" />
+    	<alias-all entity-alias="DTC"/>
+    	<alias entity-alias="CFG" name="customFieldGroupId" field="groupId" />
+    	<alias entity-alias="CFG" name="customFieldGroupName" field="groupName" />
+    	<!-- <alias entity-alias="CFG" name="groupType" field="groupType" /> -->
+    	<alias entity-alias="CFG" name="groupSequence" field="sequence" />
+    	<alias entity-alias="CFG" name="groupHide" field="hide" />
+    	
+    	<alias entity-alias="CF" name="customFieldId" field="customFieldId" />
+    	<alias entity-alias="CF" name="customFieldName" field="customFieldName" />
+    	<alias entity-alias="CF" name="fieldSequence" field="sequenceNumber" />
+    	<alias entity-alias="CF" name="fieldIsEnabled" field="isEnabled" />
+    	
+    	<view-link rel-entity-alias="CFG" entity-alias="DTC" rel-optional="true">
+    		<key-map field-name="customFieldGroupId" rel-field-name="groupId"/>
+    	</view-link>
+    	<view-link rel-entity-alias="CF" entity-alias="DTC" rel-optional="true">
+    		<key-map field-name="customFieldId"/>
+    	</view-link>
+    	
+    </view-entity>
+    
+    <view-entity entity-name="DataTagAndTemplateTagConfiguration" package-name="org.fio.entities.marketing">
+    	<member-entity entity-alias="DTC" entity-name="DataTagConfiguration"/>
+    	<member-entity entity-alias="TT" entity-name="TemplateTag"/>
+    	<alias-all entity-alias="DTC" />
+    	<alias entity-alias="TT" name="templateId" field="templateId"/>
+    	<view-link rel-entity-alias="TT" entity-alias="DTC">
+    		<key-map field-name="tagId"/>
+    	</view-link>
+    </view-entity>
+    
+    <!-- Template [end] -->
+    
+</entitymodel>

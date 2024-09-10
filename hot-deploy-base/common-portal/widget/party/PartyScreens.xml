@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="ListPartyAssoc">
+		<section>
+			<actions>
+				<script location="component://common-portal/webapp/common-portal/WEB-INF/actions/party/FindPartyAssoc.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://common-portal/webapp/common-portal/party/find_party_assoc.ftl"/>
+						<html-template location="component://common-portal/webapp/common-portal/party/list_party_assoc.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

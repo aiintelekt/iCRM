@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	
+    <EnumerationType enumTypeId="RESAVAIL_REASON" description="Content Classification" />
+	<Enumeration description="PTO" enumCode="PTO" enumId="RES_AR_PTO" sequenceId="01" enumTypeId="RESAVAIL_REASON"/>
+	<Enumeration description="Off Sick" enumCode="OFF_SICK" enumId="RES_AR_OFF_SICK" sequenceId="02" enumTypeId="RESAVAIL_REASON"/>
+	
+	<EnumerationType enumTypeId="RESAVAIL_TYPE" description="Content Classification" />
+	<Enumeration description="Available" enumCode="AVAIL" enumId="RESA_TYP_AVAIL" sequenceId="01" enumTypeId="RESAVAIL_TYPE"/>
+	<Enumeration description="Non Available" enumCode="NON_AVAIL" enumId="RESA_TYP_NON_AVAIL" sequenceId="02" enumTypeId="RESAVAIL_TYPE"/>
+    
+</entity-engine-xml>

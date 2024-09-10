@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main-decorator">
+        <section>
+            <actions>
+            	<property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="common-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="contact-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="layoutSettings.appName" from-field="uiLabelMap.AppName" global="true"/>
+                <set field="layoutSettings.companyName" from-field="uiLabelMap.CompanyName" global="true"/>
+                <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.CompanySubtitle" global="true"/>
+
+                <set field="activeApp" value="contact-portal" global="true"/>
+                <set field="applicationTitle" value="${uiLabelMap.Application}" global="true"/>
+            </actions>
+            <widgets>
+                <include-screen name="CommonDecorator" location="component://admin-portal/widget/common/CommonScreens.xml"/>
+            </widgets>
+        </section>
+    </screen>
+</screens>

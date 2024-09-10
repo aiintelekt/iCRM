@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of admin-portal Component</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+
+	<entity entity-name="StgUamsAim"
+            package-name="org.groupfio.admin.portal"
+            title="StgUamsAim Entity">
+        
+        <field name="rowUniqId" type="id"></field>
+		<field name="stepExecutionId" type="numeric"></field>
+            
+		<field name="modeOfAction" type="id"></field>
+		<field name="oneBankId" type="id"></field>
+		<field name="userId" type="id"></field>
+		<field name="lanId" type="id"></field>
+		<field name="managerId" type="id"></field>
+		<field name="managerLanId" type="id"></field>
+		<field name="firstName" type="id-vlong"></field>
+		<field name="lastName" type="id-vlong"></field>
+		<field name="fullName" type="id-vlong"></field>
+		<field name="emailId" type="id"></field>
+		<field name="empNumber" type="id"></field>
+		<field name="rank" type="id"></field>
+		<field name="pcCode" type="id"></field>
+		<field name="dep" type="description"></field>
+		<field name="country" type="id"></field>
+		<field name="channel" type="id"></field>
+		<field name="location" type="very-long"></field>
+		<field name="role" type="id"></field>
+		<field name="groupId" type="id-vlong"></field>
+		<field name="racfId" type="id"></field>
+		<field name="empAgentCode" type="id"></field>
+		<field name="c3ind" type="id"></field>
+		<field name="staffFlag" type="id"></field>
+		<field name="txnCode" type="id"></field>
+						
+		<field name="batchId" type="id-vlong"></field>		
+		<field name="importStatus" type="id"></field>
+		<field name="errorMessage" type="very-long"></field>
+		<field name="responseCode" type="id"></field>
+		<field name="jobExecutionId" type="numeric"></field>
+		
+		<prim-key field="rowUniqId"/>      	
+      	<prim-key field="stepExecutionId"/>
+										      	
+    </entity>
+    
+    <entity entity-name="StgCampaign"
+            package-name="org.groupfio.admin.portal"
+            title="StgCampaign Entity">
+        
+        <field name="rowUniqId" type="id"></field>
+		<field name="stepExecutionId" type="numeric"></field>
+            
+		<field name="modeOfAction" type="id"></field>
+		<field name="campaignCode" type="id-long"></field>
+		<field name="name" type="name"></field>
+		<field name="campaignPurpose" type="id"></field>
+		<field name="channel" type="id"></field>
+		<field name="targetedProduct" type="very-long"></field>
+		<field name="salesLiteratureName" type="name"></field>
+		<field name="salesLiteratureLink" type="very-long"></field>
+		<field name="actualStart" type="id"></field>
+		<field name="actualEnd" type="id"></field>
+		<field name="audienceType" type="id"></field>
+		<field name="totalCampaignCost" type="currency-amount"></field>
+		<field name="budgetAllocated" type="currency-amount"></field>
+		<field name="estimatedRevenue" type="currency-amount"></field>
+		<field name="expectedResponsePercentage" type="currency-amount"></field>
+		<field name="proposedBegin" type="id"></field>
+		<field name="proposedEnd" type="id"></field>
+		<field name="offer" type="very-long"></field>
+		<field name="gracePeriod" type="id"></field>
+		<field name="statusReason" type="id"></field>
+		<field name="assignmentOption" type="id"></field>
+		<field name="assignedOwner" type="id-long"></field>
+		<field name="parentCampaign" type="id-long"></field>
+		<field name="isTelemarketingCampaign" type="indicator"></field>
+		<field name="priorityFlag" type="id"></field>
+						
+		<field name="batchId" type="id-vlong"></field>		
+		<field name="importStatus" type="id"></field>
+		<field name="errorMessage" type="very-long"></field>
+		<field name="responseCode" type="id"></field>
+		<field name="jobExecutionId" type="numeric"></field>
+		
+		<prim-key field="rowUniqId"/>      	
+      	<prim-key field="stepExecutionId"/>
+										      	
+    </entity>
+    
+    <entity entity-name="StgCreditCardCustLevel"
+            package-name="org.groupfio.admin.portal"
+            title="StgCreditCardCustLevel Entity">
+        
+        <field name="rowUniqId" type="id"></field>
+		<field name="stepExecutionId" type="numeric"></field>
+            
+		<field name="modeOfAction" type="id"></field>
+		
+		<field name="crCardCustomerOrgId" type="id"></field>
+		<field name="crCardCustomerNumber" type="id"></field>     
+        <field name="cardCustLevelLimit" type="currency-amount"></field>
+		<field name="cardCustLevelOs" type="currency-amount"></field>
+		<field name="openToBuy" type="currency-amount"></field>
+		<field name="documentIdTypeId" type="id"></field>
+		<field name="documentNumber" type="id"></field>
+		<field name="countryOfIssue" type="id"></field>
+				
+		<field name="batchId" type="id-vlong"></field>		
+		<field name="importStatus" type="id"></field>
+		<field name="errorMessage" type="very-long"></field>
+		<field name="responseCode" type="id"></field>
+		<field name="jobExecutionId" type="numeric"></field>
+		
+		<prim-key field="rowUniqId"/>      	
+      	<prim-key field="stepExecutionId"/>
+										      	
+    </entity>
+    
+    <entity entity-name="StgLeadVplus"
+            package-name="org.groupfio.admin.portal"
+            title="StgLeadVplus Entity">
+        
+        <field name="rowUniqId" type="id"></field>
+		<field name="stepExecutionId" type="numeric"></field>
+            
+		<field name="modeOfAction" type="id"></field>
+		
+		<field name="cifNo" type="id-vlong"></field>
+		<field name="documentNo" type="id"></field>     
+        <field name="countryOfIssue" type="id"></field>
+		<field name="documentTypeCode" type="id"></field>
+		<field name="bankCustomerNumber" type="id-vlong"></field>
+		<field name="salutation" type="id-vlong"></field>
+		<field name="name" type="id-vlong"></field>
+		<field name="gender" type="id"></field>
+		<field name="dateOfBirth" type="id-long"></field>
+		<field name="maritalStatus" type="id"></field>
+		<field name="homePhone" type="id"></field>
+		<field name="officePhone" type="id"></field>
+		<field name="mobile" type="id"></field>
+		<field name="email" type="id"></field>
+		<field name="fax" type="id"></field>
+		<field name="address1" type="very-long"></field>
+		<field name="address2" type="very-long"></field>
+		<field name="city" type="id"></field>
+		<field name="postalCode" type="id"></field>
+		<field name="state" type="id"></field>
+		<field name="country" type="id"></field>
+		<field name="channel" type="id"></field>
+		<field name="campaignCode" type="id-long"></field>
+		<field name="opportunityDescription" type="very-long"></field>
+		<field name="remarks" type="very-long"></field>
+		<field name="targetedProduct" type="id-long"></field>
+		<field name="assignmentOption" type="id-long"></field>
+		<field name="assignedOwner" type="id"></field>
+		<field name="nationality" type="id"></field>
+		<field name="consentOverrideFlag" type="id"></field>
+		<field name="sequenceNumber" type="id"></field>
+		<field name="cardOtb" type="id"></field>
+		<field name="cardLimit" type="id"></field>
+		<field name="priority" type="id"></field>
+				
+		<field name="batchId" type="id-vlong"></field>		
+		<field name="importStatus" type="id"></field>
+		<field name="errorMessage" type="very-long"></field>
+		<field name="responseCode" type="id"></field>
+		<field name="jobExecutionId" type="numeric"></field>
+		
+		<prim-key field="rowUniqId"/>      	
+      	<prim-key field="stepExecutionId"/>
+										      	
+    </entity>
+    
+    <entity entity-name="StgLeadAdsStatus"
+            package-name="org.groupfio.admin.portal"
+            title="StgLeadAdsStatus Entity">
+        
+        <field name="rowUniqId" type="id"></field>
+		<field name="stepExecutionId" type="numeric"></field>
+            
+		<field name="modeOfAction" type="id"></field>
+		
+		<field name="opportunityId" type="id-long"></field>
+		<field name="campaignId" type="id-long"></field>     
+        <field name="opportunityGuid" type="id-long"></field>
+		<field name="callOutCome" type="id-vlong"></field>
+		<field name="responseType" type="id-long"></field>
+		<field name="responseReason" type="id-long"></field>
+		<field name="callTime" type="id-long"></field>
+		<field name="owner" type="id"></field>
+		
+		<field name="batchId" type="id-vlong"></field>		
+		<field name="importStatus" type="id"></field>
+		<field name="errorMessage" type="very-long"></field>
+		<field name="responseCode" type="id"></field>
+		<field name="jobExecutionId" type="numeric"></field>
+		
+		<prim-key field="rowUniqId"/>      	
+      	<prim-key field="stepExecutionId"/>
+										      	
+    </entity>
+    
+    <entity entity-name="StgLeadAdsSysDisposition"
+            package-name="org.groupfio.admin.portal"
+            title="StgLeadAdsSysDisposition Entity">
+        
+        <field name="rowUniqId" type="id"></field>
+		<field name="stepExecutionId" type="numeric"></field>
+            
+		<field name="modeOfAction" type="id"></field>
+		
+		<field name="opportunityId" type="id-long"></field>
+		<field name="campaignId" type="id-long"></field>     
+        <field name="opportunityGuid" type="id-long"></field>
+		<field name="callOutCome" type="id-vlong"></field>
+		<field name="responseType" type="id-long"></field>
+		<field name="responseReason" type="id-long"></field>
+		<field name="callTime" type="id-long"></field>
+		<field name="owner" type="id"></field>
+		
+		<field name="batchId" type="id-vlong"></field>		
+		<field name="importStatus" type="id"></field>
+		<field name="errorMessage" type="very-long"></field>
+		<field name="responseCode" type="id"></field>
+		<field name="jobExecutionId" type="numeric"></field>
+		
+		<prim-key field="rowUniqId"/>      	
+      	<prim-key field="stepExecutionId"/>
+										      	
+    </entity>
+	   
+</entitymodel>

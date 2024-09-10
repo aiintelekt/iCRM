@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+    <screen name="FindCustGrpUpdate">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindCustGrpUpdate" global="true"/>
+                <set field="sectionName" value="webhook-portal" global="true"/>
+                <property-map resource="webhook-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/indica/FindCustGrpUpdate.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://admin-portal/webapp/admin-portal/indica/find/find_cust_grp_update.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+					<decorator-section name="bottom-content">
+						<include-screen name="ListCustGrpUpdate"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListCustGrpUpdate">
+        <section>
+        	<actions>
+				
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://admin-portal/webapp/admin-portal/indica/find/list_cust_grp_update.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+	
+</screens>

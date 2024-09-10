@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<!-- Batch data report [start] -->
+
+	<SecurityPermission description="Report screens permission" permissionId="ADMPR_REP"/>
+    <OfbizPageSecurity componentId="ADMIN_PORTAL" favIcon="fa fa-desktop" isExternal="N" pageId="REP_SCRN" pageType="TAB" permissionId="ADMPR_REP" seqId="1009" tabId="ADMPR_REP" uiLabels="Reports"/>
+
+    <SecurityPermission description="Configurable screens permission View" permissionId="ADMPR_REP_VCS"/>
+
+    <OfbizTabSecurityShortcut componentId="ADMIN_PORTAL" favIcon="fa fa-eye" isExternal="N" pageId="batchStatusFind" pageType="SHORTCUT" permissionId="ADMPR_REP_VCS" requestUri="/batch-portal/control/batchDataStatus" seqId="1000" shortcutId="ADMPR_REP_VCS" tabId="ADMPR_REP" uiLabels="Find Batch Status"/>
+		
+	<!-- Batch data report [end] -->
+		
+	<GridUserPreferences appliedRequestUrl="/lead-portal/control/findLeads" appliedRequestVerb="post" createdStamp="2020-08-19 21:27:27.0" createdTxStamp="2020-08-19 21:27:27.0" description="Lead List" instanceId="LEADS_LIST" lastUpdatedStamp="2020-08-19 21:27:27.0" lastUpdatedTxStamp="2020-08-19 21:27:27.0" name="Lead List" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{ "columnDefs": [{ "headerName": "Lead Name", "field": "groupName", "sortable": true, "filter": "agTextColumnFilter", "lockPosition": true, "cellRenderer": "viewLead" }, { "headerName": "Lead Status", "field": "statusDesc", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Time Zone", "field": "timeZone", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Relationship Manager", "field": "relationshipManager", "sortable": true, "filter": "agTextColumnFilter", "cellRenderer": "getRmName" }, { "headerName": "Local Name", "field": "localName", "sortable": false, "filter": "agTextColumnFilter" }, { "headerName": "No of Employees", "field": "numberEmployees", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Annual Revenue", "field": "annualRev", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Industry", "field": "industry", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Ownership", "field": "ownership", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Preferred Currency", "field": "uomDesc", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "City", "field": "city", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "State", "field": "state", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Country", "field": "country", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Postal Code", "field": "postalCode", "sortable": true, "filter": "agTextColumnFilter" }, { "headerName": "Lead ID", "field": "partyId", "sortable": true }], "pagination": true, "paginationPageSize": 10, "filter": true, "floatingFilter": true, "domLayout": "autoHeight", "components": { "viewLead": viewLead, "getRmName": getRmName }, "custom": { "dataUniqueIdField": "partyId", "rowSelection": "multiple", "csvExportOptions": { "fileName": "List_Of_Lead.csv", "skipHeader": false } } }]]></gridOptionsJsString>     </GridUserPreferences>
+
+</entity-engine-xml>

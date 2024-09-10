@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of common-portal Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+	  
+	<extend-entity entity-name="DataImportProduct">
+       	<field name="stepExecutionId" type="numeric"></field>
+        <field name="jobExecutionId" type="numeric"></field>
+        <field name="categoryId" type="id"></field>
+        <field name="attrValue1" type="id"></field>
+        <field name="attrValue2" type="id"></field>
+        <field name="logId" type="id"></field>
+        <field name="brandId" type="id"></field>
+        <field name="productAssocType" type="id"></field>
+        <field name="productAssocId" type="id"></field>
+		<field name="listPrice" type="currency-amount" />
+		<field name="avgCost" type="currency-amount" />
+		<field name="locationInventory" type="very-long" />
+        
+        <index name="dip_indx_01">
+           <index-field name="importStatusId"/>
+        </index>
+        <index name="dip_indx_02">
+           <index-field name="importStatusId"/>
+           <index-field name="importedFrom"/>
+        </index>
+    </extend-entity> 
+    
+    <extend-entity entity-name="DataImportOrderHeader">
+       	<field name="stepExecutionId" type="numeric"></field>
+        <field name="jobExecutionId" type="numeric"></field>
+        <field name="importedFrom" type="id"></field>
+        <field name="subTotal" type="currency-amount"></field>
+        <field name="paymentMethods" type="id"></field>
+        <field name="paymentStatus" type="id"></field>
+        <field name="orderStatus" type="id"></field>
+        <field name="shipmentStatus" type="id"></field>
+        <field name="fulfilmentStatus" type="id"></field>
+        <field name="orderExtId" type="id"></field>
+        <field name="staffId" type="id"></field>
+        <field name="logId" type="id"></field>
+        <field name="promotionIdLoyalty" type="id-vlong"></field>
+        <field name="customerCustomId1" type="id"></field>
+        <field name="primaryPartyId" type="id"></field>
+        <index name="dioh_index_01">
+           <index-field name="importStatusId"/>
+        </index>
+        <index name="dioh_index_02">
+           <index-field name="importStatusId"/>
+           <index-field name="importFrom"/>
+        </index>
+    </extend-entity> 
+    <extend-entity entity-name="DataImportOrderItem">
+       	<field name="stepExecutionId" type="numeric"></field>
+        <field name="jobExecutionId" type="numeric"></field>
+        <field name="brandName" type="id"></field>
+        <field name="brandId" type="id"></field>
+        <index name="dioi_index_01">
+           <index-field name="orderId"/>
+           <index-field name="importStatusId"/>
+        </index>
+    </extend-entity> 
+    
+     <extend-entity entity-name="DataImportCustomer">
+       	<field name="stepExecutionId" type="numeric"></field>
+        <field name="jobExecutionId" type="numeric"></field>
+        <field name="importedFrom" type="id"></field>
+        <field name="facebookContact" type="id-vlong"></field>
+        <field name="googleContact" type="id-vlong"></field>
+        <field name="instagramContact" type="id-vlong"></field>
+        <field name="linkedInContact" type="id-vlong"></field>
+        <field name="twitterContact" type="id-vlong"></field>
+        <field name="youtubeContact" type="id-vlong"></field>
+        <field name="logId" type="id"></field>
+        <field name="createdDate" type="date-time"></field>
+        <field name="lastModifiedDate" type="date-time"></field>
+        <field name="allowSolicitation" type="indicator"></field>
+	<field name="segmentation" type="long-varchar"></field>
+	 <index name="dic_index_01">
+         <index-field name="importStatusId"/>
+     </index>
+     <index name="dic_index_02">
+         <index-field name="importStatusId"/>
+         <index-field name="importedFrom"/>
+     </index>
+    </extend-entity> 
+    <extend-entity entity-name="DataImportCategory">
+       	<field name="stepExecutionId" type="numeric"></field>
+        <field name="jobExecutionId" type="numeric"></field>
+        <field name="importedFrom" type="id"></field>
+        <field name="hierarchyLevel" type="numeric"></field>
+        <field name="positionLft" type="numeric"></field>
+        <field name="positionRgt" type="numeric"></field>
+        <field name="logId" type="id"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="DataImportAccount">
+        <field name="facebookContact" type="id-vlong"></field>
+        <field name="googleContact" type="id-vlong"></field>
+        <field name="instagramContact" type="id-vlong"></field>
+        <field name="linkedInContact" type="id-vlong"></field>
+        <field name="twitterContact" type="id-vlong"></field>
+        <field name="youtubeContact" type="id-vlong"></field>
+        <field name="segmentation" type="long-varchar"></field>
+        <field name="importedFrom" type="id"></field>
+    </extend-entity> 
+    <extend-entity entity-name="DataImportLead">
+        <field name="facebookContact" type="id-vlong"></field>
+        <field name="googleContact" type="id-vlong"></field>
+        <field name="instagramContact" type="id-vlong"></field>
+        <field name="linkedInContact" type="id-vlong"></field>
+        <field name="twitterContact" type="id-vlong"></field>
+        <field name="youtubeContact" type="id-vlong"></field>
+        <field name="segmentation" type="long-varchar"></field>
+        <field name="importedFrom" type="id"></field>
+    </extend-entity> 
+    <extend-entity entity-name="DataImportContact">
+        <field name="facebookContact" type="id-vlong"></field>
+        <field name="googleContact" type="id-vlong"></field>
+        <field name="instagramContact" type="id-vlong"></field>
+        <field name="linkedInContact" type="id-vlong"></field>
+        <field name="twitterContact" type="id-vlong"></field>
+        <field name="youtubeContact" type="id-vlong"></field>
+        <field name="segmentation" type="long-varchar"></field>
+        <field name="keyContactPerson2" type="id"></field>
+    </extend-entity> 
+    <extend-entity entity-name="TechDataCalendar">
+		<field name="calendarYear" type="id" />
+		<field name="calendarTypeId" type="id" />
+		<field name="calendarYearStartDate" type="date" />
+		<field name="calendarYearEndDate" type="date" />
+		<field name="geoId" type="id" />
+		<index name="tdc_CALENDAR_WEEK">
+			<index-field name="calendarWeekId" />
+		</index>
+	</extend-entity>
+	<extend-entity entity-name="DataImportCustomer">
+		<field name="isImportAsContact" type="description" />
+		<field name="segmentation" type="long-varchar" />
+	</extend-entity>
+
+	<extend-entity entity-name="DataImportLead">
+		<field name="keyContactPerson2PartyId" type="id-ne" />
+		<field name="keyContactPerson1PartyId" type="id-ne" />
+		<field name="productAmount" type="currency-precise" />
+		<field name="facilityWithOtherBank" type="id-long" />
+		<field name="keyContactPerson3" type="id-vlong-ne" />
+		<field name="keyContactPerson3PartyId" type="id-ne" />
+		<field name="keyContactPerson4PartyId" type="id-ne" />
+		<field name="gstn" type="id-ne" />
+		<field name="keyContactPerson5" type="description" />
+		<field name="amountWithOtherBank" type="currency-precise" />
+		<field name="iecCode" type="id-ne" />
+		<field name="interestedProductName" type="id-long" />
+		<field name="keyContactPerson5PartyId" type="id-ne" />
+		<field name="companyCin" type="id-long" />
+		<field name="tertiaryPhoneNumber" type="id-long" />
+		<field name="howdDidTheCallGo" type="description" />
+		<field name="reasonOfLeadDrop" type="description" />
+		<field name="designation5" type="id-ne" />
+		<field name="designation3" type="id-ne" />
+		<field name="designation4" type="id-ne" />
+		<field name="designation1" type="id-ne" />
+		<field name="designation2" type="id-ne" />
+		<field name="lastName1" type="description" />
+		<field name="lastName3" type="description" />
+		<field name="lastName2" type="description" />
+		<field name="lastName5" type="description" />
+		<field name="lastName4" type="description" />
+		<field name="preferredLanguage" type="description" />
+		<field name="dinNumber1" type="id-ne" />
+		<field name="dinNumber2" type="id-ne" />
+		<field name="dinNumber3" type="id-ne" />
+		<field name="dinNumber4" type="id-ne" />
+		<field name="dinNumber5" type="id-ne" />
+		<field name="quaternaryPhoneNumber" type="id-long" />
+		<field name="quinaryPhoneNumber" type="id-long" />
+		<field name="officeMainLine" type="id-long" />
+		<field name="callNotes" type="description" />
+		<field name="firstName2" type="description" />
+		<field name="firstName3" type="description" />
+		<field name="firstName4" type="description" />
+		<field name="firstName5" type="description" />
+		<field name="firstName1" type="description" />
+		<field name="reasonOfLeadDropNote" type="description" />
+		<field name="uniqueIDNumber2" type="id-ne" />
+		<field name="uniqueIDNumber3" type="id-ne" />
+		<field name="emailAddress" type="description" />
+		<field name="uniqueIDNumber1" type="id-ne" />
+		<field name="emailAddress3" type="description" />
+		<field name="emailAddress4" type="description" />
+		<field name="emailAddress1" type="description" />
+		<field name="uniqueIDNumber4" type="id-ne" />
+		<field name="emailAddress2" type="description" />
+		<field name="uniqueIDNumber5" type="id-ne" />
+		<field name="contactMobileNumber" type="id-long" />
+		<field name="howDidTheCallGo" type="description" />
+	</extend-entity> 
+</entitymodel>
