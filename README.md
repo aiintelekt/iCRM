@@ -2,7 +2,8 @@
 
 **Note:**
 
-Demo data must load first. For that, the MySQL5.7 version must be installed, and later, the database with the below Character set and collation must be imported. The SQL file freemiumdemodata.sql, which is available in the source code, must be imported.
+Demo data must load first. For that, the MySQL5.7 version must be installed, and later, the database with the below Character set and collation must be imported. The SQL file **icrm_basic_demodata.sql** available in the source code, must be imported.
+
 **Create the database in name:** crm_demo_data
 **Character set:** utf8
 **Collation:** utf8_general_ci
@@ -13,7 +14,7 @@ Change the database connection in file entityengine.xml in localmysql connector.
 
 **Step 1: Download CRM software from github**
 
-We recommend using git download latest iCRM software. first, make sure you have git client installed on system after that check out the latest build from the GitHub repository.
+We recommend using Git to download the latest CRM software. First, make sure you have the Git client installed on your system. Then, check out the latest build from the GitHub repository.
 
 # apt install git
 
