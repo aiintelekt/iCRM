@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<AppBarType appBarTypeId="ACTION" appBarTypeName="Action App Bar" appBarTypeUilabel="Action App Bar" lastUpdatedStamp="2020-07-06 15:39:43.0" lastUpdatedTxStamp="2020-07-06 15:39:43.0" createdStamp="2020-07-06 15:39:43.0" createdTxStamp="2020-07-06 15:39:43.0"/>
+	<AppBarType appBarTypeId="KPI" appBarTypeName="KPI App Bar" appBarTypeUilabel="KPI App Bar" lastUpdatedStamp="2020-07-06 15:40:01.0" lastUpdatedTxStamp="2020-07-06 15:40:00.0" createdStamp="2020-07-06 15:40:01.0" createdTxStamp="2020-07-06 15:40:01.0"/>
+
+	<AppBar appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarName="Contact KPI Bar" appBarNameUilabel="Contant KPI Bar" appBarDescription="Contact KPI Bar" appBarService="" appBarStatus="ENABLED" appBarSecurityGroup="" appBarDirection="HORIZONTAL" appBarHeight="100" appBarWidth="100" appBarMaxElements="10" appBarAccessLevel="SYSTEM_LEVEL" createdBy="admin" modifiedBy="admin" approvedBy="admin" approvedDate="2020-06-24 17:46:25" autoApprove="" createdOn="2020-06-24 17:46:25" modifiedOn="2020-09-21 02:36:47" geoId="" appBarRefreshType="REAL_TIME" appBarRefreshMinRate="" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-09-21 02:36:47" createdTxStamp="2020-06-24 17:46:55" lastUpdatedTxStamp="2020-09-21 02:36:47" createdStamp="2020-06-24 17:46:55" />      
+	<AppBar appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarName="Contact Action bar" appBarDescription="Contact Action bar15" appBarStatus="ENABLED" appBarSecurityGroup="CON_ACTION_BAR_ACTION_GRP" appBarDirection="HORIZONTAL" appBarMaxElements="11" appBarAccessLevel="SYSTEM_LEVEL" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-09-24 13:50:31" modifiedOn="2020-09-24 13:50:31" defaultMessage="Please contact your Administrator" lastUpdatedStamp="2020-09-24 13:50:31" createdTxStamp="2020-09-24 13:50:31" lastUpdatedTxStamp="2020-09-24 13:50:31" />      
+	
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="1" elementId="10000" elementKey="contact-since" elementName="Contact Since" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="2" elementId="10110" elementKey="contact-status" elementName="Contact Status" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="3" elementId="10003" elementKey="open-activity-count" elementName="Count of Open Activities" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="4" elementId="10111" elementKey="call-back-date" elementName="Call Back Date" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="5" elementId="10001" elementKey="last-clicked-date" elementName="Last Clicked Date" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="6" elementId="10002" elementKey="last-open-date" elementName="Last Open Date" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="7" elementId="10005" elementName="# Last Engaged Date"/>
+	<AppBarDataDefinitions appBarId="CONTACT_KPI_BAR" fieldSeqNo="8" elementId="10004" elementName="Last Engaged Source"/>
+	<AppBarDataDefinitions appBarId="CON_ACTION_BAR" fieldSeqNo="1" elementId="10150" elementKey="name" elementName="Contact Name" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CON_ACTION_BAR" fieldSeqNo="2" elementId="10151" elementKey="addNotes" elementName="Add Notes" isDisplayElementData="N"/>
+	<AppBarDataDefinitions appBarId="CON_ACTION_BAR" fieldSeqNo="3" elementId="10153" elementKey="primaryEmail" elementName="Email Address" isDisplayElementData="Y"/>
+	<AppBarDataDefinitions appBarId="CON_ACTION_BAR" fieldSeqNo="4" elementId="10152" elementKey="primaryPhone" elementName="Contact Number" isDisplayElementData="Y"/>
+	
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10000" appBarElementSeqNum="1" appBarElementName="Contact Since" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" isDisplayElementData="Y" elementKey="contact-since" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-21 02:37:28.0" lastUpdatedStamp="2020-09-21 02:37:28.0" lastUpdatedTxStamp="2020-09-21 02:37:28.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10001" appBarElementSeqNum="5" appBarElementName="Last Clicked Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" isDisplayElementData="Y" elementKey="last-clicked-date" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-21 02:43:25.0" lastUpdatedStamp="2020-09-21 02:43:25.0" lastUpdatedTxStamp="2020-09-21 02:43:25.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10002" appBarElementSeqNum="6" appBarElementName="Last Open Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" isDisplayElementData="Y" elementKey="last-open-date" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-21 02:44:11.0" lastUpdatedStamp="2020-09-21 02:44:11.0" lastUpdatedTxStamp="2020-09-21 02:44:11.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10003" appBarElementSeqNum="3" appBarElementName="Count of Open Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CONTACT_KPI_BAR_10107_PERM" isDisplayElementData="Y" elementKey="open-activity-count" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-21 02:45:02.0" lastUpdatedStamp="2020-09-21 02:45:02.0" lastUpdatedTxStamp="2020-09-21 02:45:02.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10004" appBarElementSeqNum="8" appBarElementName="Last Engaged Source" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones " createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-21 02:44:42.0" lastUpdatedStamp="2020-09-21 02:44:42.0" lastUpdatedTxStamp="2020-09-21 02:44:42.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10005" appBarElementSeqNum="7" appBarElementName="# Last Engaged Date" appBarElementActive="N" appBarElementNolabel="N" appBarElementPosition="R" appBarElementCustomClass="ab-act-row text-dark left-icones" createdBy="admin" modifiedBy="admin" isApprovedBy="admin" approvedDate="2020-06-24 19:11:44.0" createdOn="2020-06-24 19:11:44.0" modifiedOn="2020-09-21 02:44:30.0" lastUpdatedStamp="2020-09-21 02:44:30.0" lastUpdatedTxStamp="2020-09-21 02:44:30.0" createdStamp="2020-06-24 19:11:44.0" createdTxStamp="2020-06-24 19:11:44.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10110" appBarElementSeqNum="2" appBarElementName="Contact Status" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CONTACT_KPI_BAR_10110_PERM" isDisplayElementData="Y" elementKey="contact-status" createdBy="admin" modifiedBy="admin" createdOn="2020-09-21 02:38:28.0" modifiedOn="2020-09-21 02:38:50.0" lastUpdatedStamp="2020-09-21 02:38:50.0" lastUpdatedTxStamp="2020-09-21 02:38:50.0" createdStamp="2020-09-21 02:38:28.0" createdTxStamp="2020-09-21 02:38:28.0"/>
+	<AppBarElements appBarId="CONTACT_KPI_BAR" appBarTypeId="KPI" appBarElementId="10111" appBarElementSeqNum="4" appBarElementName="Call Back Date" appBarElementActive="Y" appBarElementNolabel="N" appBarElementPosition="L" appBarElementCustomClass="ab-act-row text-dark left-icones" securityPermissionId="CONTACT_KPI_BAR_10111_PERM" isDisplayElementData="Y" elementKey="call-back-date" createdBy="admin" modifiedBy="admin" createdOn="2020-09-21 02:40:46.0" modifiedOn="2020-09-21 02:41:07.0" lastUpdatedStamp="2020-09-21 02:41:07.0" lastUpdatedTxStamp="2020-09-21 02:41:07.0" createdStamp="2020-09-21 02:40:46.0" createdTxStamp="2020-09-21 02:40:46.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10150" appBarElementSeqNum="1" appBarElementName="Contact Name" appBarElementActive="Y" appBarElementPosition="L" appBarElementCustomClass="h2 text-info disabled" securityPermissionId="CON_ACTION_BAR_10150_PERM" isDisplayElementData="Y" elementKey="name" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-09-24 13:52:15.0" modifiedOn="2020-09-24 14:03:59.0" lastUpdatedStamp="2020-09-24 14:03:59.0" lastUpdatedTxStamp="2020-09-24 14:03:59.0" createdStamp="2020-09-24 13:52:15.0" createdTxStamp="2020-09-24 13:52:15.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10151" appBarElementSeqNum="2" appBarElementName="Add Notes" appBarElementActive="N" appBarElementIconUrl="/bootstrap/images/add-customer-alert.png" appBarElementPosition="L" appBarElementType="MODAL" appBarElementCustomClass="text-dark left-icones" securityPermissionId="CON_ACTION_BAR_10151_PERM" isDisplayElementData="N" elementKey="addNotes" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-09-24 13:53:31.0" modifiedOn="2020-09-24 14:23:38.0" lastUpdatedStamp="2020-09-24 14:23:38.0" lastUpdatedTxStamp="2020-09-24 14:23:38.0" createdStamp="2020-09-24 13:53:31.0" createdTxStamp="2020-09-24 13:53:31.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10152" appBarElementSeqNum="5" appBarElementName="Contact Number" appBarElementActive="Y" appBarElementFavIcon="fa fa-phone fa-1" appBarElementPosition="R" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="CON_ACTION_BAR_10152_PERM" isDisplayElementData="Y" elementKey="primaryPhone" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-09-24 13:55:14.0" modifiedOn="2020-09-30 15:01:31.0" lastUpdatedStamp="2020-09-30 15:01:31.0" lastUpdatedTxStamp="2020-09-30 15:01:31.0" createdStamp="2020-09-24 13:55:14.0" createdTxStamp="2020-09-24 13:55:14.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10153" appBarElementSeqNum="4" appBarElementName="Email Address" appBarElementActive="Y" appBarElementFavIcon="fa fa-envelope fa-1" appBarElementPosition="R" appBarElementCustomClass="ml-2 text-dark" securityPermissionId="CON_ACTION_BAR_10153_PERM" isDisplayElementData="Y" elementKey="primaryEmail" createdBy="saibaba" modifiedBy="saibaba" createdOn="2020-09-24 13:56:11.0" modifiedOn="2020-09-30 15:01:08.0" lastUpdatedStamp="2020-09-30 15:01:08.0" lastUpdatedTxStamp="2020-09-30 15:01:08.0" createdStamp="2020-09-24 13:56:11.0" createdTxStamp="2020-09-24 13:56:11.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10260" appBarElementSeqNum="13" appBarElementName="Important Notes" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-sticky-note-o" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CON_ACTION_BAR_10260_PERM" isDisplayElementData="Y" elementKey="ab-im-notes" createdBy="admin" modifiedBy="admin" createdOn="2022-09-20 02:47:13.0" modifiedOn="2022-09-20 02:47:13.0" lastUpdatedStamp="2022-09-20 02:47:13.0" lastUpdatedTxStamp="2022-09-20 02:47:13.0" createdStamp="2022-09-20 02:47:13.0" createdTxStamp="2022-09-20 02:47:13.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10261" appBarElementSeqNum="14" appBarElementName="Open Service Request" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-ticket marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CON_ACTION_BAR_10261_PERM" isDisplayElementData="Y" elementKey="ab-sr" createdBy="admin" modifiedBy="admin" createdOn="2022-09-20 02:47:54.0" modifiedOn="2022-09-20 02:49:36.0" lastUpdatedStamp="2022-09-20 02:49:36.0" lastUpdatedTxStamp="2022-09-20 02:49:36.0" createdStamp="2022-09-20 02:47:54.0" createdTxStamp="2022-09-20 02:47:54.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10262" appBarElementSeqNum="15" appBarElementName="Open Activities" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-tasks marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CON_ACTION_BAR_10262_PERM" isDisplayElementData="Y" elementKey="ab-activity" createdBy="admin" modifiedBy="admin" createdOn="2022-09-20 02:48:47.0" modifiedOn="2022-09-20 02:48:47.0" lastUpdatedStamp="2022-09-20 02:48:47.0" lastUpdatedTxStamp="2022-09-20 02:48:47.0" createdStamp="2022-09-20 02:48:47.0" createdTxStamp="2022-09-20 02:48:47.0"/>
+	<AppBarElements appBarId="CON_ACTION_BAR" appBarTypeId="ACTION" appBarElementId="10263" appBarElementSeqNum="16" appBarElementName="Open Opportunity" appBarElementActive="Y" appBarElementNolabel="N" appBarElementFavIcon="fa fa-usd marginStyle" appBarElementPosition="R" appBarElementType="BADGE" securityPermissionId="CON_ACTION_BAR_10263_PERM" isDisplayElementData="Y" elementKey="ab-oppo" createdBy="admin" modifiedBy="admin" createdOn="2022-09-20 02:49:24.0" modifiedOn="2022-09-20 02:49:24.0" lastUpdatedStamp="2022-09-20 02:49:24.0" lastUpdatedTxStamp="2022-09-20 02:49:24.0" createdStamp="2022-09-20 02:49:24.0" createdTxStamp="2022-09-20 02:49:24.0"/>
+	
+<GridUserPreferences instanceId="CONTACT_PICKER_LIST" userId="admin" role="ADMIN" name="Contac tPicker  List" appliedRequestVerb="post" lastUpdatedStamp="2020-09-25 11:29:17.0" lastUpdatedTxStamp="2020-09-25 11:29:17.0" createdStamp="2020-09-25 11:29:17.0" createdTxStamp="2020-09-25 11:29:17.0">
+		<gridOptionsJsString>
+			<![CDATA[{
+	"columnDefs": [{
+	        "headerName": "Contact Name",
+			"field": "name",
+			"sortable": true,
+			"filter": "agTextColumnFilter",
+			"lockPosition": true,
+			"cellRenderer": params => `<a href="#" onclick="setPickerWindowValue('${params.value}', '${params.data.partyId}');">${params.data.name}</a>`
+		}, {
+			"headerName": "Party Name",
+			"field": "groupName",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "Party ID",
+			"field": "partyIdTo",
+			"sortable": false,
+			"filter": "agTextColumnFilter"
+		},{
+			"headerName": "Status",
+			"field": "statusDescription",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}, {
+	    "headerName": "Time Zone",
+	    "field": "timeZoneDescription",
+	    "sortable": true,
+	    "filter":"agTextColumnFilter"
+	  },{
+			"headerName": "Department",
+			"field": "departmentName",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Designation",
+			"field": "designation",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "Phone Number",
+			"field": "contactNumber",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "E-Mail Address",
+			"field": "infoString",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "City",
+			"field": "city",
+			"sortable": false,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "State",
+			"field": "state",
+			"sortable": false,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"headerName": "Country",
+			"field": "country",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Postal Code",
+			"field": "postalCode",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "Contact ID",
+			"field": "partyId",
+			"sortable": true,
+			"filter": "agTextColumnFilter"
+		}
+	],
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_Contacts.csv",
+			"skipHeader": false
+		}
+	}
+}]]>
+		</gridOptionsJsString>
+	</GridUserPreferences>
+	 <GridUserPreferences instanceId="VIEW_CONTACT_LIST_GRID" userId="admin" role="ADMIN" name="Find Contact Grid" appliedRequestVerb="post" lastUpdatedStamp="2024-07-05 15:12:35.0" lastUpdatedTxStamp="2024-07-05 15:12:35.0" createdStamp="2020-09-10 07:38:26.0" createdTxStamp="2020-09-10 07:38:26.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+	    "headerName": "Contact List Name",
+	    "field": "contactListName","headerCheckboxSelection": true, "checkboxSelection": true,
+	    "sortable": true,"filter": true,"floatingFilter": true,
+		"lockPosition":true,headerCheckboxSelectionCurrentPageOnly: true,
+		"cellRenderer":"contactList","minWidth":150,
+	    "filter":"agTextColumnFilter"
+	  },{
+	    "headerName": "Contact Type",
+	    "field": "contactMechTypeId","minWidth":150,
+	    "sortable": true,"filter": true,"floatingFilter": true,
+	    "filter":"agTextColumnFilter"
+	  }
+,{
+	    "headerName": "Contact List Type",
+	    "field": "contactListTypeId","minWidth":150,
+	    "sortable": true,"filter": true,"floatingFilter": true,
+	    "filter":"agTextColumnFilter"
+	  },
+{
+	    "headerName": "Contact Purpose Type","minWidth":150,
+	    "field": "contactPurposeType",
+	    "sortable": true,"filter": true,"floatingFilter": true,
+	    "filter":"agTextColumnFilter"
+	  },{
+	    "headerName": "Description","minWidth":150,
+	    "field": "description","filter": true,"floatingFilter": true,
+	    "sortable": true,
+	    "filter":"agTextColumnFilter"
+	  },{
+	    "headerName": "Is SmartList","minWidth":150,
+	    "field": "isSmartList","filter": true,"floatingFilter": true,
+	    "sortable": true,
+	    "filter":"agTextColumnFilter"
+	  },{
+	    "headerName": "Modes","minWidth":250,
+	    "field": "modes","filter": true,"floatingFilter": true,
+	    "sortable": true,
+	    "filter":"agTextColumnFilter"
+	  },{
+	    "headerName": "Created date","minWidth":150,
+	    "field": "createdStamp","filter": true,"floatingFilter": true,
+	    "sortable": true,
+	    "filter":"agTextColumnFilter"
+	  }
+	],
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,"rowSelection": "multiple",
+	"floatingFilter": true,
+	"domLayout": "autoHeight","components": { "contactList": contactList},
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Lead.csv",
+			"skipHeader": false
+		}
+	}
+}	]]></gridOptionsJsString>
+    </GridUserPreferences>
+    <GridUserPreferences instanceId="CONTACTS" userId="admin" role="ADMIN" description="Contact List Grid Fields" name="Contact List Grid Fields" appliedRequestVerb="post" appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" lastUpdatedStamp="2024-03-08 23:38:11.0" lastUpdatedTxStamp="2024-03-08 23:38:11.0" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Contact Name",
+		"field": "firstName",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter","headerCheckboxSelection": true, "checkboxSelection": true,"headerCheckboxSelectionFilteredOnly": true,
+		"lockPosition": true,"minWidth": 200,
+		 "cellRenderer":"firstName"
+	}, {
+		"headerName": "Account/Lead Name",
+		"field": "groupName","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Status",
+		"field": "statusDescription","minWidth": 200,
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "City",
+		"field": "city","filter": true,"floatingFilter": true,
+		"sortable": false,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "State",
+		"field": "state","filter": true,"floatingFilter": true,
+		"sortable": false,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Postal Code",
+		"field": "postalCode","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Country",
+		"field": "country","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "E-Mail Address",
+		"field": "infoString","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter",
+		 "cellRenderer":"infoString"
+	}, {
+		"headerName": "Phone Number",
+		"field": "contactNumber","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"cellRenderer":"contactNumber"
+	}, {
+		"headerName": "Designation",
+		"field": "designation","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Department",
+		"field": "departmentName","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Time Zone",
+		"field": "timeZoneDescription","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Account/Lead iCRM ID",
+		"field": "pgPartyId","filter": true,"floatingFilter": true,
+		"sortable": false,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "iCRM Contact ID",
+		"field": "partyId","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Created Date",
+		"field": "createdDate","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"filter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "External ID",
+		"field": "externalId","filter": true,"floatingFilter": true,
+		"sortable": true,"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}],
+	"scrollbarWidth": 20,
+	"pagination": true,
+	"paginationPageSize": 15,
+	"filter": true,
+	"floatingFilter": true,"rowSelection": "multiple",
+	"domLayout": "autoHeight","components": { "firstName": firstName,"infoString":infoString,"contactNumber":contactNumber},
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_Contacts.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+    
+    <EnumerationType enumTypeId="PH_ACT_CALL_STATUS" hasTable="N" description="Phone activity call status" lastUpdatedStamp="2020-03-29 17:46:19.0" lastUpdatedTxStamp="2020-03-29 17:46:19.0" createdStamp="2020-03-29 17:46:19.0" createdTxStamp="2020-03-29 17:46:19.0"/>
+    <Enumeration enumId="CONNECTED" enumTypeId="PH_ACT_CALL_STATUS" enumCode="CONNECTED" sequenceId="1" description="Connected" lastUpdatedStamp="2018-07-03 15:39:58.0" lastUpdatedTxStamp="2018-07-03 15:39:57.0" createdStamp="2018-07-03 15:39:58.0" createdTxStamp="2018-07-03 15:39:57.0"/>
+    <Enumeration enumId="DND" enumTypeId="PH_ACT_CALL_STATUS" enumCode="DND" sequenceId="1" description="DND" lastUpdatedStamp="2018-07-03 15:39:58.0" lastUpdatedTxStamp="2018-07-03 15:39:57.0" createdStamp="2018-07-03 15:39:58.0" createdTxStamp="2018-07-03 15:39:57.0"/>
+    <Enumeration enumId="DNR" enumTypeId="PH_ACT_CALL_STATUS" enumCode="DNR" sequenceId="3" description="DNR" lastUpdatedStamp="2018-07-03 15:39:58.0" lastUpdatedTxStamp="2018-07-03 15:39:57.0" createdStamp="2018-07-03 15:39:58.0" createdTxStamp="2018-07-03 15:39:57.0"/>
+    <Enumeration enumId="PHONE_ENGAGED" enumTypeId="PH_ACT_CALL_STATUS" enumCode="ENGAGED" sequenceId="1" description="Engaged" lastUpdatedStamp="2023-03-04 00:56:55.0" lastUpdatedTxStamp="2023-03-04 00:56:55.0" createdStamp="2023-03-04 00:56:55.0" createdTxStamp="2023-03-04 00:56:55.0"/>
+    <Enumeration enumId="VM" enumTypeId="PH_ACT_CALL_STATUS" enumCode="VM" sequenceId="2" description="VM (Voice Mail)" lastUpdatedStamp="2018-07-03 15:39:58.0" lastUpdatedTxStamp="2018-07-03 15:39:57.0" createdStamp="2018-07-03 15:39:58.0" createdTxStamp="2018-07-03 15:39:57.0"/>
+    
+</entity-engine-xml>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="crm-portal_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="crm-portal_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="crm-portal_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="crm-portal_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="crm-portal_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="crm-portal_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="crm-portal_ADMIN"/>
+</entity-engine-xml>

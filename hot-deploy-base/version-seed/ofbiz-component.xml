@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ofbiz-component name="version-seed" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-component.xsd">
+    <!-- define resource loaders; most common is to use the component resource loader -->
+    <resource-loader name="main" type="component"/>
+
+    <!-- place the config directory on the classpath to access configuration files -->
+    <classpath type="dir" location="config"/>
+    <classpath type="dir" location="dtd"/>
+
+    <!-- load single or multiple external libraries -->
+    <classpath type="jar" location="build/lib/*"/>
+    <classpath type="jar" location="lib/*"/>
+
+    <!-- entity resources: model(s), eca(s), group, and data definitions -->
+    <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
+
+	<!-- Base (It will be added after the whole version series - example:10,11) -->
+    <!-- <entity-resource type="data" reader-name="final_seed" loader="main" location="data/base/final-version-10.1.xml"/>-->
+    <!-- Base -->
+	<!-- Base (It will be removed/added after each single version) -->
+    <entity-resource type="data" reader-name="latest_seed" loader="main" location="data/base/latest-seed10.2.xml"/>
+    <entity-resource type="data" reader-name="latest_seed" loader="main" location="data/base/latest-seed10.2.1.xml"/>
+    <entity-resource type="data" reader-name="latest_seed" loader="main" location="data/base/version-seedEreceiptTemplate_PostalServer10.2.1.xml"/>
+    <entity-resource type="data" reader-name="latest_seed" loader="main" location="data/base/version-seedEreceiptTemplate_SendGrid10.2.1.xml"/>
+    <!-- Base -->
+    <!-- Base -->
+    <entity-resource type="data" reader-name="version_seed" loader="main" location="data/base/version-seed10.2.xml"/>
+    <entity-resource type="data" reader-name="version_seed" loader="main" location="data/base/version-seed10.2.1.xml"/>
+    <entity-resource type="data" reader-name="version_seed" loader="main" location="data/base/version-seedEreceiptTemplate_PostalServer10.2.1.xml"/>
+    <entity-resource type="data" reader-name="version_seed" loader="main" location="data/base/version-seedEreceiptTemplate_SendGrid10.2.1.xml"/>
+    
+    <!-- Base -->
+    <!-- Demo -->
+    <entity-resource type="data" reader-name="demo_data_seed" loader="main" location="data/demo/demoDataSeed.xml"/>
+	<!-- Demo -->
+
+    <!-- service resources: model(s), eca(s) and group definitions -->
+    <service-resource type="model" loader="main" location="servicedef/services.xml"/>
+
+    <test-suite loader="main" location="testdef/version-seedTests.xml"/>
+
+    <!-- web applications; will be mounted when using the embedded container -->
+	<webapp name="version-seed"
+        title="version-seed"
+        server="default-server"
+        location="webapp/version-seed"
+        mount-point="/version-seed"/>
+    <webapp name="version-seed-resource"
+        title="image assets Portal Resources including css, images, js"
+        server="default-server"
+        location="webapp/version-seed-resource"
+        mount-point="/version-seed-resource"
+        app-bar-display="false"/> 
+
+</ofbiz-component>

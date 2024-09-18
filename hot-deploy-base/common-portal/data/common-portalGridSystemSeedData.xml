@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	 <GridUserPreferences instanceId="PICKER_USERS_LIST" userId="admin" role="ADMIN" description="User Picker List" name="Common Reassign Function - Find User List" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 11:14:41.0" lastUpdatedTxStamp="2024-03-06 11:14:41.0" createdStamp="2021-03-11 14:43:55.0" createdTxStamp="2021-03-11 14:43:55.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "User Login Id",
+		"field": "userLoginId",
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+                "cellRenderer": params =>
+	     `<a href="#" onclick="reassignParty('${params.data.partyId}');">${params.value}</a>`	  
+	}, {
+		"headerName": "Name",
+		"field": "userName",
+		"sortable": false,
+		"minWidth": 200,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Party Id",
+		"field": "partyId",
+		"sortable": false,
+		"minWidth": 200,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Role",
+		"field": "roleDesc",
+		"sortable": false,
+		"minWidth": 200,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter"
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+ 	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "userLoginId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_Customer.csv",
+			"skipHeader": false
+		}
+	}
+	
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+      <GridUserPreferences instanceId="SEGMENTATIONS" userId="admin" role="ADMIN" description="Segmentation - Common Grid" name="Segmentation Grid Fields List- Common" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 11:15:38.0" lastUpdatedTxStamp="2024-03-06 11:15:38.0" createdStamp="2020-11-25 11:10:39.0" createdTxStamp="2020-11-25 11:10:39.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [ {
+		"headerName": "Data Entered",
+		"field": "inceptionDate",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Grouping Code",
+		"filter": "agTextColumnFilter",
+		"minWidth": 100,"filter": true,"floatingFilter": true,
+		"field": "groupingCodeName",
+		"headerCheckboxSelection": true,
+		"checkboxSelection": true,
+	}, {
+		"headerName": "Segment Code",
+		"filter": "agTextColumnFilter",
+		"field": "groupName","filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		cellRenderer: params => `${params.data.groupName} (${params.data.groupId})`
+	}, {
+		"headerName": "Segment Value",
+		"field": "customFieldName",
+		"minWidth": 100,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter",
+		cellRenderer: params => `${params.data.customFieldName} (${params.data.customFieldId})`
+	}, {
+		"headerName": "Actual Value",
+		"field": "groupActualValue",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 20,
+	"suppressRowClickSelection": false,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "rowId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Segmentations.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+		<GridUserPreferences instanceId="ECONOMIC_METRICS" userId="admin" role="ADMIN" description="Segmentation Grid Fields List- Common" name="Economic Metric Grid Fields List - Common" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 11:40:57.0" lastUpdatedTxStamp="2024-03-06 11:40:57.0" createdStamp="2020-11-25 11:10:39.0" createdTxStamp="2020-11-25 11:10:39.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Grouping Code",
+		"filter": "agTextColumnFilter",
+		"minWidth": 100,"filter": true,"floatingFilter": true,
+		"field": "groupingCodeName",
+		"headerCheckboxSelection": true,
+		"checkboxSelection": true
+	}, {
+		"headerName": "Economic Code",
+		"filter": "agTextColumnFilter",
+		"field": "groupName","filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"cellRenderer": params => `${params.data.groupName} (${params.data.groupId})`
+	}, {
+		"headerName": "Economic Value",
+		"field": "customFieldName",
+		"minWidth": 100,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter",
+		"cellRenderer": params => `${params.data.customFieldName} (${params.data.customFieldId})`
+	}, {
+		"headerName": "Property Name",
+		"field": "propertyName","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Property Value",
+		"field": "propertyValue","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 20,
+	"suppressRowClickSelection": false,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "rowId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_EconomicMetrics.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+      <GridUserPreferences instanceId="PARTY_EMAIL_LIST" userId="admin" role="ADMIN" description="Party Email List" name="Related Party Tab- Add Email Grid Fields - Common " appliedRequestVerb="post" appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" lastUpdatedStamp="2024-03-20 01:25:57.0" lastUpdatedTxStamp="2024-03-20 01:25:57.0" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0">
+        <gridOptionsJsString><![CDATA[{
+ "columnDefs": [{
+ "headerName": "Email",
+ "field": "infoString","filter": true,"floatingFilter": true,
+ "sortable": true,"minWidth":200,
+ "cellRenderer": function(params) {
+ return '<a href="#" onclick="addEmail(\'' + params.data.rowId+ '\',\'' + params.data.contactPartyId + '\',\'' + params.data.partyId + '\',\'' + params.data.contactMechId + '\',\'' + params.data.partyRelAssocId + '\',\''+params.data.targetRoleTypeId+'\')">'+params.data.infoString+'</a>';
+ }
+ },
+ {
+ "headerName": "Purpose","minWidth":200,
+ "field": "purpose","filter": true,"floatingFilter": true,
+ "sortable": true 
+ },
+ {
+ "headerName": "Solicitation","minWidth":200,
+ "field": "solicitation","filter": true,"floatingFilter": true,
+ "sortable": true 
+ }
+ 
+ ],
+ "defaultColDef": {
+ "flex": 1,
+ "autoHeight": true,
+ "sortable": true,
+ "resizable": true
+ },
+ "scrollbarWidth": 30,
+ "pagination": true,
+ "paginationPageSize": 10,
+ "filter": true,
+ "floatingFilter": true,
+ "domLayout": "autoHeight",
+ "stopEditingWhenGridLosesFocus": true,
+ "rowSelection": "multiple",
+ "custom": {
+ "dataUniqueIdField": "contactMechId"
+ }
+} ]]></gridOptionsJsString>
+    </GridUserPreferences>
+	<GridUserPreferences instanceId="PARTY_PHONE_LIST" userId="admin" role="ADMIN" description="Party Phone List" name="Related Party Tab- Add Phone Grid Fields - Common " appliedRequestVerb="post" appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" lastUpdatedStamp="2024-03-22 17:52:17.0" lastUpdatedTxStamp="2024-03-22 17:52:17.0" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0">
+        <gridOptionsJsString><![CDATA[{
+ "columnDefs": [{
+ "headerName": "Phone Number",
+ "field": "contactNumber","filter": true,"floatingFilter": true,
+ "sortable": true,"minWidth":200,
+ "cellRenderer": "partyContactNumber"
+ },
+ {
+ "headerName": "Purpose",
+ "field": "purpose","filter": true,"floatingFilter": true,"minWidth":200,
+ "sortable": true 
+ },
+ {
+ "headerName": "Solicitation","minWidth":200,
+ "field": "solicitation","filter": true,"floatingFilter": true,
+ "sortable": true 
+ }
+ 
+ ],
+ "defaultColDef": {
+ "flex": 1,
+ "autoHeight": true,
+ "sortable": true,
+ "resizable": true
+ },
+ "scrollbarWidth": 30,
+ "pagination": true,
+ "paginationPageSize": 10,
+ "filter": true,
+ "floatingFilter": true,
+ "domLayout": "autoHeight",
+ "stopEditingWhenGridLosesFocus": true,
+ "rowSelection": "multiple","components": { "partyContactNumber": partyContactNumber},
+ "custom": {
+ "dataUniqueIdField": "contactMechId"
+ }
+} ]]></gridOptionsJsString>
+    </GridUserPreferences>
+     <GridUserPreferences instanceId="DESIGNATION_LIST" userId="admin" role="ADMIN" description="Party Designation List" name="Related Party Tab- Add Designation Grid Fields - Common " appliedRequestVerb="post" appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" lastUpdatedStamp="2024-03-20 01:26:27.0" lastUpdatedTxStamp="2024-03-20 01:26:27.0" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0">
+        <gridOptionsJsString><![CDATA[{
+ "columnDefs": [{
+ "headerName": "Positions",
+ "field": "designationName",
+ "headerCheckboxSelection": true, "minWidth":200,
+ "checkboxSelection": true,
+ "sortable": true,"filter": true,"floatingFilter": true,
+ "cellRenderer": function(params) {
+ return '<a href="#" onclick="addDesignation(\'' + params.data.rowId+ '\',\'' + params.data.contactPartyId + '\',\'' + params.data.partyId + '\',\'' + params.data.designationId + '\',\'' + params.data.partyRelAssocId + '\',\''+params.data.targetRoleTypeId+'\')">'+params.data.designationName+'</a>';
+ }
+ },
+ {
+ "headerName": "Positions Id","minWidth":200,
+ "field": "designationId","filter": true,"floatingFilter": true,
+ "sortable": true 
+ }
+ 
+ ],
+ "scrollbarWidth": 30,
+ "pagination": true,
+ "paginationPageSize": 10,
+ "filter": true,
+ "floatingFilter": true,
+ "domLayout": "autoHeight",
+ "stopEditingWhenGridLosesFocus": true,
+ "rowSelection": "multiple",
+ "custom": {
+ "dataUniqueIdField": "designationId"
+ }
+} ]]></gridOptionsJsString>
+    </GridUserPreferences>
+     <GridUserPreferences instanceId="CONTACTS_GRID" userId="admin" role="ADMIN" name="Related Party Tab- Add Contacts Grid Fields - Common " appliedRequestUrl="/common-portal/control/getDataTableContacts" appliedRequestVerb="post" lastUpdatedStamp="2024-03-20 01:48:50.0" lastUpdatedTxStamp="2024-03-20 01:48:50.0" createdStamp="2020-10-15 19:18:06.0" createdTxStamp="2020-10-15 19:18:06.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+	        "headerName": "Contact Name",
+			"field": "name",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",   "minWidth":200,
+			"cellRenderer": params => `<a href="#"  onclick="addContacts('${params.data.partyId}');">${params.value}(${params.data.partyId})</a>`
+		}, {
+			"headerName": "Status",
+			"field": "statusId",  "minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		}, 
+		 {
+			"headerName": "Phone Number",  "minWidth":200,
+			"field": "phoneNumber",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "E-Mail Address",  "minWidth":200,
+			"field": "infoString",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "City",
+			"field": "city",  "minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		}, {
+			"headerName": "State",
+			"field": "state",  "minWidth":200,
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter"
+		}
+		
+		
+	],
+ 	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 20,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+        "stopEditingWhenGridLosesFocus": true,
+	"rowSelection": "multiple",
+
+	"custom": {
+		"dataUniqueIdField": "partyId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_Contacts.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+    <GridUserPreferences instanceId="ACTIVITES" userId="admin" role="ADMIN" description="Activity Field List - Common" name="Activity Field List - Common" appliedRequestVerb="post" lastUpdatedStamp="2024-03-06 11:32:25.0" lastUpdatedTxStamp="2024-03-06 11:32:25.0" createdStamp="2020-11-25 11:10:39.0" createdTxStamp="2020-11-25 11:10:39.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Activity Name",
+		"filter": "agTextColumnFilter",
+		"minWidth": 300,"maxWidth": 300,"filter": true,"floatingFilter": true,
+		"field": "subject",
+		"cellRenderer": function(params) {
+			if (params.data.salesOpportunityId != null && params.data.salesOpportunityId != "")
+				return '<a target="_blank" href="viewActivity?workEffortId=' + params.data.iaNumber + '&seqId=' + params.data.iaNumber + '?yId=' + params.data.partyId + '&salesOpportunityId=' + params.data.salesOpportunityId + '&entity=WorkEffortCallSummary" target="">' + params.data.subject + '</a>'
+			else
+				return '<a target="_blank" href="viewActivity?workEffortId=' + params.data.iaNumber + '&seqId=' + params.data.iaNumber + '?yId=' + params.data.partyId + '&entity=WorkEffortCallSummary" target="">' + params.data.subject + '</a>'
+		}
+	}, {
+		"headerName": "Description",
+		"filter": "agTextColumnFilter",
+		"field": "comments",
+		"minWidth": 325,"filter": true,"floatingFilter": true,
+		"maxWidth": 325,
+		"tooltipField": 'comments',
+		"cellRenderer": function(params) {
+			let comments = params.data.comments;
+			let value = comments;
+			if (comments && comments.length > 60) {
+				value = comments.substring(0, 60) + '<span class="m5 tooltips">...</span>';
+			}
+			return value;
+		}
+	}, {
+		"headerName": "Activity Type",
+		"filter": "agTextColumnFilter",
+		"field": "activityType","filter": true,"floatingFilter": true,
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Status",
+		"field": "status","filter": true,"floatingFilter": true,
+		"minWidth": 300,"maxWidth": 300
+	},{
+		"headerName": "Activity Owner",
+		"filter": "agTextColumnFilter",
+		"field": "ownerName","filter": true,"floatingFilter": true,
+		"minWidth": 300,"maxWidth": 300
+	},{
+		"headerName": "Activity Work Type",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "workType",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Primary Contact",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "contactName",
+		"minWidth": 300,"maxWidth": 300
+	},    {
+		"headerName": "Actual Start Date",
+		"filter": "agTextColumnFilter",
+		"field": "actualStart","filter": true,"floatingFilter": true,
+		"minWidth": 300,"maxWidth": 300
+	},{
+		"headerName": "Actual End Date",
+		"field": "actualCompletion","filter": true,"floatingFilter": true,
+		"minWidth": 300,"maxWidth": 300
+	},{
+		"headerName": "Sch.Start Date",
+		"field": "plannedStartDate","filter": true,"floatingFilter": true,
+		"minWidth": 300,"maxWidth": 300
+	},{
+		"headerName": "Sch.End Date","filter": true,"floatingFilter": true,
+		"field": "plannedEndDate","minWidth": 300,"maxWidth": 300
+	},   {
+		"headerName": "Start & End Time Reqd",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "isScheduled",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Phone",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "phone",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Duration",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "wftMsdduration",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Technician Arrival Window",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "arrivalWindow",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Activity ID",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "iaNumber",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Created On",
+		"field": "createdOn","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Created By",
+		"field": "createdByName","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Modified On",
+		"field": "modifiedOn","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Modified By",
+		"field": "modifiedByName","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 300,"maxWidth": 300
+	},  {
+		"headerName": "Completed Date",
+		"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+		"field": "closedDate",
+		"minWidth": 300,"maxWidth": 300
+	}, {
+		"headerName": "Completed By",
+		"field": "closedByName","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 300,"maxWidth": 300
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 20,
+	"suppressRowClickSelection": false,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "iaNumber",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Activites.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+     <GridUserPreferences instanceId="NOTES" userId="admin" role="ADMIN" description="Notes Fields list - Common" name="Notes Fields list - Common" appliedRequestVerb="post" lastUpdatedStamp="2024-03-22 15:00:06.0" lastUpdatedTxStamp="2024-03-22 15:00:06.0" createdStamp="2020-11-25 11:45:49.0" createdTxStamp="2020-11-25 11:45:49.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Note ID",
+		"field": "noteId",
+		"sortable": true,
+		"minWidth": 200,"filter": true,"floatingFilter": true,
+		"filter": "agTextColumnFilter",
+		"lockPosition": true,
+                "headerCheckboxSelection": true,
+		"headerCheckboxSelectionFilteredOnly": true,
+		"checkboxSelection": true,
+		"cellRenderer":"noteId"
+	}, {
+		"headerName": "Note Title",
+		"field": "noteName",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	},{
+		"headerName": "Description",
+		"field": "noteInfo",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter",
+		"cellRenderer":"description"
+	},  {
+		"headerName": "Important (Y/N)",
+		"field": "isImportant",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Created On",
+		"field": "noteDateTime",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Created By",
+		"field": "createdByName",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Expired On",
+		"field": "expiredDate","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Creator Role",
+		"field": "createdByRole","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Edit",
+		"field": "edit",
+		"sortable": false,
+		"minWidth": 100,
+		"filter": false,
+		"cellRenderer":"edit"
+	}, {
+		"headerName": "Remove",
+		"field": "remove",
+		"sortable": false,
+		"minWidth": 100,
+		"filter": false,
+		"cellRenderer":"remove"
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+ 	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"suppressRowClickSelection": false,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight","components": { "description": description,"edit":edit,"noteId":noteIdParams,"remove":remove},
+	"custom": {
+		"dataUniqueIdField": "noteId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Notes.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+     <GridUserPreferences instanceId="ATTACHMENTS" userId="admin" role="ADMIN" name="Bookmarks Grid Fields List - Common" appliedRequestVerb="post" dataremove="/common-portal/control/removeattachmentData" lastUpdatedStamp="2024-03-22 23:00:50.0" lastUpdatedTxStamp="2024-03-22 23:00:50.0" createdStamp="2020-11-26 09:20:49.0" createdTxStamp="2020-11-26 09:20:49.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [
+       {
+		"headerName": "Record ID",
+		"field": "contentId",
+		"sortable": true,
+		"lockPosition": true,"filter": true,"floatingFilter": true,
+		"headerCheckboxSelection": true,
+		"checkboxSelection": true,
+		"minWidth": 150,
+		"filter": "agTextColumnFilter"
+	}, 
+{
+		"headerName": "Image",
+		"sortable": false,"field": "contentType",
+		"filter": false,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"cellRenderer": "imageUrl"
+	},
+{
+		"headerName": "Download/View","minWidth": 200,
+		"sortable": false,"field": "partyId","filter": true,"floatingFilter": true,
+		"filter": false,   "cellRenderer": "downloadParams"
+	}, 
+ {
+		"headerName": "Description",
+		"field": "description",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	},  {
+		"headerName": "Attachment Type",
+		"field": "attachmentType",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Linked From",
+		"field": "linkedFrom","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter",
+		"cellRenderer": "linkedFrom"
+	}, {
+		"headerName": "File Name/ URL",
+		"field": "contentName","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter",
+		"cellRenderer": "nameUrlParams"
+	}, {
+		"headerName": "Created On",
+		"field": "createdDate","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Created By",
+		"field": "createdByName","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, 
+{
+		"headerName": "Upload Type",
+		"field": "contentTypeId","filter": true,"floatingFilter": true,
+		"sortable": false,
+		"minWidth": 150,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Classification",
+		"field": "classificationDescription",
+		"sortable": false,"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	},
+{
+		"headerName": "Source ID",
+		"field": "domainEntityId","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Source Component",
+		"field": "domainEntityTypeDesc",
+		"sortable": true,"filter": true,"floatingFilter": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 20,
+	"enableBrowserTooltips": true,
+	"suppressRowClickSelection": false,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"rowHeight": 60,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight","components": { "imageUrl": imageUrlParams,"nameUrlParams":nameUrlParams,"linkedFrom":linkedFrom,"downloadParams":downloadParams},
+	"custom": {
+		"dataUniqueIdField": "contentId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Attachment.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+	<GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:45:47.0" createdTxStamp="2023-01-13 16:45:47.0" description="Customer Email Campaign Grid" instanceId="CUST_EMAIL_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:36:48.0" lastUpdatedTxStamp="2024-05-17 04:36:48.0" name="Customer Email Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [         {             "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'             }},         {             "headerName": "Reminder",             "field": "reminder","filter": true,"floatingFilter": true,             "sortable": true,            "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","filter": true,"floatingFilter": true,             "sortable": true, "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","filter": true,"floatingFilter": true,             "sortable": true, "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Opened",             "field": "opened","filter": true,"floatingFilter": true,             "sortable": true,             "minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Clicked",             "field": "clicked","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "Bounced",             "field": "bounced","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "UnSubscribed",             "field": "unSubscribed","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+ 
+    <GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:46:26.0" createdTxStamp="2023-01-13 16:46:26.0" description="Customer Phone Campaign Grid" instanceId="CUST_PHONE_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:32:28.0" lastUpdatedTxStamp="2024-05-17 04:32:28.0" name="Customer Phone Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{          "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'          }        },         {             "headerName": "Reminder",             "field": "reminder","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Call Outcome",             "field": "callOutcome",             "sortable": true,"filter": true,"floatingFilter": true,             "minWidth": 150,             "filter": "agTextColumnFilter"         },         {             "headerName": "Response Code",             "field": "responseCode",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },         {             "headerName": "Reason Code",             "field": "reasonCode",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences> 
+    <GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:51:07.0" createdTxStamp="2023-01-13 16:51:07.0" description="Customer Postal Campaign Grid" instanceId="CUST_POSTAL_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:33:23.0" lastUpdatedTxStamp="2024-05-17 04:33:23.0" name="Customer Postal Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{          "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'             }        },         {             "headerName": "Reminder",             "field": "reminder","minWidth": 100,             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate",             "sortable": true,"filter": true,"floatingFilter": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Delivered Date",             "field": "deliveredDate","filter": true,"floatingFilter": true,             "sortable": true,             "minWidth": 150,             "filter": "agTextColumnFilter"         },         {             "headerName": "Bad Address",             "field": "badAddress","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 150         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+    <GridUserPreferences appliedRequestVerb="post" createdStamp="2023-01-13 16:52:04.0" createdTxStamp="2023-01-13 16:52:04.0" description="Customer Sms Campaign Grid" instanceId="CUST_SMS_CAMPAIGN_GRID" lastUpdatedStamp="2024-05-17 04:34:03.0" lastUpdatedTxStamp="2024-05-17 04:34:03.0" name="Customer Sms Campaign Grid" role="ADMIN" userId="admin">         <gridOptionsJsString><![CDATA[{     "columnDefs": [{             "filter": true,"floatingFilter": true,             "headerName": "Campaign Name",             "field": "campaignName",             "sortable": true,             "filter": "agTextColumnFilter",             "lockPosition": true,             "checkboxSelection": true,             "minWidth": 150,             "cellRenderer": function(params) {                 return '<a href="/campaign/control/viewMarketingCampaign?marketingCampaignId=' + params.data.marketingCampaignId + ' " target="_blank">' + params.data.campaignName + '</a>'             }        },         {             "headerName": "Reminder",             "field": "reminder","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Start Date",             "field": "startDate","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },         {             "headerName": "End Date",             "field": "endDate","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Purchased",             "field": "purchased","filter": true,"floatingFilter": true,             "sortable": true,"minWidth": 100,             "filter": "agTextColumnFilter"         },         {             "headerName": "Delivered Date",             "field": "deliveredDate","filter": true,"floatingFilter": true,             "sortable": true,             "minWidth": 150,             "filter": "agTextColumnFilter"         },         {             "headerName": "Opened",             "field": "opened","filter": true,"floatingFilter": true,             "sortable": true,             "filter": "agTextColumnFilter",             "minWidth": 100         },     ],     "defaultColDef": {         "flex": 1,         "wrapText": true,         "autoHeight": true,         "sortable": true     },     "pagination": true,     "paginationPageSize": 10,     "filter": true,     "floatingFilter": true,     "domLayout": "autoHeight",     "custom": {         "rowSelection": "multiple",         "csvExportOptions": {             "fileName": "List_Of_Campaigns.csv",             "skipHeader": false         }     } }]]></gridOptionsJsString>     </GridUserPreferences>
+    <GridUserPreferences appliedRequestVerb="POST" createdStamp="2023-08-19 14:06:34.0" createdTxStamp="2023-08-19 14:06:34.0" description="Export File List" gridOptionsJsString="{     &quot;columnDefs&quot;: [         {             &quot;headerName&quot;: &quot;Export ID&quot;,             &quot;field&quot;: &quot;jobId&quot;,             &quot;editable&quot;: false,             &quot;cellEditor&quot;: null,             &quot;maxWidth&quot;: 100         }, {             &quot;headerName&quot;: &quot;Start&quot;,             &quot;field&quot;: &quot;startDateTime&quot;,             &quot;editable&quot;: false,             &quot;maxWidth&quot;: 150         }, {             &quot;headerName&quot;: &quot;End&quot;,             &quot;field&quot;: &quot;finishDateTime&quot;,             &quot;maxWidth&quot;: 150,             &quot;editable&quot;: false,             &quot;cellEditor&quot;: null         }, {             &quot;headerName&quot;: &quot;File Name&quot;,             &quot;field&quot;: &quot;genFileName&quot;,             &quot;maxWidth&quot;: 300,             &quot;editable&quot;: false,             &quot;cellEditor&quot;: null         }, {             &quot;headerName&quot;: &quot;Total Count&quot;,             &quot;field&quot;: &quot;reportCount&quot;,             &quot;sortable&quot;: true,             &quot;maxWidth&quot;: 100,         &#9;&quot;filter&quot;: &quot;agTextColumnFilter&quot;, &#9;&#9;&#9;&quot;cellStyle&quot;: { textAlign: 'right' }         }, {             &quot;headerName&quot;: &quot;Status&quot;,             &quot;field&quot;: &quot;statusId&quot;,             &quot;editable&quot;: false,             &quot;maxWidth&quot;: 150,             &quot;cellEditor&quot;: null         }, {             &quot;headerName&quot;: &quot;Created By&quot;,             &quot;field&quot;: &quot;createdBy&quot;,             &quot;editable&quot;: false,             &quot;maxWidth&quot;: 150,             &quot;cellEditor&quot;: null         }, {             &quot;headerName&quot;: &quot;Delimiter&quot;,             &quot;field&quot;: &quot;delimiter&quot;,             &quot;editable&quot;: false,             &quot;maxWidth&quot;: 100         }, {             &quot;headerName&quot;: &quot;ErrorMessage&quot;,             &quot;field&quot;: &quot;errorMessage&quot;,             &quot;editable&quot;: false,             &quot;minWidth&quot;: 300         }, {             &quot;headerName&quot;: &quot;Action&quot;,             &quot;editable&quot;: false,         &#9;&quot;minWidth&quot;: 300, &#9;&#9;&#9;&quot;cellEditor&quot;: null,             cellRenderer: params =&gt; { &#9;&#9;&#9;&#9;if (params.data.statusId=='FINISHED') { &#9;&#9;&#9;&#9;&#9;return `&lt;a target=&quot;_blank&quot; href= &quot;/common-portal/control/downloadExportReport?jobId=${params.data.jobId}&amp;externalLoginKey=${params.data.externalLoginKey}&quot;&gt;Download&lt;/a&gt;` &#9;&#9;&#9;&#9;} &#9;&#9;&#9;&#9;return ''; &#9;&#9;&#9;}         }     ],     &quot;defaultColDef&quot;: {         &quot;flex&quot;: 1,         &quot;wrapText&quot;: true,         &quot;autoHeight&quot;: false,         &quot;sortable&quot;: true     },     &quot;scrollbarWidth&quot;: 10,     &quot;pagination&quot;: true,     &quot;paginationPageSize&quot;: 10,     &quot;filter&quot;: true,     &quot;rowHeight&quot;: 60,     &quot;floatingFilter&quot;: true,     &quot;domLayout&quot;: &quot;autoHeight&quot;,     &quot;custom&quot;: {         &quot;dataUniqueIdField&quot;: &quot;jobId&quot;,         &quot;rowSelection&quot;: &quot;single&quot;,         &quot;csvExportOptions&quot;: {             &quot;fileName&quot;: &quot;List_of_Export_List.csv&quot;,             &quot;skipHeader&quot;: false         }     } }" instanceId="EXPORT_FILE_LIST" lastUpdatedStamp="2023-09-25 15:36:42.0" lastUpdatedTxStamp="2023-09-25 15:36:42.0" name="Export File List" role="ADMIN" userId="admin"/>
+    <GridUserPreferences instanceId="PICKER_TM_LIST" userId="admin" role="ADMIN" description="Team Member Picker List" name="Team Member Picker List" appliedRequestVerb="post" gridOptionsJsString="{ 	&quot;columnDefs&quot;: [{ 		&quot;headerName&quot;: &quot;Name&quot;, 		&quot;field&quot;: &quot;name&quot;, 		&quot;sortable&quot;: false, 		&quot;minWidth&quot;: 200, 		&quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&quot;filter&quot;: &quot;agTextColumnFilter&quot;, 		&quot;cellRenderer&quot;: params =&gt; `&lt;a href=&quot;#&quot; onclick=&quot;reassignParty(&apos;${params.data.partyId}&apos;, &apos;${params.value}&apos;);&quot;&gt;${params.value}&lt;/a&gt;` 	}, { 		&quot;headerName&quot;: &quot;Party Id&quot;, 		&quot;field&quot;: &quot;partyId&quot;, 		&quot;sortable&quot;: false, 		&quot;minWidth&quot;: 200, 	&quot;filter&quot;: true,&quot;floatingFilter&quot;: true,	&quot;filter&quot;: &quot;agTextColumnFilter&quot; 	}], 	&quot;defaultColDef&quot;: { 		&quot;flex&quot;: 1, 		&quot;wrapText&quot;: true, 		&quot;autoHeight&quot;: true, 		&quot;sortable&quot;: true 	}, 	&quot;scrollbarWidth&quot;: 20, 	&quot;enableBrowserTooltips&quot;: true, 	&quot;pagination&quot;: true, 	&quot;paginationPageSize&quot;: 10, 	&quot;filter&quot;: true, 	&quot;floatingFilter&quot;: true, 	&quot;domLayout&quot;: &quot;autoHeight&quot;, 	&quot;custom&quot;: { 		&quot;dataUniqueIdField&quot;: &quot;partyId&quot;, 		&quot;rowSelection&quot;: &quot;multiple&quot;, 		&quot;csvExportOptions&quot;: { 			&quot;fileName&quot;: &quot;List_of_TeamMembers.csv&quot;, 			&quot;skipHeader&quot;: false 		} 	} }" lastUpdatedStamp="2024-03-06 12:18:17.0" lastUpdatedTxStamp="2024-03-06 12:18:17.0" createdStamp="2021-11-13 17:56:06.0" createdTxStamp="2021-11-13 17:56:06.0"/>
+
+    <DynaScreenConfig dynaConfigId="NOTE_DATA" componentMountPoint="admin-portal" layoutType="1C" isDisabled="N" securityGroupId="" createdBy="admin" defaultMessage="screen configuration in-progress" lastModifiedBy="admin" isPrimary="Y" isFullscreen="Y" labelColSize="col-sm-2" inputColSize="col-sm-9" screenDisplayName="Notes Creation" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2021-04-12 14:36:15.0" createdTxStamp="2021-04-12 14:36:15.0"/>
+	<DynaScreenConfigField dynaConfigId="NOTE_DATA" dynaFieldId="callBackDate" sequenceNum="5" isDisabled="N" fieldName="Call back date" fieldType="DATE" fieldDataPattern="YYYY-MM-DD" isRequired="N" isCreate="N" isView="Y" isEdit="N" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2024-06-05 07:32:24.0" createdTxStamp="2024-06-05 07:32:24.0"/>
+    <DynaScreenConfigField dynaConfigId="NOTE_DATA" dynaFieldId="isImportant" sequenceNum="4" isDisabled="N" fieldName="High Importance" fieldType="RADIO" lookupTypeId="STATIC_DATA" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" defaultValue="N" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2024-06-05 07:32:24.0" createdTxStamp="2024-06-05 07:32:24.0"/>
+    <DynaScreenConfigField dynaConfigId="NOTE_DATA" dynaFieldId="note" sequenceNum="3" isDisabled="N" fieldName="Description." fieldType="LITE_RICH_TEXT" isRequired="Y" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2024-06-05 07:32:24.0" createdTxStamp="2024-06-05 07:32:24.0"/>
+    <DynaScreenConfigField dynaConfigId="NOTE_DATA" dynaFieldId="noteName" sequenceNum="2" isDisabled="N" fieldName="Note Title" fieldType="TEXT" isRequired="Y" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2024-06-05 07:32:24.0" createdTxStamp="2024-06-05 07:32:24.0"/>
+    <DynaScreenConfigField dynaConfigId="NOTE_DATA" dynaFieldId="noteType" sequenceNum="1" isDisabled="N" fieldName="Note Category" fieldType="DROPDOWN" lookupTypeId="DYNAMIC_DATA" lookupFieldService="dynaScreen.getDynamicData" lookupFieldFilter="{ 	&quot;entity_name&quot;: &quot;Enumeration&quot;, 	&quot;name_field&quot;: &quot;description&quot;, 	&quot;value_field&quot;: &quot;enumId&quot;, 	&quot;order_by&quot;: &quot;sequenceId&quot;,   	&quot;filter_value&quot;: { 		&quot;enumTypeId&quot;: &quot;NOTE_CAT&quot;, 		&quot;isEnabled&quot;: &quot;Y&quot;   	} }" isRequired="Y" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2024-06-05 07:32:24.0" createdTxStamp="2024-06-05 07:32:24.0"/>
+    <DynaScreenConfigField dynaConfigId="NOTE_DATA" dynaFieldId="subProduct" sequenceNum="2" isDisabled="N" fieldName="Sub Product" fieldType="DROPDOWN" lookupTypeId="DYNAMIC_DATA" lookupFieldService="dynaScreen.getDynamicData" lookupFieldFilter="{ 	&quot;entity_name&quot;: &quot;Enumeration&quot;, 	&quot;name_field&quot;: &quot;description&quot;, 	&quot;value_field&quot;: &quot;enumId&quot;, 	&quot;filter_value&quot;: { 		&quot;enumTypeId&quot;: &quot;SUB_PRODUCT&quot; 	} }" isRequired="N" isCreate="N" isView="Y" isEdit="N" lastUpdatedStamp="2024-06-05 07:32:24.0" lastUpdatedTxStamp="2024-06-05 07:32:24.0" createdStamp="2024-06-05 07:32:24.0" createdTxStamp="2024-06-05 07:32:24.0"/>
+    <DynaScreenConfigFieldData dynaConfigId="NOTE_DATA" dynaFieldId="isImportant" dynaFieldDataId="0" sequenceNum="1" dataName="Yes" dataValue="Y" lastUpdatedStamp="2021-04-12 14:36:15.0" lastUpdatedTxStamp="2021-04-12 14:36:15.0" createdStamp="2021-04-12 14:36:15.0" createdTxStamp="2021-04-12 14:36:15.0"/>
+    <DynaScreenConfigFieldData dynaConfigId="NOTE_DATA" dynaFieldId="isImportant" dynaFieldDataId="1" sequenceNum="2" dataName="No" dataValue="N" lastUpdatedStamp="2021-04-12 14:36:15.0" lastUpdatedTxStamp="2021-04-12 14:36:15.0" createdStamp="2021-04-12 14:36:15.0" createdTxStamp="2021-04-12 14:36:15.0"/>
+	<DynaScreenConfig dynaConfigId="FIND_PARTY" componentMountPoint="" layoutType="2C" isDisabled="N" securityGroupId="" createdBy="admin" defaultMessage="Find Party - Configuration Not Found!" lastModifiedBy="admin" isPrimary="" isFullscreen="Y" labelColSize="col-sm-4" inputColSize="col-sm-8" screenDisplayName="Find Party" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-25 10:53:59.0" createdTxStamp="2024-06-25 10:53:59.0"/>
+    <DynaScreenConfigField dynaConfigId="FIND_PARTY" dynaFieldId="email" sequenceNum="1" isDisabled="N" fieldName="Email" fieldType="TEXT" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-27 07:28:44.0" createdTxStamp="2024-06-27 07:28:44.0"/>
+    <DynaScreenConfigField dynaConfigId="FIND_PARTY" dynaFieldId="partyId" sequenceNum="4" isDisabled="N" fieldName="Party Id" fieldType="TEXT" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-27 07:28:44.0" createdTxStamp="2024-06-27 07:28:44.0"/>
+    <DynaScreenConfigField dynaConfigId="FIND_PARTY" dynaFieldId="partyLevel" sequenceNum="6" isDisabled="N" fieldName="Party Level List" fieldType="DROPDOWN" lookupTypeId="DYNAMIC_DATA" lookupFieldService="dynaScreen.getDynamicData" lookupFieldFilter="{ 	&quot;entity_name&quot;: &quot;Enumeration&quot;, 	&quot;name_field&quot;: &quot;description&quot;, 	&quot;value_field&quot;: &quot;enumId&quot;, 	&quot;filter_value&quot;: { 		&quot;enumTypeId&quot;: &quot;PARTY_LEVEL&quot; 	} }" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-27 07:28:44.0" createdTxStamp="2024-06-27 07:28:44.0"/>
+    <DynaScreenConfigField dynaConfigId="FIND_PARTY" dynaFieldId="phone" sequenceNum="2" isDisabled="N" fieldName="Phone" fieldType="TEXT" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-27 07:28:44.0" createdTxStamp="2024-06-27 07:28:44.0"/>
+    <DynaScreenConfigField dynaConfigId="FIND_PARTY" dynaFieldId="roleTypeId" sequenceNum="5" isDisabled="N" fieldName="Role Type" fieldType="RADIO" lookupTypeId="STATIC_DATA" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-27 07:28:44.0" createdTxStamp="2024-06-27 07:28:44.0"/>
+    <DynaScreenConfigField dynaConfigId="FIND_PARTY" dynaFieldId="searchText" sequenceNum="3" isDisabled="N" fieldName="Party Name" fieldType="TEXT" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2024-06-27 07:28:44.0" lastUpdatedTxStamp="2024-06-27 07:28:44.0" createdStamp="2024-06-27 07:28:44.0" createdTxStamp="2024-06-27 07:28:44.0"/>
+    <DynaScreenConfigFieldData dynaConfigId="FIND_PARTY" dynaFieldId="roleTypeId" dynaFieldDataId="0" sequenceNum="1" dataName="Account" dataValue="ACCOUNT" lastUpdatedStamp="2024-06-25 10:53:59.0" lastUpdatedTxStamp="2024-06-25 10:53:59.0" createdStamp="2024-06-25 10:53:59.0" createdTxStamp="2024-06-25 10:53:59.0"/>
+    <DynaScreenConfigFieldData dynaConfigId="FIND_PARTY" dynaFieldId="roleTypeId" dynaFieldDataId="1" sequenceNum="2" dataName="Lead" dataValue="LEAD" lastUpdatedStamp="2024-06-25 10:53:59.0" lastUpdatedTxStamp="2024-06-25 10:53:59.0" createdStamp="2024-06-25 10:53:59.0" createdTxStamp="2024-06-25 10:53:59.0"/>
+    <DynaScreenConfigFieldData dynaConfigId="FIND_PARTY" dynaFieldId="roleTypeId" dynaFieldDataId="2" sequenceNum="3" dataName="Customer" dataValue="CUSTOMER" lastUpdatedStamp="2024-06-25 10:53:59.0" lastUpdatedTxStamp="2024-06-25 10:53:59.0" createdStamp="2024-06-25 10:53:59.0" createdTxStamp="2024-06-25 10:53:59.0"/>
+    <DynaScreenConfigFieldData dynaConfigId="FIND_PARTY" dynaFieldId="roleTypeId" dynaFieldDataId="3" sequenceNum="4" dataName="All" dataValue="ALL" lastUpdatedStamp="2024-06-25 10:53:59.0" lastUpdatedTxStamp="2024-06-25 10:53:59.0" createdStamp="2024-06-25 10:53:59.0" createdTxStamp="2024-06-25 10:53:59.0"/>
+
+    <DynaScreenConfig dynaConfigId="COMM_HISTORY" componentMountPoint="admin-portal" layoutType="2C" isDisabled="N" securityGroupId="" createdBy="admin" defaultMessage="screen configuration in-progress" lastModifiedBy="admin" isPrimary="Y" isFullscreen="" labelColSize="" inputColSize="" screenDisplayName="Communication History for Account, Customer, Contact, Opportunity" lastUpdatedStamp="2023-07-20 13:05:27.0" lastUpdatedTxStamp="2023-07-20 13:05:27.0" createdStamp="2020-07-23 10:29:17.0" createdTxStamp="2020-07-23 10:29:16.0"/>	
+	<DynaScreenConfigField dynaConfigId="COMM_HISTORY" dynaFieldId="commHisPartyId" sequenceNum="2" isDisabled="N" fieldName="Associated Parties" fieldType="DROPDOWN" lookupTypeId="CUSTOM" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" lastUpdatedStamp="2022-11-24 03:49:46.0" lastUpdatedTxStamp="2022-11-24 03:49:46.0" createdStamp="2022-11-24 03:49:46.0" createdTxStamp="2022-11-24 03:49:46.0"/>											
+	<DynaScreenConfigField dynaConfigId="COMM_HISTORY" dynaFieldId="emailTemplate" sequenceNum="1" isDisabled="N" fieldName="Template" fieldType="PICKER" isRequired="N" isCreate="Y" isView="Y" isEdit="Y" pickerWindowId="templatePicker" lastUpdatedStamp="2022-11-24 03:49:46.0" lastUpdatedTxStamp="2022-11-24 03:49:46.0" createdStamp="2022-11-24 03:49:46.0" createdTxStamp="2022-11-24 03:49:46.0"/>											
+	<DynaScreenConfigFieldAttribute dynaConfigId="COMM_HISTORY" dynaFieldId="commHisPartyId" attrName="isCreateDisplay" lastUpdatedStamp="2022-03-18 09:59:19.0" lastUpdatedTxStamp="2022-03-18 09:59:18.0" createdStamp="2022-03-18 09:59:19.0" createdTxStamp="2022-03-18 09:59:18.0"/>
+	<DynaScreenConfigFieldAttribute dynaConfigId="COMM_HISTORY" dynaFieldId="commHisPartyId" attrName="isEditDisplay" lastUpdatedStamp="2022-03-18 09:59:19.0" lastUpdatedTxStamp="2022-03-18 09:59:18.0" createdStamp="2022-03-18 09:59:19.0" createdTxStamp="2022-03-18 09:59:18.0"/>
+	<DynaScreenConfigFieldAttribute dynaConfigId="COMM_HISTORY" dynaFieldId="commHisPartyId" attrName="isLinkDisplay" lastUpdatedStamp="2022-03-18 09:59:19.0" lastUpdatedTxStamp="2022-03-18 09:59:18.0" createdStamp="2022-03-18 09:59:19.0" createdTxStamp="2022-03-18 09:59:18.0"/>
+	<DynaScreenConfigFieldAttribute dynaConfigId="COMM_HISTORY" dynaFieldId="commHisPartyId" attrName="isMultiple" attrValue="Y" lastUpdatedStamp="2022-03-18 09:59:18.0" lastUpdatedTxStamp="2022-03-18 09:59:18.0" createdStamp="2022-03-18 09:59:18.0" createdTxStamp="2022-03-18 09:59:18.0"/>
+
+<GridUserPreferences instanceId="TEMPLATE_PICKER_LIST" userId="admin" role="ADMIN" description="Template Picker List" name="TemplatePicker List" appliedRequestVerb="post" lastUpdatedStamp="2024-03-20 01:35:56.0" lastUpdatedTxStamp="2024-03-20 01:35:56.0" createdStamp="2021-03-29 17:27:45.0" createdTxStamp="2021-03-29 17:27:45.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+			"headerName": "Template Name", "minWidth": 200,
+			"field": "templateName","filter": true,"floatingFilter": true,
+			"cellRenderer": params =>
+				`<a href="#" onclick="setPickerWindowValue('${params.value}', '${params.data.templateId}');">${params.data.templateName}</a>`
+		},
+		{
+			"headerName": "Subject","minWidth": 200,
+			"field": "subject","filter": true,"floatingFilter": true,
+		},
+		{
+			"headerName": "Start Date","filter": true,"floatingFilter": true,"minWidth": 200,
+			"field": "fromDate"
+		},
+		{
+			"headerName": "End Date","filter": true,"floatingFilter": true,"minWidth": 200,
+			"field": "thruDate"
+		},
+		{
+			"headerName": "View Template","minWidth": 200,
+			"field": "viewTemplate","filter": true,"floatingFilter": true,
+			"cellRenderer": function(params) {
+				return '<a  class = "fa fa-eye btn btn-xs btn-primary" href="getTemplate?templateId=' + params.data.templateId + '" title="View Template" target="_blank" </a>'
+
+			}
+		}
+	],
+	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "templateId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_of_templates.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+    <GridUserPreferences instanceId="RFM_METRIC_LIST" userId="admin" role="ADMIN" description="RFM Metrics Grid Fields List - Common" name="RFM Metrics Grid Fields List - Common" appliedRequestUrl="getRfmMetricData" appliedRequestVerb="post" lastUpdatedStamp="2024-03-08 22:20:07.0" lastUpdatedTxStamp="2024-03-08 22:20:07.0" createdStamp="2020-11-26 17:32:20.0" createdTxStamp="2020-11-26 17:32:20.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+			"colId": "groupId",
+			"hide": false,
+			"aggFunc": null,
+			"width": 200,"filter": true,"floatingFilter": true,
+			"pivotIndex": null,
+			"pinned": null,
+			"rowGroupIndex": null,
+			"headerName": "Segment Type",
+			"field": "groupId",
+			"sortable": true,
+			"minWidth": 100,
+			"lockPosition": true,
+			"sort": null,
+			"filter": true
+		},
+		{
+			"colId": "subGroup",
+			"hide": false,
+			"aggFunc": null,
+			"width": 200,
+			"pivotIndex": null,"filter": true,"floatingFilter": true,
+			"pinned": null,
+			"rowGroupIndex": null,
+			"headerName": "Sub Group",
+			"field": "subGroup",
+			"sortable": true,
+			"minWidth": 100,
+			"sort": null
+		},
+		{
+			"colId": "inceptionDate",
+			"hide": false,
+			"aggFunc": null,
+			"width": 200,"filter": true,"floatingFilter": true,
+			"pivotIndex": null,
+			"pinned": null,
+			"rowGroupIndex": null,
+			"headerName": "Date",
+			"field": "inceptionDate",
+			"sortable": true,
+			"minWidth": 100,
+			"sort": null
+		},
+		{
+			"colId": "groupActualValue",
+			"hide": false,
+			"aggFunc": null,
+			"width": 200,"filter": true,"floatingFilter": true,
+			"pivotIndex": null,
+			"pinned": null,
+			"rowGroupIndex": null,
+			"headerName": "Data Value",
+			"field": "groupActualValue",
+			"sortable": true,
+			"minWidth": 100,
+			"sort": null
+		}
+	],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 30,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {}
+
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+     <GridUserPreferences instanceId="SR_LIST" userId="admin" role="ADMIN" description="Service Request Tab Fields List - Common" name="Service Request Tab Fields List - Common" appliedRequestVerb="post" lastUpdatedStamp="2024-03-18 03:50:44.0" lastUpdatedTxStamp="2024-03-18 03:50:44.0" createdStamp="2020-11-26 06:06:39.0" createdTxStamp="2020-11-26 06:06:39.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+			"headerName": "SR Name",
+			"filter": "agTextColumnFilter",
+			"field": "srName","filter": true,"floatingFilter": true,
+			"minWidth": 200,
+			"cellRenderer": params =>
+				`<a target="_blank" href="/ticket-portal/control/viewServiceRequest?srNumber=${params.data.custRequestId}&externalLoginKey=${params.data.externalKey}">${params.data.srName}</a>`
+		}, {
+			"headerName": "Customer/Dealer",
+			"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+			"minWidth": 200,
+			"field": "customerName"
+		}, {
+			"headerName": "Primary Contact",
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,"filter": true,"floatingFilter": true,
+			"field": "primaryContactName"
+		}, {
+			"headerName": "SR Status",
+			"minWidth": 200,"filter": true,"floatingFilter": true,
+			"field": "srStatus"
+		}, {
+			"headerName": "SR Priority",
+			"minWidth": 200,"filter": true,"floatingFilter": true,
+			"field": "srPriority"
+		}, {
+			"headerName": "SR Source",
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,"filter": true,"floatingFilter": true,
+			"field": "srSource"
+		},{
+			"headerName": "Owner",
+			"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+			"minWidth": 200,
+			"field": "ownerName"
+		}, {
+			"headerName": "Sales Person",
+			"filter": "agTextColumnFilter","filter": true,"floatingFilter": true,
+			"minWidth": 200,
+			"field": "salePersonName"
+		},  {
+			"headerName": "Order ID","filter": true,"floatingFilter": true,
+			"field": "purchaseOrder",
+			"sortable": true,
+			"minWidth": 200
+		}, {
+			"headerName": "Open Date","filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,
+			"field": "openDate"
+		},{
+			"headerName": "Due Date","filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,
+			"field": "dueDate"
+		}, {
+			"headerName": "SLA Risk","filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,
+			"field": "industryDescription"
+		}, {
+			"headerName": "Overdue","filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,
+			"field": "ownershipDescription"
+		},  {
+			"headerName": "SR Type","filter": true,"floatingFilter": true,
+			"minWidth": 200,
+			"field": "srType"
+		}, {
+			"headerName": "SR Category","filter": true,"floatingFilter": true,
+			"minWidth": 200,
+			"field": "srCategory"
+		}, {
+			"headerName": "SR Sub Category","filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,
+			"field": "srSubCategory"
+		}, {
+			"headerName": "Modified By","filter": true,"floatingFilter": true,
+			"filter": "agTextColumnFilter",
+			"minWidth": 200,
+			"field": "modifiedByName"
+		}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 30,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "custRequestId",
+		"rowSelection": "single",
+		"csvExportOptions": {
+			"fileName": "List_Of_SR.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+    <GridUserPreferences description="List Orders" instanceId="LIST_ORDERS" name="List Orders" role="ADMIN" userId="admin">
+		<gridOptionsJsString>
+				<![CDATA[
+					{"columnDefs": [{ "headerName": "Order ID", "sortable": true, "minWidth": 200, "filter": "agTextColumnFilter", "headerCheckboxSelection": true, "checkboxSelection": true, cellRenderer: params => `<a target="_blank" href="/common-portal/control/redirectOrders?orderId=${params.data.orderId}&partyId=${params.data.partyId}&externalLoginKey=${params.data.externalLoginKey}" >${params.data.externalId}</a>` }, { "headerName": "Order Type", "field": "orderType", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter" }, { "headerName": "Customer PO", "field": "customerPo", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter" }, { "headerName": "Sequence #", "field": "subSequenceNumber", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter" }, { "headerName": "Item #", "field": "productId", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter" }, { "headerName": "Lot Detail", "field": "skuDescription", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter", cellRenderer: function(params) { let skuDescription = params.data.skuDescription; let value = skuDescription; if (skuDescription && skuDescription.length > 20) { value = skuDescription.substring(0, 20) + '<span onclick="viewSkuDescription(\'' + skuDescription + '\')" class="btn btn-xs btn-primary m5 tooltips">...</span>'; } return value; } }, { "headerName": "Line Status", "field": "itemStatus", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter" }, { "headerName": "Order Date", "field": "orderDate", "cellEditor": "agTextCellEditor", }, { "headerName": "Ship Date", "field": "shippedDate", "cellEditor": "agTextCellEditor", }, { "headerName": "Actual Qty", "field": "actualQty", "cellEditor": "agTextCellEditor", }, { "headerName": "Unit Cost", "field": "unitCost", "cellEditor": "agTextCellEditor", }, { "headerName": "Extended Cost", "field": "extendedCost", "cellEditor": "agTextCellEditor", }, { "headerName": "View Receipt", "filter": true,"floatingFilter": true,"sortable": false, "minWidth": 100, "filter": false, cellRenderer: function(params) { if (params.data.externalId!= null) { return '<span class="fa fa-eye btn btn-xs btn-primary edit-act-schedule" title="View" onclick="enableInvoiceReceiptPopup(\'' + params.data.externalId+ '\')"></span>' } else { return ''; } return ''; }}], "defaultColDef": { "flex": 1, "wrapText": true, "autoHeight": true, "sortable": true }, "scrollbarWidth": 30, "enableBrowserTooltips": true, "pagination": true, "paginationPageSize": 10, "filter": true, "floatingFilter": true, "domLayout": "autoHeight", "custom": { "dataUniqueIdField": "orderId", "rowSelection": "multiple", "csvExportOptions": { "fileName": "List_Of_Orders.csv", "skipHeader": false } } }
+				]]>
+			</gridOptionsJsString>
+		</GridUserPreferences>
+		<GridUserPreferences appliedRequestUrl="/common-portal/control/findInvoiceList" appliedRequestVerb="post" description="Invoice List" instanceId="INVOICE_LIST" name="Invoice List" role="ADMIN" userId="admin">
+		<gridOptionsJsString>
+				<![CDATA[
+					{ "columnDefs": [{ "headerName": "Invoice Id", "field": "invoiceId", "sortable": true, "filter": "agTextColumnFilter", "lockPosition": true, "filter": true,"floatingFilter": true,"minWidth": 200, "headerCheckboxSelection": true, "checkboxSelection": true, "cellRenderer": function (params) { return '<a target="_blank" href="/account-portal/control/viewTransactionInvoice?invoiceId=' + params.data.invoiceId + '&externalLoginKey='+params.data.externalLoginKey+'">' + params.data.invoiceId + '</a>' } },{ "headerName": "External Id", "field": "externalId", "sortable": true, "minWidth": 100, "filter": "agTextColumnFilter" },{ "headerName": "Invoice Sequence", "field": "invoiceSequence", "sortable": true, "minWidth": 100, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter" }, { "headerName": "Invoice Type", "field": "invoiceType", "sortable": true, "minWidth": 200, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter" },{ "headerName": "Invoice Ext Ref Number", "field": "invoiceExtRefNumber", "sortable": false, "minWidth": 200, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter" }, { "headerName": "Invoice Date", "field": "invoiceDate", "sortable": true, "cellRenderer": function (data) { var value = data.value; if (value instanceof Date && !isNaN(value)) return data.value ? (new Date(data.value)).toLocaleDateString() : ''; else return data.value ? data.value : ''; }, "comparator": function dateFieldComparator(date1, date2) { var date1Number = date1 && new Date(date1).getTime(); var date2Number = date2 && new Date(date2).getTime(); if (date1Number == null && date2Number == null) { return 0; } if (date1Number == null) { return -1; } else if (date2Number == null) { return 1; } return date1Number - date2Number; } }, { "headerName": "Status", "field": "statusId", "sortable": true, "minWidth": 200,"filter": true,"floatingFilter": true, "filter": "agTextColumnFilter" }, { "headerName": "Customer Id", "field": "billToPartyId", "sortable": true, "minWidth": 200, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter" }, { "headerName": "Customer name", "field": "billToPartyName", "sortable": true,"filter": true,"floatingFilter": true, "minWidth": 200, "filter": "agTextColumnFilter" },{ "headerName": "Customer Ref", "field": "billToPartyRefId", "sortable": true, "minWidth": 200, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter" }, { "headerName": "Total Sales Amount", "field": "totalSalesAmount", "sortable": true, "minWidth": 200, "filter": "agTextColumnFilter" }, { "headerName": "Lot Detail", "field": "skuDescription", "sortable": true,"filter": true,"floatingFilter": true, "minWidth": 100, "filter": "agTextColumnFilter", "cellRenderer": function(params) { let skuDescription = params.data.skuDescription; let value = skuDescription; if (skuDescription && skuDescription.length > 20) { value = skuDescription.substring(0, 20) + '<span onclick="viewSkuDescription(\'' + base64.encode(skuDescription) + '\')" class="btn btn-xs btn-primary m5 tooltips">...</span>'; } return value; } }, { "headerName": "Margin Cost", "field": "marginCost", "sortable": false, "minWidth": 100, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter" }, { "headerName": "Unit Retail", "field": "unitRetail", "sortable": true, "filter": true,"floatingFilter": true,"minWidth": 100, "filter": "agTextColumnFilter", "cellStyle": { 'text-align': 'right' } },{ "headerName": "Unit Cost", "field": "unitCost", "sortable": true, "minWidth": 100, "filter": true,"floatingFilter": true,"filter": "agTextColumnFilter", "cellStyle": { 'text-align': 'right' } },{ "headerName": "Quantity Sold", "field": "quantitySold", "sortable": true, "minWidth": 100,"filter": true,"floatingFilter": true, "filter": "agTextColumnFilter", "cellStyle": { 'text-align': 'right' } }, { "headerName": "Extended Discount", "field": "extendedDiscount", "sortable": true,"filter": true,"floatingFilter": true, "minWidth": 100, "filter": "agTextColumnFilter", "cellStyle": { 'text-align': 'right' } }, { "headerName": "View Invoice", "filter": true,"floatingFilter": true,"sortable": false, "minWidth": 100, "filter": false, cellRenderer: function(params) { if (params.data.transactionNumber!= null) { return '<span class="fa fa-eye btn btn-xs btn-primary edit-act-schedule" title="View" onclick="enableInvoiceReceiptPopup(\'' + params.data.transactionNumber+ '\')"></span>' } else { return ''; } return ''; }}], "pagination": true, "paginationPageSize": 20, "filter": true, "floatingFilter": true, "domLayout": "autoHeight", "custom": { "dataUniqueIdField": "invoiceId", "rowSelection": "multiple", "csvExportOptions": { "fileName": "List_of_Invoices.csv", "skipHeader": false } } }
+				]]>
+			</gridOptionsJsString>
+		</GridUserPreferences>
+		
+		
+    <GridUserPreferences instanceId="OPPORTUNITYS" userId="admin" role="ADMIN" description="Opportunity Tab Grid Fields List - Common" name="Opportunity Tab Grid Fields List - Common" appliedRequestVerb="post" appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" lastUpdatedStamp="2024-03-08 23:49:05.0" lastUpdatedTxStamp="2024-03-08 23:49:05.0" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+			"headerName": "Job Name",
+			"field": "opportunityName",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"lockPosition": true,
+			"checkboxSelection": true,"headerCheckboxSelection": true, 
+			"tooltipField":"opportunityName",
+			"minWidth": 300,
+			"cellRenderer": "opportunityName"
+		}, {
+			"headerName": "Bid Status",
+			"field": "oppoStatus","filter": true,"floatingFilter": true,
+			"sortable": true,
+                         "minWidth": 200,
+			"maxWidth":200
+		},{
+    "headerName": "Bid Job Name",
+    "field": "bidJobName","filter": true,"floatingFilter": true,
+    "sortable": true,
+    "minWidth": 300
+}, {
+			"headerName": "Oppo Type",
+			"field": "salesOppoTypeIdDesc",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Customer",
+			"field": "partyName","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"partyName",
+			"minWidth": 150
+		}, {
+			"headerName": "Primary Contact",
+			"field": "primaryContact","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"primaryContact",
+			"minWidth": 100
+		}, {
+			"headerName": "Bid Owner",
+			"field": "ownerName","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"ownerName",
+			"minWidth": 100
+			
+		}, {
+			"headerName": "Bid Stage",
+			"field": "oppoStageDesc",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Estimated Revenue",
+			"field": "estimatedAmount",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Estimated Closed Date",
+			"field": "estimatedCloseDate",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"minWidth": 100
+		}, {
+			"headerName": "RM",
+			"field": "relationshipManager",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"tooltipField":"relationshipManager",
+			"minWidth": 100
+		}, {
+			"headerName": "Source",
+			"field": "source","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"source",
+			"minWidth": 100
+		}, {
+			"headerName": "Location",
+			"field": "location","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 200
+		},{
+    "headerName": "State",
+    "field": "oppoState","filter": true,"floatingFilter": true,
+    "sortable": true,
+    "tooltipField": "state",
+    "minWidth": 100
+}, {
+    "headerName": "City",
+    "field": "oppoCity","filter": true,"floatingFilter": true,
+    "sortable": true,
+    "tooltipField": "city",
+    "minWidth": 100
+}, {
+			"headerName": "Project Number",
+			"field": "projectNumber","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 200
+		}, {
+			"headerName": "High value",
+			"field": "highValue","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 200
+		}, {
+			"headerName": "Currency",
+			"field": "currencyUomId","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Next Step",
+			"field": "nextStep","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Next Call Date",
+			"field": "nextCallDate","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Delivery Channel",
+			"field": "deliveryChannel","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Description",
+			"field": "description","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"description",
+			"minWidth": 200
+		}, {
+			"headerName": "Product",
+			"field": "productName","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"productName",
+			"minWidth": 100
+		}, {
+			"headerName": "Product Category",
+			"field": "productCategoryIdDesc","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 200
+		}, {
+			"headerName": "Product Sub Category",
+			"field": "productSubCategoryIdDesc",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"minWidth": 200
+		}, {
+			"headerName": "Created On",
+			"field": "createdOn","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Created By",
+			"field": "createdByUserLogin","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Modified On",
+			"field": "modifiedOn","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Modified By",
+			"field": "modifiedByUserLogin",
+			"sortable": true,"filter": true,"floatingFilter": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Closed On",
+			"field": "closedOn","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Closed By",
+			"field": "closedByUserLogin","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"minWidth": 100
+		}, {
+			"headerName": "Campaign",
+			"field": "campaignName","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"campaignName",
+			"minWidth": 200
+		}, {
+			"headerName": "Opportunity ID",
+			"field": "salesOpportunityId","filter": true,"floatingFilter": true,
+			"sortable": true,
+			"tooltipField":"salesOpportunityId",
+			"minWidth": 100
+		}
+	],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+ 	"scrollbarWidth": 10,
+	"enableBrowserTooltips": true,
+	"pagination": true,
+	"paginationPageSize": 20,
+	"filter": true,"rowSelection": "multiple",
+	"floatingFilter": true,"components": { "opportunityName": opportunityName},
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "salesOpportunityId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Opportunity.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+
+ <GridUserPreferences instanceId="ACTIVITY_ATTACHMENTS" userId="admin" role="ADMIN" name="Activity Attachment List" appliedRequestUrl="/common-portal/control/searchattachments" appliedRequestVerb="post" dataremove="/common-portal/control/removeattachmentData" lastUpdatedStamp="2024-03-07 02:53:20.0" lastUpdatedTxStamp="2024-03-07 02:53:20.0" createdStamp="2021-01-27 17:19:51.0" createdTxStamp="2021-01-27 17:19:51.0">
+        <gridOptionsJsString><![CDATA[{
+	"columnDefs": [{
+		"headerName": "Record ID",
+		"field": "contentId",
+		"sortable": true,
+		"lockPosition": true,"filter": true,"floatingFilter": true,
+		"headerCheckboxSelection": true,
+		"checkboxSelection": true,
+		"minWidth": 150,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Record Type",
+		"field": "contentTypeId",
+		"sortable": false,"filter": true,"floatingFilter": true,
+		"minWidth": 150,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Classification",
+		"field": "classificationDescription",
+		"sortable": false,"filter": true,"floatingFilter": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Description",
+		"field": "description","filter": true,"floatingFilter": true,
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Download/View",
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter",
+		"cellRenderer": function(params) {
+			var imageUrl = params.data.imageUrl;
+			if (imageUrl != null && imageUrl != "" && imageUrl != "") {
+				return '<span class="fa fa-download btn btn-xs btn-primary" title="Download" onclick="downloadActAttachment(\'' + params.data.contentId + '\')"></span>';
+			} else {
+				return '';
+			}
+		}
+	}, {
+		"headerName": "Image",
+		"sortable": false,
+		"filter": false,
+		"minWidth": 100,
+		"cellRenderer": function(params) {
+			var imageUrl = params.data.imageUrl;
+			if (imageUrl != null && imageUrl != "" && imageUrl != "") {
+				return '<span id="image-pre" onclick="previewImage(\'' + imageUrl + '\')"><img border="0" width="50" height="50" src=\"' + imageUrl + '\"></span>'
+			} else {
+				return '';
+			}
+		}
+	}, {
+		"headerName": "Attachment Type",
+		"field": "attachmentType",
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Linked From",
+		"field": "linkedFrom",
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter",
+		"cellRenderer": function(params) {
+			var linkedFrom = params.data.linkedFrom;
+			if (linkedFrom != null && linkedFrom != "" && linkedFrom != "") {
+				return '<a target="_blank" href="viewActivity?workEffortId=' + params.data.linkedFrom + '" >' + params.data.linkedFrom + '</a>'
+			} else {
+				return '';
+			}
+		}
+	}, {
+		"headerName": "File Name/ URL",
+		"field": "contentName",
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter",
+		cellRenderer: function(params) {
+			if (params.data.contentType === "HYPERLINK") {
+				return '<a target="_blank" href=' + params.data.contentName + '>' + params.data.contentName + '</a>';
+			}
+		}
+	}, {
+		"headerName": "Created On",
+		"field": "createdDate",
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Created By",
+		"field": "createdByName",
+		"sortable": true,
+		"minWidth": 200,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Source ID",
+		"field": "domainEntityId",
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}, {
+		"headerName": "Source Component",
+		"field": "domainEntityTypeDesc",
+		"sortable": true,
+		"minWidth": 100,
+		"filter": "agTextColumnFilter"
+	}],
+	"defaultColDef": {
+		"flex": 1,
+		"wrapText": true,
+		"autoHeight": true,
+		"sortable": true
+	},
+	"scrollbarWidth": 20,
+	"enableBrowserTooltips": true,
+	"suppressRowClickSelection": false,
+	"pagination": true,
+	"paginationPageSize": 10,
+	"rowHeight": 60,
+	"filter": true,
+	"floatingFilter": true,
+	"domLayout": "autoHeight",
+	"custom": {
+		"dataUniqueIdField": "contentId",
+		"rowSelection": "multiple",
+		"csvExportOptions": {
+			"fileName": "List_Of_Attachment.csv",
+			"skipHeader": false
+		}
+	}
+}]]></gridOptionsJsString>
+    </GridUserPreferences>
+    	<GridUserPreferences appliedRequestBodyJSON="{&quot;inputFields&quot;:{}}" appliedRequestVerb="post" createdStamp="2020-05-13 09:01:57.0" createdTxStamp="2020-05-13 09:01:57.0" gridOptionsJsString="{ &#9;&quot;columnDefs&quot;: [{ &#9;&#9;&quot;headerName&quot;: &quot;Party Name&quot;, &#9;&quot;minWidth&quot;: 250,&#9;&quot;field&quot;: &quot;partyName&quot;, &#9;&#9;&quot;sortable&quot;: true, &quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&#9;&quot;cellRenderer&quot;:&quot;pickerPartyList&quot;&#9;}, { &#9;&#9;&quot;headerName&quot;: &quot;Status&quot;, &#9;&#9;&quot;field&quot;: &quot;statusDescription&quot;, &quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&#9;&quot;minWidth&quot;: 250,&#9;&quot;sortable&quot;: true, &#9;&#9;&quot;filter&quot;: &quot;agTextColumnFilter&quot; &#9;}, { &#9;&#9;&quot;headerName&quot;: &quot;Phone Number&quot;, &quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&#9;&quot;minWidth&quot;: 250,&#9;&quot;field&quot;: &quot;contactNumber&quot;, &#9;&#9;&quot;sortable&quot;: true, &#9;&#9;&quot;filter&quot;: &quot;agTextColumnFilter&quot; &#9;}, { &#9;&#9;&quot;headerName&quot;: &quot;Email&quot;, &#9;&quot;minWidth&quot;: 250,&#9;&quot;field&quot;: &quot;infoString&quot;, &#9;&quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&#9;&quot;sortable&quot;: true, &#9;&#9;&quot;filter&quot;: &quot;agTextColumnFilter&quot; &#9;}, { &#9;&#9;&quot;headerName&quot;: &quot;State&quot;, &#9;&#9;&quot;field&quot;: &quot;state&quot;, &#9;&quot;minWidth&quot;: 250,&#9;&quot;sortable&quot;: true, &#9;&quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&#9;&quot;filter&quot;: &quot;agTextColumnFilter&quot; &#9;}, { &#9;&#9;&quot;headerName&quot;: &quot;City&quot;, &#9;&#9;&quot;minWidth&quot;: 250,&quot;field&quot;: &quot;city&quot;, &#9;&#9;&quot;sortable&quot;: true, &#9;&quot;filter&quot;: true,&quot;floatingFilter&quot;: true,&#9;&quot;filter&quot;: &quot;agTextColumnFilter&quot; &#9;}], &#9;&quot;scrollbarWidth&quot;: 30, &#9;&quot;pagination&quot;: true, &#9;&quot;paginationPageSize&quot;: 10, &#9;&quot;filter&quot;: true, &#9;&quot;floatingFilter&quot;: true, &#9;&quot;domLayout&quot;: &quot;autoHeight&quot;, &#9;&quot;components&quot;: { &quot;pickerPartyList&quot;: pickerPartyList },&quot;stopEditingWhenGridLosesFocus&quot;: true, &#9;&quot;rowSelection&quot;: &quot;multiple&quot;, &#9;&quot;custom&quot;: {} }" instanceId="PICKER_PARTY_LIST" lastUpdatedStamp="2024-05-20 17:05:37.0" lastUpdatedTxStamp="2024-05-20 17:05:37.0" name="Picker Party List" role="ADMIN" userId="admin"/>
+    <GridUserPreferences appliedRequestVerb="POST" createdStamp="2023-11-05 19:39:22.0" createdTxStamp="2023-11-05 19:39:22.0" description="Opportunity Audit" gridOptionsJsString="{ &quot;columnDefs&quot;: [ { &quot;headerName&quot;: &quot;Created On&quot;, &quot;field&quot;: &quot;createdDate&quot;, &quot;sortable&quot;: true, &quot;filter&quot;: true, &quot;filter&quot;: &quot;agTextColumnFilter&quot; }, { &quot;headerName&quot;: &quot;Created By&quot;, &quot;field&quot;: &quot;createdBy&quot;, &quot;sortable&quot;: true, &quot;filter&quot;: true, &quot;filter&quot;: &quot;agTextColumnFilter&quot; }, { &quot;headerName&quot;: &quot; Last Modified Date&quot;, &quot;field&quot;: &quot;lastModifiedDate&quot;, &quot;sortable&quot;: true, &quot;filter&quot;: true, &quot;filter&quot;: &quot;agTextColumnFilter&quot; }, { &quot;headerName&quot;: &quot; Last Modified By&quot;, &quot;field&quot;: &quot;lastModifiedBy&quot;, &quot;sortable&quot;: true, &quot;filter&quot;: true, &quot;filter&quot;: &quot;agTextColumnFilter&quot; }], &quot;pagination&quot;: true, &quot;paginationPageSize&quot;: 10, &quot;filter&quot;: true, &quot;floatingFilter&quot;: true, &quot;domLayout&quot;: &quot;autoHeight&quot;, &quot;rowSelection&quot;: &quot;multiple&quot;, &quot;custom&quot;: { &quot;dataUniqueIdField&quot;: &quot;salesOpportunityAuditId&quot; } }" instanceId="OPPORTUNITY_AUDIT" lastUpdatedStamp="2023-11-05 19:40:36.0" lastUpdatedTxStamp="2023-11-05 19:40:36.0" name="Opportunity Audit" role="ADMIN" userId="admin"/>
+</entity-engine-xml>

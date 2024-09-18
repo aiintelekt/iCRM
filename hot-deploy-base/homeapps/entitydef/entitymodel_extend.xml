@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of homeapps Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <extend-entity entity-name="SecurityGroup">
+		<field name="customSecurityGroupType" type="id"></field>
+		<field name="customSecurityType" type="id-ne"></field>
+    </extend-entity>
+    <extend-entity entity-name="SecurityPermission">
+		<field name="actionType" type="id-ne"></field>
+		<field name="securityResourceType" type="id-ne"></field>
+		<field name="parentPermissionId" type="id-ne"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="PartyAttribute">
+      <field name="createdByUserLoginId" type="id-vlong-ne"/>
+      <relation rel-entity-name="UserLogin" type="one" fk-name="PATTR_UL">
+        <key-map field-name="createdByUserLoginId" rel-field-name="userLoginId"/>
+      </relation>
+      <index name="ATTR_NAME_IDX">
+        <index-field name="attrName"/>
+      </index>
+      <index name="ATTR_VALUE_IDX">
+        <index-field name="attrValue"/>
+      </index>
+      <index name="ATTR_PARTYID_IDX">
+        <index-field name="partyId"/>
+      </index>
+    </extend-entity>
+    
+    <extend-entity entity-name="PartyGroup">
+        <field name="currencyUomId" type="id"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="UserAuditRequest">
+        <field name="parentId" type="id"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="UserAuditPref">
+        <field name="sequenceNumber" type="id"/>
+    </extend-entity>
+    
+    <extend-entity entity-name="OfbizApiLog">
+		<field name="version" type="id"></field>
+		<field name="httpMethod" type="id"></field>
+    </extend-entity>
+    
+	<extend-entity entity-name="ProfileConfiguration">
+		<field name="country" type="id"></field>
+	</extend-entity>
+
+	<extend-entity entity-name="SecurityPermission">
+		<field name="dynamicAccess" type="id" />
+	</extend-entity>
+	    <extend-entity entity-name="BatchStepExecution">
+		<field name="reImportFileName" type="email"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="ChannelAccess">
+		<field name="apiKey" type="long-text"></field>
+		<field name="applicationVersion" type="description"></field>
+    </extend-entity>
+    
+    <extend-entity entity-name="BatchStageTransData">
+    	<field name="importedFrom" type="id"></field>
+        <field name="logId" type="id"></field>
+        <field name="serviceName" type="id-vlong"></field>
+        <index name="BTH_STG_TRS_DT_IDX01">
+	    	<index-field name="importStatus"/>
+	    	<index-field name="serviceName"/>
+	    	<index-field name="importedFrom"/>
+	   	</index>
+      	<index name="BTH_STG_TRS_DT_IDX02">
+	    	<index-field name="datFld1"/>
+	   	</index>
+    </extend-entity>
+    
+</entitymodel>

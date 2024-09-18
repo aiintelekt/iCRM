@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+  <SystemProperty systemPropertyId="filepath" systemPropertyValue="/themes/bootstrap/webapp/bootstrap/attachments/" systemResourceId="attachments"/>
+  
+ 	<!-- Account Types For Add SR    -->
+	<Enumeration  enumId="01" enumTypeId="hk_type"  enumCode="01" sequenceId="01" description="Savings Account"/>
+    <Enumeration  enumId="02" enumTypeId="hk_type"  enumCode="02" sequenceId="02" description="Current Account"/>
+	<Enumeration  enumId="03" enumTypeId="hk_type"  enumCode="03" sequenceId="03" description="Time Deposits"/>
+ 	<Enumeration  enumId="04" enumTypeId="hk_type"  enumCode="04" sequenceId="04" description="Secured Loans"/>
+	<Enumeration  enumId="05" enumTypeId="hk_type"  enumCode="05" sequenceId="05" description="UnSecured Loans"/>
+	<Enumeration  enumId="06" enumTypeId="hk_type"  enumCode="06" sequenceId="06" description="Equity Linked Deposits"/>
+	<Enumeration  enumId="07" enumTypeId="hk_type"  enumCode="07" sequenceId="07" description="Currency Linked Investments"/>
+	<Enumeration  enumId="08" enumTypeId="hk_type"  enumCode="08" sequenceId="08" description="Structured Investments Deposits"/>
+	<Enumeration  enumId="09" enumTypeId="hk_type"  enumCode="09" sequenceId="09" description="Credit Card"/>
+	<Enumeration  enumId="10" enumTypeId="hk_type"  enumCode="10" sequenceId="10" description="Fund"/>
+	<Enumeration  enumId="11" enumTypeId="hk_type"  enumCode="11" sequenceId="11" description="Equity & Fixed Income"/>
+	<Enumeration  enumId="12" enumTypeId="hk_type"  enumCode="12" sequenceId="12" description="PB - TPC"/>
+	<Enumeration  enumId="13" enumTypeId="hk_type"  enumCode="12" sequenceId="13" description="Trasures - EA Segment"/>
+	<Enumeration  enumId="14" enumTypeId="hk_type"  enumCode="12" sequenceId="14" description="Life Insurance"/>
+	<Enumeration  enumId="15" enumTypeId="hk_type"  enumCode="12" sequenceId="15" description="General Insurance"/>
+	<Enumeration  enumId="16" enumTypeId="hk_type"  enumCode="12" sequenceId="16" description="Trade Finance"/>
+	<Enumeration  enumId="17" enumTypeId="hk_type"  enumCode="12" sequenceId="17" description="ATM Channel"/>
+	<Enumeration  enumId="18" enumTypeId="hk_type"  enumCode="12" sequenceId="18" description="Phone Banking"/>
+	<Enumeration  enumId="19" enumTypeId="hk_type"  enumCode="12" sequenceId="19" description="Internet Banking Channel"/>
+  
+  
+</entity-engine-xml>

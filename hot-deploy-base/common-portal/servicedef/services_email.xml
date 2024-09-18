@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Loyalty Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="loyalty.sendEreceipt" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+             location="org.groupfio.common.portal.service.LoyaltyServices" invoke="sendEreceipt">
+       	<description> Send ereceipt </description>
+       	
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="responseContext" type="Map" mode="OUT" optional="true"/>   
+    </service>
+    
+    <service name="common.sendEmail" engine="java" location="org.groupfio.common.portal.service.EmailServices" invoke="sendEmail" auth="true">
+		<description>Send Email</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="resultMap" type="Map" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="common.sendInvoicePayment" engine="java" location="org.groupfio.common.portal.service.EmailServices" invoke="sendInvoicePayment" auth="true">
+		<description>Send Invoice PDF Email</description>
+		<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		<attribute name="responseContext" type="Map" mode="OUT" optional="false"/>
+	</service>
+	
+	<service name="sendMail" engine="java" 
+        location="org.groupfio.common.portal.service.EmailServices" invoke="sendMail" transaction-timeout="120">
+        <description>
+            Send E-Mail Service. Override default ofbiz email engine</description>
+        <implements service="sendgrid.sendMailOnePartInterface"/>
+        <attribute name="hideInLog" type="Boolean" mode="IN" optional="true"/>
+    </service>
+    <service name="sendMailFromScreen" max-retry="3" engine="java"
+        location="org.groupfio.common.portal.service.EmailServices" invoke="sendMailFromScreen">
+        <description>Send E-Mail From Screen Widget Service</description>
+        <implements service="sendgrid.sendMailFromScreenInterface"/>
+        <attribute name="hideInLog" type="Boolean" mode="IN" optional="true"/>                        
+    </service>
+    <service name="sendMailMultiPart" engine="java"
+        location="org.groupfio.common.portal.service.EmailServices" invoke="sendMailMultiPart">
+        <description>Send Multi-Part E-Mail Service</description>
+        <implements service="sendgrid.sendMailMultiPartInterface"/>
+        <attribute name="emailEngine" type="String" mode="IN" optional="true">
+            <description>Email engine could be define during transaction itself.  SENDGRID / OFBIZ / POSTALSERVER</description>
+        </attribute>
+    </service>
+	    
+</services>

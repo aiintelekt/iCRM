@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="CreateEconomicMetric">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateEconomicMetric"/>
+                <set field="sectionName" value="economicMetric" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/metric/CreateEconomicMetric.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<!-- <decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/lead/createLeadForm.ftl"/></html></platform-specific> 
+	              	</decorator-section> -->
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/metric/create_economic_metric.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<!-- <decorator-section name="bottom-content">
+						<include-screen name="ListEconomicMetric"/>
+	              	</decorator-section> -->
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListEconomicMetric">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/metric/ListEconomicMetric.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/metric/list_economic_metric.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateEconomicMetric">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateEconomicMetric"/>
+                <set field="sectionName" value="economicMetric" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/metric/UpdateEconomicMetric.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/metric/update_economic_metric.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListEconomicValue"/>
+	              	</decorator-section>
+	              	
+<!-- 	              	<decorator-section name="bottom-content"> -->
+<!-- 						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/metric/l"/></html></platform-specific>  -->
+<!-- 	              	</decorator-section> -->
+	              	
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="FindEconomicMetric">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindEconomicMetric"/>
+                <set field="sectionName" value="findEconomicMetric" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+                <script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/metric/FindEconomicMetric.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/metric/find_economic_metric.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+					<decorator-section name="bottom-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/metric/find_list_economic_metric_main.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="CreateEconomicValueForGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateEconomicValue"/>
+                <set field="sectionName" value="economicValue" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/CreateEconomicValue.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/create_economic_value.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<!-- <decorator-section name="bottom-content">
+						<include-screen location="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml" name="CreateValueConfig"/>
+	              	</decorator-section> -->
+	              	<!-- <decorator-section name="extra-bottom-content">
+						<include-screen name="ListEconomicValue"/>
+	              	</decorator-section> -->
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="CreateEconomicValue">
+        <section>
+            <actions>
+                <set field="titleProperty" value="CreateEconomicValue"/>
+                <set field="sectionName" value="economicValue" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/CreateEconomicValue.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/create_economic_value.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListEconomicValue">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/ListEconomicValue.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/list_economic_value.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ListEconomicValueAtt">
+        <section>
+        	<actions>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/ListEconomicValue.groovy"/>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/list_economic_value_att.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="UpdateEconomicValue">
+        <section>
+            <actions>
+                <set field="titleProperty" value="UpdateEconomicValue"/>
+                <set field="sectionName" value="economicValue" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/UpdateEconomicValue.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/update_economic_value.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<include-screen name="ListEconomicValue"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="FindEconomicValue">
+        <section>
+            <actions>
+                <set field="titleProperty" value="FindEconomicValue"/>
+                <set field="sectionName" value="findEconomicValue" global="true"/>
+                <set field="applicationMenuName" value="MainAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/FindEconomicValue.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+	            	<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/find_economic_value.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<decorator-section name="bottom-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/list_economic_value.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewEconomicValueForGroup">
+        <section>
+            <actions>
+                <set field="titleProperty" value="ViewEconomicValue"/>
+                <set field="sectionName" value="economicValue" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/ViewEconomicValue.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/view_economic_value.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	<!-- <decorator-section name="bottom-content">
+						<include-screen location="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml" name="CreateValueConfig"/>
+	              	</decorator-section> -->
+	              	<decorator-section name="extra-bottom-content">
+						<include-screen name="ListEconomicValueAtt"/>
+	              	</decorator-section>
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <!-- <screen name="EconomicValueCustomer">
+        <section>
+            <actions>
+                <set field="titleProperty" value="AddCustomers"/>
+                <set field="sectionName" value="economicValue" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/economic/value/EconomicValueCustomer.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/economic_value_customer.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="AssignedCustomer">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/assigned_customer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="AddCustomer">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/add_customer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen> -->
+    <screen name="uploadEconomicMetric">
+        <section>
+            <widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/economic/value/upload_economic_metric.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

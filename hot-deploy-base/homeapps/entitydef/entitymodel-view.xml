@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of an Open For Business Project Component</title>
+    <description>None</description>
+    <copyright>Copyright 2001-2008 The Apache Software Foundation</copyright>
+    <author>None</author>
+    <version>1.0</version>
+    
+	<view-entity entity-name="GeoAssocSummary" package-name="com.ofbiz.crm.party" title="Geo Assoc summary">
+    
+		<member-entity entity-alias="GA" entity-name="GeoAssoc"/>
+		<member-entity entity-alias="G" entity-name="Geo"/>
+		<alias-all entity-alias="GA" group-by="true"/>
+		<alias-all entity-alias="G">
+			<exclude field="geoId" />
+		</alias-all>
+		<alias entity-alias="GA" name="createdStamp" field="createdStamp" />
+		<alias entity-alias="GA" name="geoAssocTypeId" field="geoAssocTypeId" />
+		<alias entity-alias="G" name="geoName" field="geoName" />
+		<alias entity-alias="G" name="geoTypeId" field="geoTypeId" />
+		<view-link entity-alias="GA" rel-entity-alias="G" rel-optional="true">
+			<key-map field-name="geoIdTo" rel-field-name="geoId"/>
+		</view-link>
+		
+	</view-entity>
+	
+	<view-entity entity-name="PartyCommonView" package-name="com.ofbiz.crm.party" title="Party Common Summary">
+	
+        <member-entity entity-alias="PR" entity-name="PartyRelationship" />
+        <member-entity entity-alias="P" entity-name="Party" />
+        <member-entity entity-alias="PG" entity-name="PartyGroup" />
+        <!-- <member-entity entity-alias="PER" entity-name="Person" /> -->
+        <member-entity entity-alias="PSD" entity-name="PartySupplementalData" />
+        <member-entity entity-alias="PI" entity-name="PartyIdentification" />
+        
+        <alias entity-alias="PR" name="partyIdFrom" field="partyIdFrom" />
+        <alias entity-alias="PR" name="partyIdTo" field="partyIdTo" />
+        <alias entity-alias="PR" name="roleTypeIdFrom" field="roleTypeIdFrom" />
+        <alias entity-alias="PR" name="roleTypeIdTo" field="roleTypeIdTo" />
+        <alias entity-alias="PR" name="fromDate" field="fromDate" />
+        <alias entity-alias="PR" name="thruDate" field="thruDate" />
+        <alias entity-alias="PR" name="securityGroupId" field="securityGroupId" />
+        <alias entity-alias="PR" name="partyRelationshipTypeId" field="partyRelationshipTypeId" />
+        
+        <alias entity-alias="P" name="partyId" field="partyId" group-by="true"/>
+        <alias entity-alias="P" name="statusId" field="statusId" />
+        <alias entity-alias="P" name="externalId" field="externalId" />
+        <alias entity-alias="P" name="createdStamp" field="createdStamp" />
+        <alias entity-alias="P" name="createdTxStamp" field="createdTxStamp" />
+        <alias entity-alias="P" name="createdByUserLogin" field="createdByUserLogin" />
+        <alias entity-alias="P" name="lastModifiedByUserLogin" field="lastModifiedByUserLogin" />
+        
+        <alias entity-alias="PG" name="pgPartyId" field="partyId" />
+        <alias entity-alias="PG" name="groupName" field="groupName" />
+        <alias entity-alias="PG" name="currencyUomId" field="currencyUomId" />
+        
+        <alias entity-alias="PSD" name="psdPartyId" field="partyId" />
+        <alias entity-alias="PSD" name="uploadedByUserLoginId" field="uploadedByUserLoginId" />
+        <alias entity-alias="PSD" name="companyName" field="companyName" />
+        <alias entity-alias="PSD" name="attnTo" field="attnTo" />
+        <alias entity-alias="PSD" name="address1" field="address1" />
+        <alias entity-alias="PSD" name="address2" field="address2" />
+        <alias entity-alias="PSD" name="address3" field="address3" />
+        <alias entity-alias="PSD" name="address4" field="address4" />
+        <alias entity-alias="PSD" name="address5" field="address5" />
+        <alias entity-alias="PSD" name="city" field="city" />
+        <alias entity-alias="PSD" name="stateProvinceGeoId" field="stateProvinceGeoId" />
+        <alias entity-alias="PSD" name="countryGeoId" field="countryGeoId" />
+        <alias entity-alias="PSD" name="postalCode" field="postalCode" />
+        <alias entity-alias="PSD" name="emailAddress" field="emailAddress" />
+        <alias entity-alias="PSD" name="source" field="source" />
+		        
+        <alias entity-alias="PI" name="partyIdentificationTypeId" field="partyIdentificationTypeId" />
+        <alias entity-alias="PI" name="partyIdentificationIdValue" field="idValue" />
+        
+        <view-link entity-alias="PR" rel-entity-alias="P" rel-optional="false">
+            <key-map field-name="partyIdFrom" rel-field-name="partyId" />
+        </view-link>
+        <view-link entity-alias="P" rel-entity-alias="PG" rel-optional="true">
+            <key-map field-name="partyId" rel-field-name="partyId"/>
+        </view-link>
+        <!-- <view-link entity-alias="P" rel-entity-alias="PER" rel-optional="true">
+            <key-map field-name="partyId" />
+        </view-link> -->
+        <view-link entity-alias="P" rel-entity-alias="PSD" rel-optional="true">
+            <key-map field-name="partyId" rel-field-name="partyId"/>
+        </view-link>
+        <view-link entity-alias="P" rel-entity-alias="PI" rel-optional="true">
+            <key-map field-name="partyId" rel-field-name="partyId"/>
+        </view-link>
+        
+    </view-entity>
+	
+	<view-entity entity-name="UserLoginSecurityGroupPermission" package-name="org.fio.security">
+		<member-entity entity-alias="ULSG" entity-name="UserLoginSecurityGroup"/>
+		<member-entity entity-alias="SGP" entity-name="SecurityGroupPermission"/>
+		<alias-all entity-alias="ULSG"/>
+		<alias entity-alias="SGP" name="groupId" field="groupId" />
+		<alias entity-alias="SGP" name="permissionId" field="permissionId" />
+		<view-link rel-entity-alias="SGP" entity-alias="ULSG">
+			<key-map field-name="groupId" rel-field-name="groupId"/>
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="UserLoginAndSecuritySummary"
+          package-name="org.ofbiz.security.securitygroup"
+          never-cache="true"
+          title="UserLoginAndSecuritySummary View Entity">
+          
+      	<member-entity entity-alias="ULSG" entity-name="UserLoginSecurityGroup"/>
+      	<member-entity entity-alias="UL" entity-name="UserLogin"/>
+      	
+      	<alias-all entity-alias="ULSG"/>
+      	<alias-all entity-alias="UL" group-by="true"/>
+      	
+      	<alias entity-alias="UL" name="createdStamp" field="createdStamp" />
+      	<alias entity-alias="UL" name="lastUpdatedStamp" field="lastUpdatedStamp" />
+      	
+      	<view-link entity-alias="ULSG" rel-entity-alias="UL">
+        	<key-map field-name="userLoginId"/>
+      	</view-link>
+      	
+    </view-entity>
+    
+    <view-entity entity-name="BatchJobExecutionSummary" package-name="org.groupfio.custom.field" title="Full Batch Job Execution association">
+    
+		<member-entity entity-alias="BJE" entity-name="BatchJobExecution"/>
+		<member-entity entity-alias="BJI" entity-name="BatchJobInstance"/>
+		<alias-all entity-alias="BJE" group-by="true"/>
+		<alias-all entity-alias="BJI">
+			<exclude field="version" />
+		</alias-all>
+		
+		<view-link entity-alias="BJE" rel-entity-alias="BJI" rel-optional="true">
+			<key-map field-name="jobInstanceId" rel-field-name="jobInstanceId"/>
+		</view-link>
+		
+	</view-entity>
+	
+</entitymodel>

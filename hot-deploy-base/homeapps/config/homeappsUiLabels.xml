@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="homeappsApplication">
+        <value xml:lang="en">homeapps Application</value>
+        <value xml:lang="zh">homeapps应用程序</value>
+        <value xml:lang="zh-TW">homeapps應用程式</value>
+    </property>
+    <property key="homeappsCompanyName">
+        <value xml:lang="en">OFBiz: homeapps</value>
+        <value xml:lang="zh-TW">OFBiz: homeapps</value>
+    </property>
+    <property key="homeappsCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="homeappsViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="insertSuccessMessage">
+        <value xml:lang="en">Created Successfully.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="updateSuccessMessage">
+        <value xml:lang="en">Updated Successfully.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+	
+	<property key="pendingRequests">
+   	  	<value xml:lang="en">Pending Requests</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="serviceType">
+      	<value xml:lang="en">Service Type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="detail">
+   	  	<value xml:lang="en">Detail</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="maker">
+   	  	<value xml:lang="en">Maker</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="remarks">
+   	  	<value xml:lang="en">Remarks</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createdDate">
+   	  	<value xml:lang="en">Created Date</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="screenProfiles">
+   	  <value xml:lang="en">Screen Profiles</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   
+   <property key="ListOf">
+   	  <value xml:lang="en">List of</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="auditOperator">
+   	  <value xml:lang="en">Audit Operator</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="userName">
+   	  <value xml:lang="en">User Name</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="userStatus">
+   	  <value xml:lang="en">User Status</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="createdOn">
+   	  <value xml:lang="en">Created On</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="modifiedOn">
+   	  <value xml:lang="en">Modified On</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="operatorType">
+   	  <value xml:lang="en">Operator Type</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="selectMaker">
+   	  <value xml:lang="en">Select Maker/Checker</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="oneBankId">
+   	  <value xml:lang="en">1BankId</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="find">
+   	  <value xml:lang="en">Find</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   
+   <property key="status">
+   	  <value xml:lang="en">Status</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="modeOfAction">
+   	  <value xml:lang="en">Mode Of Action</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="maker">
+   	  <value xml:lang="en">Maker</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="cheker">
+   	  <value xml:lang="en">Checker</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="fromDate">
+   	  <value xml:lang="en">From Date</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="thruDate">
+   	  <value xml:lang="en">Thru Date</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="requestType">
+   	  <value xml:lang="en">Request Type</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="oldValue">
+   	  <value xml:lang="en">Old Value</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="newValue">
+   	  <value xml:lang="en">New Value</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="valueChanged">
+   	  <value xml:lang="en">Value Changed</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   <property key="propertyName">
+   	  <value xml:lang="en">Property Name</value>
+      <value xml:lang="zh">模型</value>
+   </property>
+   
+   <!-- Batch report [start] -->
+   
+   <property key="batchDataStatus">
+   	  	<value xml:lang="en">Batch Data Status</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="jobExecutionId">
+   	  	<value xml:lang="en">Job Execution Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="jobName">
+   	  	<value xml:lang="en">Job Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="createTime">
+   	  	<value xml:lang="en">Created Date/Time</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="startTime">
+   	  	<value xml:lang="en">Start Time</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="endTime">
+   	  	<value xml:lang="en">End Time</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="status">
+   	  	<value xml:lang="en">Status</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="exitCode">
+   	  	<value xml:lang="en">Exit Code</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="lastUpdated">
+   	  	<value xml:lang="en">Last Updated</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="exitMessage">
+   	  	<value xml:lang="en">Exit Message</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="errorMessage">
+   	  	<value xml:lang="en">Error Message</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="selectExportType">
+   	  	<value xml:lang="en">Select export type</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<property key="stepExecutionId">
+   	  	<value xml:lang="en">Step Execution Id</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="stepName">
+   	  	<value xml:lang="en">Step Name</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="commitCount">
+   	  	<value xml:lang="en">Commit Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="readCount">
+   	  	<value xml:lang="en">Read Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="filterCount">
+   	  	<value xml:lang="en">Filter Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="writeCount">
+   	  	<value xml:lang="en">Write Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="readSkipCount">
+   	  	<value xml:lang="en">Read Skip Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="processSkipCount">
+   	  	<value xml:lang="en">Process Skip Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="rollbackCount">
+   	  	<value xml:lang="en">Rollback Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	<property key="duplicateCount">
+   	  	<value xml:lang="en">Duplicate Count</value>
+      	<value xml:lang="zh">提取，轉換和加載</value>
+   	</property>
+   	
+   	<!-- Batch report [end] -->
+   	<property key="viewPendingRequests">
+   	  	<value xml:lang="en">View Pending Requests</value>
+   	</property>
+   	<property key="userAuditConfiguration">
+   	  	<value xml:lang="en">User Audit Configuration</value>
+   	</property>
+   	<property key="findUserAuditOperator">
+   	  	<value xml:lang="en">Find User Audit Operator</value>
+   	</property>
+   	
+   	<property key="profileSecurityConfiguration">
+   	  	<value xml:lang="en">Profile Security Configuration</value>
+   	</property>
+   	
+</resource>

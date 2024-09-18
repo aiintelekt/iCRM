@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+<AlertType alertTypeDescription="Type 1" alertTypeId="TYPE_1"/>
+<AlertType alertTypeDescription="Type 2" alertTypeId="TYPE_2"/> 
+<EnumerationType description="Alert Priority" enumTypeId="ALERT_PRIORITY" hasTable="N"/>
+<Enumeration description="Medium" enumId="MEDIUM" enumTypeId="ALERT_PRIORITY" sequenceId="01"/> 
+<Enumeration description="High" enumId="HIGH" enumTypeId="ALERT_PRIORITY" sequenceId="03"/>
+<Enumeration description="Low" enumId="LOW" enumTypeId="ALERT_PRIORITY" sequenceId="02"/>
+
+ <ProductCategory categoryName="Best Sell Category 1" description="Type 1" productCategoryId="TYPE_1" productCategoryTypeId="BEST_SELL_CATEGORY"/>
+ <ProductCategory categoryName="Best Sell Category 2" description="Type 2" productCategoryId="TYPE_2" productCategoryTypeId="BEST_SELL_CATEGORY"/>
+ <ProductCategoryMember fromDate="2020-02-02 00:00:00.0" productCategoryId="TYPE_1" productId="1001" sequenceNum="1"/>
+ <ProductCategoryMember fromDate="2020-02-03 00:00:00.0" productCategoryId="TYPE_2" productId="1002" sequenceNum="1"/>
+ 
+ <EnumerationType description="Opportunity State" enumTypeId="OPPORTUNITY_STATE" hasTable="N" />
+ <Enumeration description="Self Created" enumCode="SELF_CREATE" enumId="SELF_CREATE" enumTypeId="OPPORTUNITY_STATE" sequenceId="01"/>
+ <Enumeration description="Batch Uploaded" enumCode="BATCH_UPLOAD" enumId="BATCH_UPLOAD" enumTypeId="OPPORTUNITY_STATE" sequenceId="02"/>
+ 
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-home" isDisabled="N" isExternal="Y" pageId="TeleSales" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/teleSales" seqId="1001" tabId="SAL_POR" uiLabels="Telesales"/>
+  
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-plus-circle fa-1" isDisabled="N" isExternal="Y" pageId="AddOpportunity" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/newOpportunity" seqId="1002" tabId="SAL_POR" uiLabels="Add Opportunity"/>
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-search fa-1" isDisabled="N" isExternal="Y" pageId="FindOpportunities" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/findOpportunity" seqId="1003" tabId="SAL_POR" uiLabels="Find Opportunities"/>
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-home" isDisabled="N" isExternal="Y" pageId="SalesActivityHome" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/activityHome" seqId="1004" tabId="SAL_POR" uiLabels="Sales Activities Home"/>
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-plus-circle fa-1" isExternal="N" pageId="ADD_SALE" pageType="TAB" permissionId="SAL_POR" seqId="1005" tabId="ADD_SALE" uiLabels="Add Sales Activity"/>
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-search fa-1" isDisabled="N" isExternal="Y" pageId="FindSalesActivity" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/findActivity" seqId="1006" tabId="SAL_POR" uiLabels="Find Sales Activity"/>
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-calendar fa-1" isDisabled="Y" isExternal="Y" pageId="ViewCalendar" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/viewCalendar" seqId="1007" tabId="SAL_POR" uiLabels="View Calendar"/>
+ 
+ <OfbizPageSecurity componentId="SALES_PORTAL" favIcon="fa fa-search fa-1" isDisabled="Y" isExternal="Y" pageId="FindProspects" pageType="SHORTCUT" permissionId="SAL_POR" requestUri="/sales-portal/control/findProspect" seqId="1008" tabId="SAL_POR" uiLabels="Find Prospects"/>
+ 
+ 
+ <EnumerationType description="CALL_RECORD_ENTITY_TYPE" enumTypeId="CALL_RECORD_ENTITY_TYPE" hasTable="N" />
+ <Enumeration description="sales opportunity call record master" enumCode="SALES_OPPURTUNITY_TYPE" enumId="SALES_OPPURTUNITY_TYPE" enumTypeId="CALL_RECORD_ENTITY_TYPE" />
+ <Enumeration enumCode="23456" enumId="50092" enumTypeId="CALL_RECORD_ENTITY_TYPE" />
+ <WorkEffortType description="Appointment" hasTable="N" parentTypeId="ACTIVITY" workEffortTypeId="85001"/>
+ <WorkEffortType description="Other" hasTable="N" parentTypeId="ACTIVITY" workEffortTypeId="85044"/>
+ <WorkEffortType description="Phone" hasTable="N" parentTypeId="ACTIVITY" workEffortTypeId="85033"/>
+ <WorkEffortType description="Task" hasTable="N" parentTypeId="ACTIVITY" workEffortTypeId="85020"/>
+ <WorkEffortType description="Email" hasTable="N" parentTypeId="ACTIVITY" workEffortTypeId="85004"/>
+
+ <!-- Enumeration for Offers Tab in Sales Opportunity -->
+ <EnumerationType enumTypeId="SALES_OFFER" hasTable="N" description="Sales Offer"/>
+   
+    
+</entity-engine-xml>

@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- Include requests for common opentaps features. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+    <include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+    <description>Custom Field</description>
+    <owner>GroupFIO</owner>
+    <errorpage>/error/error.jsp</errorpage>
+
+    <!-- event handlers -->
+    <handler name="java" type="request" class="org.ofbiz.webapp.event.JavaEventHandler"/>
+    <handler name="service" type="request" class="org.ofbiz.webapp.event.ServiceEventHandler"/>
+    <handler name="service-multi" type="request" class="org.ofbiz.webapp.event.ServiceMultiEventHandler"/>
+
+    <!-- view handlers -->
+    <!-- <handler name="screen" type="view" class="org.ofbiz.widget.screen.ScreenWidgetViewHandler"/> -->
+    <handler name="ftl" type="view" class="org.ofbiz.webapp.ftl.FreeMarkerViewHandler"/>
+    
+    <preprocessor>
+        <!-- Events to run on every request before security (chains exempt) -->
+        <event type="java" path="org.ofbiz.webapp.control.LoginWorker" invoke="checkExternalLoginKey"/>
+    </preprocessor>
+    <postprocessor>
+        <!-- Events to run on every request after all other processing (chains exempt) -->
+    </postprocessor>
+	
+    <!-- Request Mappings -->
+    <request-map uri="authview">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="myHome"/>
+        <response name="error" type="view" value="error"/>
+    </request-map>
+    <request-map uri="setSessionLocale">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.ofbiz.common.CommonEvents" invoke="setSessionLocale"/>
+        <response name="success" type="request" value="myHome"/>
+        <response name="error" type="request" value="myHome"/>
+    </request-map>
+    <request-map uri="selectOrganizationForm">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="selectOrganizationForm"/>
+    </request-map>
+    
+    <request-map uri="main">
+    	<security https="false" auth="true"/>
+        <response name="success" type="view" value="myHome"/>
+    </request-map>
+    <request-map uri="myHome">
+    	<security https="false" auth="true"/>
+        <response name="success" type="view" value="myHome"/>
+    </request-map>
+    <request-map uri="home">
+    	<security https="false" auth="true"/>
+        <response name="success" type="view" value="home"/>
+    </request-map>
+    
+    <request-map uri="404Option1">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="404Option1"/>
+    </request-map>
+    <request-map uri="500Option1">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="500Option1"/>
+    </request-map>
+    
+    <request-map uri="appRegistry">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createApplicationRegistry"/>
+    </request-map>
+    <request-map uri="createAppRegistry">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="ewallet.createAppRegistry"/>        
+        <response name="success" type="request-redirect-noparam" value="appRegistry">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="appRegistry">
+        </response>
+    </request-map>
+    <request-map uri="editAppRegistry">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateApplicationRegistry"/>
+    </request-map>
+    <request-map uri="updateAppRegistry">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="ewallet.updateAppRegistry"/>        
+        <response name="success" type="request-redirect" value="editAppRegistry">
+        	<redirect-parameter name="clientRegistryId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editAppRegistry">
+        	<redirect-parameter name="clientRegistryId"/>
+        </response>
+    </request-map>
+    
+    <request-map uri="customFieldGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createCustomFieldGroup"/>
+    </request-map>
+    <request-map uri="createCustomFieldGroup">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="customfield.createCustomFieldGroup"/>        
+        <response name="success" type="request-redirect" value="editCustomFieldGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect-noparam" value="customFieldGroup">
+        </response>
+    </request-map>
+    <request-map uri="editCustomFieldGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateCustomFieldGroup"/>
+    </request-map>
+    <request-map uri="updateCustomFieldGroup">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="customfield.updateCustomFieldGroup"/>        
+        <response name="success" type="request-redirect" value="editCustomFieldGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editCustomFieldGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteCustomFieldGroup">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="customfield.deleteCustomFieldGroup"/>        
+        <response name="success" type="request-redirect-noparam" value="findCustomFieldGroup">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findCustomFieldGroup">
+        </response>
+    </request-map>
+    <request-map uri="findCustomFieldGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findCustomFieldGroup"/>
+    </request-map>
+    
+    <request-map uri="customField">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createCustomField"/>
+    </request-map>
+    <request-map uri="customFieldForGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createCustomFieldForGroup"/>
+    </request-map>
+    <request-map uri="createCustomField">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="customfield.createCustomField"/>        
+        <response name="success" type="request-redirect" value="customFieldForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="customFieldForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="createCustomFieldIndividual">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="customfield.createCustomField"/>        
+        <response name="success" type="request-redirect-noparam" value="findCustomField">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="customField">
+        </response>
+    </request-map>
+    <request-map uri="editCustomField">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateCustomField"/>
+    </request-map>
+    <request-map uri="updateCustomField">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="customfield.updateCustomField"/>        
+        <response name="success" type="request-redirect" value="editCustomField">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editCustomField">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteCustomField">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="customfield.deleteCustomField"/>        
+        <response name="success" type="request-redirect-noparam" value="findCustomField">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findCustomField">
+        </response>
+    </request-map>
+    <request-map uri="deleteCustomFieldForGroup">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="customfield.deleteCustomField"/>        
+        <response name="success" type="request-redirect" value="customFieldForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="customFieldForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="findCustomField">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findCustomField"/>
+    </request-map>
+    
+    <request-map uri="segmentCode">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createSegmentCode"/>
+    </request-map>
+    <request-map uri="createSegmentCode">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createSegmentCode"/>        
+        <response name="success" type="request-redirect-noparam" value="findSegmentCode">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="segmentCode">
+        </response>
+    </request-map>
+    <request-map uri="editSegmentCode">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateSegmentCode"/>
+    </request-map>
+    <request-map uri="updateSegmentCode">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.updateSegmentCode"/>        
+        <response name="success" type="request-redirect" value="editSegmentCode">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editSegmentCode">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteSegmentCode">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteSegmentCode"/>        
+        <response name="success" type="request-redirect-noparam" value="segmentCode">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="segmentCode">
+        </response>
+    </request-map>
+    <request-map uri="findSegmentCode">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findSegmentCode"/>
+    </request-map>
+    
+    <request-map uri="segmentValue">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createSegmentValue"/>
+    </request-map>
+    <request-map uri="segmentValueForGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createSegmentValueForGroup"/>
+    </request-map>
+    <request-map uri="createSegmentValue">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createSegmentValue"/>        
+        <response name="success" type="request-redirect" value="viewSegmentValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="segmentValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="createSegmentValueIndividual">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createSegmentValue"/>        
+        <response name="success" type="request-redirect-noparam" value="findSegmentValue">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="segmentValue">
+        </response>
+    </request-map>
+    <request-map uri="editSegmentValue">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateSegmentValue"/>
+    </request-map>
+    <request-map uri="updateSegmentValue">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.updateSegmentValue"/>        
+        <response name="success" type="request-redirect" value="editSegmentValue">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editSegmentValue">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteSegmentValue">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteSegmentValue"/>        
+        <response name="success" type="request-redirect-noparam" value="findSegmentValue">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findSegmentValue">
+        </response>
+    </request-map>
+    <request-map uri="deleteSegmentValueForGroup">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteSegmentValue"/>        
+        <response name="success" type="request-redirect" value="segmentValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="segmentValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="findSegmentValue">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findSegmentValue"/>
+    </request-map>
+    <request-map uri="viewSegmentValueForGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewSegmentValueForGroup"/>
+    </request-map>
+    <request-map uri="segmentValueCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="segmentValueCustomer"/>
+    </request-map>
+    <request-map uri="editSegmentValueCampaignConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="editSegmentValueCampaignConfig"/>
+    </request-map>
+    
+    <request-map uri="economicMetric">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createEconomicMetric"/>
+    </request-map>
+    <request-map uri="createEconomicMetric">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="economic.createEconomicMetric"/>        
+        <response name="success" type="request-redirect-noparam" value="findEconomicMetric">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="economicMetric">
+        </response>
+    </request-map>
+    <request-map uri="editEconomicMetric">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateEconomicMetric"/>
+    </request-map>
+    <request-map uri="updateEconomicMetric">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="economic.updateEconomicMetric"/>        
+        <response name="success" type="request-redirect" value="findEconomicMetric">
+        	<!-- <redirect-parameter name="groupId"/> -->
+        </response>
+        <response name="error" type="request-redirect" value="editEconomicMetric">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteEconomicMetric">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="economic.deleteEconomicMetric"/>        
+        <response name="success" type="request-redirect-noparam" value="economicMetric">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="economicMetric">
+        </response>
+    </request-map>
+    <request-map uri="findEconomicMetric">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findEconomicMetric"/>
+    </request-map>
+    
+    <request-map uri="economicValue">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createEconomicValue"/>
+    </request-map>
+    <request-map uri="economicValueForGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createEconomicValueForGroup"/>
+    </request-map>
+    <request-map uri="createEconomicValue">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="economic.createEconomicValue"/>        
+        <response name="success" type="request-redirect" value="viewEconomicValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="economicValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="createEconomicValueIndividual">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="economic.createEconomicValue"/>        
+        <response name="success" type="request-redirect-noparam" value="findEconomicValue">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="economicValue">
+        </response>
+    </request-map>
+    <request-map uri="editEconomicValue">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateEconomicValue"/>
+    </request-map>
+    <request-map uri="updateEconomicValue">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="economic.updateEconomicValue"/>        
+        <response name="success" type="request-redirect" value="editEconomicValue">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editEconomicValue">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteEconomicValue">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="economic.deleteEconomicValue"/>        
+        <response name="success" type="request-redirect-noparam" value="findEconomicValue">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findEconomicValue">
+        </response>
+    </request-map>
+    <request-map uri="deleteEconomicValueForGroup">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="economic.deleteEconomicValue"/>        
+        <response name="success" type="request-redirect" value="economicValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="economicValueForGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="findEconomicValue">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findEconomicValue"/>
+    </request-map>
+    <request-map uri="viewEconomicValueForGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="viewEconomicValueForGroup"/>
+    </request-map>
+    <request-map uri="economicValueCustomer">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="economicValueCustomer"/>
+    </request-map>
+    
+    <request-map uri="valueConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createValueConfig"/>
+    </request-map>
+    <request-map uri="createValueConfig">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createValueConfig"/>        
+        <response name="success" type="request-redirect-noparam" value="valueConfig">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="valueConfig">
+        </response>
+    </request-map>
+    <request-map uri="editValueConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateValueConfig"/>
+    </request-map>
+    <request-map uri="updateValueConfig">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.updateValueConfig"/>        
+        <response name="success" type="request-redirect" value="editValueConfig">
+        	<redirect-parameter name="groupId"/>
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="valueCapture"/>
+        	<redirect-parameter name="valueSeqNum"/>
+        </response>
+        <response name="error" type="request-redirect" value="editValueConfig">
+        	<redirect-parameter name="groupId"/>
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="valueCapture"/>
+        	<redirect-parameter name="valueSeqNum"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteValueConfig">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteValueConfig"/>        
+        <response name="success" type="request-redirect-noparam" value="valueConfig">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="valueConfig">
+        </response>
+    </request-map>
+    
+    <request-map uri="microServiceConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createMicroServiceConfig"/>
+    </request-map>
+    <request-map uri="createMicroServiceConfig">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createMicroServiceConfig"/>        
+        <response name="success" type="request-redirect-noparam" value="microServiceConfig">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="microServiceConfig">
+        </response>
+    </request-map>
+    <request-map uri="editMicroServiceConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateMicroServiceConfig"/>
+    </request-map>
+    <request-map uri="updateMicroServiceConfig">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.updateMicroServiceConfig"/>        
+        <response name="success" type="request-redirect" value="editMicroServiceConfig">
+        	<redirect-parameter name="configId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editMicroServiceConfig">
+        	<redirect-parameter name="configId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteMicroServiceConfig">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteMicroServiceConfig"/>        
+        <response name="success" type="request-redirect-noparam" value="microServiceConfig">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="microServiceConfig">
+        </response>
+    </request-map>
+    
+    <request-map uri="webhookConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createWebhookConfig"/>
+    </request-map>
+    <request-map uri="createWebhookConfig">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createWebhookConfig"/>        
+        <response name="success" type="request-redirect-noparam" value="webhookConfig">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="webhookConfig">
+        </response>
+    </request-map>
+    <request-map uri="editWebhookConfig">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateWebhookConfig"/>
+    </request-map>
+    <request-map uri="updateWebhookConfig">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.updateWebhookConfig"/>        
+        <response name="success" type="request-redirect" value="editWebhookConfig">
+        	<redirect-parameter name="configId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editWebhookConfig">
+        	<redirect-parameter name="configId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteWebhookConfig">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteWebhookConfig"/>        
+        <response name="success" type="request-redirect-noparam" value="webhookConfig">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="webhookConfig">
+        </response>
+    </request-map>
+    
+    <request-map uri="groupingCode">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createGroupingCode"/>
+    </request-map>
+    <request-map uri="createGroupingCode">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.createGroupingCode"/>        
+        <response name="success" type="request-redirect" value="groupingCode">
+        	<redirect-parameter name="groupType"/>
+        </response>
+        <response name="error" type="request-redirect" value="groupingCode">
+        	<redirect-parameter name="groupType"/>
+        </response>
+    </request-map>
+    <request-map uri="editGroupingCode">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="updateGroupingCode"/>
+    </request-map>
+    <request-map uri="updateGroupingCode">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="segment.updateGroupingCode"/>        
+        <response name="success" type="request-redirect" value="editGroupingCode">
+        	<redirect-parameter name="groupingCodeId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editGroupingCode">
+        	<redirect-parameter name="groupingCodeId"/>
+        </response>
+    </request-map>
+    
+    <request-map uri="copyGroupingCode">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="copyGroupingCode"/>
+    </request-map>
+    <request-map uri="copyGroupingCodeAction">
+        <security https="false" auth="true"/>
+        <event type="service" invoke="segment.copyGroupingCode"/>        
+        <response name="success" type="request-redirect" value="editGroupingCode">
+        	<redirect-parameter name="groupingCodeId"/>
+        </response>
+        <response name="error" type="request-redirect" value="copyGroupingCode">
+        	<redirect-parameter name="groupingCodeId"/>
+        </response>
+    </request-map>
+    
+    <request-map uri="deleteGroupingCode">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="segment.deleteGroupingCode"/>        
+        <response name="success" type="request-redirect" value="groupingCode">
+        	<redirect-parameter name="groupType"/>
+        </response>
+        <response name="error" type="request-redirect" value="groupingCode">
+        	<redirect-parameter name="groupType"/>
+        </response>
+    </request-map>
+    
+    <!-- Ajax Call [start] -->
+    
+    <request-map uri="setStoreLocale">
+	  	<security https="true" auth="false"/>
+	  	<event type="java" path="org.opentaps.common.event.AjaxEvents" invoke="setStoreLocale"/>
+	  	<response name="success" type="none"/>
+	  	<response name="error" type="none"/>
+	</request-map>
+	
+	 <request-map uri="findSegmentCodeEvent">
+       <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getSegmentCodeGroup"/>
+       <response name="success" type="none"/>
+       <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createRoleConfig">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="createRoleConfig"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="findCustomFieldsEvent">
+       <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFieldsGroup"/>
+       <response name="success" type="none"/>
+       <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeRoleConfig">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="removeRoleConfig"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getRoleConfigs">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getRoleConfigs"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="searchCustomers">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://custom-field/webapp/custom-field/WEB-INF/actions/segment/value/SearchCustomers.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="addSelectedSegmentCustomer">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="addSelectedSegmentCustomer"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeSelectedSegmentCustomer">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="removeSelectedSegmentCustomer"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="searchSegmentCustomers">
+        <security https="true" auth="true"/>
+        <event type="groovy" path="component://custom-field/webapp/custom-field/WEB-INF/actions/common/SearchSegmentCustomers.groovy"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="activateSegmemntCode">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="activateSegmemntCode"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="inActivateSegmemntCode">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="inActivateSegmemntCode"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="enabledSegmemntCodeValue">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="enabledSegmemntCodeValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="disabledSegmemntCodeValue">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="disabledSegmemntCodeValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="loadSegmentCode">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="loadSegmentCode"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateBatchDateCampaign">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="updateBatchDateCampaign"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateBatchDaysCampaign">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="updateBatchDaysCampaign"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="updateTriggerCampaign">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="updateTriggerCampaign"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createCustomFieldMultiValue">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="createCustomFieldMultiValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeCustomFieldMultiValue">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="removeCustomFieldMultiValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getCustomFieldMultiValues">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFieldMultiValues"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeSelectedMultiValues">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="removeSelectedMultiValues"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="createSegmentValueMultiValue">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="createSegmentValueMultiValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeSegmentValueMultiValue">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="removeSegmentValueMultiValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getSegmentValueMultiValues">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="getSegmentValueMultiValues"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="removeSelectedSegmentValueMultiValues">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="removeSelectedSegmentValueMultiValues"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getCustomFieldGroupServices">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="getCustomFieldGroupServices"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getCustomFieldGroupingCodes">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFieldGroupingCodes"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getCustomFieldGroups">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFieldGroups"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="getCustomFields">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getCustomFields"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	    
+	 <request-map uri="getGroupSegmentCode">
+        <security https="true" auth="true"/>
+          <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getGroupSegmentCode"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+     <request-map uri="getEconometricCode">
+        <security https="true" auth="true"/>
+          <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getEconometricCode"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>    
+    
+   <request-map uri="getEconomicMetric">
+        <security https="true" auth="true"/>
+          <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getEconomicMetric"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>  
+    
+        <request-map uri="enableEconomicMetric">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="enableEconomicMetric"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="disabledEconomicMetric">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="disabledEconomicMetric"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="removeSegmentation">
+        <event type="java" path="org.groupfio.custom.field.event.SegmentationAjaxEvents" invoke="removeSegmentation"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="updateFieldParamConfig">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="updateFieldParamConfig"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="storeCustomFieldCheckedValue">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="storeCustomFieldCheckedValue"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+	    
+    <!-- Ajax Call [end] -->
+    
+    <!-- =================== -->
+    <!-- Lookup Request Maps -->
+    <!-- =================== -->
+    
+    <request-map uri="LookupAccounts">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="LookupAccounts"/>
+    </request-map>
+    <request-map uri="LookupProductStore">
+    	<security auth="true" https="true"/>
+    	<response name="success" type="view" value="LookupProductStore"/>
+    </request-map>
+    <request-map uri="LookupShipment"><security auth="true" https="true"/><response name="success" type="view" value="LookupShipment"/></request-map>
+    <request-map uri="LookupGeo"><security auth="true" https="true"/><response name="success" type="view" value="LookupGeo"/></request-map>
+	<request-map uri="LookupPartyName"><security https="true" auth="true"/><response name="success" type="view" value="LookupPartyName"/></request-map>
+    
+    <request-map uri="findCampaignListsAjax">
+		<event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="findCampaignListsAjax"/>
+		<response name="success" type="none"/>
+        <response name="error" type="none"/>
+	</request-map>
+	<request-map uri="uploadEconomicMetricsService">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.customfield.service.services.EconomicValueServices" invoke="uploadEconomicMetricsService" />
+        <response name="success" type="request-redirect" value="economicValueForGroup">
+            <redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="economicValueForGroup">
+            <redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="downloadFile">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="downloadFile"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="multiValueUpdate">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="multiValueUpdate"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="uploadSegmentService">
+        <security https="true" auth="false"/>
+        <event type="java" path="org.groupfio.customfield.service.services.SegmentServices" invoke="uploadSegmentsService" />
+        <response name="success" type="request-redirect" value="segmentValueCustomer">
+            <redirect-parameter name="groupId"/>
+            <redirect-parameter name="customFieldId"/>
+        </response>
+        <response name="error" type="request-redirect" value="segmentValueCustomer">
+            <redirect-parameter name="groupId"/>
+            <redirect-parameter name="customFieldId"/>
+        </response>
+    </request-map>
+    <request-map uri="economicMetricErrorLogs">
+       <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="economicMetricErrorLogs"/>
+       <response name="success" type="none"/>
+       <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="downloadEconomicErrorLogs">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="downloadEconomicErrorLogs"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="checkCampaignTemplate">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="checkCampaignTemplate"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="uploadSegment">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="uploadSegment"/>
+    </request-map>
+    
+    <!-- contact field list -->
+    
+    <request-map uri="contactFieldGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="contactFieldGroup"/>
+    </request-map>
+    <request-map uri="createContactFieldGroup">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="createContactFieldGroup"/>        
+        <response name="success" type="request-redirect-noparam" value="findContactFieldGroup">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findContactFieldGroup">
+        </response>
+    </request-map>
+    <request-map uri="findContactFieldGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findContactFieldGroup"/>
+    </request-map>
+    <request-map uri="getContactFieldGroup">
+       <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getContactFieldGroup"/>
+       <response name="success" type="none"/>
+       <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="editContactFieldGroup">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="editContactFieldGroup"/>
+    </request-map>
+    <request-map uri="updateContactFieldGroup">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="updateContactFieldGroup"/>        
+        <response name="success" type="request-redirect" value="editContactFieldGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editContactFieldGroup">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteContactFieldGroup">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="deleteContactFieldGroup"/>        
+        <response name="success" type="request-redirect-noparam" value="findContactFieldGroup">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findContactFieldGroup">
+        </response>
+    </request-map>
+    
+    <request-map uri="contactField">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="createContactField"/>
+    </request-map>
+    <request-map uri="createContactField">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="createContactField"/>        
+        <response name="success" type="request-redirect" value="contactField">
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="contactField">
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="findContactField">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="findContactField"/>
+    </request-map>
+    <request-map uri="getContactField">
+       <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getContactField"/>
+       <response name="success" type="none"/>
+       <response name="error" type="none"/>
+    </request-map>    
+    <request-map uri="editContactField">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="editContactField"/>
+    </request-map>
+    <request-map uri="updateContactField">
+        <security https="true" auth="true"/>
+        <event type="service"  invoke="updateContactField"/>        
+        <response name="success" type="request-redirect" value="editContactField">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+        <response name="error" type="request-redirect" value="editContactField">
+        	<redirect-parameter name="customFieldId"/>
+        	<redirect-parameter name="groupId"/>
+        </response>
+    </request-map>
+    <request-map uri="deleteContactField">
+        <security https="false" auth="true"/>
+        <event type="service"  invoke="deleteContactField"/>        
+        <response name="success" type="request-redirect-noparam" value="findContactField">
+        </response>
+        <response name="error" type="request-redirect-noparam" value="findContactField">
+        </response>
+    </request-map>
+     <request-map uri="findsegment">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="findsegment"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    <request-map uri="findAttributeGroup">
+        <event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="findAttributeGroup"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	        
+    <!-- contact field list -->
+	<!-- Segment Mapping [Start] -->
+	<request-map uri="viewSegmentMapping">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewSegmentMapping" />
+	</request-map>
+	<request-map uri="segmentMappingList">
+		<event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="segmentMappingList" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="createSegmentMap">
+		<security https="true" auth="true" />
+		<event type="service" invoke="segment.createSegmentMap"/>
+		<response name="success" type="request-redirect" value="viewSegmentMapping" />
+		<response name="error" type="request-redirect" value="viewSegmentMapping" />
+	</request-map>
+	<request-map uri="getRelatedSegmentField">
+		<security https="true" auth="true" />
+		<event type="java" path="org.groupfio.custom.field.event.AjaxEvents" invoke="getSegmentFieldDropdownValues" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<!-- Segment Mapping [END] -->
+    <!-- end of request mappings -->
+	
+    <!-- View Mappings -->
+    
+    <view-map name="error" page="/error/error.jsp"/>
+    
+    <view-map name="uploadSegment" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/GeneralScreens.xml#uploadSegment"/>
+    <!-- <view-map name="login" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/CommonScreens.xml#login"/> -->
+    <!-- <view-map name="login" type="screen" page="component://homeapps/webapp/widget/homeapps/screens/HomeScreens.xml#login"/> -->
+    
+    <view-map name="lock" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/CommonScreens.xml#lock"/>
+    <view-map name="requirePasswordChange" type="screen" page="component://opentaps-common/widget/screens/common/CommonScreens.xml#requirePasswordChange"/>
+    <view-map name="selectOrganizationForm" type="screen" page="component://opentaps-common/widget/screens/common/CommonScreens.xml#selectOrganizationForm"/>
+    
+    <!-- <view-map name="myHome" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/myhome/MyHomeScreens.xml#myHome"/> -->
+    <view-map name="home" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/myhome/MyHomeScreens.xml#home"/>
+    <view-map name="myHome" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/group/GroupScreens.xml#CreateCustomFieldGroup"/>
+    
+	<view-map name="404Option1" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/ErrorScreens.xml#404Option1"/>
+	<view-map name="500Option1" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/ErrorScreens.xml#500Option1"/>
+	    
+   	<view-map name="createApplicationRegistry" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/application/ApplicationScreens.xml#CreateApplicationRegistry"/>
+   	<view-map name="updateApplicationRegistry" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/application/ApplicationScreens.xml#UpdateApplicationRegistry"/>
+   	
+   	<view-map name="createCustomFieldGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/group/GroupScreens.xml#CreateCustomFieldGroup"/>
+   	<view-map name="updateCustomFieldGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/group/GroupScreens.xml#UpdateCustomFieldGroup"/>
+   	<view-map name="findCustomFieldGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/group/GroupScreens.xml#FindCustomFieldGroup"/>
+   	
+   	<view-map name="createCustomField" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/field/FieldScreens.xml#CreateCustomField"/>
+   	<view-map name="updateCustomField" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/field/FieldScreens.xml#UpdateCustomField"/>
+   	<view-map name="findCustomField" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/field/FieldScreens.xml#FindCustomField"/>
+   	<view-map name="createCustomFieldForGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/field/FieldScreens.xml#CreateCustomFieldForGroup"/>
+   	
+   	<view-map name="createSegmentCode" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#CreateSegmentCode"/>
+   	<view-map name="updateSegmentCode" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#UpdateSegmentCode"/>
+   	<view-map name="findSegmentCode" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#FindSegmentCode"/>
+   	
+   	<view-map name="createSegmentValue" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#CreateSegmentValue"/>
+   	<view-map name="updateSegmentValue" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#UpdateSegmentValue"/>
+   	<view-map name="findSegmentValue" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#FindSegmentValue"/>
+   	<view-map name="createSegmentValueForGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#CreateSegmentValueForGroup"/>
+   	<view-map name="viewSegmentValueForGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#ViewSegmentValueForGroup"/>
+   	<view-map name="segmentValueCustomer" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/GeneralScreens.xml#CustomerAssociation"/>
+   	<view-map name="editSegmentValueCampaignConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#UpdateCampaignConfig"/>
+   	
+   	<view-map name="createEconomicMetric" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#CreateEconomicMetric"/>
+   	<view-map name="updateEconomicMetric" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#UpdateEconomicMetric"/>
+   	<view-map name="findEconomicMetric" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#FindEconomicMetric"/>
+   	
+   	<view-map name="createEconomicValue" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#CreateEconomicValue"/>
+   	<view-map name="updateEconomicValue" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#UpdateEconomicValue"/>
+   	<view-map name="findEconomicValue" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#FindEconomicValue"/>
+   	<view-map name="createEconomicValueForGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#CreateEconomicValueForGroup"/>
+   	<view-map name="viewEconomicValueForGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/economic/EconomicScreens.xml#ViewEconomicValueForGroup"/>
+   	<view-map name="economicValueCustomer" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/common/GeneralScreens.xml#CustomerAssociation"/>
+   	
+   	<view-map name="createValueConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#CreateValueConfig"/>
+   	<view-map name="updateValueConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#UpdateValueConfig"/>
+   	   	
+   	<view-map name="createMicroServiceConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#CreateMicroServiceConfig"/>
+   	<view-map name="updateMicroServiceConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#UpdateMicroServiceConfig"/>
+   	
+   	<view-map name="createWebhookConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#CreateWebhookConfig"/>
+   	<view-map name="updateWebhookConfig" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#UpdateWebhookConfig"/>
+   	
+   	<view-map name="createGroupingCode" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#CreateGroupingCode"/>
+   	<view-map name="updateGroupingCode" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#UpdateGroupingCode"/>
+   	<view-map name="copyGroupingCode" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/configuration/ConfigurationScreens.xml#CopyGroupingCode"/>
+   	
+   	<!-- Contact Field List -->
+   	<view-map name="contactFieldGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/contactfield/ContactFieldScreens.xml#CreateContactFieldGroup"/>
+   	<view-map name="findContactFieldGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/contactfield/ContactFieldScreens.xml#FindContactFieldGroup"/>
+   	<view-map name="editContactFieldGroup" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/contactfield/ContactFieldScreens.xml#UpdateContactFieldGroup"/>
+   	
+   	<view-map name="createContactField" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/contactfield/ContactFieldScreens.xml#CreateContactField"/>
+   	<view-map name="findContactField" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/contactfield/ContactFieldScreens.xml#FindContactField"/>
+   	<view-map name="editContactField" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/contactfield/ContactFieldScreens.xml#UpdateContactField"/>
+   	<!-- Contact Field List -->
+   	
+   	<view-map name="viewSegmentMapping" type="screen" page="component://custom-field/webapp/widget/custom-field/screens/segment/SegmentScreens.xml#ViewSegmentMapping"/>
+	<!-- end of view mappings -->
+    
+</site-conf>

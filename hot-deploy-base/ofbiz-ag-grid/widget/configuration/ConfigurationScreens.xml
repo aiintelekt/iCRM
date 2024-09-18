@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="UserColumnManagement">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="UserColumnManagement" global="true"/>
+			  <set field="sectionName" value="ofbiz-ag-grid" global="true"/>
+			  <script location="component://ofbiz-ag-grid/webapp/ofbiz-ag-grid/WEB-INF/actions/configuration/UserColumnManagement.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://ofbiz-ag-grid/webapp/ofbiz-ag-grid/configuration/userColumnManagement.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="AdminColumnManagement">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="AdminColumnManagement" global="true"/>
+			  <set field="sectionName" value="ofbiz-ag-grid" global="true"/>
+			  <script location="component://ofbiz-ag-grid/webapp/ofbiz-ag-grid/WEB-INF/actions/configuration/AdminGridColumnMgmt.groovy"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://ofbiz-ag-grid/webapp/ofbiz-ag-grid/configuration/adminGridColumnMgmt.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

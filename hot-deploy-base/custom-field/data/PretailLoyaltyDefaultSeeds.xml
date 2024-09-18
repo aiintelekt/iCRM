@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<PretailLoyaltyGlobalParameters parameterId="MAILER_MASTER_FLD_RNG" description="Mailer master table segment field start end value" value="SEGMENT_CODE_ID=1-30" storeId="10012" createdBy="admin" lastUpdatedStamp="2023-03-14 02:30:49.0" lastUpdatedTxStamp="2023-03-14 02:30:49.0" createdStamp="2021-12-27 14:52:54.0" createdTxStamp="2021-12-27 14:52:54.0" isActive="Y"/>
+    <PretailLoyaltyGlobalParameters parameterId="SEG_IMP_PATH" description="Segment value upload file location" value="/home/centos/fileimport/custom-field/segmentUpload/" storeId="10014" lastUpdatedStamp="2022-11-18 04:44:07.0" lastUpdatedTxStamp="2022-11-18 04:44:07.0" createdStamp="2022-11-18 04:17:08.0" createdTxStamp="2022-11-18 04:17:08.0" isActive="Y"/>
+
+</entity-engine-xml>

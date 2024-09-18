@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+    <screen name="posApi">
+        <section>
+            <actions>
+                <set field="titleProperty" value="POS API" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/api-scratchpad/posServices.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/api-scratchpad/pos-service.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+     <screen name="webApi">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Web API" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/api-scratchpad/dwServices.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/api-scratchpad/web-service.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="mobileApi">
+        <section>
+            <actions>
+                <set field="titleProperty" value="Mobile API" global="true"/>
+                <set field="sectionName" value="admin-portal" global="true"/>
+                <property-map resource="AdminPortalUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/api-scratchpad/mbServicesV2.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="top-content">
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://admin-portal/webapp/admin-portal/api-scratchpad/mobile-service.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+   </screens>

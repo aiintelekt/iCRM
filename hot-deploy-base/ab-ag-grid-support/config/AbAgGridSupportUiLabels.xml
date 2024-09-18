@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="AbAgGridSupportApplication">
+        <value xml:lang="en">AbAgGridSupport Application</value>
+        <value xml:lang="zh">AbAgGridSupport应用程序</value>
+        <value xml:lang="zh-TW">AbAgGridSupport應用程式</value>
+    </property>
+    <property key="AbAgGridSupportCompanyName">
+        <value xml:lang="en">OFBiz: AbAgGridSupport</value>
+        <value xml:lang="zh-TW">OFBiz: AbAgGridSupport</value>
+    </property>
+    <property key="AbAgGridSupportCompanySubtitle">
+        <value xml:lang="en">Part of the Apache OFBiz Family of Open Source Software</value>
+        <value xml:lang="it">Un modulo della famiglia di software open source Apache OFBiz</value>
+        <value xml:lang="zh">开源软件OFBiz的组成部分</value>
+        <value xml:lang="zh-TW">開源軟體OFBiz的組成部分</value>
+    </property>
+    <property key="AbAgGridSupportViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="refreshPreference">
+        <value xml:lang="en">Refresh Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="savePreference">
+        <value xml:lang="en">Save Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="clearFilter">
+        <value xml:lang="en">Clear Filter</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="export">
+        <value xml:lang="en">Export</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    
+    <property key="refreshGridPreference">
+        <value xml:lang="en">Refresh Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="saveGridPreference">
+        <value xml:lang="en">Save Preference</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="clearGridFilter">
+        <value xml:lang="en">Clear Filter</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="exportGridData">
+        <value xml:lang="en">Export Data</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+</resource>

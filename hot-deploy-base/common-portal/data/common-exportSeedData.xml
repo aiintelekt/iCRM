@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<GridUserPreferences appliedRequestVerb="POST" description="Export File List" instanceId="EXPORT_FILE_LIST" name="Export File List" role="ADMIN" userId="admin">
+	<gridOptionsJsString><![CDATA[{
+    "columnDefs": [
+        {
+            "headerName": "Export ID",
+            "field": "jobId",
+            "editable": false,
+            "cellEditor": null,
+            "maxWidth": 100
+        }, {
+            "headerName": "Start",
+            "field": "startDateTime",
+            "editable": false,
+            "maxWidth": 150
+        }, {
+            "headerName": "End",
+            "field": "finishDateTime",
+            "maxWidth": 150,
+            "editable": false,
+            "cellEditor": null
+        }, {
+            "headerName": "File Name",
+            "field": "genFileName",
+            "maxWidth": 300,
+            "editable": false,
+            "cellEditor": null
+        }, {
+            "headerName": "Total Count",
+            "field": "reportCount",
+            "sortable": true,
+            "maxWidth": 100,
+          	"filter": "agTextColumnFilter",
+			"cellStyle": { textAlign: 'right' }
+        }, {
+            "headerName": "Status",
+            "field": "statusId",
+            "editable": false,
+            "maxWidth": 150,
+            "cellEditor": null
+        }, {
+            "headerName": "Action",
+            "editable": false,
+          	"minWidth": 300,
+			"cellEditor": null,
+            cellRenderer: params => {
+				if (params.data.statusId=='FINISHED') {
+					return `<a target="_blank" href= "/common-portal/control/downloadExportReport?jobId=${params.data.jobId}&externalLoginKey=${params.data.externalLoginKey}">Download</a>`
+				}
+				return '';
+			}
+        }, {
+            "headerName": "Created By",
+            "field": "createdBy",
+            "editable": false,
+            "maxWidth": 150,
+            "cellEditor": null
+        }, {
+            "headerName": "Delimiter",
+            "field": "delimiter",
+            "editable": false,
+            "maxWidth": 100
+        }, {
+            "headerName": "ErrorMessage",
+            "field": "errorMessage",
+            "editable": false,
+            "minWidth": 300
+        }
+    ],
+    "defaultColDef": {
+        "flex": 1,
+        "wrapText": true,
+        "autoHeight": false,
+        "sortable": true
+    },
+    "scrollbarWidth": 10,
+    "pagination": true,
+    "paginationPageSize": 10,
+    "filter": true,
+    "rowHeight": 60,
+    "floatingFilter": true,
+    "domLayout": "autoHeight",
+    "custom": {
+        "dataUniqueIdField": "jobId",
+        "rowSelection": "single",
+        "csvExportOptions": {
+            "fileName": "List_of_Export_List.csv",
+            "skipHeader": false
+        }
+    }
+}]]>
+	</gridOptionsJsString>
+	</GridUserPreferences>
+	
+	<DynaScreenConfig componentMountPoint="admin-portal" createdBy="admin" defaultMessage="screen configuration in-progress" dynaConfigId="FIND_EXP_FILE" inputColSize="" isDisabled="N" isFullscreen="" isPrimary="Y" labelColSize="" lastModifiedBy="admin" layoutType="3C" screenDisplayName="Find Export File" securityGroupId=""/>
+	<DynaScreenConfigField dynaConfigId="FIND_EXP_FILE" dynaFieldId="endDate" fieldDataPattern="DD/MM/YYYY" fieldName="End Date" fieldType="DATE" isCreate="Y" isDisabled="N" isEdit="N" isRequired="N" isView="N" sequenceNum="1002"/>
+	<DynaScreenConfigField dynaConfigId="FIND_EXP_FILE" dynaFieldId="startDate" fieldDataPattern="DD/MM/YYYY" fieldName="Start Date" fieldType="DATE" isCreate="Y" isDisabled="N" isEdit="N" isRequired="N" isView="N" sequenceNum="1001"/>
+	<DynaScreenConfigField dynaConfigId="FIND_EXP_FILE" dynaFieldId="statusId" fieldName="Status" fieldType="DROPDOWN" isCreate="Y" isDisabled="N" isEdit="N" isRequired="N" isView="N" lookupTypeId="STATIC_DATA" sequenceNum="1000"/>
+	<DynaScreenConfigFieldData dataName="Pending" dataValue="PENDING" dynaConfigId="FIND_EXP_FILE" dynaFieldDataId="0" dynaFieldId="statusId" sequenceNum="1000"/>
+	<DynaScreenConfigFieldData dataName="Processing" dataValue="PROGRESSING" dynaConfigId="FIND_EXP_FILE" dynaFieldDataId="1" dynaFieldId="statusId" sequenceNum="1001"/>
+	<DynaScreenConfigFieldData dataName="Finished" dataValue="FINISHED" dynaConfigId="FIND_EXP_FILE" dynaFieldDataId="2" dynaFieldId="statusId" sequenceNum="1002"/>
+	<DynaScreenConfigFieldData dataName="Error" dataValue="ERROR" dynaConfigId="FIND_EXP_FILE" dynaFieldDataId="3" dynaFieldId="statusId" sequenceNum="1003"/>
+	
+	<!-- Customer export template [start] -->
+	<FileTemplate delimeter="," description="Customer List" fileName="CustomerList_{CURRENT_DATE}" fileTemplateId="CUST_EXP_TPL" fileType="CSV" geoId="US" isHeaderRequird="N" isTailerRequird="N" templateType="EXPORT"/>
+	<FileTemplateField entityFieldName="name" fieldId="2000" fieldName="Customer Name" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="1" isHide="N" sequenceNumber="1000" templateFieldType="HEADER" toIndex="20"/>
+	<FileTemplateField entityFieldName="statusDescription" fieldId="2001" fieldName="Status" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="21" isHide="N" sequenceNumber="1001" templateFieldType="HEADER" toIndex="40"/>
+	<FileTemplateField entityFieldName="relationshipManager" fieldId="2002" fieldName="RM" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="41" isHide="N" sequenceNumber="1002" templateFieldType="HEADER" toIndex="60"/>
+	<FileTemplateField entityFieldName="dataSourceDesc" fieldId="2003" fieldName="Source" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="61" isHide="N" sequenceNumber="1003" templateFieldType="HEADER" toIndex="80"/>
+	<FileTemplateField entityFieldName="infoString" fieldId="2004" fieldName="Email" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="81" isHide="N" sequenceNumber="1004" templateFieldType="HEADER" toIndex="100"/>
+	<FileTemplateField entityFieldName="contactNumber" fieldId="2005" fieldName="Phone" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="101" isHide="N" sequenceNumber="1005" templateFieldType="HEADER" toIndex="120"/>
+	<FileTemplateField entityFieldName="city" fieldId="2006" fieldName="City" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="121" isHide="N" sequenceNumber="1006" templateFieldType="HEADER" toIndex="140"/>
+	<FileTemplateField entityFieldName="state" fieldId="2007" fieldName="State" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="141" isHide="N" sequenceNumber="1007" templateFieldType="HEADER" toIndex="160"/>
+	<FileTemplateField entityFieldName="postalCode" fieldId="2008" fieldName="Zip" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="161" isHide="N" sequenceNumber="1008" templateFieldType="HEADER" toIndex="180"/>
+	<FileTemplateField entityFieldName="country" fieldId="2009" fieldName="Country" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="181" isHide="N" sequenceNumber="1009" templateFieldType="HEADER" toIndex="200"/>
+	<FileTemplateField entityFieldName="generalProfTitle" fieldId="2010" fieldName="Profile Title" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="201" isHide="N" sequenceNumber="1010" templateFieldType="HEADER" toIndex="220"/>
+	<FileTemplateField entityFieldName="preferredCurrencyUomId" fieldId="2011" fieldName="Currency" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="221" isHide="N" sequenceNumber="1011" templateFieldType="HEADER" toIndex="240"/>
+	<FileTemplateField entityFieldName="loyaltyId" fieldId="2012" fieldName="Loyalty Id" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="241" isHide="N" sequenceNumber="1012" templateFieldType="HEADER" toIndex="260"/>
+	<FileTemplateField entityFieldName="timeZoneDesc" fieldId="2013" fieldName="Time Zone" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="261" isHide="N" sequenceNumber="1013" templateFieldType="HEADER" toIndex="280"/>
+	<FileTemplateField entityFieldName="currentTimeForTimezone" fieldId="2014" fieldName="Current Time Of Cust" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1014" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="partyId" fieldId="2015" fieldName="Customer ID" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1015" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="externalId" fieldId="2016" fieldName="External ID" fieldType="TEXT" fileTemplateId="CUST_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1016" templateFieldType="HEADER" toIndex="300"/>
+	<!-- Customer export template [end] -->
+	
+	<!-- Account export template [start] -->
+	<FileTemplate delimeter="," description="Account List" fileName="AccountList_{CURRENT_DATE}" fileTemplateId="ACCT_EXP_TPL" fileType="CSV" geoId="US" isHeaderRequird="N" isTailerRequird="N" templateType="EXPORT"/>
+	<FileTemplateField entityFieldName="groupName" fieldId="2000" fieldName="Account Name" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="1" isHide="N" sequenceNumber="1000" templateFieldType="HEADER" toIndex="20"/>
+	<FileTemplateField entityFieldName="statusDescription" fieldId="2001" fieldName="Status" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="21" isHide="N" sequenceNumber="1001" templateFieldType="HEADER" toIndex="40"/>
+	<FileTemplateField entityFieldName="primaryContactName" fieldId="2002" fieldName="Primary Contact" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="41" isHide="N" sequenceNumber="1002" templateFieldType="HEADER" toIndex="60"/>
+	<FileTemplateField entityFieldName="primaryContactEmail" fieldId="2003" fieldName="Primary Contact Email" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="61" isHide="N" sequenceNumber="1003" templateFieldType="HEADER" toIndex="80"/>
+	<FileTemplateField entityFieldName="primaryContactPhone" fieldId="2004" fieldName="Primary Contact Phone" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="81" isHide="N" sequenceNumber="1004" templateFieldType="HEADER" toIndex="100"/>
+	<FileTemplateField entityFieldName="timeZoneDescription" fieldId="2005" fieldName="Time Zone" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="101" isHide="N" sequenceNumber="1005" templateFieldType="HEADER" toIndex="120"/>
+	<FileTemplateField entityFieldName="relationshipManager" fieldId="2006" fieldName="Relationship Manager" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="121" isHide="N" sequenceNumber="1006" templateFieldType="HEADER" toIndex="140"/>
+	<FileTemplateField entityFieldName="dataSourceDesc" fieldId="2007" fieldName="Source" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="141" isHide="N" sequenceNumber="1007" templateFieldType="HEADER" toIndex="160"/>
+	<FileTemplateField entityFieldName="localName" fieldId="2008" fieldName="Local Name" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="161" isHide="N" sequenceNumber="1008" templateFieldType="HEADER" toIndex="180"/>
+	<FileTemplateField entityFieldName="numberEmployees" fieldId="2009" fieldName="No of Employees" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="181" isHide="N" sequenceNumber="1009" templateFieldType="HEADER" toIndex="200"/>
+	<FileTemplateField entityFieldName="annualRevenue" fieldId="2010" fieldName="Annual Revenue" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="201" isHide="N" sequenceNumber="1010" templateFieldType="HEADER" toIndex="220"/>
+	<FileTemplateField entityFieldName="industryDescription" fieldId="2011" fieldName="Industry" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="221" isHide="N" sequenceNumber="1011" templateFieldType="HEADER" toIndex="240"/>
+	<FileTemplateField entityFieldName="ownershipDescription" fieldId="2012" fieldName="Ownership" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="241" isHide="N" sequenceNumber="1012" templateFieldType="HEADER" toIndex="260"/>
+	<FileTemplateField entityFieldName="sicCode" fieldId="2013" fieldName="SIC Code" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="261" isHide="N" sequenceNumber="1013" templateFieldType="HEADER" toIndex="280"/>
+	<FileTemplateField entityFieldName="uomDescription" fieldId="2014" fieldName="Preferred Currency" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1014" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="city" fieldId="2015" fieldName="City" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1015" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="state" fieldId="2016" fieldName="State" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1016" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="country" fieldId="2017" fieldName="Country" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1017" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="postalCode" fieldId="2018" fieldName="Postal Code" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1018" templateFieldType="HEADER" toIndex="300"/>
+	<FileTemplateField entityFieldName="partyId" fieldId="2019" fieldName="Account ID" fieldType="TEXT" fileTemplateId="ACCT_EXP_TPL" fromIndex="281" isHide="N" sequenceNumber="1019" templateFieldType="HEADER" toIndex="300"/>
+	<!-- Account export template [end] -->
+	
+</entity-engine-xml>

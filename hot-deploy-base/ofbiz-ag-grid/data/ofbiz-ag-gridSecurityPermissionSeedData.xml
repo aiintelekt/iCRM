@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the ofbiz-ag-grid Component." permissionId="ofbiz-ag-grid_VIEW"/>
+    <SecurityPermission description="Create operations in the ofbiz-ag-grid Component." permissionId="ofbiz-ag-grid_CREATE"/>
+    <SecurityPermission description="Update operations in the ofbiz-ag-grid Component." permissionId="ofbiz-ag-grid_UPDATE"/>
+    <SecurityPermission description="Delete operations in the ofbiz-ag-grid Component." permissionId="ofbiz-ag-grid_DELETE"/>
+    <SecurityPermission description="ALL operations in the ofbiz-ag-grid Component." permissionId="ofbiz-ag-grid_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="ofbiz-ag-grid_ADMIN"/>
+
+</entity-engine-xml>

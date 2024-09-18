@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	
+	<screen name="CustomerAssociation">
+        <section>
+            <actions>
+                <set field="titleProperty" value="AddCustomers"/>
+                <set field="sectionName" value="segmentValue" global="true"/>
+                <set field="applicationMenuName" value="SegmentAppBar" global="true"/>
+				<script location="component://custom-field/webapp/custom-field/WEB-INF/actions/common/CustomerAssociation.groovy"/>
+            </actions>
+            <widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific><html><html-template location="component://custom-field/webapp/custom-field/general/customer/customer_association.ftl"/></html></platform-specific> 
+	              	</decorator-section>
+	              	
+	          	</decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="AssignedCustomer">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/general/customer/assigned_customer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="AddCustomer">
+        <section>
+        	<actions>
+            </actions>
+        	<widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/general/customer/add_customer.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="uploadSegment">
+        <section>
+            <actions>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://custom-field/webapp/custom-field/general/customer/upload_segments.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+    
+</screens>

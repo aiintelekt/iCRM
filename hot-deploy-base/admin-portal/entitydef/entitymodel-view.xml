@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>View Entity of admin-portal Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <view-entity entity-name="UserLoginPerson" package-name="com.fio.user">
+        <description>UserLogin,Person and Party entities</description>
+        <member-entity entity-alias="UL" entity-name="UserLogin"/>
+        <member-entity entity-alias="PER" entity-name="Person"/>
+        <member-entity entity-alias="PG" entity-name="PartyGroup"/>
+        <member-entity entity-alias="PTY" entity-name="Party"/>
+        <alias-all entity-alias="PER"/>
+        <alias name="userLoginId" entity-alias="UL"/>
+        <alias name="isLdapUser" entity-alias="UL"/>
+        <alias name="enabled" entity-alias="UL"/>
+        <alias name="partyId" entity-alias="UL"/>
+        <alias name="statusId" entity-alias="PTY"/>
+        <alias name="roleTypeId" entity-alias="PTY" />
+        <view-link rel-entity-alias="PTY" entity-alias="UL">
+            <key-map field-name="partyId" rel-field-name="partyId"/>
+        </view-link>
+        <view-link rel-entity-alias="PER" entity-alias="UL" rel-optional="true">
+            <key-map field-name="partyId" rel-field-name="partyId"/>
+        </view-link>
+        <view-link rel-entity-alias="PG" entity-alias="UL" rel-optional="true">
+            <key-map field-name="partyId" rel-field-name="partyId"/>
+        </view-link>
+        
+    </view-entity>
+    
+	<view-entity entity-name="UserLoginSecurityGroupPermission" package-name="org.fio.security">
+		<member-entity entity-alias="ULSG" entity-name="UserLoginSecurityGroup"/>
+		<member-entity entity-alias="SGP" entity-name="SecurityGroupPermission"/>
+		<alias-all entity-alias="ULSG"/>
+		<alias entity-alias="SGP" name="groupId" field="groupId" />
+		<alias entity-alias="SGP" name="permissionId" field="permissionId" />
+		<view-link rel-entity-alias="SGP" entity-alias="ULSG">
+			<key-map field-name="groupId" rel-field-name="groupId"/>
+		</view-link>
+	</view-entity>
+	
+	<view-entity entity-name="TeamBU" package-name="org.fio.security">
+        <description>EmplTeam,ProductStoreGroup</description>
+        <member-entity entity-alias="ET" entity-name="EmplTeam"/>
+        <member-entity entity-alias="PSG" entity-name="ProductStoreGroup"/>
+        <alias-all entity-alias="ET"/>
+        <alias name="productStoreGroupId" entity-alias="PSG"/>
+        <alias name="productStoreGroupName" entity-alias="PSG"/>
+        <view-link rel-entity-alias="ET" entity-alias="PSG">
+            <key-map field-name="productStoreGroupId" rel-field-name="businessUnit"/>
+        </view-link>
+    </view-entity>
+</entitymodel>

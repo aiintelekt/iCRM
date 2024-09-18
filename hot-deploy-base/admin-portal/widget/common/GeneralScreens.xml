@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">	
+	
+	<screen name="ScreenRender">
+		<section>
+			<actions>
+				<script location="component://admin-portal/webapp/admin-portal/WEB-INF/actions/common/SetupTabData.groovy" />
+				<property-map resource="common-portalUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template
+							location="component://admin-portal/webapp/admin-portal/global/screenRenderer.ftl" />
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="SmsDashboard">
+		<section>
+			<actions>
+			  <set field="titleProperty" value="SMS Dashboard" global="true"/>
+			  <set field="sectionName" value="admin-portal" global="true"/>
+			</actions>
+			<widgets>
+				<decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template location="component://common-portal/webapp/common-portal/sms-dashboard/sms_dashboard.ftl"/>
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	
+</screens>

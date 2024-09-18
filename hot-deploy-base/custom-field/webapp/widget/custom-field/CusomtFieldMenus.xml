@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-menu.xsd">
+	   
+	<menu id="1" name="SegmentAppBar" title="${uiLabelMap.SegmentApplicationTitle}">
+		<menu-item name="groupingCode" title="${uiLabelMap.GroupingCode}"><link target="groupingCode?groupType=SEGMENTATION"/></menu-item>
+        <menu-item name="segmentCode" title="${uiLabelMap.CreateSegmentCode}"><link target="segmentCode"/></menu-item>
+        <menu-item name="findSegmentCode" title="${uiLabelMap.FindSegmentCode}"><link target="findSegmentCode"/></menu-item>
+        <menu-item name="segmentValue" title="${uiLabelMap.CreateSegmentValue}"><link target="segmentValue"/></menu-item>
+        <menu-item name="findSegmentValue" title="${uiLabelMap.FindSegmentValue}"><link target="findSegmentValue"/></menu-item>
+    </menu>
+    
+    <menu id="2" name="MainAppBar" title="${uiLabelMap.CustomFieldApplicationTitle}" >
+        <menu-item name="customFieldGroup" title="${uiLabelMap.CreateCustomGroup}"><link target="customFieldGroup"/></menu-item>
+        <menu-item name="findCustomFieldGroup" title="${uiLabelMap.FindCustomGroup}"><link target="findCustomFieldGroup"/></menu-item>
+        <menu-item name="customField" title="${uiLabelMap.CreateCustomField}"><link target="customField"/></menu-item>
+        <menu-item name="findCustomField" title="${uiLabelMap.FindCustomField}"><link target="findCustomField"/></menu-item>
+        <!-- <menu-item name="customField" title="${uiLabelMap.CustomFields}"><link target="customField"/></menu-item> -->
+    </menu>
+    
+    <menu id="3" name="EconomicMetricAppBar" title="${uiLabelMap.EconomicMetricApplicationTitle}">
+		<menu-item name="groupingCode" title="${uiLabelMap.GroupingCode}"><link target="groupingCode?groupType=ECONOMIC_METRIC"/></menu-item>
+        <menu-item name="economicMetric" title="${uiLabelMap.CreateEconomicMetric}"><link target="economicMetric"/></menu-item>
+        <menu-item name="findEconomicMetric" title="${uiLabelMap.FindEconomicMetric}"><link target="findEconomicMetric"/></menu-item>
+        <menu-item name="economicValue" title="${uiLabelMap.CreateEconomicValue}"><link target="economicValue"/></menu-item>
+        <menu-item name="findEconomicValue" title="${uiLabelMap.FindEconomicValue}"><link target="findEconomicValue"/></menu-item>
+    </menu>
+    
+    <!-- <menu id="4" name="ConfigAppBar" title="${uiLabelMap.ConfigApplicationTitle}" >
+        <menu-item name="microServiceConfig" title="${uiLabelMap.MicroServiceConfig}"><link target="microServiceConfig"/></menu-item>
+        <menu-item name="webhookConfig" title="${uiLabelMap.WebhookConfig}"><link target="webhookConfig"/></menu-item>
+    </menu>    -->
+			    
+</menus>

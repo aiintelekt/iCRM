@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>admin-portal Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+   <!-- view product service--> 
+   <!-- create association service -->
+     <service name="ap.createProductAssociation" engine="java" location="org.fio.admin.portal.service.ProductServices" invoke="createProductAssociation">
+        <description>Create Product Association</description>
+        <attribute name="productId" type="String" mode="IN" optional="false"/>
+        <attribute name="productIdTo" type="String" mode="IN" optional="false"/>
+        <attribute name="productAssocTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="sequenceNum" type="String" mode="IN" optional="true"/>
+        <attribute name="fromDate" type="String" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="String" mode="IN" optional="true"/>       
+    </service>   
+    <!-- create association service end  -->
+    <!-- update association service -->
+     <service name="ap.updateProductAssociation" engine="java" location="org.fio.admin.portal.service.ProductServices" invoke="updateProductAssociation">
+        <description>Update Product Association</description>
+        <attribute name="productId" type="String" mode="IN" optional="false"/>
+        <attribute name="productIdTo" type="String" mode="IN" optional="false"/>
+        <attribute name="productAssocTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="sequenceNum" type="String" mode="IN" optional="true"/>
+        <attribute name="fromDate" type="String" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="String" mode="IN" optional="true"/>       
+    </service>
+    <!-- update association service end-->
+    <!-- delete image service -->
+     <service name="ap.deleteImageUrl" engine="java" location="org.fio.admin.portal.service.ProductServices" invoke="deleteImageUrl">
+        <description>Delete image url in product table</description>
+        <attribute name="productId" type="String" mode="IN" optional="false"/>  
+        <attribute name="removeField" type="String" mode="IN" optional="true"/>                
+    </service>
+    <!-- delete image service end -->
+ <!-- view product services end-->
+ 
+    <service name="ap.createSecurityGroup" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="createSecurityGroup">
+        <description>Create security group</description>
+        <attribute name="groupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="securityTypeId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.updateSecurityGroup" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="updateSecurityGroup">
+        <description>Update security group</description>
+        <attribute name="groupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="securityTypeId" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="ap.createSecurityPermission" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="createSecurityPermission">
+        <description>Create security permission</description>
+        <attribute name="permissionId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.updateSecurityPermission" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="updateSecurityPermission">
+        <description>Create security permission</description>
+        <attribute name="permissionId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    
+    <service name="ap.createNewUser" engine="java" location="org.fio.admin.portal.service.UserServices" invoke="createUser">
+        <auto-attributes entity-name="Person" mode="IN" optional="true"/>
+        <auto-attributes entity-name="PostalAddress" include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="userName" type="String" mode="IN" optional="true"/>
+        <attribute name="occupationalGroup" type="String" mode="IN" optional="true"/>
+        <attribute name="isLdapUser" type="String" mode="IN" optional="true"/>
+        <attribute name="password" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="emailAddress" type="String" mode="IN" optional="true"/>
+        <attribute name="extension" type="String" mode="IN" optional="true"/>
+        <attribute name="userStatus" type="String" mode="IN" optional="true"/>
+        <attribute name="phoneContactTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="emailContactTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="addressContactTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="addressSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="phoneSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="emailSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="securityGroupId" type="String" mode="IN" optional="true"/>
+        <attribute name="location" type="String" mode="IN" optional="true"/>
+        <attribute name="userLoginId" type="String" mode="OUT" optional="true"/>
+        <override name="firstName" optional="false"/>
+        <override name="lastName" optional="false"/>
+        <override name="nationality" mode="IN" type="String" optional="true"/>
+        <override name="birthDate" mode="IN" type="String" optional="true"/>
+        <override name="partyId" mode="OUT" optional="false"/>
+    </service>
+    <service name="ap.configureOperationLevelService" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="configureOperationLevelService" auth="true"  use-transaction="false">
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false" />
+        <attribute name="entityName" type="String" mode="IN" optional="true" />
+        <attribute name="create" type="String" mode="IN" optional="true"  />
+        <attribute name="update" type="String" mode="IN" optional="true"  />
+        <attribute name="read" type="String" mode="IN" optional="true"/>
+        <attribute name="delete" type="String" mode="IN" optional="true"/>
+        <attribute name="append" type="String" mode="IN" optional="true"/>
+        <attribute name="appendto" type="String" mode="IN" optional="true"/>
+        <attribute name="assign" type="String" mode="IN" optional="true"/>
+        <attribute name="share" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.getAccessMatrixInfo" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="getAccessMatrixInfo" auth="false" use-transaction="false">
+        <attribute name="userLoginId" type="String" mode="IN" optional="false"  />
+        <attribute name="entityName" type="String" mode="IN" optional="true" />
+        <attribute name="modeOfOp" type="String" mode="IN" optional="true"  />
+        <attribute name="businessUnit" type="String" mode="IN" optional="true"/>
+        <attribute name="teamId" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true" />
+        <attribute name="securityLevelInfo" type="String" mode="OUT" optional="true" />
+        <attribute name="opLevel" type="String" mode="OUT" optional="true" />
+    </service>
+     <service name="ap.removePartyRole" engine="java" location="org.fio.admin.portal.service.UserServices" invoke="removePartyRole">
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.addPartyRole" engine="java" location="org.fio.admin.portal.service.UserServices" invoke="addPartyRole">
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="parentTypeId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.addRoleToUser" engine="java" location="org.fio.admin.portal.service.UserServices" invoke="addPartyRole">
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="parentTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="userLoginId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="selectedRowsUser" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.createRole" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="createRole" auth="true" use-transaction="false">
+        <description>Create a new role</description>
+        <auto-attributes entity-name="RoleType" mode="IN" optional="true" />
+        <override name="roleTypeId" type="String" mode="INOUT" optional="false"/>
+    </service>
+    <service name="ap.updateRole" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="updateRole" auth="true" use-transaction="false">
+        <description>Create a new role</description>
+        <auto-attributes entity-name="RoleType" mode="IN" optional="true" />
+        <override name="roleTypeId" type="String" mode="INOUT" optional="false"/>
+    </service>
+    <service name="ap.removeRole" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="removeRole" auth="true" use-transaction="false">
+        <description>Create a new role</description>
+        <auto-attributes entity-name="RoleType" mode="IN" optional="true" />
+        <override name="roleTypeId" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.createRoleSecurityAssoc" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="createRoleSecurityAssoc" auth="true" >
+        <description>Create role security association</description>
+        <attribute name="roleTypeId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="groupIds" type="String" mode="IN" optional="true"/>
+        <attribute name="groupId" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.removeRoleSecurityAssoc" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="removeRoleSecurityAssoc" auth="true">
+        <description>Remove role security association</description>
+        <attribute name="roleTypeId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="groupIds" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="ap.createSlaSetup" engine="java" location="org.fio.admin.portal.setup.paramUnit.SlaSetupServices" invoke="createSlaSetup">
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="srTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="srCategoryId" type="String" mode="IN" optional="true"/>
+        <attribute name="srSubCategoryId" type="String" mode="IN" optional="true"/>
+        <attribute name="srPriority" type="String" mode="IN" optional="true"/>
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="slaSrResolution" type="String" mode="IN" optional="true"/>
+        <attribute name="srResolutionUnit" type="String" mode="IN" optional="true"/>
+        <attribute name="slaEscalation1" type="String" mode="IN" optional="true"/>
+        <attribute name="slaEscalation2" type="String" mode="IN" optional="true"/>
+        <attribute name="slaEscalation3" type="String" mode="IN" optional="true"/>
+        <attribute name="escalationUnit1" type="String" mode="IN" optional="true"/>
+        <attribute name="escalationUnit2" type="String" mode="IN" optional="true"/>
+        <attribute name="escalationUnit3" type="String" mode="IN" optional="true"/>
+        <attribute name="isSlaRequired" type="String" mode="IN" optional="true"/>
+        <attribute name="slaPreEscalation" type="String" mode="IN" optional="true"/>
+        <attribute name="preEscalationUnit" type="String" mode="IN" optional="true"/>
+                
+        <attribute name="slaConfigId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="ap.updateSlaSetup" engine="java" location="org.fio.admin.portal.setup.paramUnit.SlaSetupServices" invoke="updateSlaSetup">
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="slaConfigId" type="String" mode="IN" optional="false"/>
+        
+        <attribute name="srTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="srCategoryId" type="String" mode="IN" optional="true"/>
+        <attribute name="srSubCategoryId" type="String" mode="IN" optional="true"/>
+        <attribute name="srPriority" type="String" mode="IN" optional="true"/>
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="slaSrResolution" type="String" mode="IN" optional="true"/>
+        <attribute name="srResolutionUnit" type="String" mode="IN" optional="true"/>
+        <attribute name="slaEscalation1" type="String" mode="IN" optional="true"/>
+        <attribute name="slaEscalation2" type="String" mode="IN" optional="true"/>
+        <attribute name="slaEscalation3" type="String" mode="IN" optional="true"/>
+        <attribute name="escalationUnit1" type="String" mode="IN" optional="true"/>
+        <attribute name="escalationUnit2" type="String" mode="IN" optional="true"/>
+        <attribute name="escalationUnit3" type="String" mode="IN" optional="true"/>
+        <attribute name="isSlaRequired" type="String" mode="IN" optional="true"/>
+        <attribute name="slaPreEscalation" type="String" mode="IN" optional="true"/>
+        <attribute name="preEscalationUnit" type="String" mode="IN" optional="true"/>
+                        
+        <attribute name="slaConfigId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="ap.createHolidayConfig" engine="java" location="org.fio.admin.portal.setup.paramUnit.CalenderServices" invoke="calenderHolidayConfig">
+        <implements service="homeapps.userAuditInterface"/>
+        <attribute name="nonWorkingDate" type="String" mode="IN" optional="false"/>
+        <attribute name="holidayDescription" type="String" mode="IN" optional="true"/>
+        <attribute name="type" type="String" mode="IN" optional="false"/>
+        <attribute name="status" type="String" mode="IN" optional="false"/>
+        <attribute name="holidayConfigId" type="String" mode="INOUT" optional="true"/>
+    </service>
+    
+     <service name="ap.updateHolidayConfig" engine="java" location="org.fio.admin.portal.setup.paramUnit.CalenderServices" invoke="updateCalenderHolidayConfig">
+        <implements service="homeapps.userAuditInterface"/>
+        <attribute name="nonWorkingDate" type="String" mode="IN" optional="false"/>
+        <attribute name="holidayDescription" type="String" mode="IN" optional="true"/>
+        <attribute name="type" type="String" mode="IN" optional="false"/>
+        <attribute name="status" type="String" mode="IN" optional="false"/>
+        <attribute name="holidayConfigId" type="String" mode="INOUT" optional="true"/>
+    </service>
+    
+    <service name="ap.createorUpdateEmailAddress" engine="java" location="org.fio.admin.portal.service.ContactServices" invoke="createorUpdateEmailAddress">
+        <attribute name="contactMechPurposeTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="emailAddress" type="String" mode="IN" optional="false"/>
+        <attribute name="partyId" type="String" mode="IN" optional="false"/>
+        <attribute name="contactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="activeTab" type="String" mode="IN" optional="true"/>
+        <attribute name="emailSolicitation" type="String" mode="IN" optional="true"/>
+        <attribute name="userLoginId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="ap.srTypeCreation" engine="java" location="org.fio.admin.portal.setup.paramUnit.ServiceRequest" invoke="srTypeCreation">
+        <description>Create Service Request Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="srType" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+                
+        <attribute name="custRequestTypeId"  mode="OUT" type="String" optional="true"/>
+    </service>
+    <service name="ap.srTypeUpdation" engine="java" location="org.fio.admin.portal.setup.paramUnit.ServiceRequest" invoke="srTypeUpdation">
+        <description>Update Service Request Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="custRequestTypeId" mode="IN" type="String" optional="false"/>
+        <attribute name="srType" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="custRequestTypeId" mode="OUT" type="String" optional="true"/>
+    </service>
+    
+    <service name="ap.createServiceRequestArea" engine="java" location="org.fio.admin.portal.setup.paramUnit.ServiceRequest" invoke="createServiceRequestArea">
+        <description>Create Service Request Area</description>
+    
+        <implements service="homeapps.userAuditInterface"/>
+    
+        <attribute name="typeId" mode="IN" type="String"  optional="true"/>
+        <attribute name="srArea" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        <attribute name="custRequestCategoryId" mode="OUT" type="String"  optional="true"/>
+    </service>
+    <service name="ap.updateSrArea" engine="java" location="org.fio.admin.portal.setup.paramUnit.ServiceRequest" invoke="updateSrArea">
+        <description>Update Service Request Area</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="typeId" mode="IN" type="String"  optional="true"/>
+        <attribute name="srArea" mode="IN" type="String"  optional="false"/>
+        <attribute name="custRequestCategoryId" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="custRequestCategoryId" mode="OUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.createSrSubCategory" engine="java" location="org.fio.admin.portal.setup.paramUnit.ServiceRequest" invoke="createSrSubCategory">
+        <description>Create Service Request Sub Category</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="typeId" mode="IN" type="String"  optional="true"/>
+        <attribute name="srCategoryId" mode="IN" type="String"  optional="false"/>
+        <attribute name="srSubArea" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="statusId" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="custRequestCategoryId" mode="OUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.updateSrSubCategorys" engine="java" location="org.fio.admin.portal.setup.paramUnit.ServiceRequest" invoke="updateSrSubCategorys">
+        <description>Update Service Request Sub Category</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="typeId" mode="IN" type="String"  optional="true"/>
+        <attribute name="srCategoryId" mode="IN" type="String"  optional="false"/>
+        <attribute name="srSubArea" mode="IN" type="String"  optional="false"/>
+        <attribute name="custRequestCategoryId" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="statusId" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="custRequestCategoryId" mode="OUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.createBusinessUnits" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="createBusinessUnit" >
+        <description> create Business Unit </description>
+            <attribute name="buName" type="String" mode="IN" optional="true"/>
+            <attribute name="buId" type="String" mode="IN" optional="true"/>
+            <attribute name="parentBuId" type="String" mode="IN" optional="true"/>
+            <attribute name="buType" type="String" mode="IN" optional="true"/>
+            <!-- <attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+            <attribute name="startDate" type="String" mode="IN" optional="false"/>
+            <attribute name="endDate" type="String" mode="IN" optional="true"/> -->
+            <attribute name="status" type="String" mode="IN" optional="true"/>
+            <attribute name="phone" type="String" mode="IN" optional="true"/>
+            <attribute name="mobile" type="String" mode="IN" optional="true"/>
+            <attribute name="email" type="String" mode="IN" optional="true"/>
+            <attribute name="website" type="String" mode="IN" optional="true"/>
+            <attribute name="address1" type="String" mode="IN" optional="true"/>
+            <attribute name="address2" type="String" mode="IN" optional="true"/>
+            <attribute name="address3" type="String" mode="IN" optional="true"/>
+            <attribute name="city" type="String" mode="IN" optional="true"/>
+            <attribute name="stateOrProvince" type="String" mode="IN" optional="true"/>
+            <attribute name="zipOrPostalCode" type="String" mode="IN" optional="true"/>
+            <attribute name="countryOrRegion" type="String" mode="IN" optional="true"/>
+           	<attribute name="url1" type="String" mode="IN" optional="true"/>
+            <attribute name="url2" type="String" mode="IN" optional="true"/>
+            <attribute name="url3" type="String" mode="IN" optional="true"/>
+            <attribute name="url4" type="String" mode="IN" optional="true"/>
+            <attribute name="url5" type="String" mode="IN" optional="true"/>
+            <attribute name="productStoreGroupId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="ap.updateBusinessUnit" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updateBusinessUnit" >
+        <description> Update Business Unit </description>
+            <attribute name="parentBuId" type="String" mode="IN" optional="true"/>
+            <attribute name="parentBuDesc" type="String" mode="IN" optional="true"/>
+            <attribute name="buType" type="String" mode="IN" optional="true"/>
+            <!-- <attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>-->
+            <attribute name="status" type="String" mode="IN" optional="true"/>
+            <attribute name="buName" type="String" mode="IN" optional="true"/>
+            <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="true"/>
+    </service>
+     <service name="ap.contactAddress" engine="java" location="org.fio.admin.portal.util.DataHelper" invoke="contactAddress">
+         <description> Update Address3 field </description>
+        <attribute name="contactMechId" type="String" mode="IN" optional="false"/>
+        <attribute name="value" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.updatePhoneNumber" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updatePhoneNumber">
+        <description> Update Phone Number </description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="phoneMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="phone" type="String" mode="IN" optional="true"/>
+        <attribute name="phoneUpdateId" type="String" mode="INOUT" optional="true"/>
+   </service>
+   <service name="ap.updateMobileNumber" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updateMobileNumber">
+        <description> Update Mobile Number </description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="mobileMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="mobile" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.updateEmail" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updateEmail">
+        <description> Update Email </description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="emailId" type="String" mode="IN" optional="true"/>
+        <attribute name="email" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.updateWeb" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updateWeb">
+        <description> Update Web</description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="webId" type="String" mode="IN" optional="true"/>
+        <attribute name="web" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.updateAddress" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updateAddress">
+        <description> Update Address</description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="postalId" type="String" mode="IN" optional="true"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="address3" type="String" mode="IN" optional="true"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="stateOrProvince" type="String" mode="IN" optional="true"/>
+        <attribute name="zipOrPostalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="countryOrRegion" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.updateUrl" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="updateUrl">
+        <description> Update Address</description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="url1" type="String" mode="IN" optional="true"/>
+        <attribute name="url2" type="String" mode="IN" optional="true"/>
+        <attribute name="url3" type="String" mode="IN" optional="true"/>
+        <attribute name="url4" type="String" mode="IN" optional="true"/>
+        <attribute name="url5" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.removeUrl" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="removeUrl">
+        <description> Update Address</description>
+        <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="toRemove" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.removePhoneNumber" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="removePhoneNumber">
+       <description> Remove Phone Number </description>
+       <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+       <attribute name="phoneMechId" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.removeMobile" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="removeMobile">
+       <description> Remove Mobile </description>
+       <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+       <attribute name="mobileId" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.removeEmail" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="removeEmail">
+       <description> Remove Email </description>
+       <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+       <attribute name="emailId" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.removeWeb" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="removeWeb">
+       <description> Remove Website </description>
+       <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+       <attribute name="websiteId" type="String" mode="IN" optional="true"/>
+   </service>
+   <service name="ap.removeAddress" engine="java" location="org.fio.admin.portal.organizationHierarchy.businessUnit.BusinessUnitService" invoke="removeAddress">
+       <description> Remove Address </description>
+       <attribute name="productStoreGroupId" type="String" mode="INOUT" optional="false"/>
+       <attribute name="postalId" type="String" mode="IN" optional="true"/>
+   </service>
+   
+    <service name="ap.createParentActivityType" engine="java" location="org.fio.admin.portal.setup.paramUnit.ActivityTypeServices" invoke="createParentActivityType">
+        <description>Create Parent Activity Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="activityParent" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="enumId" mode="OUT" type="String" optional="true"/>
+    </service>
+    
+    <service name="ap.updateParentActivityType" engine="java" location="org.fio.admin.portal.setup.paramUnit.ActivityTypeServices" invoke="updateParentActivityType">
+        <description>Update Parent Activity Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="activityParent" mode="IN" type="String"  optional="false"/>
+        <attribute name="activityParentId" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="enumId" mode="INOUT" type="String" optional="true"/>
+    </service>
+    
+    <service name="ap.createActivityType" engine="java" location="org.fio.admin.portal.setup.paramUnit.ActivityTypeServices" invoke="createActivityType">
+        <description>Create  Activity Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="activityParent" mode="IN" type="String"  optional="false"/>
+        <attribute name="activityType" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        <attribute name="enumId" mode="OUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.updateActivityType" engine="java" location="org.fio.admin.portal.setup.paramUnit.ActivityTypeServices" invoke="updateActivityType">
+        <description>Update  Activity Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="activityParent" mode="IN" type="String"  optional="false"/>
+        <attribute name="activityType" mode="IN" type="String"  optional="false"/>
+        <attribute name="activityTypeId" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="enumId" mode="INOUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.createActivitySubType" engine="java" location="org.fio.admin.portal.setup.paramUnit.ActivityTypeServices" invoke="createActivitySubType">
+        <description>Create Activity Sub Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="activityParent" mode="IN" type="String"  optional="false"/>
+        <attribute name="activityType" mode="IN" type="String"  optional="false"/>
+        <attribute name="activitySubType" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="enumId" mode="OUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.updateActivitySubType" engine="java" location="org.fio.admin.portal.setup.paramUnit.ActivityTypeServices" invoke="updateActivitySubType">
+        <description>Update Activity Sub Type</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+         <attribute name="activityParent" mode="IN" type="String"  optional="false"/>
+        <attribute name="activityType" mode="IN" type="String"  optional="false"/>
+        <attribute name="activitySubType" mode="IN" type="String"  optional="false"/>
+        <attribute name="activitySubTypeId" mode="IN" type="String"  optional="false"/>
+        <attribute name="sequenceNumber" mode="IN" type="String"  optional="true"/>
+        <attribute name="status" mode="IN" type="String"  optional="false"/>
+        
+        <attribute name="enumId" mode="INOUT" type="String"  optional="true"/>
+    </service>
+    
+    <service name="ap.createTeams" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="createTeam">
+        <description> Create Teams </description>
+        <attribute name="teamId" type="String" mode="IN" optional="false"/>
+        <attribute name="businessUnit" type="String" mode="IN" optional="true"/>
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="emplTeamId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="ap.updateTeam" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="updateTeam">
+        <description> Update Teams </description>
+        <attribute name="teamName" type="String" mode="IN" optional="false"/>
+       <!--  <attribute name="businessUnit" type="String" mode="IN" optional="true"/>--> 
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="emplTeamId" type="String" mode="INOUT" optional="false"/>
+    </service>
+    <service name="ap.addUserToTeam" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="addUserToTeam">
+        <description> Add members </description>
+        <attribute name="newPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="emplTeamId" type="String" mode="INOUT" optional="true"/>
+    </service>
+    <service name="ap.removeMember" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="removeMember" auth="true" transaction-timeout="200000">
+        <description>Remove member from a team</description>
+        <attribute name="emplTeamId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="newPartyIds" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="ap.addMembers" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="addMembers" auth="true" transaction-timeout="200000">
+        <description>Add member for a team</description>
+        <attribute name="emplTeamId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="newPartyId" type="String" mode="IN" optional="true"/>
+    </service>
+     <service name="ap.addLeaders" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="addLeaders" auth="true" transaction-timeout="200000">
+        <description>Add Leader for a team</description>
+        <attribute name="emplTeamId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="newPartyIdLeader" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.updateTeamRole" engine="java" location="org.fio.admin.portal.organizationHierarchy.teams.TeamService" invoke="updateTeamRole" auth="true" transaction-timeout="200000">
+        <description>Update Team Role</description>
+        <attribute name="emplTeamId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="partyUser" type="String" mode="IN" optional="true"/>
+        <attribute name="roleofteam" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.createAlert" engine="java" location="org.fio.admin.portal.setup.paramUnit.AlertCategoryServices" invoke="createAlert" auth="true">
+        <description>Create Alert Category</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="alertName" type="String" mode="IN" optional="true"/>
+        <attribute name="alertType" type="String" mode="IN" optional="true"/>
+        <attribute name="alertPriority" type="String" mode="IN" optional="true"/>
+        <attribute name="autoClosure" type="String" mode="IN" optional="true"/>
+        <attribute name="duration" type="String" mode="IN" optional="true"/>
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="remarks" type="String" mode="IN" optional="true"/>
+        <attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="alertCategoryId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="ap.updateAlert" engine="java" location="org.fio.admin.portal.setup.paramUnit.AlertCategoryServices" invoke="updateAlert" auth="true">
+        <description>Update Alert Category</description>
+        
+        <implements service="homeapps.userAuditInterface"/>
+        
+        <attribute name="alertName" type="String" mode="IN" optional="true"/>
+        <attribute name="alertType" type="String" mode="IN" optional="true"/>
+        <attribute name="alertPriority" type="String" mode="IN" optional="true"/>
+        <attribute name="autoClosure" type="String" mode="IN" optional="true"/>
+        <attribute name="duration" type="String" mode="IN" optional="true"/>
+        <attribute name="status" type="String" mode="IN" optional="true"/>
+        <attribute name="remarks" type="String" mode="IN" optional="true"/>
+        <attribute name="sequenceNumber" type="String" mode="IN" optional="true"/>
+        
+        <attribute name="alertCategoryId" type="String" mode="INOUT" optional="true"/>
+    </service>
+    <service name="ap.createParameter" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="createParameter">
+        <description>Create Global Parameter</description>
+        <attribute name="sections" type="String" mode="IN" optional="false"/>
+        <attribute name="parameterName" type="String" mode="IN" optional="false"/>
+        <attribute name="parameterId" type="String" mode="IN" optional="false"/>
+        <attribute name="parameterValue" type="String" mode="IN" optional="true"/>
+    </service>
+     <service name="ap.updateParameter" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="updateParameter">
+        <description>Create Global Parameter</description>
+        <attribute name="paramId" type="String" mode="IN" optional="false"/>
+        <attribute name="value" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.createSection" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="createSection">
+        <description>Create Global Parameter Section</description>
+        <attribute name="newSection" type="String" mode="IN" optional="false"/>
+    </service>
+    <service name="createScreenConfigService" engine="simple" location="component://admin-portal/script/org/groupfio/admin-portal/AdminPortalServices.xml" invoke="createScreenConfigService" auth="true">
+        <description>Create Screen Configurations.</description>
+        <!--<permission-service service-name="custRequestPermissionCheck" main-action="CREATE"/>-->
+        <attribute name="clsId" type="String" mode="IN" optional="true"/>
+        <attribute name="mountPoint" type="String" mode="IN" optional="false"/>
+        <attribute name="layout" type="String" mode="IN" optional="false"/>
+        <attribute name="screen" type="String" mode="IN" optional="false"/>
+        <attribute name="requestUri" type="String" mode="IN" optional="false"/>
+        <attribute name="screenService" type="String" mode="IN" optional="false"/>
+        <attribute name="dataList" type="List" mode="IN" optional="true"/>
+    </service>
+    <service name="createComponentLayoutScreen" engine="simple" default-entity-name="ComponentLayoutScreen"
+             location="component://admin-portal/script/org/groupfio/admin-portal/AdminPortalServices.xml" invoke="createComponentLayoutScreen" auth="true">
+        <description>Create Component Layout Screen.</description>
+        <!--<permission-service service-name="custRequestPermissionCheck" main-action="CREATE"/>-->
+        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="all" mode="IN" entity-name="ComponentLayoutScreen" optional="true"/>
+    </service>
+    <service name="createScreenSpecification" engine="simple" default-entity-name="ScreenSpecification"
+             location="component://admin-portal/script/org/groupfio/admin-portal/AdminPortalServices.xml" invoke="createScreenSpecification" auth="true">
+        <description>Create Screen Specification.</description>
+        <!--<permission-service service-name="custRequestPermissionCheck" main-action="CREATE"/>-->
+        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <auto-attributes include="all" mode="IN" entity-name="ScreenSpecification" optional="true"/>
+    </service>
+    <service name="editScreenConfigService" engine="java" location="org.fio.admin.portal.service.ConfigurableScreenServices" invoke="editScreenConfigService" auth="true">
+        <description>Edit Screen Configurations.</description>
+        <!--<permission-service service-name="custRequestPermissionCheck" main-action="CREATE"/>-->
+        <attribute name="clsId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="mountPoint" type="String" mode="IN" optional="false"/>
+        <attribute name="layout" type="String" mode="IN" optional="false"/>
+        <attribute name="screen" type="String" mode="IN" optional="false"/>
+        <attribute name="requestUri" type="String" mode="IN" optional="false"/>
+        <attribute name="screenService" type="String" mode="IN" optional="false"/>
+        <attribute name="dataList" type="List" mode="IN" optional="true"/>
+    </service>
+    <service name="createOpportunityConfig" engine="java" location="org.fio.admin.portal.service.OpportunityConfigServices" invoke="createOpportunityConfig" auth="true">
+        <description>Opportunity Config Services</description>
+        <attribute name="responseTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="parentEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="typeId" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="enumId" type="String" mode="OUT" optional="true"/>
+    </service>
+     <service name="createOppoConfigReason" engine="java" location="org.fio.admin.portal.service.OpportunityConfigServices" invoke="createOppoConfigReason" auth="true">
+        <description>Opportunity Config Services</description>
+        <attribute name="responseTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="parentEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="typeId" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="enumId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="updateOpportunityConfig" engine="java" location="org.fio.admin.portal.service.OpportunityConfigServices" invoke="updateOpportunityConfig" auth="true">
+        <description>Update Opportunity Config</description>
+        <attribute name="enumId" type="String" mode="IN" optional="false"/>
+          <attribute name="parentEnumId" type="String" mode="IN" optional="true"/>
+        <attribute name="typeId" type="String" mode="IN" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="enumId" type="String" mode="OUT" optional="true"/>
+    </service>
+     <service name="updateOppoResReasonConfig" engine="java" location="org.fio.admin.portal.service.OpportunityConfigServices" invoke="updateOppoResReasonConfig" auth="true">
+        <description>edit Oppo Config</description>
+        <attribute name="enumId" type="String" mode="IN" optional="false"/>
+        <attribute name="parentEnumId" type="String" mode="IN" optional="true"/>
+         <attribute name="responseTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="typeId" type="String" mode="IN" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="enumId" type="String" mode="OUT" optional="true"/>
+    </service>
+    <service name="globalMessageCreation" engine="java" location="org.fio.admin.portal.service.OpportunityConfigServices" invoke="globalMessageCreation" auth="true">
+        <description>Global Message Config Service</description>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="false"/>
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+        <attribute name="componentId" type="String" mode="IN" optional="false"/>
+        <attribute name="fromDate" type="String" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    
+     <service name="processGlobalMessageUpdate" engine="java" location="org.fio.admin.portal.service.OpportunityConfigServices" invoke="processGlobalMessageUpdate" auth="true">
+        <description>Update Global Message Config Service</description>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="componentId" type="String" mode="IN" optional="true"/>
+        <attribute name="fromDate" type="String" mode="IN" optional="false"/>
+        <attribute name="thruDate" type="String" mode="IN" optional="true"/>
+        <attribute name="description" type="String" mode="IN" optional="false"/>
+        <attribute name="isEnabled" type="String" mode="IN" optional="false"/>
+        <attribute name="partyId" type="String" mode="IN" optional="true"/>
+       
+    </service>
+    
+    <service name="ap.addCustomSecurityGroup" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="addCustomSecurityGroup">
+        <description>Create security group</description>
+        <attribute name="userLoginId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="selectedGroupIds" type="String" mode="IN" optional="false"/>
+        <attribute name="activeTab" mode="OUT" type="String" optional="true"/>
+    </service>
+     <service name="ap.storeWorkingHrs" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="storeWorkingHrs">
+        <description>Create Global Parameter</description>
+        <attribute name="workStartTime" type="String" mode="IN" optional="false"/>
+        <attribute name="workEndTime" type="String" mode="IN" optional="false"/>
+       
+    </service>
+    
+     <service name="ap.createAndUpdateDefaultValues" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="createAndUpdateDefaultValues">
+        <description>Create/update default values</description>
+        <attribute name="sections" type="String" mode="IN" optional="true"/>
+        <attribute name="parameterName" type="String" mode="IN" optional="false"/>
+        <attribute name="parameterId" type="String" mode="IN" optional="false"/>
+        <attribute name="generalCountryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="ownerPartyId" type="String" mode="IN" optional="true"/>
+        <attribute name="currencyUomId" type="String" mode="IN" optional="true"/>
+        <attribute name="defaultSrSla" type="String" mode="IN" optional="true"/>
+        <attribute name="defaultSrSlaUnit" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.productCatalogCreation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productCatalogCreation">
+        <description>Create Product Catalog</description>
+        
+        <attribute name="productCatalog" mode="IN" type="String"  optional="false"/>
+        <attribute name="prodCatalogId"  mode="OUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="ap.productCatalogUpdation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productCatalogUpdation">
+        <description>Update Product Catalog</description>
+        
+        <attribute name="productCatalog" mode="IN" type="String"  optional="false"/>
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="ap.productCategoryCreation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productCategoryCreation">
+        <description>Create Product Category</description>
+        
+        <attribute name="categoryName" mode="IN" type="String"  optional="false"/>
+        <attribute name="productCategoryId" mode="OUT" type="String"  optional="false"/>       
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="ap.productCategoryUpdation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productCategoryUpdation">
+        <description>Update Product Category</description>
+        
+        <attribute name="categoryName" mode="IN" type="String"  optional="false"/>
+        <attribute name="productCategoryId" mode="INOUT" type="String"  optional="false"/>       
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="ap.productSubCategoryCreation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productSubCategoryCreation">
+        <description>Create Product Sub Category</description>
+        
+        <attribute name="subCategoryName" mode="IN" type="String"  optional="false"/>
+        <attribute name="productCategoryId" mode="INOUT" type="String"  optional="false"/>       
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+        <attribute name="subCategoryId" mode="OUT" type="String"  optional="false"/>
+    </service>
+    <service name="ap.productSubCategoryUpdation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productSubCategoryUpdation">
+        <description>Update Product Category</description>
+        
+        <attribute name="subCategoryName" mode="IN" type="String"  optional="false"/>
+        <attribute name="productCategoryId" mode="INOUT" type="String"  optional="false"/>       
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+        <attribute name="subCategoryId" mode="INOUT" type="String"  optional="false"/>
+    </service>
+    <service name="ap.productCreation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productCreation">
+        <description>Create Product </description>
+        
+        <attribute name="product"  mode="IN" type="String" optional="false"/>
+        <attribute name="productCategoryId" mode="INOUT" type="String"  optional="false"/>       
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+        <attribute name="subCategoryId" mode="INOUT" type="String"  optional="false"/>
+        <attribute name="productId" mode="OUT" type="String"  optional="false"/>
+    </service>
+    <service name="ap.productUpdation" engine="java" location="org.fio.admin.portal.setup.product.ConfigureProduct" invoke="productUpdation">
+        <description>Update Product </description>
+        
+        <attribute name="product"  mode="IN" type="String" optional="false"/>
+        <attribute name="productCategoryId" mode="INOUT" type="String"  optional="false"/>       
+        <attribute name="prodCatalogId"  mode="INOUT" type="String" optional="true"/>
+        <attribute name="isEnable"  mode="IN" type="String" optional="false"/>
+        <attribute name="sequenceNumber"  mode="IN" type="String" optional="true"/>
+        <attribute name="subCategoryId" mode="INOUT" type="String"  optional="false"/>
+        <attribute name="productId" mode="INOUT" type="String"  optional="false"/>
+    </service>
+    
+    <service name="createAndUpdateSmtpValues" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="createAndUpdateSmtpValues">
+        <description>Create system Parameter</description>
+        <attribute name="mail.notifications.enabled" type="String" mode="IN" optional="false"/>
+        <attribute name="mailEngine" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.relay.host" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.auth.user" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.auth.password" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.port" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.starttls.enable" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.socketFactory.port" type="String" mode="IN" optional="false"/>
+        <attribute name="mail.smtp.auth.require" type="String" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="admin.createTemplateCategory" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="createTemplateCategory">
+        <description>Create template Category</description>
+        <implements service="admin.templateCategoryInterface"/>
+        <attribute name="templateCategoryId" type="String" mode="OUT" optional="false"/>
+    </service>
+    <service name="admin.updateTemplateCategory" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="updateTemplateCategory">
+        <description>Create template Category</description>
+        <implements service="admin.templateCategoryInterface"/>
+        <attribute name="templateCategoryId" type="String" mode="INOUT" optional="true"/>
+    </service>
+     <service name="admin.templateCategoryInterface" engine="interface" location="" invoke="">
+        <attribute name="parentTemplateCategoryId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="templateCategoryId" type="String" mode="IN" optional="false"/>
+        <attribute name="templateCategoryName" type="String" mode="IN" optional="false"/>
+        <attribute name="isEnable" type="String" mode="IN" optional="false"/>
+        <attribute name="sequence" type="String" mode="IN" optional="true"/>
+    </service>
+    <service name="ap.createAndUpdateSftpValues" engine="java" location="org.fio.admin.portal.setup.globalParameter.globalParameterService" invoke="createAndUpdateSftpValues">
+        <description>Create system Parameter</description>
+        <attribute name="host" type="String" mode="IN" optional="false"/>
+        <attribute name="location" type="String" mode="IN" optional="false"/>
+        <attribute name="password" type="String" mode="IN" optional="false"/>
+        <attribute name="port" type="String" mode="IN" optional="false"/>
+        <attribute name="user" type="String" mode="IN" optional="false"/>
+    </service>
+     <service name="ap.addCustomSecurityGroupForInviteUsers" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="addCustomSecurityGroupForInviteUsers">
+        <description>Create security group</description>
+        <attribute name="userLoginId" type="String" mode="INOUT" optional="false"/>
+        <attribute name="selectedGroupIds" type="List" mode="IN" optional="false"/>
+    </service>
+    
+    <service name="ap.updateSecurityPartyInfo" engine="java" location="org.fio.admin.portal.service.SecurityServices" invoke="updateSecurityPartyInfo">
+    	<description>Update the security information to support security matrix</description>
+    	<attribute name="partyId" type="String" mode="IN" optional="false" />
+    	<attribute name="userLoginId" type="String" mode="IN" optional="false" />
+    	<attribute name="ownerId" type="String" mode="IN" optional="false" />
+    	<attribute name="roleTypeId" type="String" mode="IN" optional="true" />
+    	<attribute name="ownerBu" type="String" mode="IN" optional="true" />
+    	<attribute name="ownerTeam" type="String" mode="IN" optional="true" />
+    </service>
+    <service name="ap.updateUser" engine="java" location="org.fio.admin.portal.service.UserServices" invoke="updateUser">
+        <auto-attributes entity-name="Person" mode="IN" optional="true"/>
+        <auto-attributes entity-name="TelecomNumber" include="nonpk" mode="IN" optional="true"/>
+        <attribute name="userName" type="String" mode="IN" optional="true"/>
+        <attribute name="isLdapUser" type="String" mode="IN" optional="true"/>
+        <attribute name="password" type="String" mode="IN" optional="true"/>
+        <attribute name="roleTypeId" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryEmail" type="String" mode="IN" optional="true"/>
+        <attribute name="primaryPhoneNumber" type="String" mode="IN" optional="true"/>
+        <attribute name="extension" type="String" mode="IN" optional="true"/>
+        <attribute name="userStatus" type="String" mode="IN" optional="true"/>
+        <attribute name="securityGroupId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="emailContactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="contactNumberContactMechId" type="String" mode="IN" optional="true"/>
+        <attribute name="generalAttnName" type="String" mode="IN" optional="true"/>
+        <attribute name="generalAddress1" type="String" mode="IN" optional="true"/>
+        <attribute name="generalAddress2" type="String" mode="IN" optional="true"/>
+        <attribute name="generalCity" type="String" mode="IN" optional="true"/>
+        <attribute name="generalCountryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="stateGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="generalPostalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="generalPostalCodeExt" type="String" mode="IN" optional="true"/>
+        <attribute name="location" type="String" mode="IN" optional="true"/>
+        <attribute name="userLoginId" type="String" mode="OUT" optional="true"/>
+        <attribute name="bDate" mode="IN" type="String" optional="true"/>
+        <attribute name="occupationalGroup" type="String" mode="IN" optional="true"/>
+        <attribute name="userPartyId" type="String" mode="IN" optional="true"/>
+        <override name="firstName" optional="false"/>
+        <override name="lastName" optional="false"/>
+    </service>
+    
+    <service name="ap.createPartyCustomField" engine="java" location="org.fio.admin.portal.service.CommonServices" invoke="createNonPartyCustomField" >
+    	<description>Load the custom data for the party entity</description>
+    	<attribute name="requestContext" mode="IN" type="Map" optional="false"/>
+    </service>
+    
+    <service name="ap.createNonPartyCustomField" engine="java" location="org.fio.admin.portal.service.CommonServices" invoke="createNonPartyCustomField" >
+    	<description>Load the custom data for the non party entity</description>
+    	<attribute name="requestContext" mode="IN" type="Map" optional="false"/>
+    </service>
+    
+    <service name="ap.activateDeactivateParty" engine="java" location="org.fio.admin.portal.service.CommonServices" invoke="activateDeactivateParty">
+    	<description>Deactivate party and userlogin</description>
+    	<attribute name="partyId" mode="INOUT" type="String" optional="false"/>
+    	<attribute name="enabled" mode="IN" type="String" optional="false"/>
+    </service>
+    <!-- Component management starts here -->
+    <service name="ap.components" engine="java" location="org.fio.admin.portal.service.ComponentManagement" invoke="updateComponent">
+    	<attribute name="componentId" mode="IN" type="String" optional="false"/>
+    	<attribute name="uiLabels" mode="IN" type="String" optional="false"/>
+    	<attribute name="isHide" mode="IN" type="String" optional="true"/>
+    	<attribute name="requestUri" mode="IN" type="String" optional="true"/>
+    </service>
+    
+	<service name="ap.shortcuts" engine="java" location="org.fio.admin.portal.service.ComponentManagement" invoke="updateTabShortcut">
+    	<attribute name="tabId" mode="IN" type="String" optional="true"/>
+    	<attribute name="pageId" mode="IN" type="String" optional="true"/>
+    	<attribute name="permissionId" mode="IN" type="String" optional="true"/>
+    	<attribute name="componentId" mode="IN" type="String" optional="true"/>
+    	<attribute name="tabName" mode="IN" type="String" optional="false"/>
+    	<attribute name="requestUri" mode="IN" type="String" optional="true"/>
+    	<attribute name="isDisabled" mode="IN" type="String" optional="true"/>
+    </service>
+    <service name="ap.menus" engine="java" location="org.fio.admin.portal.service.ComponentManagement" invoke="updateSubMenu">
+		<attribute name="tabId" mode="IN" type="String" optional="true"/>
+		<attribute name="pageId" mode="IN" type="String" optional="false"/>
+		<attribute name="permissionId" mode="IN" type="String" optional="true"/>
+		<attribute name="componentId" mode="IN" type="String" optional="true"/>
+		<attribute name="shortcutId" mode="IN" type="String" optional="true"/>
+		<attribute name="tabName" mode="IN" type="String" optional="true"/>
+		<attribute name="requestUri" mode="IN" type="String" optional="true"/>
+		<attribute name="isDisabled" mode="IN" type="String" optional="true"/>
+	</service>
+	<!-- Component management ends here -->
+	
+	<service name="ap.getNavTabConfiguration" engine="java" location="org.fio.admin.portal.service.CommonServices" invoke="getNavTabConfiguration">
+		<attribute name="componentId" mode="IN" type="String" />
+		<attribute name="tabConfigId" mode="IN" type="String" />
+		<attribute name="hideTabIds" mode="IN" type="String" optional="true" />
+		<attribute name="session" type="javax.servlet.http.HttpSession" mode="IN" optional="true"/>
+		<attribute name="responseCode" mode="OUT" type="String" optional="true" />
+		<attribute name="tabConfiguration" type="Map" mode="OUT" optional="true" />
+	</service>
+	<!-- SendGrid Setup starts here -->
+	<service name="ap.createOrUpdateSendGridConfig" engine="java" location="org.fio.admin.portal.service.SendGridConfigServices" invoke="createOrUpdateSendGridConfig">
+		<attribute name="requestContext" mode="IN" type="Map" optional="true" />
+		<attribute name="data" mode="OUT" type="List" optional="true" />
+		<attribute name="results" mode="OUT" type="Map" optional="true" />
+	</service>
+	<!-- SendGrid Setup ends here-->
+	
+	<service name="ap.sendSandboxSms" engine="java" location="org.fio.admin.portal.service.CommonServices" invoke="sendSandboxSms">
+		<attribute name="requestContext" mode="IN" type="Map" optional="true" />
+		<attribute name="results" mode="OUT" type="Map" optional="true" />
+	</service>
+	
+	<service name="notificationEventInterface" engine="interface" >
+		<attribute name="entityName" mode="INOUT" type="String" optional="true" />
+		<attribute name="entityId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="eventType" mode="INOUT" type="String" optional="true"/>
+		<attribute name="eventDate" mode="INOUT" type="Timestamp" optional="true"/>
+		<attribute name="eventName" mode="INOUT" type="String" optional="true"/>
+		<attribute name="eventDescription" mode="INOUT" type="String" optional="true"/>
+		<attribute name="eventUrl" mode="INOUT" type="String" optional="true"/>
+		<attribute name="customFieldGroupId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="customFieldId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="domainEntityId" mode="INOUT" type="String" optional="true"/>
+		<attribute name="domainEntityType" mode="INOUT" type="String" optional="true"/>
+		<attribute name="entityOwnerId" mode="INOUT" type="String" optional="true"/>
+	</service>
+	
+	<service name="ap.customerSearchHistory" engine="java" location="org.fio.admin.portal.service.CommonServices" invoke="customerSearchHistory" >
+		<description>Find the successor party based on the given information</description>
+		<attribute name="partyId" mode="IN" type="String" optional="false"/>
+		<attribute name="staffName" mode="IN" type="String" optional="false"/>
+		<attribute name="storeId" mode="IN" type="String" optional="true"/>
+		<attribute name="purposeType" mode="IN" type="String" optional="true"/>
+		<attribute name="result" mode="OUT" type="Map" optional="true" />
+	</service>
+	<service name="getSampleRequest" engine="java" auth="false" location="org.fio.admin.portal.service.CommonServices" invoke="getSampleRequest">
+		<description>Create Care Taker</description>
+		<attribute name="serviceName" type="String" allow-html="any" mode="IN" optional="true"/>
+		<attribute name="XmlOutput" type="String" allow-html="any" mode="OUT" optional="true"/>
+	</service>
+</services>

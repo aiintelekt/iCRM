@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>admin-portal Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="admin.sqlGroupInterface" engine="interface" location="" invoke="">
+    	<attribute name="sqlGroupName" type="String" mode="IN" optional="false"/>
+        <attribute name="description" type="String" mode="IN" optional="true"/>
+        <attribute name="isEnabled" type="String" mode="IN" optional="false"/>
+        
+        <attribute name="sqlGroupId" type="String" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="admin.createSqlGroup" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+    	location="org.fio.admin.portal.service.SqlGroupServices" invoke="createSqlGroup">
+        <description>Create SqlGroup</description>
+        <implements service="admin.sqlGroupInterface"/>
+    </service>
+    
+    <service name="admin.updateSqlGroup" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+    	location="org.fio.admin.portal.service.SqlGroupServices" invoke="updateSqlGroup">
+        <description>Update SqlGroup</description>
+        <implements service="admin.sqlGroupInterface"/>
+    </service>
+    
+    <service name="admin.findSqlGroup" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+             location="org.fio.admin.portal.service.SqlGroupServices" invoke="findSqlGroup">
+       	<description> Find SqlGroup </description>
+       	
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		       	
+       	<attribute name="dataList" type="List" mode="OUT" optional="true"/>
+       	<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+	   	<attribute name="viewIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="highIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="lowIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="viewSize" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="resultListSize" type="Integer" mode="OUT" optional="true"/>
+    </service>
+    
+    <service name="admin.findSqlGroupItem" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+             location="org.fio.admin.portal.service.SqlGroupServices" invoke="findSqlGroupItem">
+       	<description> Find SqlGroup Item</description>
+       	
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		       	
+       	<attribute name="dataList" type="List" mode="OUT" optional="true"/>
+       	<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+	   	<attribute name="viewIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="highIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="lowIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="viewSize" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="resultListSize" type="Integer" mode="OUT" optional="true"/>
+    </service>
+    
+</services>

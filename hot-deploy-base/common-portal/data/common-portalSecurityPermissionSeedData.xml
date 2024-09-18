@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the common-portal Component." permissionId="common-portal_VIEW"/>
+    <SecurityPermission description="Create operations in the common-portal Component." permissionId="common-portal_CREATE"/>
+    <SecurityPermission description="Update operations in the common-portal Component." permissionId="common-portal_UPDATE"/>
+    <SecurityPermission description="Delete operations in the common-portal Component." permissionId="common-portal_DELETE"/>
+    <SecurityPermission description="ALL operations in the common-portal Component." permissionId="common-portal_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="common-portal_ADMIN"/>
+
+</entity-engine-xml>

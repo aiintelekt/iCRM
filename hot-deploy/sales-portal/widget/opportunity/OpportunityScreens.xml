@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+	<screen name="findOpportunity">
+		<section>
+		<actions>
+        <set field="titleProperty" value="Find Opportunity" global="true"/>
+        <set field="sectionName" value="sales-portal" global="true"/>
+        </actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/findOpportunities.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="viewOpportunity">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/viewOpportunity.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="opportunityDetails">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/opportunityDetails.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="customerResponse">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/customerResponse.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="straightThroughProcessing">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/straightThroughProcessing.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="offer">
+		<section>
+			<actions>
+				<script location="component://sales-portal/webapp/sales-portal/WEB-INF/action/opportunity/offer.groovy"/>
+			</actions>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/offer.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="relatedOpportunities">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/relatedOpportunities.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="notesAndAttachment">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/notesAndAttachment.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="administration">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/administration.ftl" />
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="customerRowCommon">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								 <html-template location="component://sales-portal/webapp/sales-portal/Opportunity/customerRowCommon.ftl"/>
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="cusNameCommonActivity">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								 <html-template location="component://sales-portal/webapp/sales-portal/Opportunity/cusNameCommonActivity.ftl"/>
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="customerRowAddOpportunity">
+		<section>
+			<widgets>
+				<platform-specific>
+					<html>
+						<html-template location="component://sales-portal/webapp/sales-portal/Opportunity/customerRowAddOpportunity.ftl"/>
+					</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="tabActivity">
+		<section>
+			<widgets>
+				
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Activity/tabActivity.ftl" />
+							</html>
+						</platform-specific>
+					
+			</widgets>
+		</section>
+	</screen> 
+ <screen name="findActivity">
+		<section>
+		<actions>
+        <set field="titleProperty" value="Find Sales Activity" global="true"/>
+         <set field="sectionName" value="sales-portal" global="true"/>
+        </actions>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Activity/findActivity.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen> 
+	
+	<screen name="cusNameCommon">
+		<section>
+			<widgets>
+					
+					<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/CusNameCommon.ftl" />
+							</html>
+						</platform-specific>						
+									
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="viewCustomerAlerts">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/Opportunity/viewCustomerAlerts.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen> 
+	<screen name="ActivityView">
+		<section>
+			<widgets>
+				<decorator-screen name="main-decorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="top-content">
+						<platform-specific>
+							<html>
+								<html-template
+									location="component://sales-portal/webapp/sales-portal/activities-home/activityViewed.ftl" />
+							</html>
+						</platform-specific>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+	<screen name="customerRowCommonActivity">
+		<section>
+			<widgets>
+				<platform-specific>
+							<html>
+								 <html-template location="component://sales-portal/webapp/sales-portal/Opportunity/customerRowCommonActivity.ftl"/>
+							</html>
+				</platform-specific>
+			</widgets>
+		</section>
+	</screen>
+	
+</screens>

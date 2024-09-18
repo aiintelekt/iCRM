@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of lead-service Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+	    
+    <entity entity-name="LeadHistory"
+            package-name="org.groupfio.lead.service"
+            title="LeadHistory Entity">
+            
+      	<field name="leadHistoryId" type="id-ne"></field>
+      	<field name="partyId" type="id-ne"></field>
+      
+      	<field name="leadName" type="name"></field>
+      	<field name="personResponsibleId" type="id"></field>
+      	<field name="groupNameLocal" type="name"></field>
+      	<field name="industryEnumId" type="id"></field>
+      	<field name="sicCode" type="id"></field>
+      	<field name="ownershipEnumId" type="id"></field>
+      	<field name="timeZoneId" type="id"></field>
+      	<field name="annualRevenue" type="currency-amount"></field>
+      	<field name="numberEmployees" type="numeric"></field>
+      	<field name="currencyUomId" type="id"></field>
+      	<field name="tickerSymbol" type="id"></field>
+      	<field name="description" type="very-long"></field>
+      	<field name="statusId" type="id"></field>
+      	
+      	<field name="createdDate" type="date-time"></field>
+		<field name="lastModifiedDate" type="date-time"></field>
+       	<field name="createdByUserLogin" type="id"></field>
+		<field name="lastModifiedByUserLogin" type="id"></field>
+      	
+      	<prim-key field="leadHistoryId"/>
+      	<prim-key field="partyId"/>
+    </entity>
+    
+    <entity entity-name="LeadEventHistory"
+            package-name="org.groupfio.rebate.service"
+            title="LeadEventHistory Entity">
+      	
+      	<field name="historyId" type="id-ne"></field>
+        
+      	<field name="partyId" type="id-ne"></field>
+      	<field name="eventTypeId" type="id-ne"></field>
+      	<field name="eventDate" type="date-time"></field>
+      
+      	<field name="createdByUserLogin" type="id"></field>
+      	<field name="ipAddress" type="id"></field>
+      	<field name="createdByEmailAddress" type="id"></field>
+      	<field name="description" type="very-long"></field>
+		      	      
+      	<prim-key field="historyId"/>
+    </entity>
+    
+</entitymodel>

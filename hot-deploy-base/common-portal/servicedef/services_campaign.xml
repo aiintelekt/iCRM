@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>common-portal Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="noSyntaxError" engine="interface">
+        <description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+    </service> 
+    
+    <service name="common.findCampaign" engine="java" use-transaction="true" auth="true" transaction-timeout="180"
+             location="org.groupfio.common.portal.service.CampaignServices" invoke="findCampaign">
+       	<description> Find Campaign </description>
+       	
+       	<attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+		       	
+       	<attribute name="dataList" type="List" mode="OUT" optional="true"/>
+       	<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+	   	<attribute name="viewIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="highIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="lowIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="viewSize" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="resultListSize" type="Integer" mode="OUT" optional="true"/>
+    </service>
+    
+    <!-- Out Bound Call List [Start] -->
+	<service name="common.findOutBoundCall" engine="java" location="org.groupfio.common.portal.service.CampaignServices" invoke="findOutBoundCall">
+		<description> Find Outbound Call List - Common </description>
+		
+		<attribute name="requestContext" mode="IN" type="Map" optional="true" />
+		
+		<attribute name="dataList" type="List" mode="OUT" optional="true"/>
+       	<attribute name="errorMsg" type="String" mode="OUT" optional="true"/>
+	   	<attribute name="viewIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="highIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="lowIndex" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="viewSize" type="Integer" mode="OUT" optional="true"/>
+	   	<attribute name="resultListSize" type="Integer" mode="OUT" optional="true"/>
+	</service>
+	<!-- Out Bound Call List [End] -->
+	
+	<service name="common.prepareCampaignEmailData" engine="java" use-transaction="true" auth="true" transaction-timeout="120"
+    	location="org.groupfio.sendgrid.portal.services.SendgridServices" invoke="prepareCampaignEmailData">
+    	<description>Prepare campaign email data</description>
+        <attribute name="requestContext" type="Map" mode="IN" optional="true"/>
+        <attribute name="responseContext" type="Map" mode="OUT" optional="true"/>
+    </service>
+	    
+</services>

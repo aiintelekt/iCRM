@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<!-- The controller elements that are common to all OFBiz components can 
+		be found in the following xml file. A component can override the elements 
+		found in the common-controller.xml file. -->
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<include location="component://admin-portal/webapp/admin-portal/WEB-INF/controller.xml"/>
+
+	<description>SalesPortal Component Site Configuration File</description>
+
+	<!-- Events to run on every request before security (chains exempt) -->
+	<!-- <preprocessor> </preprocessor> -->
+	<!-- Events to run on every request after all other processing (chains exempt) -->
+	<!-- <postprocessor> <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" 
+		invoke="test"/> </postprocessor> -->
+
+	<!-- Request Mappings -->
+	<request-map uri="main">
+		<security https="false" auth="false" />
+		<response name="success" type="request" value="checkLogin" />
+	</request-map>
+	
+	<request-map uri="getEmplTeam">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getEmplTeam" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<!-- <request-map uri="UpdateEmplTeam">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="UpdateEmplTeam" />
+		<response name="success" type="request-redirect" value="findOpportunity" />
+		<response name="error" type="none" />
+	</request-map> -->
+
+	<request-map uri="getRelatedOpportunityData">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getRelatedOpportunityData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getOpportunityResponseType">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.admin.portal.event.AjaxEvents"
+			invoke="getOpportunityResponseType" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getOpportunityResponseReason">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.admin.portal.event.AjaxEvents"
+			invoke="getOpportunityResponseReason" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="viewOpportunity"> 
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="setSalesLoginHistory"/>
+        <response name="success" type="view" value="viewOpportunity" />
+        <response name="error" type="view" value="viewOpportunity" />
+    </request-map>
+
+	<request-map uri="viewActivity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="setSalesLoginHistory"/>
+		<response name="success" type="view" value="viewActivity" />
+		<response name="error" type="view" value="viewActivity" />
+	</request-map>
+
+	<request-map uri="findOpportunity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="findOpportunity" />
+		<response name="error" type="view" value="findOpportunity" />
+	</request-map>
+	<request-map uri="findActivity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="findActivity" />
+		<response name="error" type="view" value="findActivity" />
+	</request-map>
+	<request-map uri="findProspect">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="findProspect" />
+		<response name="error" type="view" value="findProspect" />
+	</request-map>
+	<request-map uri="getActivity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getActivity" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getActivityData">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getActivityData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getActivityDataForOpportunity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			   invoke="getActivityDataForOpportunity" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getviewopp">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getviewopp" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getOpportunity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getOpportunity" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getProspect">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getProspect" />
+		<response name="success" type="view" value="findProspect" />
+		<response name="error" type="view" value="findProspect" />
+	</request-map>
+	<!-- tele sales -->
+
+	<request-map uri="getMyCall">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getMyCall" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="teleSales">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="teleSales" />
+	</request-map>
+
+	<request-map uri="getTeleSales">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getTeleSales" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="viewProspect">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewProspect" />
+		<response name="error" type="view" value="viewProspect" />
+	</request-map>
+	<request-map uri="activityHome">
+		<security https="false" auth="false" />
+		<response name="success" type="view" value="activityHome" />
+	</request-map>
+
+	<request-map uri="getactivityHome">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="getactivityHome" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getActivityCounts">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="getActivityCounts" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="opportunity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="opportunity" />
+	</request-map>
+
+	<request-map uri="activityTask">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="activityTask" />
+	</request-map>
+
+	<request-map uri="salesAddTaskEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect-noparam" value="findActivity" />
+		<response name="error" type="request-redirect-noparam" value="activityTask" />
+	</request-map>
+	<request-map uri="addSalesTaskEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			   invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId"/>
+		</response>
+		<response name="error" type="view" value="activityTask" />
+	</request-map>
+	<request-map uri="getIASubTypes">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.admin.portal.util.TripletUtil"
+			invoke="getIASubTypes" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="activityPhoneCall">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="activityPhoneCall" />
+	</request-map>
+
+	<request-map uri="activityEmail">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="activityEmail" />
+	</request-map>
+
+	<request-map uri="activityAppoinment">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="activityAppoinment" />
+	</request-map>
+	<request-map uri="salesAddAppointmentEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect-noparam" value="findActivity" />
+		<response name="error" type="request-redirect-noparam" value="activityAppoinment" />
+	</request-map>
+	<request-map uri="addAppointmentEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents" invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId"/>
+		</response>
+	</request-map>
+
+	<request-map uri="others">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="others" />
+	</request-map>
+
+	<request-map uri="newProspect">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="newProspect" />
+	</request-map>
+
+	<request-map uri="addPhoneCall">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="addPhoneCall" />
+	</request-map>
+	<request-map uri="addPhoneCallEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect-noparam" value="findActivity" />
+		<response name="error" type="request-redirect-noparam" value="addPhoneCall" />
+	</request-map>
+	<request-map uri="addCallEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			   invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId"/>
+		</response>
+		<response name="error" type="view" value="activityTask" />
+	</request-map>
+
+	<request-map uri="addTask">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="addTask" />
+	</request-map>
+	<request-map uri="addEmail">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="addEmail" />
+	</request-map>
+	<request-map uri="loadTemplate">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="loadTemplate" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="addEmailEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect-noparam" value="findActivity" />
+		<response name="error" type="request-redirect" value="addEmail">
+			<redirect-parameter name="partyId"/>
+			<redirect-parameter name="domainEntityType"/>
+			<redirect-parameter name="domainEntityId"/>
+		</response>
+	</request-map>
+	<request-map uri="addSalesEmailEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			   invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId"/>
+		</response>
+		<response name="error" type="view" value="activityTask" />
+	</request-map>
+
+	<request-map uri="addAppointment">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="addAppointment" />
+	</request-map>
+	<request-map uri="addOthers">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="addOthers" />
+	</request-map>
+	<request-map uri="salesAddothersEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect-noparam" value="findActivity" />
+		<response name="error" type="request-redirect-noparam" value="addOthers" />
+	</request-map>
+	<request-map uri="addSalesOthersEvent">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			   invoke="eventCreateSrActivity" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId"/>
+		</response>
+		<response name="error" type="view" value="activityTask" />
+	</request-map>
+	<request-map uri="cusNameCommon">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="cusNameCommon" />
+	</request-map>
+
+	<request-map uri="newOpportunity">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="newOpportunity" />
+	</request-map>
+
+	<request-map uri="createSalesOpportunityDetails">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="createSalesOpportunityDetails" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId" />
+		</response>
+		<response name="error" type="request-redirect" value="newOpportunity">
+			<redirect-parameter name="salesOpportunityId" />
+		</response>
+	</request-map>
+
+	<request-map uri="updateSalesOpportunityDetails">
+		<security https="true" auth="true" />
+		<event type="service" invoke="updateSalesOpportunityDetails" />
+		<response name="success" type="request-redirect-noparam"
+			value="viewOpportunity" />
+		<response name="error" type="request-redirect-noparam" value="viewOpportunity" />
+	</request-map>
+
+	<request-map uri="getDetails">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getDetails" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getCallDetails">
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getCallDetails" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getNotesAttachments">
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getNotesAttachments" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="downloadNotesAttachments">
+        <security https="false" auth="true" />
+       <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="downloadNotesAttachments"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+	<request-map uri="createCustomerAlert">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="createCustomerAlert" />
+		<response name="success" type="request-redirect" value="viewCustomerAlerts">
+			<redirect-parameter name="alertTrackingId" />
+		</response>
+		<response name="error" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId" />
+		</response>
+	</request-map>
+
+	<request-map uri="getActivityDetails">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="viewSalesActivityDetails" />
+		<response name="success" type="request-redirect" value="viewActivity"/>
+	</request-map>
+
+	<request-map uri="viewCustomerAlerts">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="viewCustomerAlerts" />
+	</request-map>
+
+	<request-map uri="getAlertCategoryData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getAlertCategoryData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getAlertExpiryData">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getAlertExpiryData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getCustomerAlertDetails">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getCustomerAlertDetails" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+	<request-map uri="getActivityCommunicationInfo">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getActivityCommunicationInfo" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getOpportunityCommunicationInfo">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getOpportunityCommunicationInfo" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getDataSourceDetails">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getDataSourceDetails" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="findOppCampaignListsAjax">
+		<event type="java" path="org.groupfio.custom.field.event.AjaxEvents"
+			invoke="findCampaignListsAjax" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="findOppServiceRequest">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="getCustRequestSrSummary" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="getProductDetails">
+		<security https="false" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents"
+			invoke="getProductDetails" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<!-- <request-map uri="reassignOpportunity">
+		<security https="true" auth="true" />
+		<event type="service" invoke="reassignOpportunity" />
+		<response name="success" type="request-redirect-noparam" value="findOpportunity" />
+		<response name="error" type="request-redirect-noparam" value="findOpportunity" />
+	</request-map> -->
+	<request-map uri="getUserOrTeam">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="getUserOrTeam" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="createSalesNotesAndAttachment">
+		<security https="false" auth="false" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+			invoke="createNotesAndAttachment" />
+		<response name="success" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId" />
+		</response>
+		<response name="error" type="request-redirect" value="viewOpportunity">
+			<redirect-parameter name="salesOpportunityId" />
+		</response>
+	</request-map>
+	<request-map uri="noteDataDetails">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="noteDataDetails" />
+		<response name="error" type="view" value="noteDataDetails" />
+	</request-map>
+	<request-map uri="getNoteData">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents"
+			invoke="getNoteData" />
+		<response name="success" type="none" />
+		<response name="error" type="none" />
+	</request-map>
+
+	<request-map uri="ActivityView">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="ActivityView" />
+		<response name="error" type="view" value="ActivityView" />
+	</request-map>
+	
+	<request-map uri="findSRCustomers">
+        <security https="false" auth="true" />
+        <event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="findSRCustomers"/>
+        <response name="success" type="none"/>
+        <response name="error" type="none"/>
+    </request-map>
+    
+    <request-map uri="getCustomerForAddServiceRequest">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.AjaxEvents" invoke="getCustomerInfoForAddServiceRequest" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	
+	<request-map uri="closedServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="closedServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  </request-map>
+  <request-map uri="updateServiceActivityDetails">
+		<security https="true" auth="true"/>
+	    <event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="updateServiceActivityDetails"/>
+	    <response name="success" type="request-redirect" value="viewActivity"/>
+	    <response name="error" type="request-redirect" value="viewActivity"/>
+  </request-map> 
+   <request-map uri="getOwnerTeam">
+        <security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.CommonEvents"
+            invoke="getOwnerTeam" />
+        <response name="success" type="none" />
+        <response name="error" type="none" />
+   </request-map>
+   <request-map uri="UpdateReasignActivity">
+        <security https="true" auth="true" />
+        <event type="java" path="org.fio.sales.portal.event.AjaxEvents"   invoke="UpdateReasignActivity" />
+        <response name="success" type="request-redirect-noparam"  value="activityHome"/>
+        <response name="error" type="view"  value="activityHome" />
+    </request-map>
+ 	<request-map uri="viewCalendar">
+        <security https="true" auth="true" />
+        <response name="success" type="view"  value="viewCalendar"/>
+        <response name="error" type="view"  value="viewCalendar" />
+    </request-map>
+    
+    <request-map uri="getBusinessUnitName">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sr.portal.event.CommonEvents" invoke="getBusinessUnitName" />
+		<response name="success" type="none"/>
+		<response name="error" type="none"/>
+	</request-map>
+	
+	<request-map uri="UpdateReasignForOpportunity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="UpdateReasignForOpportunity" />
+		<response name="success" type="request-redirect-noparam"  value="findOpportunity"/>
+		<response name="error" type="none"/>
+	</request-map>
+	<request-map uri="UpdateReasignForViewOpportunity">
+		<security https="true" auth="true" />
+		<event type="java" path="org.fio.sales.portal.event.AjaxEvents" invoke="UpdateReasignForOpportunity" />
+		<response name="success" type="request-redirect-noparam"  value="viewOpportunity"/>
+		<response name="error" type="none"/>
+	</request-map>
+
+	<!-- View Mappings -->
+	<view-map name="main" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#findOpportunity" />
+	<view-map name="findProspect" type="screen"
+		page="component://sales-portal/widget/findProspects/FindProspectScreens.xml#findProspect" />
+	<view-map name="login" type="screen"
+		page="component://admin-portal/widget/common/CommonScreens.xml#login" />
+	<view-map name="viewProspect" type="screen"
+		page="component://sales-portal/widget/findProspects/FindProspectScreens.xml#viewProspect" />
+	<view-map name="activityHome" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#activityHome" />
+	<view-map name="teleSales" type="screen"
+		page="component://sales-portal/widget/tele-sales/TeleSalesScreens.xml#teleSales" />
+	<view-map name="opportunity" type="screen"
+		page="component://sales-portal/widget/tele-sales/TeleSalesScreens.xml#opportunity" />
+	<view-map name="findOpportunity" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#findOpportunity" />
+	<view-map name="viewActivity" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#viewActivity" />
+	<view-map name="viewOpportunity" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#viewOpportunity" />
+	<view-map name="findActivity" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#findActivity" />
+	<view-map name="activityTask" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#activityTask" />
+	<view-map name="activityPhoneCall" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#activityPhoneCall" />
+	<view-map name="activityEmail" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#activityEmail" />
+	<view-map name="activityAppoinment" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#activityAppoinment" />
+	<view-map name="others" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#others" />
+	<view-map name="newProspect" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#newProspect" />
+	<view-map name="addPhoneCall" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#addPhoneCall" />
+	<view-map name="addTask" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#addTask" />
+	<view-map name="addEmail" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#addEmail" />
+	<view-map name="addAppointment" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#addAppointment" />
+	<view-map name="addOthers" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#addOthers" />
+	<view-map name="cusNameCommon" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#cusNameCommon" />
+	<view-map name="newOpportunity" type="screen"
+		page="component://sales-portal/widget/tele-sales/TeleSalesScreens.xml#newOpportunity" />
+	<view-map name="viewCustomerAlerts" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#viewCustomerAlerts" />
+	<view-map name="noteDataDetails" type="screen"
+		page="component://sr-portal/widget/services/ServicesScreens.xml#noteDataDetails" />
+	<view-map name="ActivityView" type="screen"
+		page="component://sales-portal/widget/opportunity/OpportunityScreens.xml#ActivityView" />
+	<view-map name="viewCalendar" type="screen"
+		page="component://sales-portal/widget/activities-home/activitieshomeScreens.xml#viewCalendar" />
+</site-conf>

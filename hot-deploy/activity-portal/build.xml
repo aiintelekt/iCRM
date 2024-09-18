@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="OFBiz - activity-portal Component" default="jar" basedir=".">
+    <import file="../../common.xml"/>
+
+    <!-- ================================================================== -->
+    <!-- Initialization of all property settings                            -->
+    <!-- ================================================================== -->
+
+    <property environment="env"/>
+    <property name="desc" value="activity-portal Component"/>
+    <property name="name" value="activity-portal"/>
+    <property name="component-name" value="activity-portal"/>
+    <property name="ofbiz.home.dir" value="../.."/>
+    <property name="src.dir" value="src"/>
+    <property name="dtd.dir" value="dtd"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="build.dir" value="build"/>
+	<property name="ofbiz.dir" value="../../"/> 
+
+	<target name="classpath">		        
+        <path id="local.class.path">
+        	
+        	<fileset dir="${lib.dir}" includes="*.jar"/>
+			        	
+            <fileset dir="${ofbiz.dir}/framework/base/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/base/lib/commons" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/base/lib/j2eespecs" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/base/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/entity/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/entity/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/security/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/service/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/service/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/minilang/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/webapp/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/webapp/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/framework/common/build/lib" includes="*.jar"/>
+        	<fileset dir="${ofbiz.dir}/framework/webtools/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/applications/party/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/applications/product/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/applications/marketing/build/lib" includes="*.jar"/>
+            <fileset dir="${ofbiz.dir}/applications/content/build/lib" includes="*.jar"/>
+            <!-- for poi -->
+            <fileset dir="${ofbiz.dir}/applications/content/lib" includes="*.jar"/>
+			            
+        	<fileset dir="${ofbiz.dir}/hot-deploy-base/homeapps/build/lib" includes="*.jar"/>
+        	<fileset dir="${ofbiz.dir}/hot-deploy-base/homeapps/lib" includes="*.jar"/>
+        	<fileset dir="${ofbiz.dir}/hot-deploy-base/admin-portal/build/lib" includes="*.jar"/>
+        	<fileset dir="${ofbiz.dir}/hot-deploy-base/common-portal/build/lib" includes="*.jar"/>
+        	
+        </path>
+    </target>
+
+    <!-- ================================================================== -->
+    <!-- Removes all created files and directories                          -->
+    <!-- ================================================================== -->
+
+    <target name="clean" depends="clean-lib">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="clean-lib" depends="init">
+        <delete dir="${build.dir}/lib"/>        
+    </target>
+
+    <!-- ================================================================== -->
+    <!-- Makes sure the needed directory structure is in place              -->
+    <!-- ================================================================== -->
+
+    <target name="prepare" depends="clean-lib">
+        <mkdir dir="${build.dir}/classes"/>         
+        <mkdir dir="${build.dir}/lib"/>
+    </target>
+    
+    <target name="prepare-docs" depends="init">
+        <mkdir dir="${build.dir}/javadocs"/>        
+    </target>
+
+    <!-- ================================================================== -->
+    <!-- Compilation of the source files                                                                                                                         -->
+    <!-- ================================================================== -->               
+
+    <target name="classes" depends="prepare,classpath">
+    	<javac debug="on" deprecation="on" destdir="${build.dir}/classes">
+            <classpath>
+                <path refid="local.class.path"/>                
+            </classpath>
+            <src path="${src.dir}"/>
+        </javac>
+        <!-- also put the DTDs in the jar file... -->
+        <copy todir="${build.dir}/classes">
+            <fileset dir="${src.dir}" includes="**/*.properties,**/*.xml,**/*.bsh,**/*.logic,**/*.js,**/*.jacl,**/*.py"/>
+        </copy> 
+    </target>
+    
+    <target name="jar" depends="classes">
+    	
+        <jar jarfile="${build.dir}/lib/${name}.jar" basedir="${build.dir}/classes"/>   
+    	
+    </target>    
+    
+    <!-- ================================================================== -->
+    <!-- Build JavaDoc                                                      -->
+    <!-- ================================================================== -->
+
+    <target name="docs" depends="prepare-docs,classpath">
+        <javadoc packagenames="org.groupfio.custom.field.*" 
+                 classpathref="local.class.path"
+                 destdir="${build.dir}/javadocs" 
+                 Windowtitle="Open Source Strategies - ${desc}">
+            <sourcepath path="${src.dir}"/>
+        </javadoc>
+    </target>
+    
+    <target name="all" depends="jar,docs"/>   
+	
+	<target name="gwt-code">
+	    
+	</target>
+	
+    <!-- ================================================================= -->
+    <!-- Targets to create  patch files                                    -->
+    <!-- ================================================================= -->
+
+    <target name="create-ofbiz-patches" description="Creates patches for root, framework, application and specialpurpose components">
+        <exec executable="svn" output="patches/root.patch" dir="${ofbiz.home.dir}">
+            <arg value="diff"/>
+            <arg value="--depth=files"/>
+        </exec>
+        <exec executable="svn" output="patches/framework.patch" dir="${ofbiz.home.dir}">
+            <arg value="diff"/>
+            <arg value="framework"/>
+        </exec>
+        <exec executable="svn" output="patches/applications.patch" dir="${ofbiz.home.dir}">
+            <arg value="diff"/>
+            <arg value="applications"/>
+        </exec>
+        <exec executable="svn" output="patches/specialpurpose.patch" dir="${ofbiz.home.dir}">
+            <arg value="diff"/>
+            <arg value="specialpurpose"/>
+        </exec>
+        <!-- this allow to work correctly on Windows machines without issues on Linux machines -->
+        <fixcrlf srcdir="patches" includes="**/*.patch" eol="crlf" />
+    </target>
+
+    <target name="revert-ofbiz-patches" description="Remove any local change in the files or any previously applied local patch.">
+        <exec executable="svn" dir="${ofbiz.home.dir}">
+            <arg value="revert"/>
+          <arg value="--depth=files"/>
+            <arg value="${ofbiz.home.dir}"/>
+        </exec>
+        <exec executable="svn" dir="${ofbiz.home.dir}">
+            <arg value="revert"/>
+            <arg value="-R"/>
+            <arg value="framework"/>
+        </exec>
+        <exec executable="svn" dir="${ofbiz.home.dir}">
+            <arg value="revert"/>
+            <arg value="-R"/>
+            <arg value="applications"/>
+        </exec>
+        <exec executable="svn" dir="${ofbiz.home.dir}">
+            <arg value="revert"/>
+            <arg value="-R"/>
+            <arg value="specialpurpose"/>
+        </exec>
+    </target>
+
+    <target name="apply-ofbiz-patches" description="Apply the patches to root, framework, application and specialpurpose components.">
+        <fail message="Patch files not found.">
+            <condition>
+                <or>
+                    <not><isset property="component-name"/></not>
+                    <not>
+                        <resourcecount count="3" when="gt">
+                            <fileset dir="patches" includes="*.patch"/>
+                        </resourcecount>
+                    </not>
+                </or>
+            </condition>
+        </fail>
+        <patch strip="0" patchfile="patches/root.patch" dir="${ofbiz.home.dir}" failonerror="true"/>
+        <patch strip="0" patchfile="patches/framework.patch" dir="${ofbiz.home.dir}" failonerror="true"/>
+        <patch strip="0" patchfile="patches/applications.patch" dir="${ofbiz.home.dir}" failonerror="true"/>
+        <patch strip="0" patchfile="patches/specialpurpose.patch" dir="${ofbiz.home.dir}" failonerror="true"/>
+        <delete>          
+            <fileset dir="${ofbiz.home.dir}" includes="**/*.rej"/>
+        </delete>
+    </target>
+
+    <target name="reapply-ofbiz-patches" description="First removes any previously applied patch and then applies the new patch">
+        <fail message="Patch files not found.">
+            <condition>
+                <or>
+                    <not><isset property="component-name"/></not>
+                    <not>
+                        <resourcecount count="3" when="gt">
+                            <fileset dir="patches" includes="*.patch"/>
+                        </resourcecount>
+                    </not>
+                </or>
+            </condition>
+        </fail>
+        <antcall target="revert-ofbiz-patches"/>
+        <antcall target="apply-ofbiz-patches"/>
+    </target>
+</project>

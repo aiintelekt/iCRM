@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+	<EtlDestination etlFieldName="leadId" isPrime="Y" seqId="15001"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="address1" seqId="15002"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="address2" seqId="15003"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="city" seqId="15004"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="stateProvinceGeoId" seqId="15005"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="postalCode" seqId="15006"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="postalCodeExt" seqId="15007"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="countryGeoId" seqId="15008"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneCountryCode"
+		seqId="15009" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneAreaCode"
+		seqId="15010" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneNumber" seqId="15011"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="primaryPhoneExtension"
+		seqId="15012" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneCountryCode"
+		seqId="15013" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneAreaCode"
+		seqId="15014" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneNumber"
+		seqId="15015" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="secondaryPhoneExtension"
+		seqId="15016" tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="faxCountryCode" seqId="15017"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="faxAreaCode" seqId="15018"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="faxNumber" seqId="15019"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="emailAddress" seqId="15020"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="webAddress" seqId="15021"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="note" seqId="15022"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="source" seqId="15023"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="companyName" seqId="15024"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="salesTurnover" seqId="15025"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="dateOfIncorporation" seqId="15026"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="constitution" seqId="15027"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="industryCat" seqId="15028"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="industry" seqId="15029"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="noOfEmployees" seqId="15030"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="ownershipEnumId" seqId="15031"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="currencyUomId" seqId="15032"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="annualRevenue" seqId="15033"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="personResponsible" seqId="15034"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="description" seqId="15035"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="groupNameLocal" seqId="15036"
+		tableName="DataImportLead" tableTitle="Lead" />
+	<EtlDestination etlFieldName="timeZoneId" seqId="15037"
+	tableName="DataImportLead" tableTitle="Lead" />
+	
+	<EtlDestination etlFieldName="accountId" isPrime="Y" seqId="16001"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="address1" seqId="16002"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="address2" seqId="16003"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="city" seqId="16004"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="stateProvinceGeoId" seqId="16005"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="postalCode" seqId="16006"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="postalCodeExt" seqId="16007"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="countryGeoId" seqId="16008"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="primaryPhoneCountryCode"
+		seqId="16009" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="primaryPhoneAreaCode"
+		seqId="16010" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="primaryPhoneNumber" seqId="16011"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="primaryPhoneExtension"
+		seqId="16012" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="secondaryPhoneCountryCode"
+		seqId="16013" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="secondaryPhoneAreaCode"
+		seqId="16014" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="secondaryPhoneNumber"
+		seqId="16015" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="secondaryPhoneExtension"
+		seqId="16016" tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="faxCountryCode" seqId="16017"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="faxAreaCode" seqId="16018"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="faxNumber" seqId="16019"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="emailAddress" seqId="16020"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="webAddress" seqId="16021"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="note" seqId="16022"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="source" seqId="16023"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="accountName" seqId="16024"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="salesTurnover" seqId="16025"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="dateOfIncorporation" seqId="16026"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="constitution" seqId="16027"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="industryCat" seqId="16028"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="industry" seqId="16029"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="noOfEmployees" seqId="16030"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="ownershipEnumId" seqId="16031"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="currencyUomId" seqId="16032"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="annualRevenue" seqId="16033"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="personResponsible" seqId="16034"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="description" seqId="16035"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="groupNameLocal" seqId="16036"
+		tableName="DataImportAccount" tableTitle="Account" />
+	<EtlDestination etlFieldName="timeZoneId" seqId="16037"
+	tableName="DataImportAccount" tableTitle="Account" />
+	
+	<!-- <EtlDestination seqId="10000" tableName="DataImportCustomer" etlFieldName="customerId" tableTitle="Customer" isPrime="Y"/>
+    <EtlDestination seqId="10001" tableName="DataImportCustomer" etlFieldName="companyName" tableTitle="Customer"/>
+    <EtlDestination seqId="10002" tableName="DataImportCustomer" etlFieldName="firstName" tableTitle="Customer"/>
+    <EtlDestination seqId="10003" tableName="DataImportCustomer" etlFieldName="lastName" tableTitle="Customer"/>
+    <EtlDestination seqId="10004" tableName="DataImportCustomer" etlFieldName="attnName" tableTitle="Customer"/>
+    <EtlDestination seqId="10005" tableName="DataImportCustomer" etlFieldName="address1" tableTitle="Customer"/>
+    <EtlDestination seqId="10006" tableName="DataImportCustomer" etlFieldName="address2" tableTitle="Customer"/>
+    <EtlDestination seqId="10007" tableName="DataImportCustomer" etlFieldName="city" tableTitle="Customer"/>
+    <EtlDestination seqId="10008" tableName="DataImportCustomer" etlFieldName="stateProvinceGeoId" tableTitle="Customer"/>
+    <EtlDestination seqId="10009" tableName="DataImportCustomer" etlFieldName="postalCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10010" tableName="DataImportCustomer" etlFieldName="postalCodeExt" tableTitle="Customer"/>
+    <EtlDestination seqId="10011" tableName="DataImportCustomer" etlFieldName="countryGeoId" tableTitle="Customer"/>
+    <EtlDestination seqId="10012" tableName="DataImportCustomer" etlFieldName="primaryPhoneCountryCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10013" tableName="DataImportCustomer" etlFieldName="primaryPhoneAreaCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10014" tableName="DataImportCustomer" etlFieldName="primaryPhoneNumber" tableTitle="Customer"/>
+    <EtlDestination seqId="10015" tableName="DataImportCustomer" etlFieldName="primaryPhoneExtension" tableTitle="Customer"/>
+    <EtlDestination seqId="10016" tableName="DataImportCustomer" etlFieldName="secondaryPhoneCountryCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10017" tableName="DataImportCustomer" etlFieldName="secondaryPhoneAreaCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10018" tableName="DataImportCustomer" etlFieldName="secondaryPhoneNumber" tableTitle="Customer"/>
+    <EtlDestination seqId="10019" tableName="DataImportCustomer" etlFieldName="secondaryPhoneExtension" tableTitle="Customer"/>
+    <EtlDestination seqId="10020" tableName="DataImportCustomer" etlFieldName="faxCountryCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10021" tableName="DataImportCustomer" etlFieldName="faxAreaCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10022" tableName="DataImportCustomer" etlFieldName="faxNumber" tableTitle="Customer"/>
+    <EtlDestination seqId="10023" tableName="DataImportCustomer" etlFieldName="didCountryCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10024" tableName="DataImportCustomer" etlFieldName="didAreaCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10025" tableName="DataImportCustomer" etlFieldName="didNumber" tableTitle="Customer"/>
+    <EtlDestination seqId="10026" tableName="DataImportCustomer" etlFieldName="didExtension" tableTitle="Customer"/>
+    <EtlDestination seqId="10027" tableName="DataImportCustomer" etlFieldName="emailAddress" tableTitle="Customer"/>
+    <EtlDestination seqId="10028" tableName="DataImportCustomer" etlFieldName="webAddress" tableTitle="Customer"/>
+    <EtlDestination seqId="10029" tableName="DataImportCustomer" etlFieldName="discount" tableTitle="Customer"/>
+    <EtlDestination seqId="10030" tableName="DataImportCustomer" etlFieldName="partyClassificationTypeId" tableTitle="Customer"/>
+    <EtlDestination seqId="10031" tableName="DataImportCustomer" etlFieldName="creditCardNumber" tableTitle="Customer"/>
+    <EtlDestination seqId="10032" tableName="DataImportCustomer" etlFieldName="creditCardExpDate" tableTitle="Customer"/>
+    <EtlDestination seqId="10033" tableName="DataImportCustomer" etlFieldName="outstandingBalance" tableTitle="Customer"/>
+    <EtlDestination seqId="10034" tableName="DataImportCustomer" etlFieldName="creditLimit" tableTitle="Customer"/>
+    <EtlDestination seqId="10035" tableName="DataImportCustomer" etlFieldName="currencyUomId" tableTitle="Customer"/>
+    <EtlDestination seqId="10036" tableName="DataImportCustomer" etlFieldName="disableShipping" tableTitle="Customer"/>
+    <EtlDestination seqId="10037" tableName="DataImportCustomer" etlFieldName="netPaymentDays" tableTitle="Customer"/>
+    <EtlDestination seqId="10038" tableName="DataImportCustomer" etlFieldName="shipToCompanyName" tableTitle="Customer"/>
+    <EtlDestination seqId="10039" tableName="DataImportCustomer" etlFieldName="shipToFirstName" tableTitle="Customer"/>
+    <EtlDestination seqId="10040" tableName="DataImportCustomer" etlFieldName="shipToLastName" tableTitle="Customer"/>
+    <EtlDestination seqId="10041" tableName="DataImportCustomer" etlFieldName="shipToAttnName" tableTitle="Customer"/>
+    <EtlDestination seqId="10042" tableName="DataImportCustomer" etlFieldName="shipToAddress1" tableTitle="Customer"/>
+    <EtlDestination seqId="10043" tableName="DataImportCustomer" etlFieldName="shipToAddress2" tableTitle="Customer"/>
+    <EtlDestination seqId="10044" tableName="DataImportCustomer" etlFieldName="shipToCity" tableTitle="Customer"/>
+    <EtlDestination seqId="10045" tableName="DataImportCustomer" etlFieldName="shipToStateProvinceGeoId" tableTitle="Customer"/>
+    <EtlDestination seqId="10046" tableName="DataImportCustomer" etlFieldName="shipToPostalCode" tableTitle="Customer"/>
+    <EtlDestination seqId="10047" tableName="DataImportCustomer" etlFieldName="shipToPostalCodeExt" tableTitle="Customer"/>
+    <EtlDestination seqId="10048" tableName="DataImportCustomer" etlFieldName="shipToStateProvGeoName" tableTitle="Customer"/>
+    <EtlDestination seqId="10049" tableName="DataImportCustomer" etlFieldName="shipToCountryGeoId" tableTitle="Customer"/>
+    <EtlDestination seqId="10050" tableName="DataImportCustomer" etlFieldName="note" tableTitle="Customer"/>
+    <EtlDestination seqId="20000" tableName="DataImportCustomer" etlFieldName="source" tableTitle="Customer"/>
+	
+	<EtlDestination seqId="30000" tableName="DataImportAccount" etlFieldName="accountId" tableTitle="Account" isPrime="Y"/>
+    <EtlDestination seqId="30001" tableName="DataImportAccount" etlFieldName="accountName" tableTitle="Account"/>
+    <EtlDestination seqId="30002" tableName="DataImportAccount" etlFieldName="firstName" tableTitle="Account"/>
+    <EtlDestination seqId="30003" tableName="DataImportAccount" etlFieldName="lastName" tableTitle="Account"/>
+    <EtlDestination seqId="30004" tableName="DataImportAccount" etlFieldName="attnName" tableTitle="Account"/>
+    <EtlDestination seqId="30005" tableName="DataImportAccount" etlFieldName="address1" tableTitle="Account"/>
+    <EtlDestination seqId="10006" tableName="DataImportAccount" etlFieldName="address2" tableTitle="Account"/>
+    <EtlDestination seqId="10007" tableName="DataImportAccount" etlFieldName="city" tableTitle="Account"/>
+    <EtlDestination seqId="10008" tableName="DataImportAccount" etlFieldName="stateProvinceGeoId" tableTitle="Account"/>
+    <EtlDestination seqId="10009" tableName="DataImportAccount" etlFieldName="postalCode" tableTitle="Account"/>
+    <EtlDestination seqId="10010" tableName="DataImportAccount" etlFieldName="postalCodeExt" tableTitle="Account"/>
+    <EtlDestination seqId="10011" tableName="DataImportAccount" etlFieldName="countryGeoId" tableTitle="Account"/>
+    <EtlDestination seqId="10012" tableName="DataImportAccount" etlFieldName="primaryPhoneCountryCode" tableTitle="Account"/>
+    <EtlDestination seqId="10013" tableName="DataImportAccount" etlFieldName="primaryPhoneAreaCode" tableTitle="Account"/>
+    <EtlDestination seqId="10014" tableName="DataImportAccount" etlFieldName="primaryPhoneNumber" tableTitle="Account"/>
+    <EtlDestination seqId="10015" tableName="DataImportAccount" etlFieldName="primaryPhoneExtension" tableTitle="Account"/>
+    <EtlDestination seqId="10016" tableName="DataImportAccount" etlFieldName="secondaryPhoneCountryCode" tableTitle="Account"/>
+    <EtlDestination seqId="10017" tableName="DataImportAccount" etlFieldName="secondaryPhoneAreaCode" tableTitle="Account"/>
+    <EtlDestination seqId="10018" tableName="DataImportAccount" etlFieldName="secondaryPhoneNumber" tableTitle="Account"/>
+    <EtlDestination seqId="10019" tableName="DataImportAccount" etlFieldName="secondaryPhoneExtension" tableTitle="Account"/>
+    <EtlDestination seqId="10020" tableName="DataImportAccount" etlFieldName="faxCountryCode" tableTitle="Account"/>
+    <EtlDestination seqId="10021" tableName="DataImportAccount" etlFieldName="faxAreaCode" tableTitle="Account"/>
+    <EtlDestination seqId="10022" tableName="DataImportAccount" etlFieldName="faxNumber" tableTitle="Account"/>
+    <EtlDestination seqId="10023" tableName="DataImportAccount" etlFieldName="didCountryCode" tableTitle="Account"/>
+    <EtlDestination seqId="10024" tableName="DataImportAccount" etlFieldName="didAreaCode" tableTitle="Account"/>
+    <EtlDestination seqId="10025" tableName="DataImportAccount" etlFieldName="didNumber" tableTitle="Account"/>
+    <EtlDestination seqId="10026" tableName="DataImportAccount" etlFieldName="didExtension" tableTitle="Account"/>
+    <EtlDestination seqId="10027" tableName="DataImportAccount" etlFieldName="emailAddress" tableTitle="Account"/>
+    <EtlDestination seqId="10028" tableName="DataImportAccount" etlFieldName="webAddress" tableTitle="Account"/>
+    <EtlDestination seqId="10029" tableName="DataImportAccount" etlFieldName="discount" tableTitle="Account"/>
+    <EtlDestination seqId="10030" tableName="DataImportAccount" etlFieldName="partyClassificationTypeId" tableTitle="Account"/>
+    <EtlDestination seqId="10031" tableName="DataImportAccount" etlFieldName="creditCardNumber" tableTitle="Account"/>
+    <EtlDestination seqId="10032" tableName="DataImportAccount" etlFieldName="creditCardExpDate" tableTitle="Account"/>
+    <EtlDestination seqId="10033" tableName="DataImportAccount" etlFieldName="outstandingBalance" tableTitle="Account"/>
+    <EtlDestination seqId="10034" tableName="DataImportAccount" etlFieldName="creditLimit" tableTitle="Account"/>
+    <EtlDestination seqId="10035" tableName="DataImportAccount" etlFieldName="currencyUomId" tableTitle="Account"/>
+    <EtlDestination seqId="10036" tableName="DataImportAccount" etlFieldName="disableShipping" tableTitle="Account"/>
+    <EtlDestination seqId="10037" tableName="DataImportAccount" etlFieldName="netPaymentDays" tableTitle="Account"/>
+    <EtlDestination seqId="10038" tableName="DataImportAccount" etlFieldName="shipToCompanyName" tableTitle="Account"/>
+    <EtlDestination seqId="10039" tableName="DataImportAccount" etlFieldName="shipToFirstName" tableTitle="Account"/>
+    <EtlDestination seqId="10040" tableName="DataImportAccount" etlFieldName="shipToLastName" tableTitle="Account"/>
+    <EtlDestination seqId="10041" tableName="DataImportAccount" etlFieldName="shipToAttnName" tableTitle="Account"/>
+    <EtlDestination seqId="10042" tableName="DataImportAccount" etlFieldName="shipToAddress1" tableTitle="Account"/>
+    <EtlDestination seqId="10043" tableName="DataImportAccount" etlFieldName="shipToAddress2" tableTitle="Account"/>
+    <EtlDestination seqId="10044" tableName="DataImportAccount" etlFieldName="shipToCity" tableTitle="Account"/>
+    <EtlDestination seqId="10045" tableName="DataImportAccount" etlFieldName="shipToStateProvinceGeoId" tableTitle="Account"/>
+    <EtlDestination seqId="10046" tableName="DataImportAccount" etlFieldName="shipToPostalCode" tableTitle="Account"/>
+    <EtlDestination seqId="10047" tableName="DataImportAccount" etlFieldName="shipToPostalCodeExt" tableTitle="Account"/>
+    <EtlDestination seqId="10048" tableName="DataImportAccount" etlFieldName="shipToStateProvGeoName" tableTitle="Account"/>
+    <EtlDestination seqId="10049" tableName="DataImportAccount" etlFieldName="shipToCountryGeoId" tableTitle="Account"/>
+    <EtlDestination seqId="10050" tableName="DataImportAccount" etlFieldName="note" tableTitle="Account"/>
+    <EtlDestination seqId="20000" tableName="DataImportAccount" etlFieldName="source" tableTitle="Account"/> -->
+		    
+    <!-- 
+    <EtlDestination seqId="10051" tableName="DataImportSupplier" etlFieldName="supplierId" lastUpdatedStamp="2017-06-28 18:42:08.0" lastUpdatedTxStamp="2017-06-28 18:42:08.0" createdStamp="2017-06-28 16:26:44.0" createdTxStamp="2017-06-28 16:26:44.0" tableTitle="Supplier" isPrime="Y"/>
+    <EtlDestination seqId="10052" tableName="DataImportSupplier" etlFieldName="supplierName" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10053" tableName="DataImportSupplier" etlFieldName="attnName" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10054" tableName="DataImportSupplier" etlFieldName="address1" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10055" tableName="DataImportSupplier" etlFieldName="address2" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10056" tableName="DataImportSupplier" etlFieldName="city" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10057" tableName="DataImportSupplier" etlFieldName="stateProvinceGeoId" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10058" tableName="DataImportSupplier" etlFieldName="postalCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10059" tableName="DataImportSupplier" etlFieldName="postalCodeExt" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10060" tableName="DataImportSupplier" etlFieldName="stateProvinceGeoName" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10061" tableName="DataImportSupplier" etlFieldName="countryGeoId" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10062" tableName="DataImportSupplier" etlFieldName="primaryPhoneCountryCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10063" tableName="DataImportSupplier" etlFieldName="primaryPhoneAreaCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10064" tableName="DataImportSupplier" etlFieldName="primaryPhoneNumber" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10065" tableName="DataImportSupplier" etlFieldName="primaryPhoneExtension" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10066" tableName="DataImportSupplier" etlFieldName="secondaryPhoneCountryCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10067" tableName="DataImportSupplier" etlFieldName="secondaryPhoneAreaCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10068" tableName="DataImportSupplier" etlFieldName="secondaryPhoneNumber" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10069" tableName="DataImportSupplier" etlFieldName="secondaryPhoneExtension" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10070" tableName="DataImportSupplier" etlFieldName="faxCountryCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10071" tableName="DataImportSupplier" etlFieldName="faxAreaCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10072" tableName="DataImportSupplier" etlFieldName="faxNumber" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10073" tableName="DataImportSupplier" etlFieldName="didCountryCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10074" tableName="DataImportSupplier" etlFieldName="didAreaCode" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10075" tableName="DataImportSupplier" etlFieldName="didNumber" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10076" tableName="DataImportSupplier" etlFieldName="didExtension" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10077" tableName="DataImportSupplier" etlFieldName="emailAddress" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10078" tableName="DataImportSupplier" etlFieldName="webAddress" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10079" tableName="DataImportSupplier" etlFieldName="note" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10080" tableName="DataImportSupplier" etlFieldName="netPaymentDays" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10081" tableName="DataImportSupplier" etlFieldName="isIncorporated" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10082" tableName="DataImportSupplier" etlFieldName="federalTaxId" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    <EtlDestination seqId="10083" tableName="DataImportSupplier" etlFieldName="requires1099" lastUpdatedStamp="2017-06-28 16:34:26.0" lastUpdatedTxStamp="2017-06-28 16:34:26.0" createdStamp="2017-06-28 16:34:26.0" createdTxStamp="2017-06-28 16:34:26.0" tableTitle="Supplier"/>
+    
+    <EtlDestination seqId="10084" tableName="DataImportInvoiceHeader" etlFieldName="invoiceId" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="Invoice" isPrime="Y"/>
+    <EtlDestination seqId="10085" tableName="DataImportInvoiceHeader" etlFieldName="invoiceTypeId" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10086" tableName="DataImportInvoiceHeader" etlFieldName="invoiceDate" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10087" tableName="DataImportInvoiceHeader" etlFieldName="currencyUomId" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10088" tableName="DataImportInvoiceHeader" etlFieldName="partyIdFrom" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10089" tableName="DataImportInvoiceHeader" etlFieldName="partyId" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10090" tableName="DataImportInvoiceHeader" etlFieldName="dueDate" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10091" tableName="DataImportInvoiceHeader" etlFieldName="description" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10092" tableName="DataImportInvoiceHeader" etlFieldName="referenceNumber" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10093" tableName="DataImportInvoiceHeader" etlFieldName="adjustedAmount" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10094" tableName="DataImportInvoiceHeader" etlFieldName="appliedAmount" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10095" tableName="DataImportInvoiceHeader" etlFieldName="invoiceTotal" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10096" tableName="DataImportInvoiceHeader" etlFieldName="openAmount" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    <EtlDestination seqId="10097" tableName="DataImportInvoiceHeader" etlFieldName="paidDate" lastUpdatedStamp="2017-06-29 10:55:50.0" lastUpdatedTxStamp="2017-06-29 10:55:50.0" createdStamp="2017-06-29 10:55:50.0" createdTxStamp="2017-06-29 10:55:50.0" tableTitle="Invoice"/>
+    
+    <EtlDestination seqId="10098" tableName="DataImportInvoiceItem" etlFieldName="invoiceId" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item" isPrime="Y"/>
+    <EtlDestination seqId="10099" tableName="DataImportInvoiceItem" etlFieldName="invoiceItemSeqId" lastUpdatedStamp="2017-06-29 12:07:11.0" lastUpdatedTxStamp="2017-06-29 12:07:11.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item"/>
+    <EtlDestination seqId="10100" tableName="DataImportInvoiceItem" etlFieldName="invoiceItemTypeId" lastUpdatedStamp="2017-06-29 12:07:11.0" lastUpdatedTxStamp="2017-06-29 12:07:11.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item"/>
+    <EtlDestination seqId="10101" tableName="DataImportInvoiceItem" etlFieldName="amount" lastUpdatedStamp="2017-06-29 12:07:11.0" lastUpdatedTxStamp="2017-06-29 12:07:11.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item"/>
+    <EtlDestination seqId="10102" tableName="DataImportInvoiceItem" etlFieldName="description" lastUpdatedStamp="2017-06-29 12:07:11.0" lastUpdatedTxStamp="2017-06-29 12:07:11.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item"/>
+    <EtlDestination seqId="10103" tableName="DataImportInvoiceItem" etlFieldName="quantity" lastUpdatedStamp="2017-06-29 12:07:11.0" lastUpdatedTxStamp="2017-06-29 12:07:11.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item"/>
+    <EtlDestination seqId="10104" tableName="DataImportInvoiceItem" etlFieldName="productId" lastUpdatedStamp="2017-06-29 12:07:11.0" lastUpdatedTxStamp="2017-06-29 12:07:11.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="Invoice_Item"/>
+    
+    <EtlDestination seqId="11001" tableName="FioLockboxBatchStaging" etlFieldName="batchNumber" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="LockboxBatch" isPrime="Y"/>
+    <EtlDestination seqId="11002" tableName="FioLockboxBatchStaging" etlFieldName="finInstitute" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="LockboxBatch"/>
+    <EtlDestination seqId="11003" tableName="FioLockboxBatchStaging" etlFieldName="finBatchNumber" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="LockboxBatch"/>
+    <EtlDestination seqId="11004" tableName="FioLockboxBatchStaging" etlFieldName="storeId" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="LockboxBatch"/>
+    <EtlDestination seqId="11005" tableName="FioLockboxBatchStaging" etlFieldName="totalDepositAmount" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="LockboxBatch"/>
+    <EtlDestination seqId="11006" tableName="FioLockboxBatchStaging" etlFieldName="noOfCheques" lastUpdatedStamp="2017-06-29 12:18:52.0" lastUpdatedTxStamp="2017-06-29 12:18:52.0" createdStamp="2017-06-29 10:52:50.0" createdTxStamp="2017-06-29 10:52:50.0" tableTitle="LockboxBatch"/>
+    
+    <EtlDestination seqId="12001" tableName="FioLockboxBatchItemStaging" etlFieldName="batchNumber" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item" isPrime="Y"/>
+    <EtlDestination seqId="12002" tableName="FioLockboxBatchItemStaging" etlFieldName="batchItemSeqId" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item" isPrime="Y"/>
+    <EtlDestination seqId="12003" tableName="FioLockboxBatchItemStaging" etlFieldName="detailItemSeqId" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item" isPrime="Y"/>
+    <EtlDestination seqId="12004" tableName="FioLockboxBatchItemStaging" etlFieldName="customerBankAccountNumber" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12005" tableName="FioLockboxBatchItemStaging" etlFieldName="routingNumber" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12006" tableName="FioLockboxBatchItemStaging" etlFieldName="customerId" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12007" tableName="FioLockboxBatchItemStaging" etlFieldName="chequeNumber" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12008" tableName="FioLockboxBatchItemStaging" etlFieldName="invoiceNumber" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12009" tableName="FioLockboxBatchItemStaging" etlFieldName="invoiceAmount" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12010" tableName="FioLockboxBatchItemStaging" etlFieldName="discountAmount" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    <EtlDestination seqId="12011" tableName="FioLockboxBatchItemStaging" etlFieldName="chequeAmount" lastUpdatedStamp="2017-06-29 15:07:36.0" lastUpdatedTxStamp="2017-06-29 15:07:36.0" createdStamp="2017-06-29 12:07:11.0" createdTxStamp="2017-06-29 12:07:11.0" tableTitle="LockboxBatch Item"/>
+    
+    <EtlDestination seqId="13001" tableName="DataImportWallet" etlFieldName="operatingWalletNumber" tableTitle="Wallet" isPrime="Y"/>
+    <EtlDestination seqId="13002" tableName="DataImportWallet" etlFieldName="operatingWalletName" tableTitle="Wallet"/>
+    <EtlDestination seqId="13003" tableName="DataImportWallet" etlFieldName="masterWalletNumber" tableTitle="Wallet"/>
+    <EtlDestination seqId="13004" tableName="DataImportWallet" etlFieldName="corpCode" tableTitle="Wallet"/>
+    <EtlDestination seqId="13005" tableName="DataImportWallet" etlFieldName="action" tableTitle="Wallet"/>
+    <EtlDestination seqId="13006" tableName="DataImportWallet" etlFieldName="vaType" tableTitle="Wallet"/>
+    <EtlDestination seqId="13007" tableName="DataImportWallet" etlFieldName="prefix" tableTitle="Wallet"/>
+    <EtlDestination seqId="13008" tableName="DataImportWallet" etlFieldName="systemName" tableTitle="Wallet"/>
+    <EtlDestination seqId="13009" tableName="DataImportWallet" etlFieldName="permittedValues" tableTitle="Wallet"/>
+    <EtlDestination seqId="13010" tableName="DataImportWallet" etlFieldName="exceptionAllowed" tableTitle="Wallet"/>
+    <EtlDestination seqId="13011" tableName="DataImportWallet" etlFieldName="type" tableTitle="Wallet"/> -->
+		    
+</entity-engine-xml>
