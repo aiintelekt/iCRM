@@ -361,9 +361,9 @@ access. For a detailed description see the core/docs/entityconfig.html file.
 		<!-- LOCAL : reeb_dev_12162022 / icrm_basic_demodata-->
 		<inline-jdbc
 		jdbc-driver="com.mysql.jdbc.Driver"
-		jdbc-uri="jdbc:mysql://10.0.0.43:3306/icrm_basic_demodata?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
+		jdbc-uri="jdbc:mysql://IPaddress:3306/crm_demo_data?autoReconnect=true&amp;useOldAliasMetadataBehavior=true"
 		jdbc-username="root"
-		jdbc-password="Gr$$redycr@123"
+		jdbc-password="1234567"
 		isolation-level="ReadCommitted"
 		pool-minsize="2"
 		pool-maxsize="250"
