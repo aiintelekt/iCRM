@@ -1,2 +1,0 @@
-contactId,firstName,middleName,lastName,personalTitle,gender,birthDate,occupation,maritalStatus,designation,emailAddress,primaryPhoneNumber,webAddress,address1,address2,postalCode,postalCodeExt,timeZoneId,city,stateProvinceGeoId,countryGeoId,assocPartyId,designation,facebookContact,googleContact,instagramContact,linkedInContact,twitterContact,youtubeContact
-80001,cus 001,m_001,l_001,Dr.,Male,11/17/2020,NA,Married,Test,test006@gmail.com,1817632263,google.com,Len#12,House#9,1216,,1033,New York,NY,USA,60001,Country Director,,,,,,
