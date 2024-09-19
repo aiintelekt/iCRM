@@ -2,7 +2,10 @@
 
 **Note:**
 
-Demo data must load first. For that, the MySQL5.7 version must be installed, and later, the database with the below Character set and collation must be imported. The SQL file freemiumdemodata.sql, which is available in the source code, must be imported.
+Demo data must load first. For that, the MySQL5.7 version must be installed, and later, the database with the below Character set and collation must be imported. The SQL file freemiumdemodata.sql, available in the source code must be imported.
+
+Also, Plain Database SQL file ( crm_production.sql) are available for the production use.
+
 **Create the database in name:** crm_demo_data
 **Character set:** utf8
 **Collation:** utf8_general_ci
